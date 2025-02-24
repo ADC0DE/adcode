@@ -1,0 +1,385 @@
+/* 기본 스타일 초기화 (간단 버전) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  font-family: sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* 공통 컨테이너 */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 헤더 */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+.header-inner {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #e53935;
+  text-decoration: none;
+}
+.nav .nav-link {
+  margin-left: 1rem;
+  font-size: 0.875rem;
+  color: #555;
+  text-decoration: none;
+}
+.nav .nav-link:hover {
+  color: #e53935;
+}
+
+/* Hero Section (sec_01) */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  background: url('https://via.placeholder.com/1200x800?text=ADCODE+Hero+Image') center center / cover no-repeat;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  padding: 0 1rem;
+}
+.hero-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.hero-subtitle {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.hero-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 9999px;
+  transition: background 0.3s, color 0.3s;
+}
+.hero-button:hover {
+  background: #fff;
+  color: #e53935;
+}
+
+/* 공통 섹션 스타일 */
+.section {
+  padding: 80px 0;
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.section-paragraph {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+.text-center {
+  text-align: center;
+}
+
+/* About Section (sec_02) */
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.about-text {
+  order: 1;
+}
+.about-image {
+  order: 2;
+}
+.about-image img {
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+@media(min-width:768px) {
+  .about-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Strengths Section (sec_03) */
+.strengths-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media(min-width:768px) {
+  .strengths-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.strength-item {
+  background: #fff;
+  padding: 3rem; /* 이전보다 여유있는 패딩 */
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  text-align: center;
+  font-size: 1.1rem;
+}
+.strength-icon {
+  margin-bottom: 1rem;
+  height: 80px;   /* 아이콘 크기 증가 */
+  width: 80px;
+}
+.strength-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.strength-desc {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Services Section (sec_04) */
+.services-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.service-item {
+  border: 1px solid #eee;
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: box-shadow 0.3s;
+}
+.service-item:hover {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.service-image {
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  height: 180px;
+  object-fit: cover;
+  width: 100%;
+}
+.service-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.service-desc {
+  font-size: 0.875rem;
+  color: #555;
+}
+@media(min-width:768px) {
+  .services-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media(min-width:992px) {
+  .services-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Process Section (sec_05) */
+.process-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.process-step {
+  display: flex;
+  align-items: flex-start;
+}
+.step-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e53935;
+  margin-right: 1rem;
+}
+.step-text {
+  flex: 1;
+}
+.step-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+.step-desc {
+  font-size: 0.875rem;
+  color: #555;
+}
+
+/* Stats Section (sec_06) */
+.stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+.stat-item {
+  text-align: center;
+}
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e53935;
+}
+.stat-desc {
+  font-size: 0.875rem;
+  color: #555;
+}
+@media(min-width:768px) {
+  .stats-list {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* Stories Section (sec_07) */
+.stories-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.story-item {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.story-text {
+  font-size: 0.875rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+.story-author {
+  text-align: right;
+  font-size: 0.75rem;
+  color: #888;
+}
+@media(min-width:768px) {
+  .stories-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Contact Section (sec_08) */
+.contact-form {
+  max-width: 500px;
+  margin: 2rem auto 0;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+.btn-submit {
+  display: inline-block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #fff;
+  background: #e53935;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-submit:hover {
+  background: #d32f2f;
+}
+
+/* Footer (sec_09) */
+.footer {
+  background: #333;
+  color: #aaa;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  font-size: 0.875rem;
+}
+.footer-inner {
+  text-align: center;
+}
+.footer-text {
+  margin-bottom: 0.5rem;
+}
+
+/* Layout adjustments for header offset */
+body {
+  padding-top: 60px;
+}
+
+/* Fade-in 효과 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .header-inner {
+    padding: 0 1rem;
+  }
+  .nav-link {
+    display: none; /* 모바일 메뉴 구현 시, JS 활용하여 토글 */
+  }
+  .hero-title {
+    font-size: 1.75rem;
+  }
+}
