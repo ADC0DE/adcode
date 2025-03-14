@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- 기본 도메인 -->
     <url>
-        <loc>https://linqen-developer.github.io/adcode/</loc>
+        <loc>https://adcode.co.kr/</loc> <!-- 기본 도메인 주소 -->
         <lastmod>2025-03-14</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
+    </url>
+    
+    <!-- GitHub Pages 주소 -->
+    <url>
+        <loc>https://linqen-developer.github.io/adcode/</loc> <!-- GitHub Pages 주소 -->
+        <lastmod>2025-03-14</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
     </url>
 </urlset>
