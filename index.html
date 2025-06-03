@@ -427,7 +427,7 @@
             color: #333333; /* 회색이 아닌 짙은 색상 */
             margin-bottom: 5rem;
             text-align: center;
-            max-width: 800px;
+            max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.6;
@@ -1665,6 +1665,9 @@
             padding: 2.5rem;
             transition: all 0.4s var(--easing);
             height: 100%;
+            min-height: 470px;
+            display: flex;
+            flex-direction: column;
         }
 
         .ad-type-card:hover {
@@ -2908,6 +2911,9 @@
             width: 100%;
             overflow-wrap: break-word;
             word-wrap: break-word;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         /* 모바일 화면에서는 단일 열로 변경 */
@@ -3671,6 +3677,11 @@
                 font-size: 1.5rem;
             }
         }
+
+        /* 가게 마케팅 섹션 카드 특별 스타일 */
+        #store .ad-type-card {
+            min-height: 370px;
+        }
     </style>
 </head>
 <body>
@@ -3738,7 +3749,7 @@
                     </div>
                     <h3 class="service-title" style="font-size: 1.8rem; font-weight: 700;">바이럴마케팅</h3>
                     <p class="service-text" style="font-size: 1.4rem; font-weight: 600; color: #444;">
-                        온라인 커뮤니티와 SNS를 통한 입소문 확산 전략
+                        온라인 커뮤니티, 카페와 SNS를 활용해 자연스럽게 입소문을 확산시키는 전략
                     </p>
                     <a href="#viral" class="service-link">
                         <span style="font-size: 1.3rem;">자세히 보기</span>
@@ -3752,7 +3763,8 @@
                     </div>
                     <h3 class="service-title" style="font-size: 1.8rem; font-weight: 700;">가게(매장) 마케팅</h3>
                     <p class="service-text" style="font-size: 1.4rem; font-weight: 600; color: #444;">
-                        오프라인 매장 방문율과 매출을 높이는 맞춤형 마케팅
+                        매장 방문율과 지역 내 인지도를 높이는 현장 중심의 맞춤형 마케팅
+
                     </p>
                     <a href="#store" class="service-link">
                         <span style="font-size: 1.3rem;">자세히 보기</span>
@@ -3766,7 +3778,8 @@
                     </div>
                     <h3 class="service-title" style="font-size: 1.8rem; font-weight: 700;">퍼포먼스 마케팅</h3>
                     <p class="service-text" style="font-size: 1.4rem; font-weight: 600; color: #444;">
-                        클릭, 구매, 전환을 최적화하는 성과 중심 광고 캠페인
+                        클릭, 구매, 전환을 목표로 데이터를 기반으로 성과를 극대화하는 캠페인
+
                     </p>
                     <a href="#performance" class="service-link">
                         <span style="font-size: 1.3rem;">자세히 보기</span>
@@ -3780,7 +3793,7 @@
                     </div>
                     <h3 class="service-title" style="font-size: 1.8rem; font-weight: 700;">디자인 제작</h3>
                     <p class="service-text" style="font-size: 1.4rem; font-weight: 600; color: #444;">
-                        브랜드 이미지를 강화하는 고품질 디자인 제작 서비스
+                        브랜드 가치를 높이고 신뢰를 주는 고품질 비주얼 콘텐츠 제작 서비스
                     </p>
                     <a href="#design" class="service-link">
                         <span style="font-size: 1.3rem;">자세히 보기</span>
@@ -3798,7 +3811,7 @@
                 <div class="about-text fade-in">
                     <h2>브랜드 확산 파트너,<br>애드코드마케팅</h2>
                     <p style="font-size: 1.5em; font-weight: bold; color: #333;">
-                        애드코드마케팅은 국내 시장에서 수많은 브랜드의 마케팅을 실제로 운영하며, 바이럴, SNS, 검색광고, 리뷰관리 등 통합 솔루션을 제공하는 실전형 마케팅 전문 기업입니다.
+                        애드코드마케팅은<br>국내 시장에서 수많은 브랜드 마케팅을 직접 운영하며,<br>바이럴, SNS, 검색광고, 리뷰관리까지 <br>통합 솔루션을 제공하는 실전형 마케팅 전문 기업입니다.
                     </p>
                     <p class="highlight" style="font-size: 1.5em; font-weight: bold; color: #004080;">
                         우리는 광고보다 약속을, 성과보다 지속 가능한 성장을 추구합니다.
@@ -3808,22 +3821,22 @@
                 <div class="stats-grid fade-in">
                     <div class="stat-item">
                         <div class="stat-number">4 +</div>
-                        <div class="stat-label">실무 중심,<br>4년 이상 마케팅 현장 노하우</div>
+                        <div class="stat-label">실무 중심,<br>4년 이상 마케팅 현장 경험과 노하우</div>
                     </div>
                     
                     <div class="stat-item">
                         <div class="stat-number">100%</div>
-                        <div class="stat-label">100% 고객 신뢰도<br>반복 의뢰율 높은 장기 파트너십</div>
+                        <div class="stat-label">고객 신뢰도<br>재계약률 높은 장기 파트너십 구축</div>
                     </div>
                     
                     <div class="stat-item">
                         <div class="stat-number">1,000+</div>
-                        <div class="stat-label">프로젝트 누적 건수 수천 건의<br>실제 마케팅 운영 사례</div>
+                        <div class="stat-label">누적 건수 수천 건의<br>실전 마케팅 프로젝트 운영 경험</div>
                     </div>
                     
                     <div class="stat-item">
                         <div class="stat-number">∞</div>
-                        <div class="stat-label">식품, 프랜차이즈, 연예, K-POP 등 민감 산업까지 대응</div>
+                        <div class="stat-label">식품, 프랜차이즈, 엔터테인먼트, K-POP 등 민감 산업까지 대응</div>
                     </div>
                 </div>
             </div>
@@ -3835,11 +3848,10 @@
         <div class="container">
             <h2 class="section-title fade-in">바이럴마케팅</h2>
             <p class="section-subtitle fade-in">
-                온라인 커뮤니티와 SNS를 통한 자연스러운 입소문 확산 전략<br>
+                온라인 커뮤니티, 카페와 SNS를 활용해 브랜드 메시지를 자연스럽게 확산시키는 전략<br>
 
-                다양한 채널을 통해 브랜드 메시지가 확산되고, 2차·3차 바이럴로 발전하여 <br>
-                자연스러운 입소문 효과와 브랜드 인지도를 형성합니다.
-            </p>
+                다양한 채널을 통해 콘텐츠가 2차·3차로 공유되며<br>
+                입소문 효과와 함께 브랜드 인지도와 신뢰도를 높입니다.</p>
             
             <!-- 확산형 네트워크 그래프 -->
             <div class="viral-network fade-in">
@@ -3930,12 +3942,12 @@
                     </div>
                     <div class="ad-type-content">
                         <p class="ad-type-desc">
-                            브랜드 제품 홍보와 매출 향상을 위한 핫딜 이벤트부터, 영화, K-POP, 드라마, 연예인, 정치 등 민감 콘텐츠까지 맞춤형 바이럴을 진행합니다.
+                            영화, 드라마, K-POP, 연예 등 대중 관심도가 높은 콘텐츠를 활용해, 맘카페·뽐뿌 등 주요 커뮤니티에 최적화된 맞춤형 바이럴 마케팅을 진행합니다.
                         </p>
                         <ul class="ad-type-features">
-                            <li><i class="fas fa-check-circle"></i> 뽐뿌, 맘카페 등 주요 커뮤니티 타겟팅</li>
-                            <li><i class="fas fa-check-circle"></i> 핫딜성, 후기성, 정보성 콘텐츠 맞춤 기획</li>
-                            <li><i class="fas fa-check-circle"></i> 후기 콘텐츠 연계 구조로 브랜드 인지도 구축</li>
+                            <li><i class="fas fa-check-circle"></i> 주요 커뮤니티 타겟팅 및 확산 전략</li>
+                            <li><i class="fas fa-check-circle"></i> 후기형·정보형 콘텐츠 기획 및 배포</li>
+                            <li><i class="fas fa-check-circle"></i> 후기 연계 구조로 브랜드 인지도 구축</li>
                         </ul>
                     </div>
                         </div>
@@ -3949,12 +3961,12 @@
                     </div>
                     <div class="ad-type-content">
                         <p class="ad-type-desc">
-                            인스타그램 일반 피드 게시물을 중심으로 브랜드 특성에 맞는 콘텐츠를 기획하고 운영합니다. 팔로워 기반 인플루언서 활용으로 신뢰도를 높입니다.
+                            브랜드 특성에 맞춘 콘텐츠를 기획하고, 인스타그램·틱톡·유튜브 등 SNS 채널에 맞는 포맷으로 노출을 극대화합니다.
                         </p>
                         <ul class="ad-type-features">
-                            <li><i class="fas fa-check-circle"></i> 인스타그램, 틱톡, 유튜브 쇼츠 콘텐츠 제작</li>
-                            <li><i class="fas fa-check-circle"></i> 릴스(숏폼) 제작으로 추가 노출 지원</li>
-                            <li><i class="fas fa-check-circle"></i> 실제 팔로워 기반 인플루언서 활용 광고</li>
+                            <li><i class="fas fa-check-circle"></i> 인스타그램·틱톡·유튜브 등 숏폼 콘텐츠 제작</li>
+                            <li><i class="fas fa-check-circle"></i> 릴스·숏츠 기반 추가 노출 전략</li>
+                            <li><i class="fas fa-check-circle"></i> 인플루언서를 활용한 실전형 SNS 광고</li>
                         </ul>
                     </div>
                         </div>
@@ -3968,12 +3980,12 @@
                     </div>
                     <div class="ad-type-content">
                         <p class="ad-type-desc">
-                            블로그, 인스타그램, 네이버/다음 카페등 다양한 채널과 연계하여, 브랜드 통합 체험단을 운영하고 양질의 실사용 후기 콘텐츠를 대량 확보합니다.
+                            블로그, 인스타그램, 네이버/다음 카페 등 다양한 채널과 연계해 리얼한 후기 콘텐츠 확보와 브랜드 신뢰도를 함께 강화합니다.
                         </p>
                         <ul class="ad-type-features">
-                            <li><i class="fas fa-check-circle"></i> 블로그, 인스타그램, 카페 연계 운영</li>
-                            <li><i class="fas fa-check-circle"></i> 제품 사용/비교 후기 콘텐츠 확보</li>
-                            <li><i class="fas fa-check-circle"></i> 검색 유입과 브랜드 신뢰도 동시 강화</li>
+                            <li><i class="fas fa-check-circle"></i>블로그, SNS, 카페 연계 통합 운영</li>
+                            <li><i class="fas fa-check-circle"></i>제품 사용 후기 및 비교 리뷰 콘텐츠 확보</li>
+                            <li><i class="fas fa-check-circle"></i>검색 유입 확대와 브랜드 신뢰도 동시 강화</li>
                         </ul>
                     </div>
                         </div>
@@ -3990,8 +4002,8 @@
         <div class="container">
             <h2 class="section-title fade-in">가게(매장) 마케팅</h2>
             <p class="section-subtitle fade-in">
-                가게와 매장의 성공을 위한 통합 마케팅 서비스<br>
-                블로그·인스타그램 체험단 운영부터 지역 맘카페 홍보, 당근마켓 홍보, SNS 파워채널, 네이버 플레이스 최적화까지 — 매장 마케팅을 통합 관리합니다.
+                오프라인 매장 성과를 높이기 위한 통합 마케팅 서비스<br>
+                블로그·인스타그램 체험단 운영부터 지역 맘카페, 당근마켓, SNS 파워채널, 네이버 플레이스 최적화까지 – 매장 마케팅을 종합 관리합니다.
             </p>
             
             
@@ -4006,12 +4018,13 @@
                     </div>
                     <div class="ad-type-content">
                         <p class="ad-type-desc">
-                            후기 중심, SNS + 검색을 동시에 노리는 체험단 운영 솔루션을 제공합니다. 매장 방문객이 작성하는 진정성 있는 후기를 통해 신뢰도를 높입니다.
+                            SNS + 검색 기반의 진정성 있는 후기 콘텐츠를 중심으로 매장 인지도와 신뢰도를 높입니다.
+
                         </p>
                         <ul class="ad-type-features">
-                            <li><i class="fas fa-check-circle"></i> 실제 체험 기반 후기 확보</li>
-                            <li><i class="fas fa-check-circle"></i> 블로그와 인스타그램 동시 활용</li>
-                            <li><i class="fas fa-check-circle"></i> 검색 노출 및 SNS 확산 효과</li>
+                            <li><i class="fas fa-check-circle"></i>실제 체험 기반의 후기 콘텐츠 확보</li>
+                            <li><i class="fas fa-check-circle"></i>블로그 & 인스타그램 채널 연계 운영</li>
+                            <li><i class="fas fa-check-circle"></i>검색 노출 최적화로 확산 효과 극대화</li>
                         </ul>
                     </div>
                         </div>
@@ -4025,12 +4038,12 @@
                     </div>
                     <div class="ad-type-content">
                         <p class="ad-type-desc">
-                            맘카페 특성에 맞춘 자연스러운 정보성 후기 확산 전략을 구현합니다. 지역 내 영향력 높은 커뮤니티를 통해 입소문을 만들어냅니다.
+                            지역 커뮤니티 타깃에 맞춘 자연스러운 콘텐츠로 신뢰도와 입소문을 동시에 확보합니다.
                         </p>
                         <ul class="ad-type-features">
-                            <li><i class="fas fa-check-circle"></i> 지역 맘카페 타겟팅 진행</li>
-                            <li><i class="fas fa-check-circle"></i> 정보형·후기형 콘텐츠 제작</li>
-                            <li><i class="fas fa-check-circle"></i> 커뮤니티 관리 및 바이럴 확산</li>
+                            <li><i class="fas fa-check-circle"></i>지역 맞춤 맘카페 타깃 마케팅</li>
+                            <li><i class="fas fa-check-circle"></i>정보성·후기형 콘텐츠 기획 및 제작</li>
+                            <li><i class="fas fa-check-circle"></i>커뮤니티 내 바이럴 및 인지도 확산</li>
                         </ul>
                     </div>
                 </div>
@@ -4047,12 +4060,13 @@
                     </div>
                     <div class="ad-type-content">
                         <p class="ad-type-desc">
-                            생활형 추천 콘텐츠를 통한 동네 기반 매장 홍보
+                            지역 기반의 생활밀착형 콘텐츠를 통해 자연스럽고 신뢰도 높은 매장 홍보를 유도합니다.
+
                         </p>
                         <ul class="ad-type-features">
-                            <li><i class="fas fa-check-circle"></i> 생활형 추천글 및 후기 콘텐츠 제작</li>
-                            <li><i class="fas fa-check-circle"></i> 광고 티 없는 자연스러운 지역 홍보</li>
-                            <li><i class="fas fa-check-circle"></i> 동네 신뢰도 확보 및 매장 방문 유도</li>
+                            <li><i class="fas fa-check-circle"></i>지역 밀착 추천·후기 콘텐츠 기획 및 제작</li>
+                            <li><i class="fas fa-check-circle"></i>광고 느낌 없이 자연스러운 노출 유도</li>
+                            <li><i class="fas fa-check-circle"></i> 지역 커뮤니티 내 브랜드 신뢰도 확보 및 매장 방문 유도</li>
                         </ul>
                     </div>
                 </div>
@@ -4066,12 +4080,13 @@
                     </div>
                     <div class="ad-type-content">
                         <p class="ad-type-desc">
-                            지역 타겟 인플루언서를 통한 매장 인지도 확산
+                            지역 인플루언서를 중심으로 SNS 채널을 활용해 매장 인지도와 신뢰도를 동시에 높입니다.
+
                         </p>
                         <ul class="ad-type-features">
-                            <li><i class="fas fa-check-circle"></i> 지역 팔로워 중심 인스타 파워채널 활용</li>
-                            <li><i class="fas fa-check-circle"></i> 릴스·포스트·스토리 등 다양한 콘텐츠 운영</li>
-                            <li><i class="fas fa-check-circle"></i> 브랜드 신뢰도 상승 및 신규 고객 유입 강화</li>
+                            <li><i class="fas fa-check-circle"></i>지역 팔로워 기반 인스타그램 파워채널 연계</li>
+                            <li><i class="fas fa-check-circle"></i>릴스·스토리·피드 등 콘텐츠 포맷별 맞춤 운영</li>
+                            <li><i class="fas fa-check-circle"></i>브랜드 호감도 상승 및 신규 고객 유입 극대화</li>
                         </ul>
                     </div>
                 </div>
@@ -4092,8 +4107,8 @@
         <div class="container">
             <h2 class="section-title fade-in">퍼포먼스 마케팅</h2>
             <p class="section-subtitle fade-in">
-                정확한 목표 설정과 데이터 분석을 통해 광고 효과를 극대화하는 전략입니다.<br>
-                다양한 채널을 통해 최적의 타이밍에 도달하며,<br>광고비 대비 최대의 결과를 만들어냅니다.
+                정확한 목표 설정과 데이터 분석 기반으로 광고 효율을 극대화하는 전략입니다.<br>
+                다양한 채널을 통해 최적의 타이밍에 도달하여,<br>광고비 대비 최고의 성과를 실현합니다.
             </p>
             
             <!-- 광고 유형 비교 영역 -->
@@ -4107,13 +4122,14 @@
                     </div>
                     <div class="ad-type-content">
                         <p class="ad-type-desc">
-                            네이버, 구글 같은 곳에서 검색했을 때 상단에 노출되는 광고입니다. 필요한 사람에게 바로 보여, 구매 가능성이 높은 강력한 광고 방법입니다.
+                            검색 시 상단에 노출되어 구매 가능성이 높은 고객을 직접 타깃하는 강력한 광고 방식입니다
+
                         </p>
                         <ul class="ad-type-features">
-                            <li><i class="fas fa-check-circle"></i> 검색 의도가 있는 유저 대상</li>
-                            <li><i class="fas fa-check-circle"></i> 높은 전환율 기대</li>
-                            <li><i class="fas fa-check-circle"></i> 키워드 타겟팅 가능</li>
-                            <li><i class="fas fa-check-circle"></i> ROI 확인 용이</li>
+                            <li><i class="fas fa-check-circle"></i>브랜드 인지도 제고</li>
+                            <li><i class="fas fa-check-circle"></i>시각적 요소로 주목도 확보</li>
+                            <li><i class="fas fa-check-circle"></i>관심 기반 타깃 설정 가능</li>
+                            <li><i class="fas fa-check-circle"></i>넓은 도달 범위</li>
                         </ul>
                     </div>
                 </div>
@@ -4127,13 +4143,14 @@
                     </div>
                     <div class="ad-type-content">
                         <p class="ad-type-desc">
-                            뉴스나 블로그를 보는 중간에 자연스럽게 나타나는 배너, 이미지, 영상 광고입니다. 브랜드를 모르는 사람들에게도 관심을 유도할 수 있습니다.
+                            뉴스, 블로그 등 콘텐츠 중간에 자연스럽게 노출되는<br>이미지·배너·영상 광고로 브랜드 인지도를 높이고 잠재 고객의 관심을 유도합니다.
+
                         </p>
                         <ul class="ad-type-features">
-                            <li><i class="fas fa-check-circle"></i> 브랜드 인지도 강화</li>
-                            <li><i class="fas fa-check-circle"></i> 시각적 요소 활용 가능</li>
-                            <li><i class="fas fa-check-circle"></i> 관심사 타겟팅 가능</li>
-                            <li><i class="fas fa-check-circle"></i> 넓은 도달 범위</li>
+                            <li><i class="fas fa-check-circle"></i>브랜드 인지도 제고</li>
+                            <li><i class="fas fa-check-circle"></i>시각적 요소로 주목도 확보</li>
+                            <li><i class="fas fa-check-circle"></i>관심 기반 타깃 설정 가능</li>
+                            <li><i class="fas fa-check-circle"></i>넓은 도달 범위</li>
                         </ul>
                     </div>
                 </div>
@@ -4164,8 +4181,10 @@
                     </div>
                         
                     <div class="integration-details">
-                        <p>네이버, 구글, 틱톡, 카카오 등 다양한 채널을 통합으로 운영하여 광고 효율을 극대화합니다.<br>플랫폼별 특성에 맞게 전략을 달리해 최적의 퍼포먼스를 만들어냅니다.</p>
-                        <p>광고 성과는 매일 모니터링하고, 클릭 수, 전환율, 매출 데이터를 기반으로 빠르게 개선합니다.<br>광고비를 효율적으로 사용해 최고의 결과를 만듭니다.</p>
+                        <p>네이버, 구글, 틱톡, 카카오 등 다양한 채널을 통합 운영하여 광고 효율을 극대화합니다.<br>각 플랫폼 특성에 맞춘 전략으로 최적의 퍼포먼스를 실현합니다.</p>
+                        <li>광고 성과를 매일 실시간 모니터링</li>
+                        <li>클릭 수, 전환율, 매출 데이터를 기반으로 빠르게 개선</li>
+                        <li>광고비 대비 최대 효과 달성</li>
                     </div>
                 </div>
                         </div>
@@ -4181,7 +4200,7 @@
                             </div>
                         <div class="cycle-content">
                             <h4>데이터 수집</h4>
-                            <p>사용자 행동, 트래픽, 전환 데이터 수집</p>
+                            <p>사용자 행동, 트래픽, 전환 다양한 데이터를 체계적으로 수집</p>
                         </div>
                     </div>
                     
@@ -4191,7 +4210,7 @@
                 </div>
                         <div class="cycle-content">
                             <h4>분석 및 인사이트</h4>
-                            <p>광고 성과 분석 및 개선점 도출</p>
+                            <p>광고 성과 데이터를 분석하고 개선 방향에 대한 인사이트를 도출</p>
                         </div>
                     </div>
                     
@@ -4201,7 +4220,7 @@
                         </div>
                         <div class="cycle-content">
                             <h4>전략 최적화</h4>
-                            <p>타겟팅, 키워드, 소재, 예산 조정</p>
+                            <p>타겟팅, 키워드, 소재, 예산 등을 조정하여 성과 중심 전략을 수립</p>
                         </div>
                     </div>
                     
@@ -4211,7 +4230,7 @@
                         </div>
                         <div class="cycle-content">
                             <h4>성과 향상</h4>
-                            <p>ROI 증대 및 마케팅 목표 달성</p>
+                            <p>ROI 증대 및 마케팅 목표 달성을 위한 실행 전략을 지속적으로 개선</p>
                         </div>
                     </div>
                     
@@ -4219,9 +4238,8 @@
                 </div>
                 
                 <p class="process-summary">
-                    시장 분석을 통한 전략 수립, 채널별 맞춤 광고 세팅, 실시간 성과 분석과 리포트를 기반으로 최적화 작업까지,<br>
-                    퍼포먼스 광고 전 과정이 하나의 흐름으로 자연스럽게 연결됩니다.
-                </p>
+                    시장 분석을 바탕으로 한 전략 수립부터 채널별 맞춤 광고 운영, 실시간 성과 분석 및 리포트 제공까지.<br>
+                    퍼포먼스 마케팅의 모든 과정을 유기적으로 연결해 최상의 결과를 도출합니다.</p>
             </div>
             
             <div class="performance-cta fade-in">
@@ -4235,7 +4253,7 @@
         <div class="container">
             <h2 class="section-title fade-in">디자인 제작</h2>
             <p class="section-subtitle fade-in">
-                브랜드를 성장시키는 디자인.<br>광고성과를 높이는 모든 디자인 작업을 한번에 지원합니다.
+                브랜드 성장을 이끄는 전략적 디자인.<br>광고 효과를 극대화하는 모든 디자인 작업을 통합 지원합니다.
             </p>
             
             <!-- 서비스 영역 -->
