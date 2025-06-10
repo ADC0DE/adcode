@@ -10,6 +10,7 @@
     <title>애드코드(ADCODE), 끝까지 책임지는 마케팅 파트너.</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* 정책 모달 스타일 */
         .policy-modal {
@@ -120,7 +121,7 @@
             --primary: #3498db;
             --primary-dark: #2980b9;
             --text-dark: #161616;
-            --text-light: #333333 !important; /* 더 진한 색상으로 통일 */
+            --text-light: #333333; /* 더 진한 색상으로 통일 */
             --background: #ffffff;
             --background-alt: #f6f9fc;
             --background-dark: #0f141a;
@@ -534,9 +535,14 @@
             position: relative;
             z-index: 5;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 3rem;
             align-items: center;
+        }
+        
+        .about-text {
+            padding-right: 2rem;
+            max-width: none;
         }
         
         .about-text h2 {
@@ -557,19 +563,39 @@
             color: var(--primary);
         }
         
+        .about-main-text {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .about-highlight-text {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #004080;
+        }
+        
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
+            margin-left: 5rem;
+            margin-right: 0;
+            position: relative;
+        }
+        
+        .stats-grid.fade-in.active {
+            transform: translateX(130px) translateY(0);
         }
         
         .stat-item {
             background-color: #fff;
             border-radius: 12px;
-            padding: 2rem;
+            padding: 2rem ;
             transition: all 0.4s var(--easing);
             border: 1px solid rgba(0, 0, 0, 0.05);
             text-align: center;
+            min-width: 380px;
         }
         
         .stat-item:hover {
@@ -771,6 +797,10 @@
             position: relative;
             text-align: center;
             padding: 0 0.5rem;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
         
         /* 프로세스 숫자 스타일 개선 */
@@ -799,6 +829,10 @@
             position: relative;
             z-index: 5;
             padding-top: 3rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         
         .process-icon {
@@ -823,15 +857,36 @@
         
         .process-title {
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--primary);
             margin-bottom: 1rem;
             text-align: center;
         }
         
         .process-text {
-            font-size: 0.9rem;
-            color: var(--text-light);
+            font-size: 0.95rem;
+            color: #555;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-top: 0.5rem;
+            line-height: 1.6;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: 600;
+        }
+        
+        .process-item:hover .process-text {
+            background: #f0f6ff;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.1);
+            transform: translateY(-2px);
         }
         
         /* Contact Section */
@@ -1132,6 +1187,17 @@
                 gap: 3rem;
             }
             
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                margin-left: 0;
+                transform: none !important;
+            }
+            
+            .stat-item {
+                min-width: auto;
+                padding: 1.5rem;
+            }
+            
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
                 row-gap: 3rem;
@@ -1174,6 +1240,8 @@
             .btn {
                 width: 80%;
                 max-width: 300px;
+                padding: 1rem 2.5rem;
+                font-size: 1.1rem;
             }
             
             .btn-outline {
@@ -1220,8 +1288,80 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
+            .stats-grid {
+                grid-template-columns: 1fr;
+                margin-left: 0;
+                gap: 1.5rem;
+                transform: none !important;
+            }
+            
+            .stat-item {
+                min-width: auto;
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            
             .stat-number {
                 font-size: 2.5rem;
+            }
+            
+            .stat-label {
+                font-size: 1rem;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+            
+            .about-text h2 {
+                font-size: 1.76rem;
+            }
+            
+            .about-text p {
+                font-size: 0.7rem;
+            }
+            
+            .about-main-text {
+                font-size: 1rem !important;
+            }
+            
+            .about-highlight-text {
+                font-size: 1.2rem !important;
+            }
+            
+            .section-title {
+                font-size: 2rem !important;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem !important;
+            }
+            
+            .process-title {
+                font-size: 0.97rem !important;
+            }
+            
+            .process-text {
+                font-size: 0.85rem;
+                padding: 0.8rem;
+                border-radius: 10px;
+                margin-top: 0.4rem;
+                height: 100px;
+            }
+            
+            .process-item {
+                height: 360px;
+            }
+            
+            .process-content {
+                justify-content: flex-start;
+                gap: 0.2rem;
+            }
+            
+            .process-title {
+                margin-bottom: 0.2rem;
             }
             
             .footer-grid {
@@ -1257,10 +1397,44 @@
                 padding: 0 1rem;
             }
             
-            .btn {
-                padding: 1rem 2.5rem;
-                font-size: 1.1rem;
-                width: auto;
+            .stats-grid {
+                gap: 1rem;
+            }
+            
+            .stat-item {
+                padding: 1.2rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .stat-label {
+                font-size: 0.9rem;
+            }
+            
+            .about-text h2 {
+                font-size: 1.44rem;
+            }
+            
+            .about-main-text {
+                font-size: 0.85rem !important;
+            }
+            
+            .about-highlight-text {
+                font-size: 1rem !important;
+            }
+            
+            .section-title {
+                font-size: 1.6rem !important;
+            }
+            
+            .section-subtitle {
+                font-size: 0.9rem !important;
+            }
+            
+            .process-title {
+                font-size: 0.97rem !important;
             }
             
             .process-grid {
@@ -1445,7 +1619,7 @@
             margin-bottom: 2rem;
         }
 
-        .service-icon {
+        .design-service-icon {
             width: 60px;
             height: 60px;
             border-radius: 12px;
@@ -1696,17 +1870,17 @@
         }
 
         .ad-type-header h3 {
-            font-size: 1.4rem !important; /* 글자 크기 키움 */
+            font-size: 1.3rem; /* 글자 크기 키움 */
             font-weight: 700;
-            color: #000000 !important; /* 검정에 가까운 색상 */
-            margin-bottom: 1rem !important;
+            color: #000000; /* 검정에 가까운 색상 */
+            margin-bottom: 1rem;
         }
 
         .ad-type-desc {
-            font-size: 1.3rem !important;
-            line-height: 1.7 !important;
-            color: #2c2c2c !important; /* 통일된 진한 색상 */
-            margin-bottom: 1.5rem !important;
+            font-size: 1.4rem;
+            line-height: 1.7;
+            color: #2c2c2c; 
+            margin-bottom: 1.5rem;
         }
 
         .ad-type-features {
@@ -1716,14 +1890,14 @@
         .ad-type-features li {
             display: flex;
             align-items: center;
-            margin-bottom: 1rem !important;
-            font-size: 1.15rem !important;
-            color: #333333 !important; /* 통일된 진한 색상 */
+            margin-bottom: 1rem;
+            font-size: 1.15rem;
+            color: #333333; 
         }
 
         .ad-type-features i {
-            color: var(--primary) !important;
-            font-size: 1.15rem !important;
+            color: var(--primary);
+            font-size: 1.15rem;
         }
 
         /* 통합 채널 관리 영역 */
@@ -1752,7 +1926,7 @@
             font-weight: 700;
             text-align: center;
             margin-bottom: 3.5rem;
-            color: #000000 !important;
+            color: #000000;
             position: relative;
             padding-bottom: 1.2rem;
             letter-spacing: -0.5px;
@@ -1782,6 +1956,51 @@
             gap: 2rem;
             margin-bottom: 3rem;
             flex-wrap: wrap;
+        }
+        
+        /* 모바일에서 2x2 그리드 */
+        @media (max-width: 768px) {
+            .marketing-platforms {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                justify-items: center;
+                max-width: 400px;
+                margin: 0 auto 3rem;
+            }
+            
+            .platform-box {
+                width: 140px;
+                height: 140px;
+                padding: 1.2rem;
+            }
+            
+            .platform-name {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .marketing-platforms {
+                gap: 1rem;
+                max-width: 320px;
+            }
+            
+            .platform-box {
+                width: 120px;
+                height: 120px;
+                padding: 1rem;
+            }
+            
+            .platform-img {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 0.8rem;
+            }
+            
+            .platform-name {
+                font-size: 1rem;
+            }
         }
 
         .platform-box {
@@ -1889,7 +2108,7 @@
         .integration-details p {
             font-size: 1.15rem;
             line-height: 1.7;
-            color: #333333 !important;
+            color: #333333;
             margin-bottom: 1.5rem;
         }
         
@@ -2576,30 +2795,7 @@
             background: none;
         }
         
-        .card-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-                            background-color: rgba(52, 152, 219, 0.1);
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-right: 1.5rem;
-        }
-        
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
+
         
         .card-content p {
             font-size: 1rem;
@@ -2959,7 +3155,7 @@
         /* 아이콘(글머리)와 텍스트 사이 간격 늘리기 */
         .ad-type-features li i, .channel-features li i, .check-icon {
             color: var(--primary);
-            margin-right: 1.2rem !important; /* 간격 증가 */
+            margin-right: 1.2rem; /* 간격 증가 */
             min-width: 1.2rem; /* 아이콘에 최소 너비 지정 */
             display: inline-flex;
             justify-content: center;
@@ -2985,7 +3181,7 @@
         }
 
         .service-list .check-icon {
-            margin-right: 1.2rem !important;
+            margin-right: 1.2rem;
             min-width: 1.2rem;
             display: inline-flex;
             justify-content: center;
@@ -3004,7 +3200,7 @@
             .ad-type-features li i, 
             .channel-features li i, 
             .check-icon {
-                margin-right: 1rem !important;
+                margin-right: 1rem;
             }
             
             .ad-type-features li, 
@@ -3052,13 +3248,7 @@
             color: var(--text-dark);
         }
 
-        /* 설명 텍스트 스타일 */
-        .ad-type-desc {
-            font-size: 1.7rem;
-            line-height: 1.6;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-        }
+
 
         /* 카드 내부 컨텐츠 스타일 */
         .ad-type-content {
@@ -3457,7 +3647,7 @@
             width: 35px;
             height: 35px;
             background: linear-gradient(135deg, var(--primary), rgba(255, 59, 59, 0.7));
-            color: white !important;
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -3466,7 +3656,7 @@
         }
 
         .channel-icon i {
-            color: white !important;
+            color: white;
         }
 
         .channel-name {
@@ -3529,10 +3719,10 @@
         /* 카드 헤더 내부 정렬 수정 - 지역마케팅 효과 섹션만 */
         .local-effects-area .card-header {
             display: flex;
-            align-items: flex-start !important; /* 상단 정렬로 변경 */
+            align-items: flex-start; /* 상단 정렬로 변경 */
             padding: 25px 30px;
             background-color: white;
-            text-align: left !important; /* 좌측 정렬 명시 */
+            text-align: left; /* 좌측 정렬 명시 */
         }
 
         /* 카드 제목 스타일 수정 - 지역마케팅 효과 섹션만 */
@@ -3541,7 +3731,7 @@
             font-weight: 700;
             color: #000000;
             margin: 0;
-            text-align: left !important;
+            text-align: left;
         }
         
         .local-effects-area .card-description {
@@ -3625,28 +3815,28 @@
 
         /* 채널 카드 제목과 설명 스타일 강화 */
         .card-title.bold {
-            font-size: 1.6rem !important;
-            font-weight: 700 !important;
-            color: #111 !important;
-            margin-bottom: 1rem !important;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 1rem;
         }
 
         .card-description.bold {
-            font-size: 1.25rem !important;
-            font-weight: 500 !important;
-            color: #333 !important;
-            margin-bottom: 1.2rem !important;
-            line-height: 1.5 !important;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
         }
 
         /* 모바일 반응형 대응 */
         @media (max-width: 768px) {
             .card-title.bold {
-                font-size: 1.4rem !important;
+                font-size: 1.4rem;
             }
             
             .card-description.bold {
-                font-size: 1.15rem !important;
+                font-size: 1.15rem;
             }
         }
 
@@ -3737,7 +3927,7 @@
     <!-- Services Section -->
     <section id="services" class="section">
         <div class="container">
-            <h2 class="section-title fade-in" style="font-size: 2.5rem; font-weight: 700;">핵심 서비스</h2>
+            <h2 class="section-title fade-in" style="font-size: 2.5rem; font-weight: 700;">애드코드 마케팅의 핵심 서비스</h2>
             <p class="section-subtitle fade-in" style="font-size: 1.8rem; font-weight: 600; color: #444;">
                 브랜드 성장을 위한 전략적 마케팅 솔루션을 제공합니다.
             </p>
@@ -3763,8 +3953,7 @@
                     </div>
                     <h3 class="service-title" style="font-size: 1.8rem; font-weight: 700;">가게(매장) 마케팅</h3>
                     <p class="service-text" style="font-size: 1.4rem; font-weight: 600; color: #444;">
-                        매장 방문율과 지역 내 인지도를 높이는 현장 중심의 맞춤형 마케팅
-
+                        매장 방문율과 지역 내<br>인지도를 높이는<br>현장 중심의 맞춤형 마케팅
                     </p>
                     <a href="#store" class="service-link">
                         <span style="font-size: 1.3rem;">자세히 보기</span>
@@ -3793,7 +3982,7 @@
                     </div>
                     <h3 class="service-title" style="font-size: 1.8rem; font-weight: 700;">디자인 제작</h3>
                     <p class="service-text" style="font-size: 1.4rem; font-weight: 600; color: #444;">
-                        브랜드 가치를 높이고 신뢰를 주는 고품질 비주얼 콘텐츠 제작 서비스
+                        브랜드 가치를 높이고<br>신뢰를 주는 고품질 비주얼<br>콘텐츠 제작 서비스
                     </p>
                     <a href="#design" class="service-link">
                         <span style="font-size: 1.3rem;">자세히 보기</span>
@@ -3810,10 +3999,10 @@
             <div class="about-content">
                 <div class="about-text fade-in">
                     <h2>브랜드 확산 파트너,<br>애드코드마케팅</h2>
-                    <p style="font-size: 1.5em; font-weight: bold; color: #333;">
-                        애드코드마케팅은<br>국내 시장에서 수많은 브랜드 마케팅을 직접 운영하며,<br>바이럴, SNS, 검색광고, 리뷰관리까지 <br>통합 솔루션을 제공하는 실전형 마케팅 전문 기업입니다.
+                    <p class="about-main-text">
+                        애드코드 마케팅은<br>국내 시장에서 수많은 브랜드 마케팅을 직접 운영하며,<br>바이럴, SNS, 검색광고, 리뷰관리까지 <br>통합 솔루션을 제공하는<br>실전형 마케팅 전문 기업입니다.
                     </p>
-                    <p class="highlight" style="font-size: 1.5em; font-weight: bold; color: #004080;">
+                    <p class="highlight about-highlight-text">
                         우리는 광고보다 약속을, 성과보다 지속 가능한 성장을 추구합니다.
                     </p>
                 </div>
@@ -3821,22 +4010,22 @@
                 <div class="stats-grid fade-in">
                     <div class="stat-item">
                         <div class="stat-number">4 +</div>
-                        <div class="stat-label">실무 중심,<br>4년 이상 마케팅 현장 경험과 노하우</div>
+                        <div class="stat-label">실무 중심<br>4년 이상 마케팅 현장 경험과 노하우</div>
                     </div>
                     
                     <div class="stat-item">
                         <div class="stat-number">100%</div>
-                        <div class="stat-label">고객 신뢰도<br>재계약률 높은 장기 파트너십 구축</div>
+                        <div class="stat-label">고객 신뢰 기반<br>재계약률 높은 장기 파트너십 구축</div>
                     </div>
                     
                     <div class="stat-item">
                         <div class="stat-number">1,000+</div>
-                        <div class="stat-label">누적 건수 수천 건의<br>실전 마케팅 프로젝트 운영 경험</div>
+                        <div class="stat-label">누적 수천 건 이상의<br>실전 마케팅 프로젝트 운영 경험</div>
                     </div>
                     
                     <div class="stat-item">
                         <div class="stat-number">∞</div>
-                        <div class="stat-label">식품, 프랜차이즈, 엔터테인먼트, K-POP 등 민감 산업까지 대응</div>
+                        <div class="stat-label">식품, 프랜차이즈, 엔터테인먼트, K-POP 등 다양한 산업 대응 역량</div>
                     </div>
                 </div>
             </div>
@@ -3964,7 +4153,9 @@
                             브랜드 특성에 맞춘 콘텐츠를 기획하고, 인스타그램·틱톡·유튜브 등 SNS 채널에 맞는 포맷으로 노출을 극대화합니다.
                         </p>
                         <ul class="ad-type-features">
-                            <li><i class="fas fa-check-circle"></i> 인스타그램·틱톡·유튜브 등 숏폼 콘텐츠 제작</li>
+                            <li><i class="fas fa-check-circle"></i> 인스타
+                                
+                                그램·틱톡·유튜브 등 숏폼 콘텐츠 제작</li>
                             <li><i class="fas fa-check-circle"></i> 릴스·숏츠 기반 추가 노출 전략</li>
                             <li><i class="fas fa-check-circle"></i> 인플루언서를 활용한 실전형 SNS 광고</li>
                         </ul>
@@ -4182,9 +4373,72 @@
                         
                     <div class="integration-details">
                         <p>네이버, 구글, 틱톡, 카카오 등 다양한 채널을 통합 운영하여 광고 효율을 극대화합니다.<br>각 플랫폼 특성에 맞춘 전략으로 최적의 퍼포먼스를 실현합니다.</p>
-                        <li>광고 성과를 매일 실시간 모니터링</li>
-                        <li>클릭 수, 전환율, 매출 데이터를 기반으로 빠르게 개선</li>
-                        <li>광고비 대비 최대 효과 달성</li>
+                        
+                        <!-- Beautiful Performance Features with Tailwind CSS -->
+                        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- 실시간 모니터링 카드 -->
+                            <div class="group relative bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-4 sm:p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-200/50">
+                                <div class="absolute -top-3 -right-3 w-6 h-6 bg-blue-500 rounded-full animate-pulse"></div>
+                                <div class="flex items-start mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                        <i class="fas fa-chart-line text-white text-lg"></i>
+                                    </div>
+                                    <div class="w-2 h-8 bg-gradient-to-b from-blue-500 to-blue-300 rounded-full"></div>
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors duration-300 text-left">
+                                    실시간 모니터링
+                                </h3>
+                                <p class="text-gray-600 text-sm leading-relaxed text-left">
+                                    광고 성과를 매일 실시간으로 추적하고 분석합니다
+                                </p>
+                                <div class="mt-4 flex items-center text-blue-600 text-xs font-medium text-left">
+                                    <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                                    LIVE 모니터링
+                                </div>
+                            </div>
+
+                            <!-- 데이터 기반 개선 카드 -->
+                            <div class="group relative bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-200/50">
+                                <div class="absolute -top-3 -right-3 w-6 h-6 bg-blue-500 rounded-full animate-pulse"></div>
+                                <div class="flex items-start mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                        <i class="fas fa-rocket text-white text-lg"></i>
+                                    </div>
+                                    <div class="w-2 h-8 bg-gradient-to-b from-blue-500 to-blue-300 rounded-full"></div>
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors duration-300 text-left">
+                                    데이터 기반 최적화
+                                </h3>
+                                <p class="text-gray-600 text-sm leading-relaxed text-left">
+                                    클릭 수, 전환율, 매출 데이터를 기반으로 빠르게 개선
+                                </p>
+                                <div class="mt-4 flex items-center text-blue-600 text-xs font-medium text-left">
+                                    <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                                    실시간 최적화
+                                </div>
+                            </div>
+
+                            <!-- ROI 극대화 카드 -->
+                            <div class="group relative bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-200/50">
+                                <div class="absolute -top-3 -right-3 w-6 h-6 bg-blue-500 rounded-full animate-pulse"></div>
+                                <div class="flex items-start mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                                        <i class="fas fa-chart-pie text-white text-lg"></i>
+                                    </div>
+                                    <div class="w-2 h-8 bg-gradient-to-b from-blue-500 to-blue-300 rounded-full"></div>
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors duration-300 text-left">
+                                    ROI 극대화
+                                </h3>
+                                <p class="text-gray-600 text-sm leading-relaxed text-left">
+                                    광고비 대비 최대 효과를 달성하여 투자 수익률 극대화
+                                </p>
+                                <div class="mt-4 flex items-center text-blue-600 text-xs font-medium text-left">
+                                    <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                                    최대 효율 달성
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                         </div>
@@ -4262,7 +4516,7 @@
                     <!-- 디자인 기획 및 제작 -->
                     <div class="design-service-box">
                         <div class="service-box-header">
-                            <div class="service-icon">
+                            <div class="design-service-icon">
                                 <i class="fas fa-pencil-ruler"></i>
                             </div>
                             <h3>디자인 기획 및 제작</h3>
@@ -4279,7 +4533,7 @@
                     <!-- 콘텐츠 디자인 고도화 -->
                     <div class="design-service-box">
                         <div class="service-box-header">
-                            <div class="service-icon">
+                            <div class="design-service-icon">
                                 <i class="fas fa-layer-group"></i>
                             </div>
                             <h3>콘텐츠 디자인 고도화</h3>
@@ -4384,7 +4638,7 @@
                             <i class="fas fa-lightbulb"></i>
                         </div>
                         <h3 class="process-title">전략 수립</h3>
-                        <p class="process-text">채널·타겟·예산 계획 등 전략적 접근</p>
+                        <p class="process-text">채널·타겟·예산 계획 등<br>전략적 접근</p>
                     </div>
                 </div>
                 
@@ -4395,7 +4649,7 @@
                             <i class="fas fa-cogs"></i>
                         </div>
                         <h3 class="process-title">캠페인 세팅</h3>
-                        <p class="process-text">광고 제작/운영 세팅 등 실행 준비</p>
+                        <p class="process-text">광고 제작/운영 세팅 등<br>실행 준비</p>
                     </div>
                 </div>
                 
@@ -4417,7 +4671,7 @@
                             <i class="fas fa-chart-bar"></i>
                         </div>
                         <h3 class="process-title">성과 분석</h3>
-                        <p class="process-text">광고 리포트 및 데이터 분석</p>
+                        <p class="process-text">광고 리포트 및<br>데이터 분석</p>
                     </div>
                 </div>
                 
@@ -4428,7 +4682,7 @@
                             <i class="fas fa-sync-alt"></i>
                         </div>
                         <h3 class="process-title">최적화 개선</h3>
-                        <p class="process-text">성과 기반 수정 작업 및 지속적 최적화</p>
+                        <p class="process-text">성과 기반 수정 작업 및<br>지속적 최적화</p>
                     </div>
                 </div>
             </div>
