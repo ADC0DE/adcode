@@ -1,178 +1,188 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>바이럴 마케팅 | 애드코드</title>
+    <link rel="icon" href="/adcode_fabicon.jpg" type="image/jpeg">
     <!-- Include CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/assets/css/style.css">
     <style>
         /* 서브페이지 헤더 공간 겹침 방지를 위해 상단 여백 추가 */
-        body { background-color: #f9f9f9; }
-        .subpage-container { padding-top: 100px; min-height: 80vh; }
+        body {
+            background-color: #f9f9f9;
+        }
+
+        .subpage-container {
+            padding-top: 100px;
+            min-height: 80vh;
+        }
     </style>
 </head>
+
 <body>
     <div id="header-placeholder"></div>
-    
+
     <div class="subpage-container">
         <section id="viral" class="section">
-        <div class="container">
-            <h2 class="section-title fade-in">바이럴마케팅</h2>
-            <p class="section-subtitle fade-in">
-                온라인 커뮤니티, 카페와 SNS를 활용해 브랜드 메시지를 자연스럽게 확산시키는 전략<br>
+            <div class="container">
+                <h2 class="section-title fade-in">바이럴마케팅</h2>
+                <p class="section-subtitle fade-in">
+                    온라인 커뮤니티, 카페와 SNS를 활용해 브랜드 메시지를 자연스럽게 확산시키는 전략<br>
 
-                다양한 채널을 통해 콘텐츠가 2차·3차로 공유되며<br>
-                입소문 효과와 함께 브랜드 인지도와 신뢰도를 높입니다.</p>
-            
-            <!-- 확산형 네트워크 그래프 -->
-            <div class="viral-network fade-in">
-                <!-- 중앙 브랜드 노드 -->
-                <div class="brand-node">
-                    <i class="fas fa-star"></i>
-                    <span>브랜드</span>
+                    다양한 채널을 통해 콘텐츠가 2차·3차로 공유되며<br>
+                    입소문 효과와 함께 브랜드 인지도와 신뢰도를 높입니다.</p>
+
+                <!-- 확산형 네트워크 그래프 -->
+                <div class="viral-network fade-in">
+                    <!-- 중앙 브랜드 노드 -->
+                    <div class="brand-node">
+                        <i class="fas fa-star"></i>
+                        <span>브랜드</span>
+                    </div>
+
+                    <!-- 주요 채널 노드 -->
+                    <div class="channel-node node-community">
+                        <i class="fas fa-comments"></i>
+                        <span>커뮤니티</span>
+                    </div>
+
+                    <div class="channel-node node-sns">
+                        <i class="fab fa-instagram"></i>
+                        <span>SNS</span>
+                    </div>
+
+                    <div class="channel-node node-experience">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>체험단</span>
+                    </div>
+
+                    <!-- 2차 확산 노드 -->
+                    <div class="secondary-node node-cafe">
+                        <i class="fas fa-users"></i>
+                    </div>
+
+                    <div class="secondary-node node-community-site">
+                        <i class="fas fa-globe"></i>
+                    </div>
+
+                    <div class="secondary-node node-instagram">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+
+                    <div class="secondary-node node-youtube">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+
+                    <div class="secondary-node node-blog">
+                        <i class="fas fa-blog"></i>
+                    </div>
+
+                    <div class="secondary-node node-review">
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+
+                    <!-- 3차 확산 노드 (사용자) -->
+                    <div class="tertiary-node node-user1">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div class="tertiary-node node-user2">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div class="tertiary-node node-user3">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div class="tertiary-node node-user4">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div class="tertiary-node node-user5">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+                    <div class="tertiary-node node-user6">
+                        <i class="fas fa-user"></i>
+                    </div>
+
+
                 </div>
-                
-                <!-- 주요 채널 노드 -->
-                <div class="channel-node node-community">
-                    <i class="fas fa-comments"></i>
-                    <span>커뮤니티</span>
-                </div>
-                
-                <div class="channel-node node-sns">
-                    <i class="fab fa-instagram"></i>
-                    <span>SNS</span>
-                </div>
-                
-                <div class="channel-node node-experience">
-                    <i class="fas fa-clipboard-check"></i>
-                    <span>체험단</span>
-                </div>
-                
-                <!-- 2차 확산 노드 -->
-                <div class="secondary-node node-cafe">
-                    <i class="fas fa-users"></i>
-                </div>
-                
-                <div class="secondary-node node-community-site">
-                    <i class="fas fa-globe"></i>
-                </div>
-                
-                <div class="secondary-node node-instagram">
-                    <i class="fab fa-instagram"></i>
-                </div>
-                
-                <div class="secondary-node node-youtube">
-                    <i class="fab fa-youtube"></i>
-                </div>
-                
-                <div class="secondary-node node-blog">
-                    <i class="fas fa-blog"></i>
-                </div>
-                
-                <div class="secondary-node node-review">
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                
-                <!-- 3차 확산 노드 (사용자) -->
-                <div class="tertiary-node node-user1">
-                    <i class="fas fa-user"></i>
-                </div>
-                
-                <div class="tertiary-node node-user2">
-                    <i class="fas fa-user"></i>
-                </div>
-                
-                <div class="tertiary-node node-user3">
-                    <i class="fas fa-user"></i>
-                </div>
-                
-                <div class="tertiary-node node-user4">
-                    <i class="fas fa-user"></i>
-                </div>
-                
-                <div class="tertiary-node node-user5">
-                    <i class="fas fa-user"></i>
-                </div>
-                
-                <div class="tertiary-node node-user6">
-                    <i class="fas fa-user"></i>
-                </div>
-                
-      
-            </div>
-            
-            
-            <!-- 바이럴 서비스 카드 섹션 -->
-            <div class="ad-types-comparison fade-in">
-                <div class="ad-type-card">
-                    <div class="ad-type-header">
-                        <div class="ad-type-icon">
-                            <i class="fas fa-comments"></i>
+
+
+                <!-- 바이럴 서비스 카드 섹션 -->
+                <div class="ad-types-comparison fade-in">
+                    <div class="ad-type-card">
+                        <div class="ad-type-header">
+                            <div class="ad-type-icon">
+                                <i class="fas fa-comments"></i>
                             </div>
-                        <h3>커뮤니티 바이럴</h3>
-                    </div>
-                    <div class="ad-type-content">
-                        <p class="ad-type-desc">
-                            영화, 드라마, K-POP, 연예 등 대중 관심도가 높은 콘텐츠를 활용해, 맘카페·뽐뿌 등 주요 커뮤니티에 최적화된 맞춤형 바이럴 마케팅을 진행합니다.
-                        </p>
-                        <ul class="ad-type-features">
-                            <li><i class="fas fa-check-circle"></i> 주요 커뮤니티 타겟팅 및 확산 전략</li>
-                            <li><i class="fas fa-check-circle"></i> 후기형·정보형 콘텐츠 기획 및 배포</li>
-                            <li><i class="fas fa-check-circle"></i> 후기 연계 구조로 브랜드 인지도 구축</li>
-                        </ul>
-                    </div>
+                            <h3>커뮤니티 바이럴</h3>
                         </div>
-                        
-                <div class="ad-type-card">
-                    <div class="ad-type-header">
-                        <div class="ad-type-icon">
-                            <i class="fas fa-hashtag"></i>
-                            </div>
-                        <h3>SNS 바이럴</h3>
-                    </div>
-                    <div class="ad-type-content">
-                        <p class="ad-type-desc">
-                            브랜드 특성에 맞춘 콘텐츠를 기획하고, 인스타그램·틱톡·유튜브 등 SNS 채널에 맞는 포맷으로 노출을 극대화합니다.
-                        </p>
-                        <ul class="ad-type-features">
-                            <li><i class="fas fa-check-circle"></i> 인스타
-                                
-                                그램·틱톡·유튜브 등 숏폼 콘텐츠 제작</li>
-                            <li><i class="fas fa-check-circle"></i> 릴스·숏츠 기반 추가 노출 전략</li>
-                            <li><i class="fas fa-check-circle"></i> 인플루언서를 활용한 실전형 SNS 광고</li>
-                        </ul>
-                    </div>
-                        </div>
-                        
-                <div class="ad-type-card">
-                    <div class="ad-type-header">
-                        <div class="ad-type-icon">
-                            <i class="fas fa-clipboard-check"></i>
-                            </div>
-                        <h3>브랜드 통합 체험단</h3>
-                    </div>
-                    <div class="ad-type-content">
-                        <p class="ad-type-desc">
-                            블로그, 인스타그램, 네이버/다음 카페 등 다양한 채널과 연계해 리얼한 후기 콘텐츠 확보와 브랜드 신뢰도를 함께 강화합니다.
-                        </p>
-                        <ul class="ad-type-features">
-                            <li><i class="fas fa-check-circle"></i>블로그, SNS, 카페 연계 통합 운영</li>
-                            <li><i class="fas fa-check-circle"></i>제품 사용 후기 및 비교 리뷰 콘텐츠 확보</li>
-                            <li><i class="fas fa-check-circle"></i>검색 유입 확대와 브랜드 신뢰도 동시 강화</li>
-                        </ul>
-                    </div>
+                        <div class="ad-type-content">
+                            <p class="ad-type-desc">
+                                영화, 드라마, K-POP, 연예 등 대중 관심도가 높은 콘텐츠를 활용해, 맘카페·뽐뿌 등 주요 커뮤니티에 최적화된 맞춤형 바이럴 마케팅을 진행합니다.
+                            </p>
+                            <ul class="ad-type-features">
+                                <li><i class="fas fa-check-circle"></i> 주요 커뮤니티 타겟팅 및 확산 전략</li>
+                                <li><i class="fas fa-check-circle"></i> 후기형·정보형 콘텐츠 기획 및 배포</li>
+                                <li><i class="fas fa-check-circle"></i> 후기 연계 구조로 브랜드 인지도 구축</li>
+                            </ul>
                         </div>
                     </div>
-                    
-            <div class="viral-cta fade-in text-center">
+
+                    <div class="ad-type-card">
+                        <div class="ad-type-header">
+                            <div class="ad-type-icon">
+                                <i class="fas fa-hashtag"></i>
+                            </div>
+                            <h3>SNS 바이럴</h3>
+                        </div>
+                        <div class="ad-type-content">
+                            <p class="ad-type-desc">
+                                브랜드 특성에 맞춘 콘텐츠를 기획하고, 인스타그램·틱톡·유튜브 등 SNS 채널에 맞는 포맷으로 노출을 극대화합니다.
+                            </p>
+                            <ul class="ad-type-features">
+                                <li><i class="fas fa-check-circle"></i> 인스타
+
+                                    그램·틱톡·유튜브 등 숏폼 콘텐츠 제작</li>
+                                <li><i class="fas fa-check-circle"></i> 릴스·숏츠 기반 추가 노출 전략</li>
+                                <li><i class="fas fa-check-circle"></i> 인플루언서를 활용한 실전형 SNS 광고</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="ad-type-card">
+                        <div class="ad-type-header">
+                            <div class="ad-type-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <h3>브랜드 통합 체험단</h3>
+                        </div>
+                        <div class="ad-type-content">
+                            <p class="ad-type-desc">
+                                블로그, 인스타그램, 네이버/다음 카페 등 다양한 채널과 연계해 리얼한 후기 콘텐츠 확보와 브랜드 신뢰도를 함께 강화합니다.
+                            </p>
+                            <ul class="ad-type-features">
+                                <li><i class="fas fa-check-circle"></i>블로그, SNS, 카페 연계 통합 운영</li>
+                                <li><i class="fas fa-check-circle"></i>제품 사용 후기 및 비교 리뷰 콘텐츠 확보</li>
+                                <li><i class="fas fa-check-circle"></i>검색 유입 확대와 브랜드 신뢰도 동시 강화</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="viral-cta fade-in text-center">
                     <a href="#contact" class="btn btn-primary">바이럴 마케팅 문의하기</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
     </div>
 
     <!-- 모든 페이지 하단에 문의하기와 푸터 표시 -->
@@ -180,4 +190,5 @@
     <script src="/assets/js/layout.js"></script>
     <script src="/assets/js/main.js"></script>
 </body>
+
 </html>
