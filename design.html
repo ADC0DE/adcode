@@ -1,155 +1,571 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>디자인 제작 | 애드코드</title>
-    <link rel="icon" href="/adcode_fabicon.jpg" type="image/jpeg">
+    <link rel="icon" href="/adcode_fabicon.jpg" type="image/jpeg" />
     <!-- Include CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
-        rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css" />
     <style>
-        /* 서브페이지 헤더 공간 겹침 방지를 위해 상단 여백 추가 */
-        body {
-            background-color: #f9f9f9;
-        }
+      body {
+        background-color: #f9f9f9;
+      }
 
-        .subpage-container {
-            padding-top: 100px;
-            min-height: 80vh;
-        }
+      .subpage-container {
+        padding-top: 100px;
+        min-height: 80vh;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="header-placeholder"></div>
 
     <div class="subpage-container">
-        <section id="design" class="section">
-            <div class="container">
-                <h2 class="section-title fade-in">디자인 제작</h2>
-                <p class="section-subtitle fade-in">
-                    브랜드 성장을 이끄는 전략적 디자인.<br>광고 효과를 극대화하는 모든 디자인 작업을 통합 지원합니다.
-                </p>
+      <!-- 1번째 컨테이너 (3개의 슬라이더) -->
+      <section id="hero-stats" class="section py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 text-center">
+          <!--슬라이드 전체를 감싸는 규격화된 컨테이너 (화살표 위치 고정용) -->
+          <div
+            class="relative max-w-6xl mx-auto min-h-[650px] flex items-center justify-center"
+          >
+            <!-- [공통 화살표] 이제 화살표는 슬라이드 외부에 고정되어 디자인이 틀어지지 않습니다. -->
+            <button
+              class="absolute -left-12 lg:-left-4 z-20 text-gray-200 hidden lg:block opacity-40 hover:opacity-80 transition-opacity cursor-pointer slide-prev-btn"
+              style="top: 50%; transform: translateY(-50%)"
+            >
+              <i class="fas fa-chevron-left text-5xl"></i>
+            </button>
 
-                <!-- 서비스 영역 -->
-                <div class="design-services-area fade-in">
-                    <div class="design-services-grid">
-                        <!-- 디자인 기획 및 제작 -->
-                        <div class="design-service-box">
-                            <div class="service-box-header">
-                                <div class="design-service-icon">
-                                    <i class="fas fa-pencil-ruler"></i>
-                                </div>
-                                <h3>디자인 기획 및 제작</h3>
-                            </div>
-                            <ul class="service-list">
-                                <li><span class="check-icon"><i class="fas fa-check"></i></span>브랜드에 맞는 상세페이지 디자인 기획 및
-                                    제작</li>
-                                <li><span class="check-icon"><i class="fas fa-check"></i></span>판매를 돕는 스토어 페이지 구성 및 제작
-                                </li>
-                                <li><span class="check-icon"><i class="fas fa-check"></i></span>프로모션에 최적화된 배너 디자인 수정 및
-                                    적용</li>
-                                <li><span class="check-icon"><i class="fas fa-check"></i></span>채널별 최적화된 카드뉴스 제작</li>
-                                <li><span class="check-icon"><i class="fas fa-check"></i></span>판매 증진을 위한 비주얼 전략 제안</li>
-                            </ul>
-                        </div>
+            <!-- 1번째 슬라이드: We are -->
+            <div
+              id="slide-1"
+              class="w-full flex-col items-center justify-center fade-in flex"
+            >
+              <h2
+                class="text-4xl md:text-5xl font-extrabold mb-12 text-black tracking-tight"
+                style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+              >
+                We are
+              </h2>
 
-                        <!-- 콘텐츠 디자인 고도화 -->
-                        <div class="design-service-box">
-                            <div class="service-box-header">
-                                <div class="design-service-icon">
-                                    <i class="fas fa-layer-group"></i>
-                                </div>
-                                <h3>콘텐츠 디자인 고도화</h3>
-                            </div>
-                            <ul class="service-list">
-                                <li><span class="check-icon"><i class="fas fa-check"></i></span>제품/서비스에 최적화된 디자인 로컬라이징
-                                </li>
-                                <li><span class="check-icon"><i class="fas fa-check"></i></span>마케팅을 고려한 스토리형 디자인 기획
-                                </li>
-                                <li><span class="check-icon"><i class="fas fa-check"></i></span>브랜드 이미지 강화 및 패키징 디자인 개선
-                                </li>
-                                <li><span class="check-icon"><i class="fas fa-check"></i></span>시장 트렌드 반영한 숏폼 영상(릴스, 숏클립
-                                    등) 제작</li>
-                                <li><span class="check-icon"><i class="fas fa-check"></i></span>지속 가능한 콘텐츠 업데이트 및 품질 관리
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+              <div
+                class="border-[1.2px] border-[#628eff] rounded-[50px] md:rounded-full px-6 py-10 md:px-12 md:py-8 flex flex-col lg:flex-row gap-6 lg:gap-10 items-center justify-center bg-white shadow-sm w-full max-w-[800px] mx-auto"
+              >
+                <div
+                  class="w-48 h-48 md:w-56 md:h-56 flex-shrink-0 rounded-full bg-[#628eff] flex flex-col items-center justify-center text-white shadow-md transition-all hover:scale-105 duration-300"
+                >
+                  <span class="text-base md:text-lg font-medium mb-1 opacity-95"
+                    >프로젝트</span
+                  >
+                  <span
+                    class="text-3xl md:text-4xl font-black stat-number"
+                    style="
+                      -webkit-text-fill-color: white !important;
+                      color: white !important;
+                      background: none !important;
+                    "
+                    >5,000+</span
+                  >
                 </div>
-
-                <!-- 프로세스 영역 -->
-                <div class="design-process-area fade-in">
-                    <h3 class="process-title">디자인 작업 프로세스</h3>
-
-                    <div class="process-timeline">
-                        <div class="timeline-track"></div>
-
-                        <!-- 프로세스 단계 1 -->
-                        <div class="process-step">
-                            <div class="step-icon">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <div class="step-connector"></div>
-                            <div class="step-content">
-                                <h4>기획</h4>
-                                <p>니즈 분석/스타일 가이드 설정<br>고객 요구사항과 브랜드 톤 분석</p>
-                            </div>
-                        </div>
-
-                        <!-- 프로세스 단계 2 -->
-                        <div class="process-step">
-                            <div class="step-icon">
-                                <i class="fas fa-drafting-compass"></i>
-                            </div>
-                            <div class="step-connector"></div>
-                            <div class="step-content">
-                                <h4>제작</h4>
-                                <p>디자인 기획 및 콘텐츠 설계<br>상세페이지, 배너, 카드뉴스 등 구성 기획</p>
-                            </div>
-                        </div>
-
-                        <!-- 프로세스 단계 3 -->
-                        <div class="process-step">
-                            <div class="step-icon">
-                                <i class="fas fa-paint-brush"></i>
-                            </div>
-                            <div class="step-connector"></div>
-                            <div class="step-content">
-                                <h4>완성</h4>
-                                <p>콘텐츠 제작 및 피드백 적용<br>디자인 시안 제작 및 수정 반영</p>
-                            </div>
-                        </div>
-
-                        <!-- 프로세스 단계 4 -->
-                        <div class="process-step">
-                            <div class="step-icon">
-                                <i class="fas fa-paper-plane"></i>
-                            </div>
-                            <div class="step-content">
-                                <h4>배포</h4>
-                                <p>최종 완료 및 최적화 배포<br>스토어, SNS, 광고용 다양한 포맷으로 제공</p>
-                            </div>
-                        </div>
-                    </div>
+                <div
+                  class="w-48 h-48 md:w-56 md:h-56 flex-shrink-0 rounded-full bg-[#628eff] flex flex-col items-center justify-center text-white shadow-md transition-all hover:scale-105 duration-300"
+                >
+                  <span class="text-base md:text-lg font-medium mb-1 opacity-95"
+                    >재계약율</span
+                  >
+                  <div class="flex items-baseline gap-1">
+                    <span
+                      class="text-3xl md:text-4xl font-black stat-number"
+                      style="
+                        -webkit-text-fill-color: white !important;
+                        color: white !important;
+                        background: none !important;
+                      "
+                      >97%</span
+                    >
+                    <span class="text-xl md:text-2xl font-bold ml-1">▲</span>
+                  </div>
                 </div>
-
-                <div class="design-cta fade-in">
-                    <a href="#contact" class="btn btn-primary">디자인 제작 문의하기</a>
+                <div
+                  class="w-48 h-48 md:w-56 md:h-56 flex-shrink-0 rounded-full bg-[#628eff] flex flex-col items-center justify-center text-white shadow-md transition-all hover:scale-105 duration-300"
+                >
+                  <span class="text-base md:text-lg font-medium mb-1 opacity-95"
+                    >고객 만족도</span
+                  >
+                  <div class="flex items-baseline gap-1">
+                    <span
+                      class="text-3xl md:text-4xl font-black stat-number"
+                      style="
+                        -webkit-text-fill-color: white !important;
+                        color: white !important;
+                        background: none !important;
+                      "
+                      >99%</span
+                    >
+                    <span class="text-xl md:text-2xl font-bold ml-1">▲</span>
+                  </div>
                 </div>
+              </div>
             </div>
-        </section>
+
+            <!-- 2번째 슬라이드: What do we design -->
+            <div
+              id="slide-2"
+              class="w-full flex-col items-center justify-center fade-in flex"
+              style="display: none"
+            >
+              <h3
+                class="text-3xl md:text-4xl font-extrabold mb-6 text-black tracking-tight"
+                style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+              >
+                What do we <span class="text-[#628eff]">design</span>
+              </h3>
+
+              <div class="text-center mb-10">
+                <p
+                  class="text-4xl md:text-5xl font-light mb-2 text-gray-800"
+                  style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+                >
+                  브랜드의
+                  <span class="text-[#628eff] font-bold">첫인상을 설계</span
+                  >합니다
+                </p>
+                <p
+                  class="text-4xl md:text-5xl font-black text-black"
+                  style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+                >
+                  그리고 매출을 바꿉니다
+                </p>
+              </div>
+
+              <div
+                class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto bg-white"
+              >
+                <div class="flex flex-col items-center">
+                  <div class="w-full aspect-[4/3] overflow-hidden rounded-lg">
+                    <img
+                      src="/public/design/1_2_1.jpg"
+                      alt="기획"
+                      class="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                    />
+                  </div>
+                  <div class="py-4 font-bold text-gray-700 text-lg">기획</div>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-full aspect-[4/3] overflow-hidden rounded-lg">
+                    <img
+                      src="/public/design/1_2_2.jpg"
+                      alt="디자인"
+                      class="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                    />
+                  </div>
+                  <div class="py-4 font-bold text-gray-700 text-lg">디자인</div>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-full aspect-[4/3] overflow-hidden rounded-lg">
+                    <img
+                      src="/public/design/1_2_3.jpg"
+                      alt="촬영"
+                      class="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                    />
+                  </div>
+                  <div class="py-4 font-bold text-gray-700 text-lg">촬영</div>
+                </div>
+              </div>
+            </div>
+            <!-- 3번째 슬라이드: Client -->
+            <div
+              id="slide-3"
+              class="w-full h-full flex flex-col items-center justify-center fade-in"
+              style="display: none"
+            >
+              <h2
+                class="text-4xl md:text-5xl font-extrabold mb-12 text-black tracking-tight"
+                style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+              >
+                Client
+              </h2>
+              <div
+                class="flex flex-col items-center justify-center w-full px-4 text-center"
+              >
+                <p
+                  class="text-lg md:text-xl font-medium mb-10 text-gray-600"
+                  style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+                >
+                  애드코드 디자인 스튜디오와 함께한 소중한 클라이언트입니다.
+                </p>
+                <div class="max-w-5xl mx-auto">
+                  <img
+                    src="/public/design/1_3_1.jpg"
+                    alt="Client Logos"
+                    class="w-full max-h-[350px] md:max-h-[400px] object-contain rounded-xl"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- [공통 화살표] -->
+            <button
+              class="absolute -right-12 lg:-right-4 z-20 text-gray-200 hidden lg:block opacity-40 hover:opacity-80 transition-opacity cursor-pointer slide-next-btn"
+              style="top: 50%; transform: translateY(-50%)"
+            >
+              <i class="fas fa-chevron-right text-5xl"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2번째 컨테이너 (디자인 철학 섹션) -->
+      <section class="section py-20 md:py-32 bg-[#fafafa]">
+        <div class="container mx-auto px-4 text-center">
+          <h2
+            class="text-3xl md:text-5xl font-light text-black tracking-tight leading-tight"
+            style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+          >
+            보이는 순간,
+            <span class="text-[#628eff] font-bold">선택받도록</span>
+            <span class="font-bold">디자인합니다</span>
+          </h2>
+
+          <div class="mt-10 space-y-3">
+            <p
+              class="text-lg md:text-xl text-gray-600 font-medium"
+              style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+            >
+              첫 인상에서 느껴지는 완성도는 구매 결정까지 이어집니다.
+            </p>
+            <p
+              class="text-lg md:text-xl text-gray-600 font-medium"
+              style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+            >
+              우리는 감각적인 표현을 넘어 전환을 만드는 구조까지 디자인합니다.
+            </p>
+          </div>
+
+          <!-- 타겟 아이콘 그래픽 (애니메이션 효과 추가) -->
+          <div class="mt-20 flex justify-center">
+            <div class="relative w-56 h-56 flex items-center justify-center">
+              <!-- 배경 동심원 (미세한 맥동 효과) -->
+              <div
+                class="absolute inset-0 border border-gray-200 rounded-full opacity-20 animate-[pulse_3s_infinite]"
+              ></div>
+              <div
+                class="absolute inset-8 border border-gray-200 rounded-full opacity-40 animate-[pulse_4s_infinite]"
+              ></div>
+              <div
+                class="absolute inset-16 border border-gray-200 rounded-full opacity-60"
+              ></div>
+
+              <!-- 중심 타겟 포인트 -->
+              <div
+                class="absolute inset-[92px] bg-white border border-gray-100 rounded-full flex items-center justify-center shadow-xl z-20"
+              >
+                <!-- 파동 애니메이션 (Ping) -->
+                <div
+                  class="absolute w-8 h-8 bg-[#628eff] rounded-full opacity-30 animate-ping"
+                ></div>
+                <!-- 중심점 -->
+                <div
+                  class="w-4 h-4 bg-[#628eff] rounded-full shadow-[0_0_20px_rgba(98,142,255,0.8)] relative z-20"
+                ></div>
+              </div>
+
+              <!-- 마우스 커서 아이콘 (부유 애니메이션) -->
+              <div
+                class="absolute top-[60%] left-[65%] transform -translate-x-1/2 -translate-y-1/2 z-30 text-black animate-[bounce_2s_infinite]"
+              >
+                <i class="fas fa-mouse-pointer text-6xl drop-shadow-2xl"></i>
+              </div>
+
+              <!-- 보조 장식 라인 (십자선) -->
+              <div
+                class="absolute w-full h-[1px] bg-gray-200 top-1/2 left-0 -translate-y-1/2 opacity-30"
+              ></div>
+              <div
+                class="absolute h-full w-[1px] bg-gray-200 left-1/2 top-0 -translate-x-1/2 opacity-30"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3번째 컨테이너 (온라인 스토어 디자인 섹션) -->
+      <section class="section py-20 md:py-32 bg-white">
+        <div class="container mx-auto px-4 text-center">
+          <h2
+            class="text-4xl md:text-5xl font-extrabold text-black tracking-tight mb-4"
+            style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+          >
+            For <span class="text-[#628eff]">online store</span>
+          </h2>
+          <p
+            class="text-lg md:text-xl text-gray-600 font-medium mb-16"
+            style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+          >
+            온라인 스토어를 위한 모든 디자인 작업
+          </p>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto"
+          >
+            <!-- 상세페이지 디자인 -->
+            <div class="flex flex-col items-center">
+              <div class="w-full overflow-hidden rounded-xl mb-6 shadow-sm">
+                <img
+                  src="/public/design/3_1.jpg"
+                  alt="상세페이지 디자인"
+                  class="w-full h-auto object-cover transition-transform hover:scale-105 duration-500"
+                />
+              </div>
+              <div
+                class="text-xl md:text-2xl font-bold text-gray-800"
+                style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+              >
+                상세페이지 디자인
+              </div>
+            </div>
+
+            <!-- 배너 디자인 -->
+            <div class="flex flex-col items-center">
+              <div class="w-full overflow-hidden rounded-xl mb-6 shadow-sm">
+                <img
+                  src="/public/design/3_2.jpg"
+                  alt="배너 디자인"
+                  class="w-full h-auto object-cover transition-transform hover:scale-105 duration-500"
+                />
+              </div>
+              <div
+                class="text-xl md:text-2xl font-bold text-gray-800"
+                style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+              >
+                배너 디자인
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4번째 컨테이너 (출력물 디자인 섹션) -->
+      <section class="section py-20 md:py-32 bg-[#fafafa]">
+        <div class="container mx-auto px-4 text-center">
+          <h2
+            class="text-4xl md:text-5xl font-extrabold text-black tracking-tight mb-4"
+            style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+          >
+            For <span class="text-[#628eff]">printout</span>
+          </h2>
+          <p
+            class="text-lg md:text-xl text-gray-600 font-medium mb-16"
+            style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+          >
+            출력을 위한 디자인 작업
+          </p>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto"
+          >
+            <!-- 명함 디자인 -->
+            <div class="flex flex-col items-center">
+              <div
+                class="w-full overflow-hidden mb-6 border border-gray-200 shadow-sm bg-white"
+              >
+                <img
+                  src="/public/design/4_1.jpg"
+                  alt="명함 디자인"
+                  class="w-full h-auto object-cover transition-transform hover:scale-105 duration-500"
+                />
+              </div>
+              <div
+                class="text-lg md:text-xl font-bold text-gray-800"
+                style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+              >
+                명함 디자인
+              </div>
+            </div>
+
+            <!-- 포스터 디자인 -->
+            <div class="flex flex-col items-center">
+              <div
+                class="w-full overflow-hidden mb-6 border border-gray-200 shadow-sm bg-white"
+              >
+                <img
+                  src="/public/design/4_2.jpg"
+                  alt="포스터 디자인"
+                  class="w-full h-auto object-cover transition-transform hover:scale-105 duration-500"
+                />
+              </div>
+              <div
+                class="text-lg md:text-xl font-bold text-gray-800"
+                style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+              >
+                포스터 디자인
+              </div>
+            </div>
+
+            <!-- 로고 디자인 -->
+            <div class="flex flex-col items-center">
+              <div
+                class="w-full overflow-hidden mb-6 border border-gray-200 shadow-sm bg-white"
+              >
+                <img
+                  src="/public/design/4_3.jpg"
+                  alt="로고 디자인"
+                  class="w-full h-auto object-cover transition-transform hover:scale-105 duration-500"
+                />
+              </div>
+              <div
+                class="text-lg md:text-xl font-bold text-gray-800"
+                style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+              >
+                로고 디자인
+              </div>
+            </div>
+
+            <!-- 패키지 디자인 -->
+            <div class="flex flex-col items-center">
+              <div
+                class="w-full overflow-hidden mb-6 border border-gray-200 shadow-sm bg-white"
+              >
+                <img
+                  src="/public/design/4_4.jpg"
+                  alt="패키지 디자인"
+                  class="w-full h-auto object-cover transition-transform hover:scale-105 duration-500"
+                />
+              </div>
+              <div
+                class="text-lg md:text-xl font-bold text-gray-800"
+                style="font-family: &quot;Noto Sans KR&quot;, sans-serif"
+              >
+                패키지 디자인
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 문의하기 CTA 섹션 -->
+      <section class="section py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+          <div class="design-cta fade-in">
+            <a
+              href="#contact"
+              class="btn btn-primary text-lg px-10 py-4 rounded-full transition-all hover:scale-105"
+              >디자인 제작 문의하기</a
+            >
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- 모든 페이지 하단에 문의하기와 푸터 표시 -->
     <div id="footer-contact-placeholder"></div>
     <script src="/assets/js/layout.js"></script>
     <script src="/assets/js/main.js"></script>
-</body>
 
+    <!-- 상단 We are & What do we design 슬라이드 제어 스크립트 -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 현재 활성화된 슬라이드 인덱스 (1부터 시작)
+        let currentSlideIndex = 1;
+
+        // 전체 슬라이드 개수
+        const TOTAL_SLIDES = 3;
+
+        // 자동 슬라이드 타이머
+        let autoSlideTimer;
+        const AUTO_SLIDE_INTERVAL = 5000;
+
+        // 슬라이드 요소 가져오기
+        const getSlideElement = (index) =>
+          document.getElementById(`slide-${index}`);
+
+        // 자동 슬라이드 시작
+        const startAutoSlide = () => {
+          stopAutoSlide();
+          autoSlideTimer = setInterval(showNextSlide, AUTO_SLIDE_INTERVAL);
+        };
+
+        // 자동 슬라이드 중지
+        const stopAutoSlide = () => {
+          if (autoSlideTimer) clearInterval(autoSlideTimer);
+        };
+
+        // 수동 클릭 시 타이머 재설정
+        const handleManualTouch = (action) => {
+          action();
+          startAutoSlide(); // 클릭 후 다시 3초 카운트 시작
+        };
+
+        const showPrevSlide = () => {
+          hideSlide(currentSlideIndex);
+          currentSlideIndex =
+            currentSlideIndex - 1 < 1 ? TOTAL_SLIDES : currentSlideIndex - 1;
+          showSlide(currentSlideIndex);
+        };
+
+        const showNextSlide = () => {
+          hideSlide(currentSlideIndex);
+          currentSlideIndex =
+            currentSlideIndex + 1 > TOTAL_SLIDES ? 1 : currentSlideIndex + 1;
+          showSlide(currentSlideIndex);
+        };
+
+        // 슬라이드 숨기기 로직
+        const hideSlide = (index) => {
+          const slide = getSlideElement(index);
+          if (slide) {
+            slide.style.display = "none";
+            slide.classList.remove("active"); // CSS fade-in 요소를 위해 active 제거
+          }
+        };
+
+        // 슬라이드 보여주기 로직 (Fade in 효과 적용)
+        const showSlide = (index) => {
+          const slide = getSlideElement(index);
+          if (slide) {
+            slide.style.display = "flex";
+            // 약간의 딜레이 후 active 클래스를 넣어 부드러운 전환 (CSS transition)
+            setTimeout(() => {
+              slide.classList.add("active");
+            }, 10);
+
+            // 숫자가 포함된 슬라이드라면 숫자 카운트 애니메이션 재실행
+            if (window.updateFadeIn) window.updateFadeIn();
+          }
+        };
+
+        // 이전/다음 버튼 이벤트 한 번에 등록
+        const bindSlideEvents = () => {
+          const prevBtns = document.querySelectorAll(".slide-prev-btn");
+          const nextBtns = document.querySelectorAll(".slide-next-btn");
+
+          prevBtns.forEach((btn) =>
+            btn.addEventListener("click", () =>
+              handleManualTouch(showPrevSlide),
+            ),
+          );
+          nextBtns.forEach((btn) =>
+            btn.addEventListener("click", () =>
+              handleManualTouch(showNextSlide),
+            ),
+          );
+        };
+
+        // 초기 실행
+        bindSlideEvents();
+        startAutoSlide();
+      });
+    </script>
+  </body>
 </html>
