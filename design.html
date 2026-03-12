@@ -38,8 +38,9 @@
       <section id="hero-stats" class="section py-16 md:py-24 bg-white">
         <div class="container mx-auto px-4 text-center">
           <!--슬라이드 전체를 감싸는 규격화된 컨테이너 (화살표 위치 고정용) -->
+          <!-- 1번째 컨테이너 (3개의 슬라이더) : 전체를 한 그리드에 겹쳐서 가장 높은 슬라이드 높이에 맞춤 (모바일 화면 흔들림 방지) -->
           <div
-            class="relative max-w-6xl mx-auto min-h-[650px] flex items-center justify-center"
+            class="relative max-w-6xl mx-auto min-h-[650px] grid place-items-center"
           >
             <!-- [공통 화살표] 이제 화살표는 슬라이드 외부에 고정되어 디자인이 틀어지지 않습니다. -->
             <button
@@ -52,7 +53,8 @@
             <!-- 1번째 슬라이드: What do we design -->
             <div
               id="slide-1"
-              class="w-full flex-col items-center justify-center fade-in flex"
+              class="col-start-1 row-start-1 w-full flex-col items-center justify-center fade-in flex"
+              style="opacity: 1; z-index: 10; transition: opacity 0.5s;"
             >
               <h2 class="section-title fade-in">
                 What do we<br class="block sm:hidden" /> <span class="text-[#53a7e0]">design</span>
@@ -105,8 +107,8 @@
             <!-- 2번째 슬라이드: We are -->
             <div
               id="slide-2"
-              class="w-full flex-col items-center justify-center fade-in flex"
-              style="display: none"
+              class="col-start-1 row-start-1 w-full flex-col items-center justify-center fade-in flex"
+              style="opacity: 0; z-index: 0; pointer-events: none; transition: opacity 0.5s;"
             >
               <h2 class="section-title fade-in">We are</h2>
 
@@ -173,8 +175,8 @@
             <!-- 3번째 슬라이드: Client -->
             <div
               id="slide-3"
-              class="w-full h-full flex flex-col items-center justify-center fade-in"
-              style="display: none"
+              class="col-start-1 row-start-1 w-full h-full flex flex-col items-center justify-center fade-in flex"
+              style="opacity: 0; z-index: 0; pointer-events: none; transition: opacity 0.5s;"
             >
               <h2 class="section-title fade-in">Client</h2>
               <div
@@ -455,11 +457,13 @@
           showSlide(currentSlideIndex);
         };
 
-        // 슬라이드 숨기기 로직
+        // 슬라이드 숨기기 로직 (높이를 유지하기 위해 display: none 대신 opacity 사용 및 클릭 방지)
         const hideSlide = (index) => {
           const slide = getSlideElement(index);
           if (slide) {
-            slide.style.display = "none";
+            slide.style.opacity = "0";
+            slide.style.pointerEvents = "none";
+            slide.style.zIndex = "0";
             slide.classList.remove("active"); // CSS fade-in 요소를 위해 active 제거
           }
         };
@@ -468,7 +472,10 @@
         const showSlide = (index) => {
           const slide = getSlideElement(index);
           if (slide) {
-            slide.style.display = "flex";
+            slide.style.opacity = "1";
+            slide.style.pointerEvents = "auto";
+            slide.style.zIndex = "10";
+            
             // 약간의 딜레이 후 active 클래스를 넣어 부드러운 전환 (CSS transition)
             setTimeout(() => {
               slide.classList.add("active");
