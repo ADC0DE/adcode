@@ -749,9 +749,10 @@ select {
 
 .field-label {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;          /* 라벨 글자 크기 — 더 키우려면 14~15px */
+  font-weight: 500;         /* 살짝 굵게 (기본 400) — 더 굵게는 600 */
   letter-spacing: .22em;
-  color: var(--fg-3);
+  color: var(--fg-2);       /* 더 밝은 회색 (#b0b0b0). 더 어둡게 되돌리려면 var(--fg-3) */
   text-transform: uppercase;
 }
 
