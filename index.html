@@ -17,6 +17,9 @@
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 
   <link rel="stylesheet" href="/style.css" />
+
+  <!-- Lenis: 부드러운(관성) 스크롤 — 마우스 휠을 굴려도 즉시 점프 X, 살짝 미끄러지듯 감속 -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 </head>
 
 <body>
@@ -39,7 +42,7 @@
   <!-- ====================== HERO MEDIA (full-bleed visual under the transparent GNB) ====================== -->
   <section class="hero-media" data-screen-label="00 Visual">
     <img src="/public/design/main_img.png" alt="" />
-    <div class="hero-media-label"><span class="red">ADCODE</span><span>COMPANY</span></div>
+    <div class="hero-media-label"><span class="red">ADCODE</span><span>MARKETING</span></div>
   </section>
 
   <!-- ============================== HERO ============================== -->
@@ -371,6 +374,39 @@
   </div>
 
   <script>
+    // ===== Lenis smooth scroll =====
+    // 페이지 전체에 관성/감속 스크롤 적용. 휠을 굴리면 즉시 1:1 반응 X, 살짝 미끄러지듯 감속.
+    // 모션 줄이기 사용자에겐 자동 비활성화 (네이티브 스크롤 그대로).
+    (function () {
+      if (typeof Lenis === 'undefined') return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const lenis = new Lenis({
+        duration: 1.2,                           // 감속 시간(초). 작을수록 빠릿, 클수록 더 미끄러짐
+        easing: (t) => 1 - Math.pow(1 - t, 3),   // ease-out cubic — 끝부분이 부드럽게 멈춤
+        smoothWheel: true,                       // 마우스 휠 부드럽게
+        syncTouch: false,                        // 모바일 터치는 네이티브 유지 (어색한 데스크톱식 X)
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 앵커 링크(#contact 등)는 Lenis 의 scrollTo 로 동일한 부드러운 모션 적용
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+        const href = a.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        lenis.scrollTo(target, { offset: -20 });
+      });
+    })();
+
     // ===== marquee =====
     (function () {
       const track = document.getElementById('marquee-track');
@@ -395,6 +431,7 @@
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
       document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     })();
+
 
     // ===== hero headline: play the type-in intro once when it scrolls into view =====
     (function () {

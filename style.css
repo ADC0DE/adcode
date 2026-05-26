@@ -35,6 +35,24 @@ body {
   overflow-x: hidden;
 }
 
+/* Lenis 호환 — 브라우저 네이티브 smooth 와 충돌 방지 */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
 /* 스크롤바 숨기기 — 스크롤 기능은 그대로 유지, 보이는 막대만 제거.
    다시 보이게 하려면 이 블록 전체를 지우거나 주석 처리하세요. */
 html {
@@ -203,9 +221,9 @@ select {
 .hero-media {
   position: relative;
   width: 100%;
-  /* 이미지 영역 높이: 화면 높이(100vh)에서 빼는 값(100px)을 키우면 더 줄고, 줄이면 더 커짐.
-     원래 크기로 되돌리려면 calc(...) 대신 100vh 만 쓰세요. */
-  min-height: calc(100vh - 100px);
+  /* 이미지 영역 높이: 화면 높이(100vh)에서 빼는 값을 키우면 더 줄고, 줄이면 더 커짐.
+     원래(100vh)로 되돌리려면 calc(...) 대신 100vh 만 쓰세요. */
+  min-height: calc(100vh - 70px);
   overflow: hidden;
 }
 
@@ -221,7 +239,7 @@ select {
 .hero-media-label {
   position: absolute;
   left: 44px;
-  bottom: 64px;
+  bottom: 94px;             /* 라벨 위치 — 키우면 위로 올라가고, 줄이면 아래로 내려감 */
   z-index: 2;
   font-weight: 900;
   font-size: clamp(40px, 6.2vw, 96px);
