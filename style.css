@@ -235,6 +235,10 @@ select {
   display: block;
 }
 
+.hero-media-label .red {
+  color: var(--red);        /* ADCODE WORKS와 동일한 빨간색 (#c8181f) */
+}
+
 /* hero main grid — headline + right side */
 .hero-grid {
   display: grid;
@@ -852,6 +856,66 @@ select {
   line-height: 1.6;
 }
 
+/* 동의 체크박스 — 둘 다 required 라서 미체크 시 브라우저가 자동으로 제출 차단 */
+.consents {
+  display: grid;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.consent {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+  color: var(--fg-2);
+}
+
+.consent input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.consent .cbox {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--line-2);
+  border-radius: 3px;
+  display: inline-grid;
+  place-items: center;
+  background: transparent;
+  transition: border-color .2s ease, background-color .2s ease;
+  flex-shrink: 0;
+}
+
+.consent:hover .cbox {
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.consent input:checked + .cbox {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.consent input:checked + .cbox::after {
+  content: "";
+  width: 10px;
+  height: 6px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg) translate(1px, -1px);
+}
+
+.consent input:focus-visible + .cbox {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
 .form-submit {
   display: flex;
   justify-content: flex-end;
@@ -924,14 +988,9 @@ select {
   position: relative;
 }
 
-.rail a:not(.kakao):not(.blog):hover {
+.rail a:not(.kakao):hover {
   background: var(--red);
   border-color: var(--red);
-  transform: translateY(-2px);
-}
-
-/* 블로그는 브랜드 초록을 살리기 위해 빨강 호버 제외, 살짝 떠오르기만 */
-.rail a.blog:hover {
   transform: translateY(-2px);
 }
 

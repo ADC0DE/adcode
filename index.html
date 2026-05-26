@@ -39,7 +39,7 @@
   <!-- ====================== HERO MEDIA (full-bleed visual under the transparent GNB) ====================== -->
   <section class="hero-media" data-screen-label="00 Visual">
     <img src="/public/design/main_img.png" alt="" />
-    <div class="hero-media-label"><span>ADCODE</span><span>COMPANY</span></div>
+    <div class="hero-media-label"><span class="red">ADCODE</span><span>COMPANY</span></div>
   </section>
 
   <!-- ============================== HERO ============================== -->
@@ -224,7 +224,7 @@
           <input type="url" name="website" placeholder="https://..." />
         </div>
         <div class="field">
-          <span class="field-label">가용예산</span>
+          <span class="field-label">현재 예산 범위</span>
           <input type="text" name="budget" placeholder="월 / 캠페인 단위로 자유롭게" />
         </div>
       </div>
@@ -232,6 +232,19 @@
       <div class="field">
         <span class="field-label">문의내용</span>
         <textarea name="message" placeholder="현재 상황과 의뢰하고 싶은 내용을 자유롭게 적어주세요."></textarea>
+      </div>
+
+      <div class="consents">
+        <label class="consent">
+          <input type="checkbox" name="개인정보_동의" required />
+          <span class="cbox" aria-hidden="true"></span>
+          <span class="ctxt">개인정보 수집 및 이용에 동의합니다.</span>
+        </label>
+        <label class="consent">
+          <input type="checkbox" name="정보제공_동의" required />
+          <span class="cbox" aria-hidden="true"></span>
+          <span class="ctxt">원활한 상담 진행을 위해 정보 제공에 동의합니다.</span>
+        </label>
       </div>
 
       <div class="form-submit">
@@ -363,8 +376,8 @@
       const track = document.getElementById('marquee-track');
       const unit = `
       <div class="item">
-        <span class="word">INTRODUCE</span>
-        <span class="word red">OUR&nbsp;WORKS</span>
+        <span class="word red">ADCODE&nbsp;WORKS</span>
+        <span class="word">BRAND&nbsp;OPERATING</span>
         <span class="sep" aria-hidden="true"></span>
       </div>`;
       track.innerHTML = unit.repeat(4);
