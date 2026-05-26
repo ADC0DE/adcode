@@ -35,6 +35,20 @@ body {
   overflow-x: hidden;
 }
 
+/* 스크롤바 숨기기 — 스크롤 기능은 그대로 유지, 보이는 막대만 제거.
+   다시 보이게 하려면 이 블록 전체를 지우거나 주석 처리하세요. */
+html {
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE / 구 Edge */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;                /* Chrome / Safari / 신 Edge */
+}
+
 /* very subtle grain */
 body::before {
   content: "";
@@ -76,6 +90,8 @@ select {
   left: 0;
   right: 0;
   z-index: 50;
+  /* 헤더 높이 조절: 첫 번째 값(위아래 패딩)을 키우면 헤더가 더 두꺼워짐.
+     기본 15px. 두 번째 값(44px)은 좌우 패딩이라 높이와 무관. */
   padding: 15px 44px;
   display: flex;
   align-items: center;
@@ -184,7 +200,9 @@ select {
 .hero-media {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  /* 이미지 영역 높이: 화면 높이(100vh)에서 빼는 값(100px)을 키우면 더 줄고, 줄이면 더 커짐.
+     원래 크기로 되돌리려면 calc(...) 대신 100vh 만 쓰세요. */
+  min-height: calc(100vh - 100px);
   overflow: hidden;
 }
 
@@ -887,20 +905,59 @@ select {
   position: relative;
 }
 
-.rail a:not(.kakao):hover {
+.rail a:not(.kakao):not(.blog):hover {
   background: var(--red);
   border-color: var(--red);
   transform: translateY(-2px);
 }
 
+/* 블로그는 브랜드 초록을 살리기 위해 빨강 호버 제외, 살짝 떠오르기만 */
+.rail a.blog:hover {
+  transform: translateY(-2px);
+}
+
+/* ───────────────────────────────────────────────────────────
+   회사소개서 · 블로그 · 문의하기 아이콘 크기
+   ↓ 아래 --rail-icon 값(px)만 바꾸면 세 아이콘이 함께 커지고 작아집니다.
+   (기본 22px → 28px 로 키운 상태)
+   모바일 크기는 파일 아래쪽 @media 안의 --rail-icon 에서 조절하세요.
+   ─────────────────────────────────────────────────────────── */
+.rail a {
+  --rail-icon: 28px;
+}
+
 .rail a svg {
-  width: 22px;
-  height: 22px;
+  width: var(--rail-icon);
+  height: var(--rail-icon);
   stroke: currentColor;
   fill: none;
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+/* 회사소개서 — 다른 라인 아이콘보다 크게 (이 숫자만 바꾸면 됨, 권장 28~38px) */
+.rail a.brochure svg {
+  width: 34px;
+  height: 34px;
+}
+
+/* 블로그 — 검은 배경 위에 흰 'blog' 텍스트만 */
+.rail a.blog svg {
+  /* SVG 박스 크기(카카오 버블과 동일). 더 키우거나 줄이려면 이 숫자만 변경 */
+  width: 40px;
+  height: 40px;
+}
+
+.rail a.blog .blog-word {
+  fill: #fff;
+  /* 'blog' 글자 — 흰색 */
+  stroke: none;
+  font-family: 'Montserrat', 'Noto Sans KR', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 8px;
+  /* 글자 크기 — 이 값만 키우거나 줄이면 됩니다 (권장 7 ~ 11px) */
+  letter-spacing: -0.03em;
 }
 
 .rail a .tip {
@@ -1155,11 +1212,8 @@ select {
   .rail a {
     width: 46px;
     height: 46px;
-  }
-
-  .rail a svg {
-    width: 19px;
-    height: 19px;
+    --rail-icon: 24px;
+    /* 모바일 아이콘 크기 (기본 19px → 24px) */
   }
 
   .contact-info .row {
