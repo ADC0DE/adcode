@@ -18,8 +18,6 @@
 
   <link rel="stylesheet" href="/style.css" />
 
-  <!-- Lenis: 부드러운(관성) 스크롤 — 마우스 휠을 굴려도 즉시 점프 X, 살짝 미끄러지듯 감속 -->
-  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 </head>
 
 <body>
@@ -402,37 +400,12 @@
       });
     })();
 
-    // ===== Lenis smooth scroll =====
-    // 페이지 전체에 관성/감속 스크롤 적용. 휠을 굴리면 즉시 1:1 반응 X, 살짝 미끄러지듯 감속.
-    // 모션 줄이기 사용자에겐 자동 비활성화 (네이티브 스크롤 그대로).
+    // ===== hero-media-label — 페이지 진입 시 좌→우 슬라이드 reveal =====
+    // 초기 paint 가 끝난 뒤 트리거. IO 를 쓰면 above-fold 타이밍 이슈로 transition 이 무시되어 안 나타나는 일이 있어 setTimeout 로 단순화.
     (function () {
-      if (typeof Lenis === 'undefined') return;
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-      const lenis = new Lenis({
-        duration: 1.2,                           // 감속 시간(초). 작을수록 빠릿, 클수록 더 미끄러짐
-        easing: (t) => 1 - Math.pow(1 - t, 3),   // ease-out cubic — 끝부분이 부드럽게 멈춤
-        smoothWheel: true,                       // 마우스 휠 부드럽게
-        syncTouch: false,                        // 모바일 터치는 네이티브 유지 (어색한 데스크톱식 X)
-      });
-
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-
-      // 앵커 링크(#contact 등)는 Lenis 의 scrollTo 로 동일한 부드러운 모션 적용
-      document.addEventListener('click', (e) => {
-        const a = e.target.closest('a[href^="#"]');
-        if (!a) return;
-        const href = a.getAttribute('href');
-        if (!href || href === '#') return;
-        const target = document.querySelector(href);
-        if (!target) return;
-        e.preventDefault();
-        lenis.scrollTo(target, { offset: -20 });
-      });
+      const el = document.querySelector('.hero-media-label');
+      if (!el) return;
+      setTimeout(() => el.classList.add('played'), 120);
     })();
 
     // ===== marquee =====

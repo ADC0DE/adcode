@@ -11,6 +11,33 @@
   --red-hi: #e63946;
   --kakao: #FEE500;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* === Typography tokens — 모든 페이지/섹션 헤드 공통.
+     새 페이지를 추가할 때도 이 토큰을 그대로 사용해 통일된 헤드 스타일을 유지한다. === */
+  --t-section: clamp(36px, 5vw, 72px);
+  /* 페이지·섹션 메인 타이틀 (.section-title) */
+  --t-section-w: 900;
+  /* 굵기 */
+  --t-section-ls: -0.025em;
+  /* 자간 */
+  --t-section-lh: 1.1;
+  /* 줄간격 */
+}
+
+/* === 공통 헤드 클래스 — 페이지·섹션 메인 타이틀은 모두 이 클래스를 사용.
+   메인/about/앞으로 만들 페이지 모두 동일. 내부 강조는 .accent (빨강). === */
+.section-title {
+  font-size: var(--t-section);
+  font-weight: var(--t-section-w);
+  letter-spacing: var(--t-section-ls);
+  line-height: var(--t-section-lh);
+  color: var(--fg);
+  word-break: keep-all;
+}
+
+.section-title .accent,
+.section-title .red {
+  color: var(--red);
 }
 
 * {
@@ -308,6 +335,22 @@ select {
   letter-spacing: -0.02em;
   color: var(--fg);
   text-shadow: 0 6px 34px rgba(0, 0, 0, .55);
+
+  /* 진입 인터렉션 — 좌→우로 천천히 슬라이드 reveal.
+     .played 가 붙으면 clip-path 가 0 까지 열리며 텍스트가 왼쪽부터 드러난다. */
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 3s cubic-bezier(.2, .85, .25, 1);
+}
+
+.hero-media-label.played {
+  clip-path: inset(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-media-label {
+    clip-path: none !important;
+    transition: none !important;
+  }
 }
 
 .hero-media-label span {
@@ -1331,8 +1374,10 @@ select {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 1320px;       /* 살짝 줄여 좌·우 여백을 더 확보 */
-  margin: 0 auto;          /* ★ 가운데 정렬 — 타이틀이 왼쪽에, 본문이 오른쪽에 균형있게 위치 */
+  max-width: 1320px;
+  /* 살짝 줄여 좌·우 여백을 더 확보 */
+  margin: 0 auto;
+  /* ★ 가운데 정렬 — 타이틀이 왼쪽에, 본문이 오른쪽에 균형있게 위치 */
 }
 
 /* 2-col grid — 좌: 타이틀 / 우: 본문(우측 정렬, 더 오른쪽으로 떨어뜨림) */
@@ -1344,24 +1389,88 @@ select {
   align-items: center;
 }
 
-/* 메인 타이틀 (좌측) — 폰트 축소해 정확히 2줄로 (br 한 번) */
+/* 메인 타이틀 (좌측) — 위치 보정만. 타이포는 .section-title 토큰 사용.
+   3줄 레이아웃은 마크업의 <br>로 고정 — 자동 줄바꿈 금지. */
 .about-hero-title {
-  font-size: clamp(30px, 3.2vw, 50px);
-  font-weight: 800;
-  line-height: 1.45;
-  letter-spacing: -0.02em;
-  color: var(--fg);
-  word-break: keep-all;
+  transform: translateY(-90px);
+  white-space: nowrap;
 }
 
-.about-hero-title .accent {
-  color: var(--red);
-  font-weight: 900;
+/* === Section 1 hero reveal — 줄별 마스크 슬라이드 + 우측 본문 stagger fade-up.
+   .about-hero.played 가 붙으면 재생. 느리고 부드러운 ease-out 으로 세련된 느낌. === */
+.hero-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+  /* 글자 디센더가 마스크에 잘리지 않도록 살짝 여유 */
+}
+
+.hero-line__in {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 2.4s cubic-bezier(.2, .85, .25, 1);
+  will-change: transform;
+}
+
+.about-hero.played .hero-line__in {
+  transform: translateY(0);
+}
+
+.about-hero.played .hero-line:nth-child(1) .hero-line__in {
+  transition-delay: .35s;
+}
+
+.about-hero.played .hero-line:nth-child(2) .hero-line__in {
+  transition-delay: .65s;
+}
+
+.about-hero.played .hero-line:nth-child(3) .hero-line__in {
+  transition-delay: .95s;
+}
+
+.about-hero.played .hero-line:nth-child(4) .hero-line__in {
+  transition-delay: 1.25s;
+}
+
+.hero-fade {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 2.2s cubic-bezier(.2, .85, .25, 1),
+    transform 2.2s cubic-bezier(.2, .85, .25, 1);
+  will-change: transform, opacity;
+}
+
+.about-hero.played .hero-fade {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-hero.played .hero-fade[data-stagger="1"] {
+  transition-delay: 0.5s;
+}
+
+.about-hero.played .hero-fade[data-stagger="2"] {
+  transition-delay: 1s;
+}
+
+.about-hero.played .hero-fade[data-stagger="3"] {
+  transition-delay: 1.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-line__in,
+  .hero-fade {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
 }
 
 /* 우측 본문 — 우측 정렬 */
 .about-hero-text {
   text-align: right;
+  transform: translateY(-100px);
 }
 
 /* 리드 문단(첫 문단) — 더 크고 굵게, 흰색 (빨강 바 제거) */
@@ -1432,13 +1541,8 @@ select {
   background: #888;
 }
 
-/* 메인 타이포 — 거대, 좁은 줄간격 */
+/* 메인 슬로건 — 타이포는 .section-title 토큰 사용. 간격만 지정. */
 .about-slogan-title {
-  font-size: clamp(48px, 9vw, 144px);
-  font-weight: 900;
-  line-height: 1.02;
-  letter-spacing: -0.02em;
-  color: var(--fg);
   margin-bottom: 60px;
 }
 
@@ -1523,20 +1627,13 @@ select {
 }
 
 .about-org-head {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-  gap: 64px;
-  align-items: end;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   margin-bottom: 80px;
 }
 
-.about-org-title {
-  font-size: clamp(52px, 7vw, 120px);
-  font-weight: 900;
-  color: var(--red);
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
+/* 조직구성 타이틀 — 타이포는 .section-title 토큰 사용. (별도 속성 없음, 클래스 유지용) */
 
 .about-org-desc {
   font-size: 16px;
@@ -1545,66 +1642,78 @@ select {
   word-break: keep-all;
 }
 
-/* tree */
+/* tree — 좌측 ADCODE 로고, 우측에 수직 트렁크 + 부서 가지가 오른쪽으로 뻗는 구조 */
 .org-tree {
   position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 56px;
+  align-items: center;
 }
 
 .org-top {
-  display: flex;
-  justify-content: center;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
-/* 위→아래 수직선 (ADCODE → 가로 분기선) */
+/* ADCODE 로고 → 수직 트렁크로 연결되는 가로선 */
 .org-top::after {
   content: "";
   position: absolute;
-  top: 100%;
-  left: 50%;
-  width: 1px;
-  height: 36px;
-  background: rgba(255, 255, 255, 0.22);
-}
-
-.org-cols {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-  position: relative;
-  padding-top: 56px;
-  margin-top: 0;
-}
-
-/* 5개 부서 위 가로 분기선.
-   5등분 grid에서 col의 중심은 좌측 0.5*col_width = (100%-4*gap)/10 = 10% - 0.4*gap.
-   gap=20px 라서 양쪽에서 'calc(10% - 8px)' 만큼 떨어진 지점이 정확히 col 중심 = 수직선과 만나는 지점. */
-.org-cols::before {
-  content: "";
-  position: absolute;
-  top: 36px;
-  left: calc(10% - 8px);
-  right: calc(10% - 8px);
+  top: 50%;
+  left: 100%;
+  width: 56px;
   height: 1px;
   background: rgba(255, 255, 255, 0.22);
 }
 
-.org-col {
+.org-cols {
   display: flex;
   flex-direction: column;
+  gap: 14px;
+  position: relative;
+  padding-left: 36px;
+}
+
+/* 한 행: [수평 분기선] [부서 박스] [하위팀 가로 나열] */
+.org-col {
+  display: grid;
+  grid-template-columns: 200px 1fr;
   align-items: center;
+  gap: 20px;
   position: relative;
 }
 
-/* 가로선 → 각 부서 박스로 내려가는 수직선 */
+/* 트렁크에서 부서 박스로 뻗는 가로 가지 */
 .org-col::before {
   content: "";
   position: absolute;
-  top: -20px;
-  left: 50%;
-  width: 1px;
-  height: 20px;
+  left: -36px;
+  top: 50%;
+  width: 36px;
+  height: 1px;
   background: rgba(255, 255, 255, 0.22);
+}
+
+/* 수직 트렁크 — 각 행마다 한 조각씩 그려 첫/마지막 행 가운데에서 정확히 시작·끝나게.
+   gap(14px)을 위·아래 7px씩 늘려 행 사이를 자연스럽게 잇는다. */
+.org-col::after {
+  content: "";
+  position: absolute;
+  left: -36px;
+  top: -7px;
+  bottom: -7px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.org-col:first-child::after {
+  top: 50%;
+}
+
+.org-col:last-child::after {
+  bottom: 50%;
 }
 
 .org-node {
@@ -1642,19 +1751,33 @@ select {
   padding: 17px 18px;
   border: 0;
   letter-spacing: -0.005em;
+  position: relative;
 }
 
+/* 부서 박스 → 첫 팀 박스로 뻗는 가로 가지 (.org-col grid의 20px gap을 채움) */
+.org-dept::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  width: 20px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* 하위팀 — 부서 옆에 가로로 나열 */
 .org-teams {
   list-style: none;
-  margin: 18px 0 0;
+  margin: 0;
   padding: 0;
-  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
-/* 하위팀 박스 — 밝은 회색 + 어두운 글씨 (참고 이미지 톤) */
+/* 하위팀 박스 — 밝은 회색 + 어두운 글씨 (참고 이미지 톤).
+   모든 박스는 동일 너비(가장 긴 '인사/노무/재무관리' 기준)·동일 높이. */
 .org-teams li {
   background: #d8d8d8;
   color: #141414;
@@ -1664,6 +1787,21 @@ select {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  width: 168px;
+  position: relative;
+}
+
+/* 인접한 팀 박스 사이 라인 (.org-teams gap 10px 채움) */
+.org-teams li:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  width: 10px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.22);
 }
 
 /* SECTION 4 — LOCATION */
@@ -1671,11 +1809,8 @@ select {
   padding: 140px 44px 160px;
 }
 
+/* 찾아오시는길 타이틀 — 타이포는 .section-title 토큰 사용. 간격만 지정. */
 .about-location-title {
-  font-size: clamp(36px, 5vw, 72px);
-  font-weight: 900;
-  color: var(--fg);
-  letter-spacing: -0.025em;
   margin-bottom: 48px;
 }
 
@@ -1915,7 +2050,6 @@ select {
   }
 
   .about-slogan-title {
-    font-size: clamp(44px, 13vw, 80px);
     margin-bottom: 40px;
   }
 
@@ -1950,15 +2084,42 @@ select {
     font-size: 14px;
   }
 
-  /* 조직도 — 1열 + 아코디언. .org-col.mobile 일 때 부서 탭하면 .open 토글 */
-  .org-cols {
+  /* 조직도 — 모바일은 위→아래 1열 + 아코디언. 좌측 로고/트렁크 가로 레이아웃 해제. */
+  .org-tree {
     grid-template-columns: 1fr;
-    gap: 12px;
-    padding-top: 32px;
+    gap: 24px;
+    justify-items: center;
   }
 
   .org-top::after {
-    height: 24px;
+    display: none;
+  }
+
+  .org-cols {
+    width: 100%;
+    gap: 12px;
+    padding-left: 0;
+  }
+
+  .org-cols::before {
+    display: none;
+  }
+
+  .org-col {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .org-col::before {
+    display: none;
+  }
+
+  .org-teams {
+    flex-direction: column;
+  }
+
+  .org-teams li {
+    white-space: normal;
   }
 
   .org-col.mobile .org-dept {

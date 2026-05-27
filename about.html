@@ -15,8 +15,6 @@
 
   <link rel="stylesheet" href="/style.css" />
 
-  <!-- Lenis: 부드러운(관성) 스크롤 -->
-  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 </head>
 
 <body>
@@ -48,23 +46,25 @@
       <div class="about-hero-inner">
         <div class="about-hero-grid">
           <!-- 좌측: 메인 타이틀 -->
-          <h1 class="about-hero-title">
-            브랜드를 이해하고 실제 운영 흐름을<br />
-            함께 만드는 <span class="accent">실무형 마케팅 그룹</span>
+          <h1 class="section-title about-hero-title">
+            <span class="hero-line"><span class="hero-line__in">브랜드를 이해하고</span></span>
+            <span class="hero-line"><span class="hero-line__in">실제 운영 흐름을</span></span>
+            <span class="hero-line"><span class="hero-line__in">함께 만드는</span></span>
+            <span class="hero-line"><span class="hero-line__in accent">실무형 마케팅 그룹</span></span>
           </h1>
 
           <!-- 우측: 본문 (우측 정렬) — 첫 문단은 강조 -->
           <div class="about-hero-text">
-            <p class="about-hero-lead">
+            <p class="about-hero-lead hero-fade" data-stagger="1">
               애드코드는 단순 광고 운영보다<br />
               브랜드의 방향과 흐름을 함께 고민합니다.
             </p>
             <div class="about-hero-rest">
-              <p>
+              <p class="hero-fade" data-stagger="2">
                 광고 · 콘텐츠 · 디자인이 따로 움직이지 않도록 운영하며,<br />
                 업종과 상황에 맞는 실질적인 운영 방향을 만들어갑니다.
               </p>
-              <p>
+              <p class="hero-fade" data-stagger="3">
                 보여주기 위한 마케팅보다<br />
                 실제 반응과 브랜드 흐름을 더 중요하게 봅니다.
               </p>
@@ -74,20 +74,27 @@
       </div>
     </section>
 
+    <!-- ====================== MARQUEE (between Section 1 & 2) ====================== -->
+    <section class="marquee-wrap" data-screen-label="Marquee">
+      <div class="marquee">
+        <div class="marquee-track" id="marquee-track">
+          <!-- injected by JS -->
+        </div>
+      </div>
+    </section>
+
     <!-- ============================== SECTION 2 — SLOGAN ============================== -->
     <section class="about-slogan" data-screen-label="02 Slogan">
 
       <div class="about-slogan-inner">
         <!-- 메인 거대 타이포 3줄 (아래에서 위로 순차 등장) -->
-        <h2 class="about-slogan-title">
-          <span class="about-slogan-line about-slogan-anim" data-anim="line-1"><span
-              class="red">AD</span>VERTISEMENT</span>
-          <span class="about-slogan-line about-slogan-anim" data-anim="line-2">CONNECT</span>
-          <span class="about-slogan-line about-slogan-anim" data-anim="line-3"><span class="red">CODE</span>.</span>
+        <h2 class="section-title about-slogan-title">
+          <span class="about-slogan-line"><span class="red">AD</span>VERTISEMENT</span>
+          <span class="about-slogan-line">CONNECT</span>
+          <span class="about-slogan-line"><span class="red">CODE</span>.</span>
         </h2>
 
-        <!-- 하단 설명 (마지막 fade-in) -->
-        <p class="about-slogan-desc about-slogan-anim" data-anim="desc">
+        <p class="about-slogan-desc">
           브랜드의 방향을 연결하고 광고·콘텐츠·디자인을<br />
           하나의 흐름으로 운영하는 실무 중심 마케팅 그룹
         </p>
@@ -97,7 +104,7 @@
     <!-- ============================== SECTION 3 — ORG CHART ============================== -->
     <section class="about-org" data-screen-label="03 Org">
       <div class="about-org-head">
-        <h2 class="about-org-title reveal" data-delay="1">조직구성</h2>
+        <h2 class="section-title about-org-title reveal" data-delay="1">조직구성</h2>
         <p class="about-org-desc reveal" data-delay="2">
           ADCODE는 전환을 개인이 아닌, 구조와 팀으로 만듭니다.<br />
           각 단계별 역할을 분리해 실행부터 결과까지 함께 책임집니다.
@@ -161,7 +168,7 @@
 
     <!-- ============================== SECTION 4 — LOCATION ============================== -->
     <section class="about-location" data-screen-label="04 Location">
-      <h2 class="about-location-title reveal" data-delay="1">찾아오시는길</h2>
+      <h2 class="section-title about-location-title reveal" data-delay="1">찾아오시는길</h2>
 
       <div class="about-map reveal" data-delay="2">
         <iframe
@@ -289,30 +296,6 @@
       });
     })();
 
-    // ===== Lenis smooth scroll =====
-    (function () {
-      if (typeof Lenis === 'undefined') return;
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => 1 - Math.pow(1 - t, 3),
-        smoothWheel: true,
-        syncTouch: false,
-      });
-      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-      requestAnimationFrame(raf);
-      document.addEventListener('click', (e) => {
-        const a = e.target.closest('a[href^="#"]');
-        if (!a) return;
-        const href = a.getAttribute('href');
-        if (!href || href === '#') return;
-        const target = document.querySelector(href);
-        if (!target) return;
-        e.preventDefault();
-        lenis.scrollTo(target, { offset: -20 });
-      });
-    })();
-
     // ===== scroll reveal =====
     (function () {
       const io = new IntersectionObserver((entries) => {
@@ -326,10 +309,23 @@
       document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     })();
 
-    // ===== Section 2 슬로건 — 진입 시 순차 등장 (eyebrow → line1 → line2 → line3 → desc) =====
+    // ===== marquee =====
     (function () {
-      const slogan = document.querySelector('.about-slogan');
-      if (!slogan) return;
+      const track = document.getElementById('marquee-track');
+      if (!track) return;
+      const unit = `
+      <div class="item">
+        <span class="word red">ADCODE&nbsp;WORKS</span>
+        <span class="word">BRAND&nbsp;OPERATING</span>
+        <span class="sep" aria-hidden="true"></span>
+      </div>`;
+      track.innerHTML = unit.repeat(4);
+    })();
+
+    // ===== Section 1 hero — 진입 시 마스크 reveal + 우측 본문 fade-up (slow ease-out) =====
+    (function () {
+      const hero = document.querySelector('.about-hero');
+      if (!hero) return;
       const io = new IntersectionObserver((entries) => {
         entries.forEach(e => {
           if (e.isIntersecting) {
@@ -337,8 +333,8 @@
             io.unobserve(e.target);
           }
         });
-      }, { threshold: 0.3 });
-      io.observe(slogan);
+      }, { threshold: 0.15 });
+      io.observe(hero);
     })();
 
     // ===== mobile: 조직도 부서 탭하면 하위 팀 펼침/접힘 (≤760px 만) =====
