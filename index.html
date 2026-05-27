@@ -31,7 +31,12 @@
     </a>
 
     <nav class="nav" aria-label="Primary">
-      <a href="/">애드코드</a>
+      <div class="nav-item has-dropdown">
+        <a href="/">애드코드</a>
+        <div class="dropdown" role="menu">
+          <a href="/about" role="menuitem">회사소개</a>
+        </div>
+      </div>
       <a href="/marketing">마케팅</a>
       <a href="/design">디자인</a>
       <a href="/portfolio">포트폴리오</a>
@@ -374,6 +379,29 @@
   </div>
 
   <script>
+    // ===== GNB dropdown — 데스크톱은 hover(CSS), 터치 기기는 탭 토글 =====
+    (function () {
+      document.querySelectorAll('.nav-item.has-dropdown').forEach(item => {
+        const trigger = item.querySelector(':scope > a');
+        if (!trigger) return;
+        trigger.addEventListener('click', (e) => {
+          // 호버 불가능한 환경(터치 디바이스)에서만 첫 탭은 dropdown 토글, 두번째 탭은 링크 이동
+          if (window.matchMedia('(hover: none)').matches) {
+            if (!item.classList.contains('open')) {
+              e.preventDefault();
+              document.querySelectorAll('.nav-item.has-dropdown.open').forEach(o => o.classList.remove('open'));
+              item.classList.add('open');
+            }
+          }
+        });
+      });
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-item.has-dropdown')) {
+          document.querySelectorAll('.nav-item.has-dropdown.open').forEach(el => el.classList.remove('open'));
+        }
+      });
+    })();
+
     // ===== Lenis smooth scroll =====
     // 페이지 전체에 관성/감속 스크롤 적용. 휠을 굴리면 즉시 1:1 반응 X, 살짝 미끄러지듯 감속.
     // 모션 줄이기 사용자에겐 자동 비활성화 (네이티브 스크롤 그대로).

@@ -174,6 +174,66 @@ select {
 
 /* CONTACT menu — same styling as other nav items */
 
+/* === GNB dropdown ("애드코드" → 회사소개) === */
+.nav-item.has-dropdown {
+  position: relative;
+}
+
+.nav-item .dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 110px;
+  padding: 2px 0;
+  background: #ffffff;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity .2s ease, transform .2s ease, visibility .2s;
+  z-index: 60;
+}
+
+/* 애드코드 ↔ 드롭다운 사이 투명한 hover 브리지 — 마우스가 빈 공간을 지나도 hover 유지 */
+.nav-item .dropdown::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+
+.nav-item.has-dropdown:hover .dropdown,
+.nav-item.has-dropdown:focus-within .dropdown,
+.nav-item.has-dropdown.open .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-item .dropdown a {
+  display: block;
+  padding: 10px 14px;
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  transition: color .2s ease;
+}
+
+.nav-item .dropdown a::after {
+  display: none;
+  /* 드롭다운 아이템은 nav 의 빨강 언더라인 효과 비활성화 */
+}
+
+.nav-item .dropdown a:hover {
+  color: var(--red-hi);
+}
+
 .burger {
   width: 44px;
   height: 44px;
@@ -1206,6 +1266,462 @@ select {
 }
 
 /* =================================================================
+   ABOUT PAGE (/about)
+   ================================================================= */
+
+/* SECTION 1 — HERO INTRO */
+.about-hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 160px 44px 100px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  /* 배경 이미지(/public/about/about_1.png) + 어두운 그라데이션 오버레이 + 좌하단 빨강 글로우.
+     오버레이 진하기 조절: 0.35/0.55 값을 키우면 더 어두워지고, 줄이면 이미지가 더 잘 보임. */
+  background:
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(200, 24, 31, 0.18), transparent 60%),
+    linear-gradient(180deg, rgba(10, 10, 10, 0.35), rgba(10, 10, 10, 0.62)),
+    url('/public/about/about_1.png') center/cover no-repeat,
+    var(--bg);
+}
+
+/* 배경 이미지 위에선 워터마크가 시각적으로 겹치니 살짝 더 옅게 */
+.about-hero .about-hero-bg .bg-num {
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.05);
+}
+
+.about-hero .about-hero-bg .bg-text {
+  color: rgba(200, 24, 31, 0.05);
+}
+
+/* 배경 장식 — 거대 'ABOUT' + '01' 워터마크 */
+.about-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+
+.about-hero-bg .bg-num {
+  position: absolute;
+  top: 130px;
+  right: 4vw;
+  font-size: clamp(140px, 18vw, 280px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
+}
+
+.about-hero-bg .bg-text {
+  position: absolute;
+  bottom: 60px;
+  right: -2vw;
+  font-size: clamp(90px, 14vw, 220px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: rgba(200, 24, 31, 0.07);
+}
+
+.about-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1320px;       /* 살짝 줄여 좌·우 여백을 더 확보 */
+  margin: 0 auto;          /* ★ 가운데 정렬 — 타이틀이 왼쪽에, 본문이 오른쪽에 균형있게 위치 */
+}
+
+/* 2-col grid — 좌: 타이틀 / 우: 본문(우측 정렬, 더 오른쪽으로 떨어뜨림) */
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 140px;
+  /* 간격 키워 우측 본문을 시각적으로 더 오른쪽으로 */
+  align-items: center;
+}
+
+/* 메인 타이틀 (좌측) — 폰트 축소해 정확히 2줄로 (br 한 번) */
+.about-hero-title {
+  font-size: clamp(30px, 3.2vw, 50px);
+  font-weight: 800;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  word-break: keep-all;
+}
+
+.about-hero-title .accent {
+  color: var(--red);
+  font-weight: 900;
+}
+
+/* 우측 본문 — 우측 정렬 */
+.about-hero-text {
+  text-align: right;
+}
+
+/* 리드 문단(첫 문단) — 더 크고 굵게, 흰색 (빨강 바 제거) */
+.about-hero-lead {
+  font-size: clamp(20px, 1.9vw, 28px);
+  font-weight: 600;
+  line-height: 1.55;
+  letter-spacing: -0.015em;
+  color: var(--fg);
+  word-break: keep-all;
+  margin: 0 0 32px;
+}
+
+/* 나머지 본문 — 부드러운 회색, 우측정렬 (parent 상속) */
+.about-hero-rest {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-hero-rest p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--fg-2);
+  word-break: keep-all;
+}
+
+/* SECTION 2 — SLOGAN ("거대 타이포 + 시네마틱 배경") */
+.about-slogan {
+  position: relative;
+  min-height: 100vh;
+  padding: 140px 44px 120px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  /* 시네마틱 다크 배경 — 좌하단 빨강 글로우 + 우상단 흰빛 글로우 (잔잔한 그라데이션) */
+  background:
+    radial-gradient(ellipse 60% 55% at 0% 100%, rgba(200, 24, 31, 0.16), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(255, 255, 255, 0.04), transparent 60%),
+    #0a0a0a;
+}
+
+.about-slogan-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1400px;
+}
+
+/* 상단 작은 라벨 — 좌측 가로 라인 + 모노 텍스트 */
+.about-slogan-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  color: #888;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.about-slogan-eyebrow .dash {
+  display: inline-block;
+  width: 44px;
+  height: 1px;
+  background: #888;
+}
+
+/* 메인 타이포 — 거대, 좁은 줄간격 */
+.about-slogan-title {
+  font-size: clamp(48px, 9vw, 144px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  margin-bottom: 60px;
+}
+
+.about-slogan-line {
+  display: block;
+}
+
+.about-slogan-line .red {
+  color: var(--red);
+}
+
+/* 하단 설명 — 흰색, 차분한 굵기 */
+.about-slogan-desc {
+  font-size: clamp(16px, 1.5vw, 21px);
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--fg);
+  letter-spacing: -0.005em;
+  max-width: 600px;
+  word-break: keep-all;
+}
+
+/* === 스크롤 시 순차 등장 애니메이션 ===
+   .about-slogan 에 .played 가 붙으면 각 요소가 transition-delay 로 차례로 등장 */
+.about-slogan-anim {
+  opacity: 0;
+  transition: opacity .7s cubic-bezier(.2, .7, .15, 1),
+    transform .7s cubic-bezier(.2, .7, .15, 1);
+  will-change: transform, opacity;
+}
+
+.about-slogan-anim[data-anim="eyebrow"] {
+  transform: translateX(-20px);
+}
+
+.about-slogan-anim[data-anim^="line"] {
+  transform: translateY(30px);
+}
+
+.about-slogan-anim[data-anim="desc"] {
+  transform: translateY(20px);
+}
+
+.about-slogan.played .about-slogan-anim {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.about-slogan.played .about-slogan-anim[data-anim="eyebrow"] {
+  transition-delay: 0s;
+}
+
+.about-slogan.played .about-slogan-anim[data-anim="line-1"] {
+  transition-delay: .2s;
+}
+
+.about-slogan.played .about-slogan-anim[data-anim="line-2"] {
+  transition-delay: .4s;
+}
+
+.about-slogan.played .about-slogan-anim[data-anim="line-3"] {
+  transition-delay: .6s;
+}
+
+.about-slogan.played .about-slogan-anim[data-anim="desc"] {
+  transition-delay: .9s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  /* 모션 줄이기: 즉시 표시, 트랜지션 제거 */
+  .about-slogan-anim {
+    opacity: 1;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* SECTION 3 — ORG CHART */
+.about-org {
+  padding: 140px 44px;
+}
+
+.about-org-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 64px;
+  align-items: end;
+  margin-bottom: 80px;
+}
+
+.about-org-title {
+  font-size: clamp(52px, 7vw, 120px);
+  font-weight: 900;
+  color: var(--red);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.about-org-desc {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--fg-2);
+  word-break: keep-all;
+}
+
+/* tree */
+.org-tree {
+  position: relative;
+}
+
+.org-top {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* 위→아래 수직선 (ADCODE → 가로 분기선) */
+.org-top::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.org-cols {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  position: relative;
+  padding-top: 56px;
+  margin-top: 0;
+}
+
+/* 5개 부서 위 가로 분기선.
+   5등분 grid에서 col의 중심은 좌측 0.5*col_width = (100%-4*gap)/10 = 10% - 0.4*gap.
+   gap=20px 라서 양쪽에서 'calc(10% - 8px)' 만큼 떨어진 지점이 정확히 col 중심 = 수직선과 만나는 지점. */
+.org-cols::before {
+  content: "";
+  position: absolute;
+  top: 36px;
+  left: calc(10% - 8px);
+  right: calc(10% - 8px);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.org-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* 가로선 → 각 부서 박스로 내려가는 수직선 */
+.org-col::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.org-node {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 26px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+/* ADCODE 루트 — 와인레드 배경 + 실제 흰색 로고 */
+.org-root {
+  background: var(--red);
+  padding: 22px 52px;
+  border-radius: 14px;
+}
+
+.org-root img {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+/* 부서 박스 — 검정, 흰 글씨, 보더 없이 묵직하게 */
+.org-dept {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 17px 18px;
+  border: 0;
+  letter-spacing: -0.005em;
+}
+
+.org-teams {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 하위팀 박스 — 밝은 회색 + 어두운 글씨 (참고 이미지 톤) */
+.org-teams li {
+  background: #d8d8d8;
+  color: #141414;
+  text-align: center;
+  padding: 13px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* SECTION 4 — LOCATION */
+.about-location {
+  padding: 140px 44px 160px;
+}
+
+.about-location-title {
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 900;
+  color: var(--fg);
+  letter-spacing: -0.025em;
+  margin-bottom: 48px;
+}
+
+.about-map {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0e0e0e;
+  border: 1px solid var(--line-2);
+}
+
+.about-map iframe {
+  display: block;
+  width: 100%;
+  height: 400px;
+  border: 0;
+  filter: grayscale(0.15) brightness(0.95);
+}
+
+.about-address {
+  margin-top: 18px;
+  background: var(--red);
+  color: #fff;
+  padding: 24px 40px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.005em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.about-address .addr-key {
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.about-address .hl {
+  color: var(--kakao);
+  /* 와인레드 배경 위에서 잘 보이는 강조 색 (#FEE500) */
+  font-weight: 800;
+  margin: 0 2px;
+}
+
+/* =================================================================
    RESPONSIVE
    ================================================================= */
 @media (max-width: 1100px) {
@@ -1242,6 +1758,48 @@ select {
 
   .contact-title {
     font-size: clamp(64px, 12vw, 100px);
+  }
+
+  /* about: 1100px 이하 — Section 1 stack/좌측정렬, 워터마크 조정, 슬로건 풀폭, 조직도 3+2 */
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* 모바일·태블릿에선 우측 정렬보다 좌측 정렬이 자연스러움 */
+  .about-hero-text {
+    text-align: left;
+  }
+
+  .about-hero-bg .bg-num {
+    top: 110px;
+    right: 2vw;
+  }
+
+  .about-hero-bg .bg-text {
+    bottom: 40px;
+    right: -4vw;
+  }
+
+  .about-org-head {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .org-cols {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px 20px;
+  }
+
+  .org-cols::before {
+    display: none;
+    /* 가로 분기선은 5열 트리에서만 의미 — 3열에선 숨김 */
+  }
+
+  .org-col::before {
+    display: none;
   }
 }
 
@@ -1319,6 +1877,121 @@ select {
   .contact-info .row {
     grid-template-columns: 72px 1fr;
     gap: 14px;
+  }
+
+  /* about: 모바일 패딩·간격 ↓, 조직도 1열 아코디언 */
+  .about-hero {
+    padding: 120px 20px 80px;
+  }
+
+  /* 모바일에선 워터마크 살짝 줄여서 노이즈 최소화 */
+  .about-hero-bg .bg-num {
+    top: 90px;
+    right: 8px;
+    font-size: 110px;
+  }
+
+  .about-hero-bg .bg-text {
+    bottom: 30px;
+    right: -10px;
+    font-size: 84px;
+  }
+
+  .about-hero-eyebrow {
+    margin-bottom: 24px;
+  }
+
+  .about-hero-title {
+    margin-bottom: 44px;
+  }
+
+  .about-hero-lead {
+    padding-left: 16px;
+    border-left-width: 2px;
+  }
+
+  .about-slogan {
+    padding: 80px 20px;
+  }
+
+  .about-slogan-title {
+    font-size: clamp(44px, 13vw, 80px);
+    margin-bottom: 40px;
+  }
+
+  .about-slogan-eyebrow {
+    margin-bottom: 28px;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+  }
+
+  .about-slogan-eyebrow .dash {
+    width: 30px;
+  }
+
+  .about-org {
+    padding: 80px 20px;
+  }
+
+  .about-org-head {
+    margin-bottom: 48px;
+  }
+
+  .about-location {
+    padding: 80px 20px 100px;
+  }
+
+  .about-map iframe {
+    height: 320px;
+  }
+
+  .about-address {
+    padding: 18px 22px;
+    font-size: 14px;
+  }
+
+  /* 조직도 — 1열 + 아코디언. .org-col.mobile 일 때 부서 탭하면 .open 토글 */
+  .org-cols {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-top: 32px;
+  }
+
+  .org-top::after {
+    height: 24px;
+  }
+
+  .org-col.mobile .org-dept {
+    cursor: pointer;
+    justify-content: space-between;
+    padding-right: 20px;
+    position: relative;
+  }
+
+  /* 펼침 표시(▼) */
+  .org-col.mobile .org-dept::after {
+    content: "+";
+    margin-left: 12px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+    transition: transform .25s ease;
+  }
+
+  .org-col.mobile.open .org-dept::after {
+    content: "−";
+  }
+
+  .org-col.mobile .org-teams {
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition: max-height .3s ease, margin-top .2s ease;
+  }
+
+  .org-col.mobile.open .org-teams {
+    max-height: 1000px;
+    margin-top: 10px;
   }
 }
 
