@@ -1485,26 +1485,90 @@ select {
   word-break: keep-all;
 }
 
-/* SECTION 2 — SLOGAN ("거대 타이포 + 시네마틱 배경") */
-.about-slogan {
+/* SECTION 2 — SLOGAN (about_2 sticky scale reveal) */
+.about-slogan-pin {
   position: relative;
-  min-height: 100vh;
+  height: 220vh;
+}
+
+.about-slogan {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   padding: 140px 44px 120px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  /* 배경 이미지(about_2.png) + 가독성용 다크 오버레이 + 기존 시네마틱 글로우 */
+  background: #0a0a0a;
+}
+
+/* about_2 배경 — JS 가 스크롤 진행도에 따라 대각선 clip-path 와이프 제어.
+   초기엔 좌상단 모서리만 보이는 상태(거의 비어있음)에서 우하단으로 사선으로 펼쳐짐. */
+.about-slogan-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('/public/about/about_2.png') center / cover no-repeat;
+  clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  will-change: clip-path;
+}
+
+/* 분위기 전환용 오버레이 — 와이프가 진행될수록 진해짐(배포본처럼 균일하게 어둡게) */
+.about-slogan-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
   background:
-    radial-gradient(ellipse 60% 55% at 0% 100%, rgba(200, 24, 31, 0.16), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(255, 255, 255, 0.04), transparent 60%),
-    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-    url('/public/about/about_2.png') center / cover no-repeat,
-    #0a0a0a;
+    radial-gradient(ellipse 60% 55% at 0% 100%, rgba(200, 24, 31, 0.18), transparent 60%),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.62));
+  will-change: opacity;
+}
+
+/* 텍스트 초기 상태 — JS 가 진행도 후반에 staggered 로 노출 */
+.about-slogan-line,
+.about-slogan-desc {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* 모바일: 핀 구간 축소 */
+@media (max-width: 760px) {
+  .about-slogan-pin {
+    height: 130vh;
+  }
+}
+
+/* 모션 최소화: 핀/스케일 해제하고 풀스크린 + 텍스트 정적 노출 */
+@media (prefers-reduced-motion: reduce) {
+  .about-slogan-pin {
+    height: auto;
+  }
+
+  .about-slogan {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .about-slogan-bg {
+    clip-path: none;
+  }
+
+  .about-slogan-overlay {
+    opacity: 0.55;
+  }
+
+  .about-slogan-line,
+  .about-slogan-desc {
+    opacity: 1;
+  }
 }
 
 .about-slogan-inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   max-width: 1400px;
 }

@@ -83,23 +83,26 @@
       </div>
     </section>
 
-    <!-- ============================== SECTION 2 — SLOGAN ============================== -->
-    <section class="about-slogan" data-screen-label="02 Slogan">
+    <!-- ============== SECTION 2 — SLOGAN (about_2 sticky scale reveal) ============== -->
+    <div class="about-slogan-pin">
+      <section class="about-slogan" data-screen-label="02 Slogan">
+        <div class="about-slogan-bg" aria-hidden="true"></div>
+        <div class="about-slogan-overlay" aria-hidden="true"></div>
 
-      <div class="about-slogan-inner">
-        <!-- 메인 거대 타이포 3줄 (아래에서 위로 순차 등장) -->
-        <h2 class="section-title about-slogan-title reveal" data-delay="1">
-          <span class="about-slogan-line"><span class="red">AD</span>VERTISEMENT</span>
-          <span class="about-slogan-line">CONNECT</span>
-          <span class="about-slogan-line"><span class="red">CODE</span>.</span>
-        </h2>
+        <div class="about-slogan-inner">
+          <h2 class="section-title about-slogan-title">
+            <span class="about-slogan-line"><span class="red">AD</span>VERTISEMENT</span>
+            <span class="about-slogan-line">CONNECT</span>
+            <span class="about-slogan-line"><span class="red">CODE</span>.</span>
+          </h2>
 
-        <p class="about-slogan-desc reveal" data-delay="2">
-          브랜드의 방향을 연결하고 광고·콘텐츠·디자인을<br />
-          하나의 흐름으로 운영하는 실무 중심 마케팅 그룹
-        </p>
-      </div>
-    </section>
+          <p class="about-slogan-desc">
+            브랜드의 방향을 연결하고 광고·콘텐츠·디자인을<br />
+            하나의 흐름으로 운영하는 실무 중심 마케팅 그룹
+          </p>
+        </div>
+      </section>
+    </div>
 
     <!-- ============================== SECTION 3 — ORG CHART ============================== -->
     <section class="about-org" data-screen-label="03 Org">
@@ -320,6 +323,58 @@
         <span class="sep" aria-hidden="true"></span>
       </div>`;
       track.innerHTML = unit.repeat(4);
+    })();
+
+    // ===== Section 2 슬로건 — 대각선 와이프 reveal (about_2 사선 펼침 + 텍스트 staggered) =====
+    (function () {
+      const pin = document.querySelector('.about-slogan-pin');
+      const section = pin && pin.querySelector('.about-slogan');
+      if (!pin || !section) return;
+      const bg = section.querySelector('.about-slogan-bg');
+      const overlay = section.querySelector('.about-slogan-overlay');
+      const items = [...section.querySelectorAll('.about-slogan-line'),
+      section.querySelector('.about-slogan-desc')].filter(Boolean);
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+      const lerp = (a, b, t) => a + (b - a) * t;
+      const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+      const SLANT = 38; // 경계선 사선 기울기(%) — 클수록 더 비스듬함
+
+      let ticking = false;
+      function render() {
+        ticking = false;
+        const rect = pin.getBoundingClientRect();
+        const total = rect.height - window.innerHeight;
+        const p = total > 0 ? clamp(-rect.top / total, 0, 1) : 0;
+
+        // 와이프는 진행도 0~0.5 에서 끝낸다 (조금만 내려도 금방 꽉 참)
+        const w = easeOut(Math.min(1, p / 0.5));
+        // 좌상단→우하단 대각선 경계: 윗변이 앞서고 아랫변이 SLANT 만큼 뒤따라옴
+        const topX = clamp(w * (100 + SLANT), 0, 100);
+        const botX = clamp(w * (100 + SLANT) - SLANT, 0, 100);
+        bg.style.clipPath =
+          'polygon(0 0, ' + topX.toFixed(2) + '% 0, ' +
+          botX.toFixed(2) + '% 100%, 0 100%)';
+        overlay.style.opacity = lerp(0.2, 1, w).toFixed(3);
+
+        // 텍스트는 와이프가 끝난 뒤(0.55~) staggered 로 떠오름. 풀스크린 후 읽을 여유 확보.
+        const tStart = 0.55, step = 0.06, dur = 0.12;
+        items.forEach((el, i) => {
+          const s = tStart + i * step;
+          const lp = clamp((p - s) / dur, 0, 1);
+          el.style.opacity = lp.toFixed(3);
+          el.style.transform = 'translateY(' + lerp(30, 0, lp).toFixed(1) + 'px)';
+        });
+      }
+      function onScroll() {
+        if (!ticking) { ticking = true; requestAnimationFrame(render); }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      render();
     })();
 
     // ===== Section 1 hero — 진입 시 마스크 reveal + 우측 본문 fade-up (slow ease-out) =====
