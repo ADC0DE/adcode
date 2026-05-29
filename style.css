@@ -335,26 +335,11 @@ select {
   letter-spacing: -0.02em;
   color: var(--fg);
   text-shadow: 0 6px 34px rgba(0, 0, 0, .55);
-
-  /* 진입 인터렉션 — 좌→우로 천천히 슬라이드 reveal.
-     .played 가 붙으면 clip-path 가 0 까지 열리며 텍스트가 왼쪽부터 드러난다. */
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 3s cubic-bezier(.2, .85, .25, 1);
-}
-
-.hero-media-label.played {
-  clip-path: inset(0 0 0 0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-media-label {
-    clip-path: none !important;
-    transition: none !important;
-  }
 }
 
 .hero-media-label span {
   display: block;
+  min-height: 1.02em;
 }
 
 .hero-media-label .red {
@@ -1394,6 +1379,8 @@ select {
 .about-hero-title {
   transform: translateY(-90px);
   white-space: nowrap;
+  /* .section-title 토큰보다 약 1.5배 작게 (이 타이틀만 예외) */
+  font-size: clamp(24px, 3.3vw, 48px);
 }
 
 /* === Section 1 hero reveal — 줄별 마스크 슬라이드 + 우측 본문 stagger fade-up.
@@ -1506,10 +1493,12 @@ select {
   display: flex;
   align-items: center;
   overflow: hidden;
-  /* 시네마틱 다크 배경 — 좌하단 빨강 글로우 + 우상단 흰빛 글로우 (잔잔한 그라데이션) */
+  /* 배경 이미지(about_2.png) + 가독성용 다크 오버레이 + 기존 시네마틱 글로우 */
   background:
     radial-gradient(ellipse 60% 55% at 0% 100%, rgba(200, 24, 31, 0.16), transparent 60%),
     radial-gradient(ellipse 50% 40% at 100% 0%, rgba(255, 255, 255, 0.04), transparent 60%),
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url('/public/about/about_2.png') center / cover no-repeat,
     #0a0a0a;
 }
 

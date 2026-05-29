@@ -400,12 +400,23 @@
       });
     })();
 
-    // ===== hero-media-label — 페이지 진입 시 좌→우 슬라이드 reveal =====
-    // 초기 paint 가 끝난 뒤 트리거. IO 를 쓰면 above-fold 타이밍 이슈로 transition 이 무시되어 안 나타나는 일이 있어 setTimeout 로 단순화.
+    // ===== hero-media-label — 페이지 진입 시 한 글자씩 타이핑 reveal =====
     (function () {
       const el = document.querySelector('.hero-media-label');
       if (!el) return;
-      setTimeout(() => el.classList.add('played'), 120);
+      const spans = [...el.querySelectorAll('span')];
+      const words = spans.map(s => s.textContent);
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      spans.forEach(s => { s.textContent = ''; });
+      let wi = 0, ci = 0;
+      const timer = setInterval(() => {
+        if (wi >= words.length) { clearInterval(timer); return; }
+        ci++;
+        spans[wi].textContent = words[wi].slice(0, ci);
+        if (ci >= words[wi].length) {
+          wi++; ci = 0;
+        }
+      }, 110);
     })();
 
     // ===== marquee =====
