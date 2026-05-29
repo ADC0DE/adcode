@@ -1368,9 +1368,10 @@ select {
 /* 2-col grid — 좌: 타이틀 / 우: 본문(우측 정렬, 더 오른쪽으로 떨어뜨림) */
 .about-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: 140px;
-  /* 간격 키워 우측 본문을 시각적으로 더 오른쪽으로 */
+  /* 좌측 타이틀은 nowrap 이라 내용 폭(auto)만큼 정확히 차지 — 폭이 부족해 "흐름을"이 잘리던 문제 방지.
+     우측 본문은 남는 공간(1fr)을 받아 우측 정렬. */
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 100px;
   align-items: center;
 }
 
@@ -1380,7 +1381,13 @@ select {
   transform: translateY(-90px);
   white-space: nowrap;
   /* .section-title 토큰보다 약 1.5배 작게 (이 타이틀만 예외) */
-  font-size: clamp(24px, 3.3vw, 48px);
+  font-size: clamp(28px, 3.8vw, 56px);
+  line-height: 1.4;
+}
+
+/* "실무형 마케팅 그룹" — 기본 빨강(--red)보다 살짝 연한 빨강. 이 타이틀에만 적용. */
+.about-hero-title .accent {
+  color: #df383f;
 }
 
 /* === Section 1 hero reveal — 줄별 마스크 슬라이드 + 우측 본문 stagger fade-up.
@@ -1718,13 +1725,13 @@ select {
   align-items: center;
 }
 
-/* ADCODE 로고 → 수직 트렁크로 연결되는 가로선 */
+/* ADCODE 로고 → 수직 트렁크로 연결되는 가로선. 너비는 .org-tree gap(72px)과 일치해야 트렁크에 닿음. */
 .org-top::after {
   content: "";
   position: absolute;
   top: 50%;
   left: 100%;
-  width: 56px;
+  width: 72px;
   height: 1px;
   background: rgba(255, 255, 255, 0.22);
 }
@@ -1878,7 +1885,7 @@ select {
 /* 타이틀 아래 안내 문구 — 조직구성 설명(.about-org-desc)과 톤 통일. */
 .about-location-desc {
   font-size: 17px;
-  line-height: 1.8;
+  line-height: 1.5;
   color: var(--fg-2);
   word-break: keep-all;
   margin-bottom: 40px;
@@ -1894,7 +1901,7 @@ select {
 .about-map iframe {
   display: block;
   width: 100%;
-  height: 340px;
+  height: 315px;
   border: 0;
   filter: grayscale(0.15) brightness(0.95);
 }
@@ -1910,6 +1917,7 @@ select {
   letter-spacing: -0.005em;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
   flex-wrap: wrap;
 }
@@ -1938,6 +1946,11 @@ select {
 .about-address .addr-key {
   font-weight: 800;
   letter-spacing: 0.06em;
+}
+
+/* 값(': 내용')은 키와 달리 볼드 해제 */
+.about-address .addr-val {
+  font-weight: 400;
 }
 
 .about-address .hl {
@@ -2167,7 +2180,7 @@ select {
   }
 
   .about-map iframe {
-    height: 320px;
+    height: 300px;
   }
 
   .about-address {
