@@ -1457,30 +1457,33 @@ select {
 /* 우측 본문 — 우측 정렬 */
 .about-hero-text {
   text-align: right;
-  transform: translateY(-100px);
+  transform: translateY(-80px);
+  max-width: 420px;
+  margin-left: auto;
 }
 
 /* 리드 문단(첫 문단) — 더 크고 굵게, 흰색 (빨강 바 제거) */
 .about-hero-lead {
-  font-size: clamp(20px, 1.9vw, 28px);
+  font-size: clamp(19px, 1.65vw, 25px);
   font-weight: 600;
-  line-height: 1.55;
-  letter-spacing: -0.015em;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
   color: var(--fg);
   word-break: keep-all;
-  margin: 0 0 32px;
+  margin: 0 0 26px;
 }
 
 /* 나머지 본문 — 부드러운 회색, 우측정렬 (parent 상속) */
 .about-hero-rest {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .about-hero-rest p {
-  font-size: 16px;
-  line-height: 1.85;
+  font-size: 15px;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
   color: var(--fg-2);
   word-break: keep-all;
 }
@@ -1611,7 +1614,7 @@ select {
 .about-slogan-desc {
   font-size: clamp(16px, 1.5vw, 21px);
   font-weight: 500;
-  line-height: 1.65;
+  line-height: 1.9;
   color: var(--fg);
   letter-spacing: -0.005em;
   max-width: 600px;
@@ -1686,10 +1689,15 @@ select {
   margin-bottom: 80px;
 }
 
-/* 조직구성 타이틀 — 타이포는 .section-title 토큰 사용. (별도 속성 없음, 클래스 유지용) */
+/* 조직구성·찾아오시는길 타이틀 — 같은 페이지 동급 섹션 헤드.
+   .section-title 토큰보다 살짝 작게(통일감). 두 헤드는 항상 동일 크기로 유지. */
+.about-org-title,
+.about-location-title {
+  font-size: clamp(32px, 4.4vw, 58px);
+}
 
 .about-org-desc {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.8;
   color: var(--fg-2);
   word-break: keep-all;
@@ -1700,7 +1708,7 @@ select {
   position: relative;
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 56px;
+  gap: 72px;
   align-items: center;
 }
 
@@ -1724,9 +1732,9 @@ select {
 .org-cols {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
   position: relative;
-  padding-left: 36px;
+  padding-left: 44px;
 }
 
 /* 한 행: [수평 분기선] [부서 박스] [하위팀 가로 나열] */
@@ -1742,9 +1750,9 @@ select {
 .org-col::before {
   content: "";
   position: absolute;
-  left: -36px;
+  left: -44px;
   top: 50%;
-  width: 36px;
+  width: 44px;
   height: 1px;
   background: rgba(255, 255, 255, 0.22);
 }
@@ -1754,9 +1762,9 @@ select {
 .org-col::after {
   content: "";
   position: absolute;
-  left: -36px;
-  top: -7px;
-  bottom: -7px;
+  left: -44px;
+  top: -9px;
+  bottom: -9px;
   width: 1px;
   background: rgba(255, 255, 255, 0.22);
 }
@@ -1784,12 +1792,12 @@ select {
 /* ADCODE 루트 — 와인레드 배경 + 실제 흰색 로고 */
 .org-root {
   background: var(--red);
-  padding: 22px 52px;
+  padding: 28px 64px;
   border-radius: 14px;
 }
 
 .org-root img {
-  height: 38px;
+  height: 48px;
   width: auto;
   display: block;
 }
@@ -1799,9 +1807,9 @@ select {
   width: 100%;
   background: #000;
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
-  padding: 17px 18px;
+  padding: 30px 22px;
   border: 0;
   letter-spacing: -0.005em;
   position: relative;
@@ -1835,14 +1843,14 @@ select {
   background: #d8d8d8;
   color: #141414;
   text-align: center;
-  padding: 13px 14px;
+  padding: 28px 12px;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: -0.01em;
   white-space: nowrap;
   flex: 0 0 auto;
-  width: 168px;
+  width: 150px;
   position: relative;
 }
 
@@ -1862,9 +1870,18 @@ select {
   padding: 140px 44px 160px;
 }
 
-/* 찾아오시는길 타이틀 — 타이포는 .section-title 토큰 사용. 간격만 지정. */
+/* 찾아오시는길 타이틀 — 폰트 크기는 위 .about-org-title 그룹 규칙에서 통일. 간격만 지정. */
 .about-location-title {
-  margin-bottom: 48px;
+  margin-bottom: 20px;
+}
+
+/* 타이틀 아래 안내 문구 — 조직구성 설명(.about-org-desc)과 톤 통일. */
+.about-location-desc {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--fg-2);
+  word-break: keep-all;
+  margin-bottom: 40px;
 }
 
 .about-map {
@@ -1877,7 +1894,7 @@ select {
 .about-map iframe {
   display: block;
   width: 100%;
-  height: 400px;
+  height: 340px;
   border: 0;
   filter: grayscale(0.15) brightness(0.95);
 }
@@ -1895,6 +1912,27 @@ select {
   align-items: center;
   gap: 4px;
   flex-wrap: wrap;
+}
+
+/* 정보 한 묶음(아이콘 + 키 + 값) — 줄바꿈 시 묶음 단위로 유지 */
+.about-address .addr-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 라인 SVG 픽토그램 — 흰 선, 글자 크기에 맞춰 정렬 */
+.about-address .addr-ico {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  stroke: #fff;
+}
+
+/* 정보 구분자 ㅣ */
+.about-address .addr-sep {
+  opacity: 0.55;
+  margin: 0 8px;
 }
 
 .about-address .addr-key {
