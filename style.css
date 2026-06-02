@@ -1580,6 +1580,10 @@ select {
     opacity: 1;
   }
 
+  .info-box {
+    opacity: 1;
+  }
+
   .info-box-text {
     animation: none;
     transform: none;
@@ -1606,7 +1610,14 @@ select {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 14px;
-  background: rgba(0, 0, 0, 0.4);
+  background: transparent;
+  /* 이미지 와이프가 끝난 뒤에 나타남 (JS 가 .boxes-on 부여) */
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+.about-slogan.boxes-on .info-box {
+  opacity: 1;
 }
 
 .info-box-text {
@@ -1615,7 +1626,13 @@ select {
   font-size: 15px;
   letter-spacing: 0.04em;
   animation: infoBoxSlide 4s linear infinite;
+  /* 박스가 켜지기 전엔 슬라이드 정지 → 켜지면 처음부터 재생 */
+  animation-play-state: paused;
   will-change: transform, opacity;
+}
+
+.about-slogan.boxes-on .info-box-text {
+  animation-play-state: running;
 }
 
 .info-box-text .ib-key {
