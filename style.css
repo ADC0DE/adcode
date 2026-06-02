@@ -620,6 +620,11 @@ select {
   background: var(--bg);
 }
 
+/* 회사소개 히어로 하단 빈 공간 축소 — 띠를 위로 당김(adcode_수정.png 화살표 만큼) */
+.about .marquee-wrap {
+  margin-top: -85px;
+}
+
 .marquee {
   position: relative;
   padding: 10px 0;
@@ -2073,6 +2078,10 @@ select {
 
   .english .big {
     font-size: 22px;
+  }
+
+  .about .marquee-wrap {
+    margin-top: 0;
   }
 
   .marquee {
