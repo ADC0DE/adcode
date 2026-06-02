@@ -1579,6 +1579,12 @@ select {
   .about-slogan-desc {
     opacity: 1;
   }
+
+  .info-box-text {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .about-slogan-inner {
@@ -1587,6 +1593,62 @@ select {
   width: 100%;
   max-width: 1400px;
 }
+
+/* === Section 2 정보 박스 — 박스 안 텍스트 세로 무한 슬라이드 === */
+.info-box {
+  position: absolute;
+  z-index: 3;
+  width: 220px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.info-box-text {
+  white-space: nowrap;
+  color: var(--fg);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  animation: infoBoxSlide 4s linear infinite;
+  will-change: transform, opacity;
+}
+
+.info-box-text .ib-key {
+  color: var(--red);
+  font-weight: 700;
+}
+
+@keyframes infoBoxSlide {
+  0%   { transform: translateY(100%); opacity: 0; }
+  20%  { transform: translateY(0);    opacity: 1; }
+  80%  { transform: translateY(0);    opacity: 1; }
+  100% { transform: translateY(-100%); opacity: 0; }
+}
+
+/* 배치 — 메인 카피(좌측)와 겹치지 않게 우측·중앙에 자유 배치 */
+.info-box--insight {
+  top: 130px;
+  right: 60px;
+}
+
+.info-box--strategy {
+  top: 50%;
+  left: 52%;
+  transform: translateY(-50%);
+}
+
+.info-box--operate {
+  bottom: 120px;
+  right: 60px;
+}
+
+/* 셋이 완전히 동일하게(같은 속도·같은 타이밍) 움직이도록 delay 통일 */
+.info-box-text { animation-delay: 0s; }
 
 /* 상단 작은 라벨 — 좌측 가로 라인 + 모노 텍스트 */
 .about-slogan-eyebrow {
@@ -2174,6 +2236,33 @@ select {
 
   .about-slogan-eyebrow .dash {
     width: 30px;
+  }
+
+  /* 정보 박스 — 모바일 축소 & 화면 안 재배치 */
+  .info-box {
+    width: 160px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .info-box-text {
+    font-size: 13px;
+  }
+
+  .info-box--insight {
+    top: 96px;
+    right: 16px;
+  }
+
+  .info-box--strategy {
+    top: 50%;
+    left: auto;
+    right: 16px;
+  }
+
+  .info-box--operate {
+    bottom: 96px;
+    right: 16px;
   }
 
   .about-org {
