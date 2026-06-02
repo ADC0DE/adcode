@@ -622,7 +622,7 @@ select {
 
 /* 회사소개 히어로 하단 빈 공간 축소 — 띠를 위로 당김(adcode_수정.png 화살표 만큼) */
 .about .marquee-wrap {
-  margin-top: -85px;
+  margin-top: -235px;
 }
 
 .marquee {
