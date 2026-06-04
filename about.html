@@ -30,6 +30,7 @@
         <a href="/">애드코드</a>
         <div class="dropdown" role="menu">
           <a href="/about" role="menuitem">회사소개</a>
+          <a href="/business" role="menuitem">사업영역</a>
         </div>
       </div>
       <a href="/marketing">마케팅</a>
@@ -37,38 +38,32 @@
       <a href="/portfolio">포트폴리오</a>
       <a href="/#contact">CONTACT</a>
     </nav>
+
+    <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
   <main class="about">
 
     <!-- ============================== SECTION 1 — HERO INTRO ============================== -->
     <section class="about-hero" data-screen-label="01 About Hero">
-      <div class="about-hero-inner">
-        <div class="about-hero-grid">
-          <!-- 좌측: 메인 타이틀 -->
-          <h1 class="section-title about-hero-title">
-            <span class="hero-line"><span class="hero-line__in">브랜드를 이해하고 실제 운영 흐름을</span></span>
-            <span class="hero-line"><span class="hero-line__in">함께 만드는 <span class="accent">실무형 마케팅 그룹</span></span></span>
-          </h1>
+      <div class="about-hero-photo" aria-hidden="true"></div>
 
-          <!-- 우측: 본문 (우측 정렬) — 첫 문단은 강조 -->
-          <div class="about-hero-text">
-            <p class="about-hero-lead hero-fade" data-stagger="1">
-              애드코드는 단순 광고 운영보다<br />
-              브랜드의 방향과 흐름을 함께 고민합니다.
-            </p>
-            <div class="about-hero-rest">
-              <p class="hero-fade" data-stagger="2">
-                광고 · 콘텐츠 · 디자인이 따로 움직이지 않도록 운영하며,<br />
-                업종과 상황에 맞는 실질적인 운영 방향을 만들어갑니다.
-              </p>
-              <p class="hero-fade" data-stagger="3">
-                보여주기 위한 마케팅보다 실제 반응과<br />
-                브랜드 흐름을 더 중요하게 생각합니다.
-              </p>
-            </div>
-          </div>
+      <div class="about-hero-inner">
+        <div class="about-hero-copy">
+          <span class="about-hero-label"><span class="red">ADCODE</span> MARKETING</span>
+          <h1 class="about-hero-title">
+            광고를 넘어<br />
+            <span class="red">브랜드</span>를 운영합니다
+          </h1>
+          <a class="about-hero-cta" href="/portfolio">OUR WORKS <span aria-hidden="true">→</span></a>
         </div>
+
+        <p class="about-hero-caption">
+          기획 · 콘텐츠 · 광고 · 디자인<br />
+          하나의 흐름으로 연결합니다.
+        </p>
       </div>
     </section>
 
@@ -117,44 +112,74 @@
     <!-- ============================== SECTION 3 — ORG CHART ============================== -->
     <section class="about-org" data-screen-label="03 Org">
       <div class="about-org-head">
-        <h2 class="section-title about-org-title reveal" data-delay="1">조직구성</h2>
-        <p class="about-org-desc reveal" data-delay="2">
-          전환은 개인이 아닌, 구조와 팀으로 만들어 집니다.<br />
-          역할을 나누고 결과는 함께 만듭니다.
+        <div class="about-org-headline">
+          <span class="about-org-label reveal" data-delay="1"><span class="red">조직구성</span><span class="dash"></span></span>
+          <h2 class="section-title about-org-title reveal" data-delay="2">
+            전문성과 협업으로<br />
+            더 큰 <span class="red">성과</span>를 만듭니다.
+          </h2>
+        </div>
+        <p class="about-org-desc reveal" data-delay="3">
+          전문 분야의 유기적인 협업을 통해<br />
+          브랜드의 성장을 함께 만들어 갑니다.
         </p>
       </div>
 
-      <div class="org-tree reveal" data-delay="3">
-        <!-- Top: ADCODE (실제 로고 이미지) -->
-        <div class="org-top">
-          <div class="org-node org-root">
-            <img src="/public/logo/adcode_logo_white_500w.png" alt="ADCODE" />
-          </div>
+      <div class="org reveal" data-delay="3">
+        <!-- 루트: ADCODE -->
+        <div class="org-root">
+          <img src="/public/logo/adcode_logo_white_500w.png" alt="ADCODE" />
         </div>
 
-        <!-- 5 departments -->
-        <div class="org-cols">
+        <!-- 5개 부서 -->
+        <div class="org-branches">
+          <span class="org-bus" aria-hidden="true"></span>
+
           <div class="org-col">
-            <div class="org-node org-dept">경영지원부</div>
+            <span class="org-drop" aria-hidden="true"></span>
+            <div class="org-dept">
+              <span class="org-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </span>
+              <span class="org-dept-name">경영지원부</span>
+            </div>
             <ul class="org-teams">
-              <li>인사/노무/재무관리</li>
+              <li>인사 / 노무 / 재무관리</li>
               <li>운영관리</li>
             </ul>
           </div>
 
           <div class="org-col">
-            <div class="org-node org-dept">광고사업부</div>
+            <span class="org-drop" aria-hidden="true"></span>
+            <div class="org-dept">
+              <span class="org-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m3 11 18-5v12L3 14v-3z" /><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+                </svg>
+              </span>
+              <span class="org-dept-name">광고사업부</span>
+            </div>
             <ul class="org-teams">
               <li>마케팅기획팀</li>
               <li>바이럴마케팅팀</li>
               <li>콘텐츠미디어팀</li>
-              <li>디자인제작</li>
+              <li>디자인제작팀</li>
               <li>메디컬마케팅팀</li>
             </ul>
           </div>
 
           <div class="org-col">
-            <div class="org-node org-dept">사업개발부</div>
+            <span class="org-drop" aria-hidden="true"></span>
+            <div class="org-dept">
+              <span class="org-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 3h20" /><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3" /><path d="m7 21 5-5 5 5" /><path d="M12 16v-4" />
+                </svg>
+              </span>
+              <span class="org-dept-name">사업개발부</span>
+            </div>
             <ul class="org-teams">
               <li>쇼핑몰팀</li>
               <li>커뮤니케이션 사업팀</li>
@@ -162,17 +187,33 @@
           </div>
 
           <div class="org-col">
-            <div class="org-node org-dept">플랫폼사업부</div>
+            <span class="org-drop" aria-hidden="true"></span>
+            <div class="org-dept">
+              <span class="org-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8" /><path d="M12 17v4" />
+                </svg>
+              </span>
+              <span class="org-dept-name">플랫폼사업부</span>
+            </div>
             <ul class="org-teams">
-              <li>채널운영관리</li>
+              <li>채널운영관리팀</li>
               <li>크리에이터채널팀</li>
             </ul>
           </div>
 
           <div class="org-col">
-            <div class="org-node org-dept">컨텐츠디렉터</div>
+            <span class="org-drop" aria-hidden="true"></span>
+            <div class="org-dept">
+              <span class="org-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" /><path d="M14 2v5h5" /><path d="M9 13h6" /><path d="M9 17h6" />
+                </svg>
+              </span>
+              <span class="org-dept-name">콘텐츠디렉터</span>
+            </div>
             <ul class="org-teams">
-              <li>검수/코칭</li>
+              <li>검수 / 코칭</li>
             </ul>
           </div>
         </div>
@@ -181,6 +222,7 @@
 
     <!-- ============================== SECTION 4 — LOCATION ============================== -->
     <section class="about-location" data-screen-label="04 Location">
+      <div class="about-location-inner">
       <h2 class="section-title about-location-title reveal" data-delay="1">찾아오시는길</h2>
 
       <p class="about-location-desc reveal" data-delay="2">
@@ -224,6 +266,7 @@
           <span class="addr-key">E-mail</span>
           <span class="addr-val">: usarmy0220@naver.com</span>
         </span>
+      </div>
       </div>
     </section>
 
@@ -341,6 +384,22 @@
       });
     })();
 
+    // ===== 모바일 햄버거 메뉴 토글 =====
+    (function () {
+      const gnb = document.querySelector('.gnb');
+      const toggle = gnb && gnb.querySelector('.nav-toggle');
+      if (!toggle) return;
+      toggle.addEventListener('click', () => {
+        const open = gnb.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      // 실제 이동 링크 클릭 시 메뉴 닫기 (애드코드 드롭다운 토글 트리거는 제외)
+      gnb.querySelectorAll('.nav a[href]').forEach(a => {
+        if (a.parentElement.classList.contains('has-dropdown')) return;
+        a.addEventListener('click', () => gnb.classList.remove('nav-open'));
+      });
+    })();
+
     // ===== scroll reveal =====
     (function () {
       const io = new IntersectionObserver((entries) => {
@@ -361,7 +420,10 @@
       const unit = `
       <div class="item">
         <span class="word red">ADCODE&nbsp;WORKS</span>
+        <span class="sep" aria-hidden="true"></span>
         <span class="word">BRAND&nbsp;OPERATING</span>
+        <span class="sep" aria-hidden="true"></span>
+        <span class="word red">ADCODE</span>
         <span class="sep" aria-hidden="true"></span>
       </div>`;
       track.innerHTML = unit.repeat(4);
@@ -435,24 +497,6 @@
         });
       }, { threshold: 0.15 });
       io.observe(hero);
-    })();
-
-    // ===== mobile: 조직도 부서 탭하면 하위 팀 펼침/접힘 (≤760px 만) =====
-    (function () {
-      const mq = window.matchMedia('(max-width: 760px)');
-      const cols = document.querySelectorAll('.org-col');
-      function attach() {
-        cols.forEach(col => {
-          col.classList.toggle('mobile', mq.matches);
-        });
-      }
-      attach();
-      mq.addEventListener?.('change', attach);
-      cols.forEach(col => {
-        col.querySelector('.org-dept')?.addEventListener('click', () => {
-          if (mq.matches) col.classList.toggle('open');
-        });
-      });
     })();
 
     // ===== legal modals =====
