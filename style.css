@@ -2787,15 +2787,15 @@ select {
   word-break: keep-all;
 }
 
-/* 아이콘 — 가로/세로 비율이 달라도 동일한 높이로 표시 (디자인.png는 세로형) */
+/* 아이콘 — 모든 이미지를 그림 영역에 맞춰 크롭해둠(여백 균일) → 동일 높이로 크게 표시 */
 .biz-cat-icon {
   display: block;
   width: auto;
   max-width: 100%;
-  height: 240px;
+  height: 320px;
   object-fit: contain;
   object-position: left center;
-  margin-top: 48px;
+  margin-top: 40px;
 }
 
 /* 우측 */
@@ -2879,17 +2879,17 @@ select {
 
 .biz-tags {
   color: var(--red);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.01em;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   word-break: keep-all;
 }
 
 /* 반전 배경 위 — 어두운 본문 글씨 */
 .biz-item-desc {
-  font-size: 14.5px;
-  line-height: 1.75;
+  font-size: 17px;
+  line-height: 1.7;
   color: #333;
   word-break: keep-all;
 }
@@ -2917,7 +2917,7 @@ select {
 .biz-steps {
   display: flex;
   align-items: stretch;
-  gap: 18px;
+  gap: 34px;
   max-width: 1500px;
   margin: 0 auto;
   list-style: none;
@@ -2925,19 +2925,18 @@ select {
 
 .biz-step {
   flex: 1;
+  /* "01 문의접수" 한 줄 가로 배치 + 세로 길이 축소 */
   display: flex;
-  flex-direction: column;
-  gap: 7px;
-  padding: 18px 16px;
-  border-radius: 32px;
-  text-align: left;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 14px;
+  border-radius: 999px;
+  text-align: center;
+  white-space: nowrap;
   position: relative;
   color: #fff;
-  /* 글자색은 7박스 모두 흰색으로 통일 — 밝은 박스(03~05)에서도 보이도록 어두운 외곽선(그림자) 처리. 어두운 박스에선 거의 티 안 남 */
-  text-shadow:
-    0 0 1px rgba(0, 0, 0, 0.9),
-    0 0 3px rgba(0, 0, 0, 0.7),
-    0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 /* 진한 회색 → 점점 밝게 → CI 와인레드 그라데이션 */
@@ -2949,17 +2948,25 @@ select {
 .biz-step:nth-child(6) { background: #e8807f; }
 .biz-step:nth-child(7) { background: var(--red); }
 
-/* 단계 사이 화살표 — 넓어진 gap 중앙에 배치 */
+/* 밝은 박스(03~05)는 어두운 글자로 가독성 확보 (그림자 미사용) */
+.biz-step:nth-child(3),
+.biz-step:nth-child(4),
+.biz-step:nth-child(5) {
+  color: #141414;
+}
+
+/* 단계 사이 화살표 — 박스 사이 간격(gap)의 정중앙에 크게 배치 */
 .biz-step:not(:last-child)::after {
   content: "→";
   position: absolute;
-  right: -13px;
+  left: 100%;
   top: 50%;
-  transform: translateY(-50%);
+  margin-left: 17px; /* gap(34px)의 절반 → 두 박스 사이 정중앙 */
+  transform: translate(-50%, -50%);
   z-index: 1;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 700;
-  color: var(--fg-3);
+  color: var(--fg-2);
 }
 
 .biz-step-no {
@@ -2967,11 +2974,11 @@ select {
   font-size: 13px;
   font-weight: 700;
   color: inherit;
-  opacity: 0.6;
+  opacity: 0.55;
 }
 
 .biz-step-name {
-  font-size: clamp(15px, 1.3vw, 18px);
+  font-size: clamp(13px, 1vw, 16px);
   font-weight: 700;
   letter-spacing: -0.01em;
   color: inherit;
@@ -2995,7 +3002,7 @@ select {
   }
 
   .biz-cat-icon {
-    height: 200px;
+    height: 240px;
   }
 
   /* 프로세스 7단계 — 한 줄(7열)이면 텍스트가 줄바꿈되어 답답함 → 2열 그리드로 */
