@@ -2328,6 +2328,29 @@ select {
     align-items: stretch;
   }
 
+  /* "애드코드" 옆 펼침 표시(▾) — 모바일에서만. (데스크톱 .nav a::after 밑줄을 대체) */
+  .nav-item.has-dropdown > a {
+    position: relative;
+  }
+
+  .nav-item.has-dropdown > a::after {
+    content: "▾";
+    position: static;
+    width: auto;
+    height: auto;
+    margin-left: 8px;
+    background: none;
+    transform: none;
+    color: var(--fg-2);
+    font-size: 0.8em;
+    display: inline-block;
+    transition: transform .2s ease;
+  }
+
+  .nav-item.has-dropdown.open > a::after {
+    transform: rotate(180deg);
+  }
+
   /* 드롭다운 — 모바일에선 인라인으로 펼침(흰 박스 제거) */
   .nav-item .dropdown {
     position: static;

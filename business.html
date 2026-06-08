@@ -14,6 +14,7 @@
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 
   <link rel="stylesheet" href="/style.css" />
+  <script src="/nav.js" defer></script>
 
 </head>
 
@@ -33,9 +34,7 @@
           <a href="/business" role="menuitem">사업영역</a>
         </div>
       </div>
-      <a href="/marketing">마케팅</a>
       <a href="/design">디자인</a>
-      <a href="/portfolio">포트폴리오</a>
       <a href="/#contact">CONTACT</a>
     </nav>
 
@@ -374,44 +373,6 @@
   </div>
 
   <script>
-    // ===== GNB dropdown — 데스크톱은 hover(CSS), 터치 기기는 탭 토글 =====
-    (function () {
-      document.querySelectorAll('.nav-item.has-dropdown').forEach(item => {
-        const trigger = item.querySelector(':scope > a');
-        if (!trigger) return;
-        trigger.addEventListener('click', (e) => {
-          if (window.matchMedia('(hover: none)').matches) {
-            if (!item.classList.contains('open')) {
-              e.preventDefault();
-              document.querySelectorAll('.nav-item.has-dropdown.open').forEach(o => o.classList.remove('open'));
-              item.classList.add('open');
-            }
-          }
-        });
-      });
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.nav-item.has-dropdown')) {
-          document.querySelectorAll('.nav-item.has-dropdown.open').forEach(el => el.classList.remove('open'));
-        }
-      });
-    })();
-
-    // ===== 모바일 햄버거 메뉴 토글 =====
-    (function () {
-      const gnb = document.querySelector('.gnb');
-      const toggle = gnb && gnb.querySelector('.nav-toggle');
-      if (!toggle) return;
-      toggle.addEventListener('click', () => {
-        const open = gnb.classList.toggle('nav-open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-      // 실제 이동 링크 클릭 시 메뉴 닫기 (애드코드 드롭다운 토글 트리거는 제외)
-      gnb.querySelectorAll('.nav a[href]').forEach(a => {
-        if (a.parentElement.classList.contains('has-dropdown')) return;
-        a.addEventListener('click', () => gnb.classList.remove('nav-open'));
-      });
-    })();
-
     // ===== scroll reveal =====
     (function () {
       const io = new IntersectionObserver((entries) => {
