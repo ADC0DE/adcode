@@ -1443,6 +1443,7 @@ select {
 /* OUR WORKS 버튼 — 검정 배경 + 흰 테두리 + 화살표 */
 .about-hero-cta {
   display: inline-flex;
+  align-self: flex-start;
   align-items: center;
   gap: 12px;
   margin-top: 44px;
@@ -2214,10 +2215,26 @@ select {
     font-size: clamp(40px, 7.4vw, 76px);
   }
 
+  /* 모바일/태블릿(스택) — Plan A: 왼쪽 정렬 + 글자 높이에 맞는 짧은 왼쪽 빨강선.
+     position:relative 로 ::before 선이 캡션(=글자 높이) 안에 머물게 함(거대화 방지). */
   .about-hero-caption {
-    position: static;
+    position: relative;
+    top: auto;
+    right: auto;
     transform: none;
-    margin-top: 44px;
+    text-align: left;
+    margin-top: 24px;
+    padding: 0 0 0 16px;
+  }
+
+  .about-hero-caption::before {
+    left: 0;
+    right: auto;
+  }
+
+  /* 설명 바로 아래로 버튼 배치(붕 뜨지 않게 간격 축소) */
+  .about-hero-cta {
+    margin-top: 28px;
   }
 
   .about-org {
