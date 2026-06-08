@@ -666,19 +666,19 @@ select {
   display: flex;
   align-items: center;
   width: max-content;
-  animation: roll 15s linear infinite;
+  animation: roll 30s linear infinite;
   will-change: transform;
 }
 
 .marquee-track .item {
   display: flex;
   align-items: center;
-  gap: 56px;
-  padding-right: 56px;
+  gap: 26px;
+  padding-right: 26px;
   font-weight: 800;
-  font-size: clamp(40px, 6vw, 96px);
+  font-size: clamp(22px, 3vw, 52px);
   line-height: 1;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.015em;
   white-space: nowrap;
 }
 
@@ -695,13 +695,11 @@ select {
   -webkit-text-stroke: 1.5px var(--fg);
 }
 
+/* 구분자 — 가운뎃점(·)으로 가독성 강화 */
 .marquee-track .item .sep {
-  width: 16px;
-  height: 16px;
-  background: var(--red);
-  border-radius: 50%;
-  flex: 0 0 16px;
-  transform: translateY(-0.06em);
+  color: var(--red);
+  font-weight: 800;
+  transform: translateY(-0.12em);
 }
 
 @keyframes roll {
@@ -1420,19 +1418,19 @@ select {
   margin-bottom: 30px;
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.34em;
-  color: var(--fg-3);
+  letter-spacing: 0.35em;
+  color: #676d6d;
 }
 
 .about-hero-label .red {
   color: var(--red);
 }
 
-/* 메인 大타이포 — 매우 크고 굵게, 줄간격 좁게. 줄바꿈은 <br>로 고정 */
+/* 메인 大타이포 — 다음 섹션과 충돌 방지 위해 살짝 축소, 줄간격 120%. 줄바꿈은 <br>로 고정 */
 .about-hero-title {
-  font-size: clamp(46px, 6.4vw, 104px);
+  font-size: clamp(42px, 5.8vw, 92px);
   font-weight: 800;
-  line-height: 1.04;
+  line-height: 1.2;
   letter-spacing: -0.03em;
   color: var(--fg);
   white-space: nowrap;
@@ -1471,22 +1469,23 @@ select {
   right: 9%;
   top: 50%;
   transform: translateY(calc(-50% + 40px));
-  padding-top: 18px;
-  text-align: left;
-  font-size: clamp(18px, 1.7vw, 25px);
+  padding-right: 22px;
+  text-align: right;
+  font-size: clamp(17px, 1.5vw, 22px);
   font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.5;
   color: var(--fg);
-  letter-spacing: 0.01em;
+  letter-spacing: 0.05em;
 }
 
+/* 텍스트 오른쪽의 세로 빨강선 ( | ) */
 .about-hero-caption::before {
   content: "";
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0;
-  width: 40px;
-  height: 3px;
+  bottom: 0;
+  width: 3px;
   background: var(--red);
 }
 
@@ -1631,6 +1630,7 @@ select {
   opacity: 0;
   pointer-events: none;
   background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.45) 50%, rgba(0, 0, 0, 0.22) 100%),
     radial-gradient(ellipse 60% 55% at 0% 100%, rgba(200, 24, 31, 0.18), transparent 60%),
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.62));
   will-change: opacity;
@@ -1785,9 +1785,11 @@ select {
   background: #888;
 }
 
-/* 메인 슬로건 — 타이포는 .section-title 토큰 사용. 간격만 지정. */
+/* 메인 슬로건 — 타이포는 .section-title 토큰 사용. 좌측 정렬 + 줄간격 120%. */
 .about-slogan-title {
   margin-bottom: 60px;
+  text-align: left;
+  line-height: 1.2;
 }
 
 .about-slogan-line {
@@ -1798,13 +1800,14 @@ select {
   color: var(--red);
 }
 
-/* 하단 설명 — 흰색, 차분한 굵기 */
+/* 하단 설명 — 흰색, 좌측 정렬, 줄간격 150%, 자간 50 */
 .about-slogan-desc {
   font-size: clamp(16px, 1.5vw, 21px);
   font-weight: 500;
-  line-height: 1.9;
+  line-height: 1.5;
   color: var(--fg);
-  letter-spacing: -0.005em;
+  letter-spacing: 0.05em;
+  text-align: left;
   max-width: 600px;
   word-break: keep-all;
 }
@@ -1880,37 +1883,35 @@ select {
   margin: 0 auto 60px;
 }
 
+/* 라벨 — "조직구성 > ORGANIZATION STRUCTURE" (자간 350, 보조 회색) */
 .about-org-label {
   display: inline-flex;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
   margin-bottom: 24px;
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.35em;
+  color: #676d6d;
 }
 
-.about-org-label .red {
-  color: var(--red);
+.about-org-label .sep {
+  color: #676d6d;
 }
 
-.about-org-label .dash {
-  display: inline-block;
-  width: 54px;
-  height: 1px;
-  background: var(--red);
-}
-
-/* 조직구성 타이틀 — 참고2 기준 적당한 크기 */
+/* 조직구성 타이틀 — 좌측 정렬, 자간 25 */
 .about-org-title {
   font-size: clamp(26px, 3.2vw, 46px);
   line-height: 1.25;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.025em;
+  text-align: left;
 }
 
-/* 찾아오시는길 타이틀 — 기존 톤 유지 */
+/* 찾아오시는길 타이틀 — 좌측 정렬, 자간 25 */
 .about-location-title {
   font-size: clamp(32px, 4.4vw, 58px);
+  letter-spacing: 0.025em;
+  text-align: left;
 }
 
 /* 우측 설명 — 세로 빨강 라인 + 2줄 (참고2: 너무 오른쪽 X, 안쪽으로 들여쓰기) */
@@ -2080,11 +2081,12 @@ select {
   margin-bottom: 20px;
 }
 
-/* 타이틀 아래 안내 문구 — 조직구성 설명(.about-org-desc)과 톤 통일. */
+/* 타이틀 아래 안내 문구 — 좌측 정렬, 보조 회색(#676d6d). */
 .about-location-desc {
   font-size: 17px;
   line-height: 1.5;
-  color: var(--fg-2);
+  color: #676d6d;
+  text-align: left;
   word-break: keep-all;
   margin-bottom: 40px;
 }
@@ -2105,7 +2107,7 @@ select {
 }
 
 .about-address {
-  margin-top: 18px;
+  margin-top: 40px;
   background: var(--red);
   color: #fff;
   padding: 24px 40px;
@@ -2120,7 +2122,7 @@ select {
   flex-wrap: wrap;
 }
 
-/* 정보 한 묶음(아이콘 + 키 + 값) — 줄바꿈 시 묶음 단위로 유지 */
+/* 정보 한 묶음(아이콘 + 키 + 값) — 아이콘·키·값 간격 통일(8px) */
 .about-address .addr-item {
   display: inline-flex;
   align-items: center;
@@ -2390,7 +2392,7 @@ select {
   }
 
   .marquee-track {
-    animation-duration: 22s;
+    animation-duration: 26s;
   }
 
   .contact {
