@@ -18,6 +18,7 @@
 
   <link rel="stylesheet" href="/style.css" />
   <script src="/nav.js" defer></script>
+  <script src="/marquee.js" defer></script>
 
 </head>
 
@@ -406,18 +407,6 @@
         });
       }, { threshold: 0.5 });
       io.observe(el);
-    })();
-
-    // ===== marquee =====
-    (function () {
-      const track = document.getElementById('marquee-track');
-      const unit = `
-      <div class="item">
-        <span class="sep" aria-hidden="true">·</span>
-        <span class="word red">ADCODE</span>
-        <span class="word">BRAND&nbsp;OPERATING</span>
-      </div>`;
-      track.innerHTML = unit.repeat(4);
     })();
 
     // ===== scroll reveal =====

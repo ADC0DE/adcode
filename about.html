@@ -15,6 +15,7 @@
 
   <link rel="stylesheet" href="/style.css" />
   <script src="/nav.js" defer></script>
+  <script src="/marquee.js" defer></script>
 
 </head>
 
@@ -370,19 +371,6 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
       document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-    })();
-
-    // ===== marquee =====
-    (function () {
-      const track = document.getElementById('marquee-track');
-      if (!track) return;
-      const unit = `
-      <div class="item">
-        <span class="sep" aria-hidden="true">·</span>
-        <span class="word red">ADCODE</span>
-        <span class="word">BRAND&nbsp;OPERATING</span>
-      </div>`;
-      track.innerHTML = unit.repeat(4);
     })();
 
     // ===== Section 2 슬로건 — 대각선 와이프 reveal (about_2 사선 펼침 + 텍스트 staggered) =====
