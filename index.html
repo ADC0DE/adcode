@@ -381,7 +381,7 @@
   </div>
 
   <script>
-    // ===== hero-media-label — 페이지 진입 시 한 글자씩 타이핑 reveal =====
+    // ===== hero-media-label — 화면에 보일 때 한 글자씩 타이핑 reveal =====
     (function () {
       const el = document.querySelector('.hero-media-label');
       if (!el) return;
@@ -389,15 +389,23 @@
       const words = spans.map(s => s.textContent);
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       spans.forEach(s => { s.textContent = ''; });
-      let wi = 0, ci = 0;
-      const timer = setInterval(() => {
-        if (wi >= words.length) { clearInterval(timer); return; }
-        ci++;
-        spans[wi].textContent = words[wi].slice(0, ci);
-        if (ci >= words[wi].length) {
-          wi++; ci = 0;
-        }
-      }, 110);
+      const start = () => {
+        let wi = 0, ci = 0;
+        const timer = setInterval(() => {
+          if (wi >= words.length) { clearInterval(timer); return; }
+          ci++;
+          spans[wi].textContent = words[wi].slice(0, ci);
+          if (ci >= words[wi].length) {
+            wi++; ci = 0;
+          }
+        }, 110);
+      };
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { start(); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.5 });
+      io.observe(el);
     })();
 
     // ===== marquee =====
@@ -405,9 +413,9 @@
       const track = document.getElementById('marquee-track');
       const unit = `
       <div class="item">
-        <span class="word red">ADCODE&nbsp;WORKS</span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span class="word red">ADCODE</span>
         <span class="word">BRAND&nbsp;OPERATING</span>
-        <span class="sep" aria-hidden="true"></span>
       </div>`;
       track.innerHTML = unit.repeat(4);
     })();

@@ -378,14 +378,9 @@
       if (!track) return;
       const unit = `
       <div class="item">
+        <span class="sep" aria-hidden="true">·</span>
         <span class="word red">ADCODE</span>
-        <span class="sep" aria-hidden="true">·</span>
         <span class="word">BRAND&nbsp;OPERATING</span>
-        <span class="sep" aria-hidden="true">·</span>
-        <span class="word red">ADCODE&nbsp;WORKS</span>
-        <span class="sep" aria-hidden="true">·</span>
-        <span class="word">BRAND&nbsp;STRATEGY</span>
-        <span class="sep" aria-hidden="true">·</span>
       </div>`;
       track.innerHTML = unit.repeat(4);
     })();
