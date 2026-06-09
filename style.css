@@ -321,7 +321,7 @@ select {
 .hero {
   position: relative;
   min-height: auto;
-  padding: 90px 44px 80px;
+  padding: 185px 44px 80px;
   display: grid;
   grid-template-rows: auto;
   gap: 32px;
@@ -695,7 +695,7 @@ select {
 
 /* 구분자 — 가운뎃점(·)으로 가독성 강화 */
 .marquee-track .item .sep {
-  color: var(--red);
+  color: var(--fg);
   font-weight: 800;
   transform: translateY(-0.12em);
 }
@@ -713,7 +713,7 @@ select {
 .marquee-foot {
   display: flex;
   justify-content: center;
-  padding: 24px 44px 80px;
+  padding: 24px 44px;
 }
 
 .pill-btn {
@@ -2432,7 +2432,7 @@ select {
   }
 
   .marquee-foot {
-    padding: 16px 20px 56px;
+    padding: 16px 20px;
   }
 
   .marquee-track {
