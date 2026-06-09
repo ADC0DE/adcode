@@ -337,8 +337,6 @@ select {
 .hero-media {
   position: relative;
   width: 100%;
-  /* 이미지 영역 높이: 화면 높이(100vh)에서 빼는 값을 키우면 더 줄고, 줄이면 더 커짐.
-     원래(100vh)로 되돌리려면 calc(...) 대신 100vh 만 쓰세요. */
   min-height: calc(100vh - 50px);
   overflow: hidden;
 }
@@ -1884,19 +1882,14 @@ select {
   margin: 0 auto 60px;
 }
 
-/* 라벨 — "조직구성 > ORGANIZATION STRUCTURE" (자간 350, 보조 회색) */
+/* 라벨 — "ORGANIZATION STRUCTURE" (자간 350, 보조 회색) */
 .about-org-label {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   margin-bottom: 24px;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.35em;
-  color: #676d6d;
-}
-
-.about-org-label .sep {
   color: #676d6d;
 }
 
@@ -2280,6 +2273,17 @@ select {
   .org-bus,
   .org-drop {
     display: none;
+  }
+
+  /* 프로세스 — 1100 이하 세로 스택 (각 단계 한 줄, 막대 100%) */
+  .process-track {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .process-step {
+    flex: none;
+    width: 100%;
   }
 }
 
@@ -2686,53 +2690,76 @@ select {
   padding: 150px 56px 84px;
   display: flex;
   align-items: center;
+  overflow: hidden;
   background:
     radial-gradient(ellipse 50% 40% at 0% 100%, rgba(200, 24, 31, 0.16), transparent 60%),
     var(--bg);
 }
 
 .biz-hero-inner {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.biz-hero-grid {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 100px;
+/* "BUSINESS AREA" 라벨 — 자간 350, 보조회색(+AREA 빨강) */
+.biz-hero-label {
+  display: inline-flex;
   align-items: center;
-}
-
-.biz-hero-title {
-  font-size: clamp(46px, 6.4vw, 104px);
-  line-height: 0.98;
-}
-
-.biz-hero-title .line {
-  display: block;
-}
-
-.biz-hero-text {
-  justify-self: end;
-  text-align: right;
-  max-width: 560px;
-}
-
-.biz-hero-lead {
-  font-size: clamp(20px, 2.4vw, 32px);
+  margin-left: 5px;
+  margin-bottom: 30px;
+  font-size: 14px;
   font-weight: 700;
-  line-height: 1.45;
-  letter-spacing: -0.01em;
-  margin-bottom: 28px;
+  letter-spacing: 0.35em;
+  color: #676d6d;
 }
 
-.biz-hero-desc {
-  font-size: clamp(15px, 1.4vw, 18px);
-  font-weight: 500;
-  line-height: 1.9;
-  color: var(--fg-2);
-  word-break: keep-all;
+.biz-hero-label .red {
+  color: var(--red);
+}
+
+/* 메인 카피 — 왼쪽 정렬, 줄간격 120% (긴 문장이라 about보다 작게) */
+.biz-hero-title {
+  font-size: clamp(30px, 4vw, 60px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--fg);
+  white-space: nowrap;
+}
+
+.biz-hero-title .red {
+  color: var(--red);
+}
+
+/* 우측 설명 — 오른쪽 정렬, 줄간격 150%, 자간 50, 텍스트 오른쪽 세로 빨강선 */
+.biz-hero-caption {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(calc(-50% + 55px));
+  padding-right: 22px;
+  text-align: right;
+  font-size: clamp(17px, 1.5vw, 22px);
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--fg);
+  letter-spacing: 0.05em;
+}
+
+.biz-hero-caption::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--red);
 }
 
 /* ---------- Section 2 — Tabs + services ---------- */
@@ -2805,7 +2832,7 @@ select {
   margin: 0 auto;
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
   gap: 72px;
-  align-items: start;
+  align-items: center;
 }
 
 .biz-panel.is-active {
@@ -2816,16 +2843,16 @@ select {
 .biz-cat-title {
   font-size: clamp(36px, 4.5vw, 64px);
   font-weight: 900;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  letter-spacing: 0.005em;
+  line-height: 1.5;
 }
 
 .biz-cat-desc {
   margin-top: 18px;
   font-size: clamp(15px, 1.4vw, 18px);
   font-weight: 500;
-  line-height: 1.7;
-  color: var(--fg-2);
+  line-height: 1.5;
+  color: #676d6d;
   word-break: keep-all;
 }
 
@@ -2843,10 +2870,11 @@ select {
 /* 우측 */
 .biz-hint {
   margin-bottom: 18px;
+  text-align: right;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: var(--fg-3);
+  color: #676d6d;
 }
 
 .biz-list {
@@ -2884,7 +2912,7 @@ select {
   font-family: var(--mono);
   font-size: 12px;
   font-weight: 700;
-  color: var(--fg-3);
+  color: var(--red);
   transition: color .35s ease;
 }
 
@@ -2892,7 +2920,7 @@ select {
 .biz-name {
   font-size: clamp(20px, 2vw, 26px);
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.025em;
   color: var(--fg);
 }
 
@@ -2924,6 +2952,7 @@ select {
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.01em;
+  word-spacing: 8px;
   margin-bottom: 12px;
   word-break: keep-all;
 }
@@ -2956,86 +2985,85 @@ select {
   word-break: keep-all;
 }
 
-.biz-steps {
+/* 프로세스 트랙 — 7단계 가로 한 줄 (감싸는 박스 없음) */
+.process-track {
   display: flex;
-  align-items: stretch;
-  gap: 34px;
+  align-items: center;
+  gap: 28px;
   max-width: 1500px;
   margin: 0 auto;
-  list-style: none;
 }
 
-.biz-step {
+/* 한 단계 = 왼쪽 원형 배지 + 오른쪽만 둥근 막대 */
+.process-step {
+  position: relative;
   flex: 1;
-  /* "01 문의접수" 한 줄 가로 배치 + 세로 길이 축소 */
+  min-width: 0;
+}
+
+/* 막대 — 왼쪽 거의 직각 / 오른쪽만 크게 둥근 D자 */
+.step-bar {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 16px 14px;
-  border-radius: 999px;
-  text-align: center;
-  white-space: nowrap;
-  position: relative;
-  color: #fff;
-}
-
-/* 진한 회색 → 점점 밝게 → CI 와인레드 그라데이션 */
-.biz-step:nth-child(1) { background: #6a6a6a; }
-.biz-step:nth-child(2) { background: #8a8a8a; }
-.biz-step:nth-child(3) { background: #b0b0b0; }
-.biz-step:nth-child(4) { background: #d8d8d8; }
-.biz-step:nth-child(5) { background: #f5d5d5; }
-.biz-step:nth-child(6) { background: #e8807f; }
-.biz-step:nth-child(7) { background: var(--red); }
-
-/* 밝은 박스(03~05)는 어두운 글자로 가독성 확보 (그림자 미사용) */
-.biz-step:nth-child(3),
-.biz-step:nth-child(4),
-.biz-step:nth-child(5) {
-  color: #141414;
-}
-
-/* 단계 사이 화살표 — 박스 사이 간격(gap)의 정중앙에 크게 배치 */
-.biz-step:not(:last-child)::after {
-  content: "→";
-  position: absolute;
-  left: 100%;
-  top: 50%;
-  margin-left: 17px; /* gap(34px)의 절반 → 두 박스 사이 정중앙 */
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--fg-2);
-}
-
-.biz-step-no {
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 700;
-  color: inherit;
-  opacity: 0.55;
-}
-
-.biz-step-name {
+  height: 74px;
+  padding: 0 18px 0 28px;            /* 왼쪽 배지와 안 겹치게 */
+  border-radius: 6px 36px 36px 6px;
   font-size: clamp(13px, 1vw, 16px);
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: inherit;
+  white-space: nowrap;
+  color: #111111;
 }
+
+/* 배지 — 작은 원, 막대 바깥 왼쪽에 분리 */
+.step-badge {
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #111111;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* 단계별 색상 — 막대 / 배지(막대보다 한 톤 진하게) */
+.step-01 .step-bar { background: #6b6b6b; } .step-01 .step-badge { background: #555555; }
+.step-02 .step-bar { background: #8a8a8a; } .step-02 .step-badge { background: #6e6e6e; }
+.step-03 .step-bar { background: #b0b0b0; } .step-03 .step-badge { background: #8f8f8f; }
+.step-04 .step-bar { background: #e0e0e0; } .step-04 .step-badge { background: #b8b8b8; }
+.step-05 .step-bar { background: #f5d4d4; } .step-05 .step-badge { background: #e8a5a5; }
+.step-06 .step-bar { background: #e87a7a; } .step-06 .step-badge { background: #d44b4b; }
+.step-07 .step-bar { background: #c8181f; } .step-07 .step-badge { background: #9e1218; }
 
 /* ---------- 반응형 ---------- */
 @media (max-width: 900px) {
-  .biz-hero-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  /* 히어로 스택 — Plan A: 라벨 → 카피 → 설명(왼쪽정렬·짧은 왼쪽 빨강선) */
+  .biz-hero-title {
+    white-space: normal;
   }
 
-  .biz-hero-text {
-    justify-self: start;
+  .biz-hero-caption {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
     text-align: left;
+    margin-top: 24px;
+    padding: 0 0 0 16px;
+  }
+
+  .biz-hero-caption::before {
+    left: 0;
+    right: auto;
   }
 
   .biz-panel {
@@ -3046,22 +3074,6 @@ select {
   .biz-cat-icon {
     height: 240px;
   }
-
-  /* 프로세스 7단계 — 한 줄(7열)이면 텍스트가 줄바꿈되어 답답함 → 2열 그리드로 */
-  .biz-steps {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
-
-  .biz-step:not(:last-child)::after {
-    display: none;
-  }
-
-  /* 마지막 단계(07 지속개선)는 2열 전체 폭 — 외톨이 칸 방지 */
-  .biz-step--last {
-    grid-column: 1 / -1;
-  }
 }
 
 @media (max-width: 760px) {
@@ -3070,7 +3082,7 @@ select {
   }
 
   .biz-hero-title {
-    font-size: clamp(40px, 12vw, 72px);
+    font-size: clamp(26px, 7.5vw, 44px);
   }
 
   .biz-services {
@@ -3146,8 +3158,17 @@ select {
     padding: 80px 20px 100px;
   }
 
-  /* 프로세스 그리드는 ≤900 규칙에서 처리. 모바일은 간격만 더 좁게 */
-  .biz-steps {
-    gap: 10px;
+  /* 프로세스 — 모바일 글자/배지 약간 축소 */
+  .step-bar {
+    height: 64px;
+    font-size: 14px;
+    padding-left: 26px;
+  }
+
+  .step-badge {
+    width: 30px;
+    height: 30px;
+    left: -16px;
+    font-size: 12px;
   }
 }
