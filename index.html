@@ -111,7 +111,7 @@
   </section>
 
   <!-- ====================== HERO MEDIA (full-bleed visual) ====================== -->
-  <section class="hero-media" data-screen-label="00 Visual">
+  <section class="hero-media reveal reveal-late" data-screen-label="00 Visual">
     <img src="/public/design/main_img.jpg" alt="" />
     <div class="hero-media-label"><span class="red">ADCODE</span><span>MARKETING</span></div>
   </section>
@@ -412,7 +412,20 @@
           }
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+      document.querySelectorAll('.reveal:not(.reveal-late)').forEach(el => io.observe(el));
+    })();
+
+    // ===== scroll reveal (late) — 더 많이 스크롤됐을 때(약 50% 노출) 나타남 =====
+    (function () {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      document.querySelectorAll('.reveal-late').forEach(el => io.observe(el));
     })();
 
 
