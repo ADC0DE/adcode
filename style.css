@@ -9,6 +9,8 @@
   --fg-3: #6b6b6b;
   --red: #c8181f;
   --red-hi: #e63946;
+  --gray: #676d6d;
+  /* 보조 그레이(CONTACT 보조문구·아이콘·placeholder·사이드문구) */
   --kakao: #FEE500;
   --ink: #111111;
   /* 밝은 배경 위 어두운 텍스트 공통(드롭다운/프로세스/서비스 설명 등) */
@@ -755,7 +757,7 @@ select {
    ================================================================= */
 .contact {
   position: relative;
-  padding: 120px 44px 120px;
+  padding: 120px 44px 180px;
   display: grid;
   grid-template-columns: minmax(280px, 38fr) minmax(0, 62fr);
   column-gap: 72px;
@@ -770,18 +772,28 @@ select {
   position: relative;
 }
 
+/* 제목+문구 묶음 — 왼쪽에 빨강 세로선(여백에 맞게 살짝 길게) */
+.contact-head {
+  position: relative;
+  padding-left: 24px;
+}
+
+.contact-head::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -6px;
+  bottom: -6px;
+  width: 3px;
+  background: var(--red);
+}
+
 .contact-title {
   font-weight: 900;
   font-size: clamp(64px, 7vw, 116px);
   line-height: .92;
-  letter-spacing: -0.035em;
+  letter-spacing: 0.005em;
   color: var(--fg);
-}
-
-.contact-title .dot {
-  color: var(--red);
-  display: inline-block;
-  transform: translateY(-0.05em);
 }
 
 .contact-tag {
@@ -789,7 +801,7 @@ select {
   font-size: 19px;
   /* 좌측 큰 문구 — 더 키우려면 20~22px */
   font-weight: 600;
-  line-height: 1.55;
+  line-height: 1.2;
   color: var(--fg);
   letter-spacing: -0.015em;
   max-width: 26ch;
@@ -797,11 +809,12 @@ select {
 }
 
 .contact-tag-sub {
-  margin-top: 10px;
+  margin-top: 14px;
   font-size: 16px;
   /* 좌측 부문구 — 더 키우려면 17~18px */
-  line-height: 1.7;
-  color: var(--fg-2);
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: var(--gray);
   max-width: 32ch;
   word-break: keep-all;
 }
@@ -812,13 +825,29 @@ select {
   gap: 18px;
   padding-top: 28px;
   border-top: 1px solid var(--line);
+  letter-spacing: 0.03em;
 }
 
 .contact-info .row {
   display: grid;
-  grid-template-columns: 88px 1fr;
-  gap: 20px;
-  align-items: baseline;
+  grid-template-columns: 20px 76px 1fr;
+  gap: 6px 14px;
+  align-items: start;
+}
+
+/* 주소 블록 아이콘 — 보조 그레이 */
+.contact-info .ci-ico {
+  width: 18px;
+  height: 18px;
+  color: var(--gray);
+  margin-top: 1px;
+}
+
+/* 사이드 문구 [ *~ ] — 작게, 보조 그레이 */
+.contact-info .ci-note {
+  font-size: 13px;
+  color: var(--gray);
+  letter-spacing: 0;
 }
 
 .contact-info .k {
@@ -875,9 +904,9 @@ select {
 }
 
 .contact-info .sns-link:hover {
-  color: var(--fg);
+  color: var(--red);
   border-color: var(--red);
-  background: rgba(200, 24, 31, 0.08);
+  background: transparent;
 }
 
 /* right side: form */
@@ -899,10 +928,9 @@ select {
   /* 더 키우려면 14~15px */
   font-weight: 600;
   /* 살짝 더 두껍게 (한 단계 더 굵게는 700) */
-  letter-spacing: .02em;
-  /* 한글에 맞게 좁힘 (영문 라벨이면 .12em 정도 권장) */
-  color: var(--fg-2);
-  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--fg);
+  /* 라벨 글자는 흰색, 빨강은 필수표시(*)에만 (참고 이미지 기준) */
 }
 
 .field-label .req {
@@ -927,14 +955,16 @@ select {
   /* 칩 글자 크기 — 더 키우려면 16px */
   font-weight: 500;
   letter-spacing: -0.005em;
-  border-radius: 999px;
+  border-radius: 10px;
+  /* 둥근 사각형 */
   cursor: pointer;
   transition: background-color .25s ease, border-color .25s ease, color .25s ease;
 }
 
 .chip:hover {
-  color: var(--fg);
-  border-color: rgba(255, 255, 255, 0.32);
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
 }
 
 .chip[aria-pressed="true"] {
@@ -977,11 +1007,10 @@ select {
 
 .field input::placeholder,
 .field textarea::placeholder {
-  color: var(--fg-3);
-  font-weight: 500;
-  /* 살짝 더 두껍게 */
-  letter-spacing: 0.04em;
-  /* 자간 넓힘 — 더 넓히려면 0.04em */
+  color: var(--gray);
+  font-weight: 400;
+  /* 라벨(600)보다 얇게 */
+  letter-spacing: 0.05em;
 }
 
 .field textarea {
@@ -1053,6 +1082,10 @@ select {
   display: flex;
   justify-content: flex-end;
   padding-top: 12px;
+  /* 우하단 플로팅 레일(right:28px + 아이콘52px ≈ 80px 폭)과 안 겹치게
+     버튼을 왼쪽으로 충분히 들여 우측 정렬 + 하단 여백 확보 */
+  padding-right: 72px;
+  padding-bottom: 16px;
 }
 
 .submit-btn {
@@ -1065,6 +1098,8 @@ select {
   font-weight: 600;
   font-size: 15px;
   letter-spacing: -0.005em;
+  border-radius: 999px;
+  /* 완전 둥근 알약형(참고 이미지) */
   cursor: pointer;
   transition: background-color .25s ease, padding .3s ease;
 }
@@ -3146,5 +3181,559 @@ select {
     height: 30px;
     left: -16px;
     font-size: 12px;
+  }
+}
+
+/* =================================================================
+   PORTFOLIO  (portfolio.html / portfolio-detail.html)  +  공통 둥근사각형 버튼
+   문서: 레이아웃_포트폴리오.docx. 토큰·공유 클래스 기반(통일성).
+   ================================================================= */
+
+/* 공통 둥근사각형 버튼 — 필터/카테고리(문서: 둥근 사각형, 한글 좌측, hover 빨강 롤오버) */
+.pill-rect {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--fg-2);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  /* 상담문의하기 버튼과 동일한 완전 알약형 */
+  cursor: pointer;
+  transition: background-color .25s ease, border-color .25s ease, color .25s ease;
+}
+
+.pill-rect:hover,
+.pill-rect.is-active {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--fg);
+}
+
+.portfolio {
+  background: var(--bg);
+}
+
+/* --- 1섹션 히어로 — about/business와 동일 톤이되 여백만 축소(문서 요구) --- */
+.pf-hero {
+  position: relative;
+  min-height: 360px;
+  /* about/biz는 490 — 문서: 포트폴리오 공간 확보 위해 더 작게 */
+  padding: 150px 44px 60px;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.pf-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.pf-hero-label {
+  display: inline-block;
+  margin-bottom: 22px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: var(--fg-3);
+}
+
+.pf-hero-title {
+  font-size: clamp(26px, 3.7vw, 58px);
+  font-weight: 700;
+  line-height: 1.2;
+  /* 문서: 줄간격 120% */
+  letter-spacing: -0.025em;
+  color: var(--fg);
+  word-break: keep-all;
+}
+
+.pf-hero-title .red {
+  color: var(--red);
+}
+
+/* --- 목록 --- */
+.pf-list {
+  padding: 60px 44px 120px;
+  background: var(--bg);
+}
+
+.pf-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 44px;
+}
+
+.pf-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px 28px;
+}
+
+.pf-card {
+  display: block;
+  text-decoration: none;
+}
+
+.pf-card[hidden] {
+  display: none;
+}
+
+.pf-card-thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  /* 전 썸네일 실측 4:3 */
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--bg-3);
+}
+
+.pf-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease, filter .35s ease;
+}
+
+.pf-card:hover .pf-card-thumb img {
+  filter: brightness(.6);
+  transform: scale(1.03);
+}
+
+.pf-card-meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 4px 12px;
+  margin-top: 16px;
+}
+
+.pf-card-cat {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--red);
+}
+
+.pf-card-title {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  word-break: keep-all;
+}
+
+.pf-card-client {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 13px;
+  color: var(--fg);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.pf-empty {
+  color: var(--fg-3);
+  font-size: 15px;
+  padding: 48px 0;
+}
+
+.pf-more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+}
+
+.pf-more-wrap[hidden] {
+  display: none;
+}
+
+/* --- 상세 (detail) --- */
+.pf-detail {
+  background: var(--bg);
+}
+
+.pf-detail-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 50px;
+  row-gap: 40px;
+  padding: 110px 50px 40px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.pf-detail-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.pf-detail-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.pf-detail-cat {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: var(--red);
+  margin-bottom: 20px;
+}
+
+.pf-detail-title {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--fg);
+  word-break: keep-all;
+  margin-bottom: 26px;
+}
+
+.pf-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  margin-bottom: 11px;
+}
+
+.pf-tag {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #333333;
+  border: none;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.pf-overview-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: var(--fg-3);
+  margin-bottom: 20px;
+}
+
+.pf-overview p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--fg);
+  word-break: keep-all;
+  position: relative;
+  padding-left: 14px;
+}
+
+.pf-overview p::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.pf-overview p+p {
+  margin-top: 16px;
+}
+
+.pf-detail-credit {
+  margin-top: 20px;
+  display: flex;
+  gap: 60px;
+}
+
+.pf-credit-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.pf-credit-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--line-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pf-credit-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.pf-detail-body {
+  padding: 16px 50px 60px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* type별 작업 이미지 표시(문서 5-C) */
+.pf-images--detail {
+  max-width: 900px;
+  margin: 0 auto;
+  display: block;
+}
+
+.pf-images--detail img {
+  width: 100%;
+  display: block;
+}
+
+.pf-images--wide {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+}
+
+.pf-images--wide img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+.pf-images--sns {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.pf-images--sns img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.pf-detail-foot {
+  display: flex;
+  justify-content: center;
+  padding: 36px 36px 100px;
+}
+
+/* =================================================================
+   MAIN — 포트폴리오 롤링 이미지 섹션(문서 §2-2) + 비주얼섹션(§2-3)
+   ================================================================= */
+
+/* 작업물 썸네일 가로 롤링 — 상단 텍스트 띠와 반대 방향, 어두운 오버레이 */
+.pf-roll {
+  background: var(--bg);
+  overflow: hidden;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.pf-roll-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: roll-rev 45s linear infinite;
+  will-change: transform;
+}
+
+.pf-roll-item {
+  position: relative;
+  flex: none;
+  /* 한 세트(4장)가 항상 화면폭 이상(4×26vw=104vw)이 되도록 최대폭 제한 없음
+     → 롤링 시작 프레임(-50%)에서도 오른쪽이 비지 않고 늘 가득 참 */
+  width: max(260px, 26vw);
+  /* 높이 — 기존 4:3(데스크톱 ~370px)보다 약 50px 낮춤 */
+  height: clamp(200px, 17vw, 320px);
+  margin-right: 16px;
+  overflow: hidden;
+}
+
+.pf-roll-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pf-roll-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .45);
+}
+
+@keyframes roll-rev {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.pf-roll-foot {
+  display: flex;
+  justify-content: center;
+  padding: 28px 44px;
+}
+
+/* 메인 1섹션 — 헤드라인 '흐름'만 빨강 */
+.headline .hl-red {
+  color: var(--red);
+}
+
+/* 한 줄씩 아래에서 올라오는 리빌 (batcrew about 2섹션 / hotsos 스타일)
+   — 좌측 헤드라인 + 우측 텍스트 + 비주얼섹션 ADCODE/MARKETING 공통.
+   각 줄을 .rise-line(마스크)로 감싸고 안쪽 span이 아래(110%)→0 으로 올라옴. 색상은 기존 유지. */
+.headline--rise {
+  color: var(--fg);
+  white-space: normal;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.rise-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+
+.rise-line>span {
+  display: inline-block;
+  white-space: nowrap;
+  transform: translateY(110%);
+  transition: transform 2s cubic-bezier(.22, .9, .26, 1);
+  transition-delay: var(--d, 0s);
+  will-change: transform;
+}
+
+.hero.played .rise-line>span,
+.hero-media.in-view .rise-line>span,
+.pf-hero.played .rise-line>span {
+  transform: translateY(0);
+}
+
+/* 우측 컬럼 — 블록 페이드업 제거(텍스트는 rise-line으로 등장), 로고만 개별 페이드업 */
+.right-col {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+.right-col .brand-logo-img {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .6s ease, transform .6s ease;
+  transition-delay: var(--d, 0s);
+}
+
+/* 회사소개서 버튼 — 마지막에 등장. hover(색연해짐+가로늘어남)는 즉시 반응하도록 delay 분리 */
+.right-col .pill-cta {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .6s ease var(--d, 0s), transform .6s ease var(--d, 0s),
+    background-color .25s ease, padding .3s ease;
+}
+
+.hero.played .brand-logo-img,
+.hero.played .pill-cta {
+  opacity: 1;
+  transform: none;
+}
+
+/* 우측 블록 — 로고 위 · PRACTICAL BRAND SOLUTION(BRAND만 빨강) · 설명 회색 (세로선 없음) */
+.right-col .english .brand-logo-img {
+  height: 48px;
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.right-col .english .eyebrow {
+  display: block;
+  color: var(--fg-2);
+  font-weight: 600;
+  letter-spacing: 0.3em;
+}
+
+.right-col .english .eyebrow i {
+  font-style: normal;
+  color: var(--red);
+}
+
+.right-col .sub {
+  color: var(--fg-3);
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .rise-line>span {
+    transform: none;
+    transition: none;
+  }
+
+  .right-col .brand-logo-img,
+  .right-col .pill-cta {
+    opacity: 1;
+    transform: none;
+  }
+
+  .pf-roll-track {
+    animation: none;
+  }
+}
+
+/* 포트폴리오 반응형 — 태블릿/모바일 */
+@media (max-width: 900px) {
+  .pf-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pf-detail-head {
+    grid-template-columns: 1fr;
+    padding-top: 130px;
+  }
+}
+
+@media (max-width: 760px) {
+  .pf-hero {
+    padding: 120px 20px 48px;
+    min-height: 300px;
+  }
+
+  .pf-list {
+    padding: 48px 20px 90px;
+  }
+
+  .pf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pf-detail-head,
+  .pf-detail-body,
+  .pf-detail-foot {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .pf-images--sns {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
