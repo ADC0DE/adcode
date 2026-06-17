@@ -1,0 +1,144 @@
+{
+  "note": "포트폴리오 데이터. 1번(우편나라)은 문서 실제 예시, 2~9는 임시 원고(의뢰인 확정 시 교체). 카테고리/제목/클라이언트/연도는 썸네일 파일명 기준 실측. type: detail=긴 상세페이지(풀폭 세로), wide=광고소재 가로배너(세로 나열), sns=정사각 1:1 그리드.",
+  "projects": [
+    {
+      "id": 1,
+      "title": "우편나라 배너",
+      "client": "우편나라",
+      "category": "광고소재",
+      "year": "2026",
+      "type": "wide",
+      "thumb": "/public/portfolio/1/thumb.jpg",
+      "images": ["/public/portfolio/1/img1.png", "/public/portfolio/1/img2.png", "/public/portfolio/1/img3.jpg"],
+      "hashtags": ["배너디자인", "비주얼디자인", "브랜드콘텐츠", "콘텐츠마케팅"],
+      "overview": [
+        "온라인 편지 작성부터 발송까지 이어지는 서비스 흐름을 직관적으로 전달한 배너 디자인",
+        "사용 방법과 핵심 메시지를 명확하게 구성해 서비스 이해도를 높이고, 이용 행동을 유도할 수 있도록 제작"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "고씨네농장 곶감 상세페이지",
+      "client": "고씨네농장",
+      "category": "상세페이지",
+      "year": "2025",
+      "type": "detail",
+      "thumb": "/public/portfolio/2/thumb.jpg",
+      "images": ["/public/portfolio/2/img1.jpg"],
+      "hashtags": ["상세페이지", "식품상세", "브랜드콘텐츠", "비주얼디자인"],
+      "overview": [
+        "농장에서 식탁까지 이어지는 곶감의 신뢰감을 담아낸 상세페이지",
+        "원물·제조 과정·먹는 방법을 단계별로 풀어 구매 전환을 자연스럽게 유도하도록 구성"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "방쿡 오픈 광고소재",
+      "client": "방쿡",
+      "category": "광고소재",
+      "year": "2025",
+      "type": "wide",
+      "thumb": "/public/portfolio/3/thumb.jpg",
+      "images": ["/public/portfolio/3/img1.jpg"],
+      "hashtags": ["광고소재", "배너디자인", "오픈프로모션", "콘텐츠마케팅"],
+      "overview": [
+        "브랜드 오픈 시점의 주목도를 높이기 위해 제작한 광고 배너",
+        "핵심 혜택과 브랜드 무드를 한눈에 전달해 클릭을 유도하도록 설계"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "명인이산 쌍화고 상세페이지",
+      "client": "명인이산",
+      "category": "상세페이지",
+      "year": "2025",
+      "type": "detail",
+      "thumb": "/public/portfolio/4/thumb.jpg",
+      "images": ["/public/portfolio/4/img1.jpg"],
+      "hashtags": ["상세페이지", "건강식품", "브랜드스토리", "비주얼디자인"],
+      "overview": [
+        "전통 원료의 가치를 현대적인 톤으로 풀어낸 건강식품 상세페이지",
+        "효능·복용법·신뢰 요소를 짜임새 있게 배치해 구매 확신을 높이도록 구성"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "더블유에셋 보험 롤링배너",
+      "client": "더블유에셋",
+      "category": "광고소재",
+      "year": "2025",
+      "type": "wide",
+      "thumb": "/public/portfolio/5/thumb.jpg",
+      "images": ["/public/portfolio/5/img1.png"],
+      "hashtags": ["광고소재", "롤링배너", "금융디자인", "퍼포먼스마케팅"],
+      "overview": [
+        "금융 서비스의 신뢰감을 유지하면서 시선을 끄는 롤링 배너",
+        "반복 노출 환경에서도 메시지가 또렷하게 읽히도록 간결하게 디자인"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "대한곡물농산 백진주안계쌀 상세페이지",
+      "client": "대한곡물농산",
+      "category": "상세페이지",
+      "year": "2025",
+      "type": "detail",
+      "thumb": "/public/portfolio/6/thumb.jpg",
+      "images": ["/public/portfolio/6/img1.jpg"],
+      "hashtags": ["상세페이지", "식품상세", "산지직송", "브랜드콘텐츠"],
+      "overview": [
+        "산지의 품질과 정직함을 강조한 쌀 브랜드 상세페이지",
+        "재배 환경부터 도정·포장까지의 과정을 보여주며 신선함을 설득력 있게 전달"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "해란김 해란명란김 상세페이지",
+      "client": "해란김",
+      "category": "상세페이지",
+      "year": "2026",
+      "type": "detail",
+      "thumb": "/public/portfolio/7/thumb.jpg",
+      "images": ["/public/portfolio/7/img1.jpg", "/public/portfolio/7/img2.jpg"],
+      "hashtags": ["상세페이지", "식품상세", "패키지비주얼", "콘텐츠마케팅"],
+      "overview": [
+        "명란과 김의 조합을 먹음직스럽게 담아낸 식품 상세페이지",
+        "맛 포인트와 활용 장면을 구체적으로 보여줘 구매 욕구를 자극하도록 구성"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "웰리카 콜라겐 상품구성",
+      "client": "웰리카",
+      "category": "상세페이지",
+      "year": "2025",
+      "type": "detail",
+      "thumb": "/public/portfolio/8/thumb.jpg",
+      "images": ["/public/portfolio/8/img1.jpg"],
+      "hashtags": ["상세페이지", "뷰티건강", "상품구성", "비주얼디자인"],
+      "overview": [
+        "콜라겐 제품의 구성과 가치를 한눈에 정리한 상세 비주얼",
+        "성분·섭취 효과·구성 혜택을 단계적으로 안내해 선택을 돕도록 설계"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "달다구니 샐러드 인스타 콘텐츠",
+      "client": "달다구니",
+      "category": "SNS",
+      "year": "2025",
+      "type": "sns",
+      "thumb": "/public/portfolio/9/thumb.jpg",
+      "images": [
+        "/public/portfolio/9/img1.jpg", "/public/portfolio/9/img2.jpg", "/public/portfolio/9/img3.jpg",
+        "/public/portfolio/9/img4.jpg", "/public/portfolio/9/img5.jpg", "/public/portfolio/9/img6.jpg",
+        "/public/portfolio/9/img7.jpg", "/public/portfolio/9/img8.jpg"
+      ],
+      "hashtags": ["SNS콘텐츠", "인스타피드", "푸드콘텐츠", "브랜드무드"],
+      "overview": [
+        "샐러드 브랜드의 신선하고 건강한 무드를 담은 인스타그램 피드 시리즈",
+        "통일된 톤앤매너로 피드 그리드를 구성해 브랜드 인지와 팔로워 유입을 동시에 유도"
+      ]
+    }
+  ]
+}
