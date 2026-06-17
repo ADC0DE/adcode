@@ -1,15 +1,10 @@
 {
-  "note": "포트폴리오 데이터. 1번(우편나라)은 문서 실제 예시, 2~9는 임시 원고(의뢰인 확정 시 교체). 카테고리/제목/클라이언트/연도는 썸네일 파일명 기준 실측. type: detail=긴 상세페이지(풀폭 세로), wide=광고소재 가로배너(세로 나열), sns=정사각 1:1 그리드.",
+  "note": "포트폴리오 데이터(33개). 1~9=기존 9개(우편나라배너·고종시곶감·방쿡·쌍화고·보험롤링·백진주안계쌀·해란명란김·콜라겐·달다구니), 10~33=신규(받은 순서). 원고 출처: public/20260617_추가이미지 각 폴더 포트폴리오_*.txt. type: detail=긴 상세페이지(풀폭 세로), wide=광고소재 가로배너(세로 나열), sns=인스타/카드뉴스(원본 비율). 클라이언트 추론 항목(의뢰인 공란분, 표기 제거): 11·12·13·14·15·30·31 → 확인 후 교체. 상세: public/portfolio_detail.md",
   "projects": [
     {
-      "id": 1,
-      "title": "우편나라 배너",
-      "client": "우편나라",
-      "category": "광고소재",
-      "year": "2026",
-      "type": "wide",
+      "id": 1, "category": "광고소재", "title": "우편나라 배너", "client": "우편나라", "year": "2026", "type": "wide",
       "thumb": "/public/portfolio/1/thumb.jpg",
-      "images": ["/public/portfolio/1/img1.png", "/public/portfolio/1/img2.png", "/public/portfolio/1/img3.jpg"],
+      "images": ["/public/portfolio/1/img1.jpg", "/public/portfolio/1/img2.jpg", "/public/portfolio/1/img3.jpg"],
       "hashtags": ["배너디자인", "비주얼디자인", "브랜드콘텐츠", "콘텐츠마케팅"],
       "overview": [
         "온라인 편지 작성부터 발송까지 이어지는 서비스 흐름을 직관적으로 전달한 배너 디자인",
@@ -17,127 +12,323 @@
       ]
     },
     {
-      "id": 2,
-      "title": "고씨네농장 곶감 상세페이지",
-      "client": "고씨네농장",
-      "category": "상세페이지",
-      "year": "2025",
-      "type": "detail",
+      "id": 2, "category": "상세페이지", "title": "고종시 곶감", "client": "고씨네농장", "year": "2025", "type": "detail",
       "thumb": "/public/portfolio/2/thumb.jpg",
       "images": ["/public/portfolio/2/img1.jpg"],
-      "hashtags": ["상세페이지", "식품상세", "브랜드콘텐츠", "비주얼디자인"],
+      "hashtags": ["상세페이지", "웹디자인", "식품콘텐츠", "구매전환"],
       "overview": [
-        "농장에서 식탁까지 이어지는 곶감의 신뢰감을 담아낸 상세페이지",
-        "원물·제조 과정·먹는 방법을 단계별로 풀어 구매 전환을 자연스럽게 유도하도록 구성"
+        "따뜻한 브라운·오렌지 컬러와 감성적인 농장 이미지를 활용해 고급스럽고 정성스러운 곶감의 이미지를 표현",
+        "제품의 생산 과정과 품질 포인트를 자연스럽게 전달해 신뢰도를 높이고, 선물 구매 관심으로 이어질 수 있도록 구성"
       ]
     },
     {
-      "id": 3,
-      "title": "방쿡 오픈 광고소재",
-      "client": "방쿡",
-      "category": "광고소재",
-      "year": "2025",
-      "type": "wide",
+      "id": 3, "category": "광고소재", "title": "방쿡 오픈세일 롤링배너", "client": "방쿡", "year": "2025", "type": "wide",
       "thumb": "/public/portfolio/3/thumb.jpg",
       "images": ["/public/portfolio/3/img1.jpg"],
-      "hashtags": ["광고소재", "배너디자인", "오픈프로모션", "콘텐츠마케팅"],
+      "hashtags": ["롤링배너", "배너디자인", "식품콘텐츠", "이벤트배너"],
       "overview": [
-        "브랜드 오픈 시점의 주목도를 높이기 위해 제작한 광고 배너",
-        "핵심 혜택과 브랜드 무드를 한눈에 전달해 클릭을 유도하도록 설계"
+        "밝은 오렌지 컬러와 신선한 식재료 이미지를 활용해 브랜드의 활기찬 오픈세일 분위기",
+        "할인 혜택과 핵심 메시지를 크게 강조해 주목도를 높이고, 이벤트 참여와 구매 관심을 유도"
       ]
     },
     {
-      "id": 4,
-      "title": "명인이산 쌍화고 상세페이지",
-      "client": "명인이산",
-      "category": "상세페이지",
-      "year": "2025",
-      "type": "detail",
+      "id": 4, "category": "상세페이지", "title": "쌍화고 상세페이지", "client": "명인이산", "year": "2025", "type": "detail",
       "thumb": "/public/portfolio/4/thumb.jpg",
       "images": ["/public/portfolio/4/img1.jpg"],
-      "hashtags": ["상세페이지", "건강식품", "브랜드스토리", "비주얼디자인"],
+      "hashtags": ["상세페이지", "웹디자인", "건강식품콘텐츠", "프리미엄브랜딩"],
       "overview": [
-        "전통 원료의 가치를 현대적인 톤으로 풀어낸 건강식품 상세페이지",
-        "효능·복용법·신뢰 요소를 짜임새 있게 배치해 구매 확신을 높이도록 구성"
+        "차분한 브라운 톤과 전통적인 소재 이미지를 활용해 쌍화고의 깊고 진한 분위기와 고급스러운 이미지를 표현",
+        "원재료, 배합 과정, 섭취 방법을 체계적으로 전달해 제품 신뢰도를 높이고 구매 관심을 유도"
       ]
     },
     {
-      "id": 5,
-      "title": "더블유에셋 보험 롤링배너",
-      "client": "더블유에셋",
-      "category": "광고소재",
-      "year": "2025",
-      "type": "wide",
+      "id": 5, "category": "광고소재", "title": "보험 롤링배너", "client": "더블유에셋", "year": "2025", "type": "wide",
       "thumb": "/public/portfolio/5/thumb.jpg",
-      "images": ["/public/portfolio/5/img1.png"],
-      "hashtags": ["광고소재", "롤링배너", "금융디자인", "퍼포먼스마케팅"],
+      "images": ["/public/portfolio/5/img1.jpg"],
+      "hashtags": ["롤링배너", "배너디자인", "상담유도", "브랜드비주얼"],
       "overview": [
-        "금융 서비스의 신뢰감을 유지하면서 시선을 끄는 롤링 배너",
-        "반복 노출 환경에서도 메시지가 또렷하게 읽히도록 간결하게 디자인"
+        "신뢰감을 주는 블루 컬러와 인물 이미지를 활용해 보험 상담 서비스의 전문적인 이미지",
+        "핵심 문구를 크게 배치해 메시지 전달력을 높이고, 상담 신청으로 이어질 수 있도록 구성"
       ]
     },
     {
-      "id": 6,
-      "title": "대한곡물농산 백진주안계쌀 상세페이지",
-      "client": "대한곡물농산",
-      "category": "상세페이지",
-      "year": "2025",
-      "type": "detail",
+      "id": 6, "category": "상세페이지", "title": "백진주안계쌀", "client": "대한곡물농산", "year": "2025", "type": "detail",
       "thumb": "/public/portfolio/6/thumb.jpg",
       "images": ["/public/portfolio/6/img1.jpg"],
-      "hashtags": ["상세페이지", "식품상세", "산지직송", "브랜드콘텐츠"],
+      "hashtags": ["상세페이지", "웹디자인", "농산물콘텐츠", "구매전환"],
       "overview": [
-        "산지의 품질과 정직함을 강조한 쌀 브랜드 상세페이지",
-        "재배 환경부터 도정·포장까지의 과정을 보여주며 신선함을 설득력 있게 전달"
+        "차분한 베이지 톤과 쌀·논 이미지를 활용해 백진주 안계쌀의 건강하고 정성스러운 이미지를 표현",
+        "품질 포인트와 생산 과정을 신뢰감 있게 전달해 상품 이해도를 높이고 구매 관심을 유도"
       ]
     },
     {
-      "id": 7,
-      "title": "해란김 해란명란김 상세페이지",
-      "client": "해란김",
-      "category": "상세페이지",
-      "year": "2026",
-      "type": "detail",
+      "id": 7, "category": "상세페이지", "title": "해란명란김 상세페이지", "client": "해란김", "year": "2026", "type": "detail",
       "thumb": "/public/portfolio/7/thumb.jpg",
       "images": ["/public/portfolio/7/img1.jpg", "/public/portfolio/7/img2.jpg"],
-      "hashtags": ["상세페이지", "식품상세", "패키지비주얼", "콘텐츠마케팅"],
+      "hashtags": ["상세페이지", "웹디자인", "식품콘텐츠", "구매전환"],
       "overview": [
-        "명란과 김의 조합을 먹음직스럽게 담아낸 식품 상세페이지",
-        "맛 포인트와 활용 장면을 구체적으로 보여줘 구매 욕구를 자극하도록 구성"
+        "딥그린 컬러와 제품 이미지를 중심으로 명란김의 고소한 맛과 실용적인 반찬 이미지를 직관적으로 표현",
+        "구매 후기, 추천 활용법, 옵션 구성을 단계적으로 전달해 상품 신뢰도와 구매 관심을 높일 수 있도록 구성"
       ]
     },
     {
-      "id": 8,
-      "title": "웰리카 콜라겐 상품구성",
-      "client": "웰리카",
-      "category": "상세페이지",
-      "year": "2025",
-      "type": "detail",
+      "id": 8, "category": "상세페이지", "title": "콜라겐 상품구성", "client": "웰리카", "year": "2025", "type": "detail",
       "thumb": "/public/portfolio/8/thumb.jpg",
       "images": ["/public/portfolio/8/img1.jpg"],
-      "hashtags": ["상세페이지", "뷰티건강", "상품구성", "비주얼디자인"],
+      "hashtags": ["상세페이지", "웹디자인", "프로모션디자인", "뷰티콘텐츠"],
       "overview": [
-        "콜라겐 제품의 구성과 가치를 한눈에 정리한 상세 비주얼",
-        "성분·섭취 효과·구성 혜택을 단계적으로 안내해 선택을 돕도록 설계"
+        "베이지와 스카이블루 컬러를 활용해 콜라겐 제품의 산뜻하고 부드러운 브랜드 이미지를 표현",
+        "상품 옵션과 할인 정보를 명확하게 정리해 가격 혜택을 쉽게 비교하고 구매 선택으로 이어질 수 있도록 구성"
       ]
     },
     {
-      "id": 9,
-      "title": "달다구니 샐러드 인스타 콘텐츠",
-      "client": "달다구니",
-      "category": "SNS",
-      "year": "2025",
-      "type": "sns",
+      "id": 9, "category": "SNS", "title": "샐러드 인스타그램", "client": "달다구니", "year": "2025", "type": "sns",
       "thumb": "/public/portfolio/9/thumb.jpg",
-      "images": [
-        "/public/portfolio/9/img1.jpg", "/public/portfolio/9/img2.jpg", "/public/portfolio/9/img3.jpg",
-        "/public/portfolio/9/img4.jpg", "/public/portfolio/9/img5.jpg", "/public/portfolio/9/img6.jpg",
-        "/public/portfolio/9/img7.jpg", "/public/portfolio/9/img8.jpg"
-      ],
-      "hashtags": ["SNS콘텐츠", "인스타피드", "푸드콘텐츠", "브랜드무드"],
+      "images": ["/public/portfolio/9/img1.jpg", "/public/portfolio/9/img2.jpg", "/public/portfolio/9/img3.jpg", "/public/portfolio/9/img4.jpg", "/public/portfolio/9/img5.jpg", "/public/portfolio/9/img6.jpg", "/public/portfolio/9/img7.jpg", "/public/portfolio/9/img8.jpg"],
+      "hashtags": ["카드뉴스", "SNS디자인", "브랜드콘텐츠", "제품홍보"],
       "overview": [
-        "샐러드 브랜드의 신선하고 건강한 무드를 담은 인스타그램 피드 시리즈",
-        "통일된 톤앤매너로 피드 그리드를 구성해 브랜드 인지와 팔로워 유입을 동시에 유도"
+        "그린과 오렌지 컬러를 중심으로 제품의 신선함과 건강한 이미지를 직관적으로 전달할 수 있도록 카드뉴스를 구성",
+        "상품 특징과 활용 정보를 순차적으로 정리해 콘텐츠 가독성을 높이고, 제품 관심 및 구매 유도"
+      ]
+    },
+    {
+      "id": 10, "category": "SNS", "title": "우편나라 · 판다서점 입점 이벤트 카드뉴스", "client": "우편나라 · 판다서점", "year": "2026", "type": "sns",
+      "thumb": "/public/portfolio/10/thumb.jpg",
+      "images": ["/public/portfolio/10/img1.jpg", "/public/portfolio/10/img2.jpg", "/public/portfolio/10/img3.jpg", "/public/portfolio/10/img4.jpg"],
+      "hashtags": ["카드뉴스", "이벤트디자인", "브랜드콘텐츠", "사용자유입"],
+      "overview": [
+        "코랄과 그린 컬러를 중심으로 편지·도서 서비스의 성격을 통일감 있게 담아낸 입점 이벤트 카드뉴스",
+        "혜택 정보와 서비스 안내를 단계별로 정리해 이벤트 참여를 유도하고, 서비스 이해도와 유입을 높일 수 있도록 구성"
+      ]
+    },
+    {
+      "id": 11, "category": "SNS", "title": "추석 과일선물세트 인스타그램", "client": "금메달농산물", "year": "2025", "type": "sns",
+      "thumb": "/public/portfolio/11/thumb.jpg",
+      "images": ["/public/portfolio/11/img1.jpg"],
+      "hashtags": ["인스타그램", "SNS디자인", "명절마케팅", "브랜드홍보"],
+      "overview": [
+        "딥그린 컬러와 전통적인 장식 요소를 활용해 추석 시즌감과 프리미엄 선물세트의 고급스러운 이미지",
+        "상품 구성과 추천 포인트를 한눈에 전달해 주목도를 높이고, 선물 구매 관심으로 자연스럽게 이어질 수 있도록 구성"
+      ]
+    },
+    {
+      "id": 12, "category": "광고소재", "title": "과메기 · 굴무침 롤링배너", "client": "바다속에", "year": "2025", "type": "wide",
+      "thumb": "/public/portfolio/12/thumb.jpg",
+      "images": ["/public/portfolio/12/img1.jpg", "/public/portfolio/12/img2.jpg"],
+      "hashtags": ["롤링배너", "배너디자인", "식품콘텐츠", "콘텐츠디자인"],
+      "overview": [
+        "신선한 제품 사진과 강렬한 컬러 대비를 활용해 제철 식품의 맛과 계절감을 직관적으로 표현",
+        "핵심 문구와 상품 이미지를 명확하게 배치해 주목도를 높이고 구매 관심을 유도할 수 있도록 구성"
+      ]
+    },
+    {
+      "id": 13, "category": "광고소재", "title": "스테비아 토마토 롤링배너", "client": "금메달농산물", "year": "2025", "type": "wide",
+      "thumb": "/public/portfolio/13/thumb.jpg",
+      "images": ["/public/portfolio/13/img1.jpg", "/public/portfolio/13/img2.jpg"],
+      "hashtags": ["롤링배너", "배너디자인", "식품콘텐츠", "판매촉진"],
+      "overview": [
+        "선명한 레드 컬러와 신선한 토마토 이미지를 활용해 제품의 달콤함과 건강한 이미지를 직관적으로 표현",
+        "제품 특징과 핵심 키워드를 명확하게 배치해 주목도를 높이고, 구매 관심을 유도"
+      ]
+    },
+    {
+      "id": 14, "category": "광고소재", "title": "오이 롤링배너", "client": "금메달농산물", "year": "2025", "type": "wide",
+      "thumb": "/public/portfolio/14/thumb.jpg",
+      "images": ["/public/portfolio/14/img1.jpg", "/public/portfolio/14/img2.jpg"],
+      "hashtags": ["롤링배너", "배너디자인", "식품콘텐츠", "판매촉진"],
+      "overview": [
+        "신선한 오이 이미지를 중심으로 그린 계열 컬러와 명확한 타이포를 활용해 제품의 신선함과 건강한 이미지를 직관적으로 표현",
+        "핵심 문구와 혜택 메시지를 강조해 배너 주목도를 높이고, 상품 관심 및 구매 유도로 이어질 수 있도록 구성"
+      ]
+    },
+    {
+      "id": 15, "category": "광고소재", "title": "프리미엄 오렌지 롤링배너", "client": "금메달농산물", "year": "2025", "type": "wide",
+      "thumb": "/public/portfolio/15/thumb.jpg",
+      "images": ["/public/portfolio/15/img1.jpg", "/public/portfolio/15/img2.jpg"],
+      "hashtags": ["롤링배너", "배너디자인", "식품콘텐츠", "판매촉진"],
+      "overview": [
+        "오렌지의 선명한 컬러와 신선한 과육 이미지를 활용해 제품의 상큼함과 풍성한 과즙 이미지를 직관적으로 표현",
+        "핵심 문구와 제품 특징을 명확하게 배치해 주목도를 높이고, 구매 관심으로 자연스럽게 이어질 수 있도록 구성"
+      ]
+    },
+    {
+      "id": 16, "category": "광고소재", "title": "대저토마토 팝업", "client": "금메달농산물", "year": "2026", "type": "wide",
+      "thumb": "/public/portfolio/16/thumb.jpg",
+      "images": ["/public/portfolio/16/img1.jpg", "/public/portfolio/16/img2.jpg"],
+      "hashtags": ["팝업디자인", "식품콘텐츠", "제품프로모션", "판매유도"],
+      "overview": [
+        "토마토의 신선함과 산지 이미지를 배경으로 활용해 제품의 프리미엄감과 신뢰감을 직관적으로 표현",
+        "가격 혜택과 할인 정보를 크게 강조해 주목도를 높이고, 구매 전환으로 이어질 수 있도록 구성"
+      ]
+    },
+    {
+      "id": 17, "category": "광고소재", "title": "그루숲카페 홍보배너", "client": "그루숲카페", "year": "2026", "type": "wide",
+      "thumb": "/public/portfolio/17/thumb.jpg",
+      "images": ["/public/portfolio/17/img1.jpg"],
+      "hashtags": ["홍보배너", "배너디자인", "브랜드콘텐츠", "서비스홍보"],
+      "overview": [
+        "자연을 연상시키는 그린 컬러와 일러스트 요소를 활용해 따뜻하고 편안한 커뮤니티 분위기를 표현",
+        "서비스 안내와 참여 목적을 명확하게 구성해 사용자 유입과 커뮤니티 접근성을 높일 수 있도록 제작"
+      ]
+    },
+    {
+      "id": 18, "category": "광고소재", "title": "우편나라 · 판다서점 홍보배너", "client": "우편나라 · 판다서점", "year": "2026", "type": "wide",
+      "thumb": "/public/portfolio/18/thumb.jpg",
+      "images": ["/public/portfolio/18/img1.jpg", "/public/portfolio/18/img2.jpg"],
+      "hashtags": ["배너디자인", "홍보배너", "콘텐츠디자인", "브랜드소통"],
+      "overview": [
+        "편지와 책 오브젝트를 활용해 우편나라와 판다서점의 서비스를 한눈에 이해할 수 있도록 구성",
+        "핵심 메시지와 바로가기 요소를 명확하게 배치해 서비스 인지와 유입을 자연스럽게 유도"
+      ]
+    },
+    {
+      "id": 19, "category": "상세페이지", "title": "초당옥수수", "client": "39파머스", "year": "2025", "type": "detail",
+      "thumb": "/public/portfolio/19/thumb.jpg",
+      "images": ["/public/portfolio/19/img1.jpg"],
+      "hashtags": ["상세페이지", "웹디자인", "식품콘텐츠", "구매전환"],
+      "overview": [
+        "초당옥수수의 신선함과 달콤함을 강조하기 위해 그린 컬러와 옥수수 이미지를 중심으로 생동감 있는 상세페이지를 구성",
+        "제품 특징, 품질 정보, 섭취 포인트를 순차적으로 전달해 상품 이해도를 높이고 구매 관심을 유도"
+      ]
+    },
+    {
+      "id": 20, "category": "상세페이지", "title": "사과 상세페이지", "client": "고씨네농장", "year": "2025", "type": "detail",
+      "thumb": "/public/portfolio/20/thumb.jpg",
+      "images": ["/public/portfolio/20/img1.jpg"],
+      "hashtags": ["상세페이지", "웹디자인", "과일콘텐츠", "구매전환"],
+      "overview": [
+        "사과의 신선함과 당도 이미지를 강조하기 위해 레드 컬러와 과수원 이미지를 중심으로 생동감 있는 상세페이지를 구성",
+        "품종별 특징과 산지 정보를 체계적으로 전달해 상품 신뢰도를 높이고, 재구매 관심으로 이어질 수 있도록 제작"
+      ]
+    },
+    {
+      "id": 21, "category": "상세페이지", "title": "콩물 상세페이지", "client": "금메달농산물", "year": "2025", "type": "detail",
+      "thumb": "/public/portfolio/21/thumb.jpg",
+      "images": ["/public/portfolio/21/img1.jpg"],
+      "hashtags": ["상세페이지", "웹디자인", "식품콘텐츠", "구매전환"],
+      "overview": [
+        "부드러운 베이지 톤과 콩 원물 이미지를 활용해 순수하고 건강한 콩물의 이미지를 차분하게 표현",
+        "원재료, 제조 과정, 제품 특징을 단계적으로 전달해 신뢰도를 높이고 구매 관심을 유도할 수 있도록 구성"
+      ]
+    },
+    {
+      "id": 22, "category": "상세페이지", "title": "두리안 상세페이지", "client": "네이처푸릇", "year": "2025", "type": "detail",
+      "thumb": "/public/portfolio/22/thumb.jpg",
+      "images": ["/public/portfolio/22/img1.jpg"],
+      "hashtags": ["상세페이지", "웹디자인", "과일콘텐츠", "구매전환"],
+      "overview": [
+        "그린 컬러와 두리안 이미지를 중심으로 프리미엄 열대과일의 신선함과 이국적인 분위기를 표현",
+        "제품 특징, 후숙 방법, 섭취 정보를 체계적으로 전달해 상품 이해도를 높이고 구매 관심을 유도"
+      ]
+    },
+    {
+      "id": 23, "category": "상세페이지", "title": "보험 상세페이지", "client": "더블유에셋", "year": "2025", "type": "detail",
+      "thumb": "/public/portfolio/23/thumb.jpg",
+      "images": ["/public/portfolio/23/img1.jpg"],
+      "hashtags": ["상세페이지", "웹디자인", "보험콘텐츠", "서비스신뢰"],
+      "overview": [
+        "블루 컬러와 인물 이미지를 중심으로 보험 상담 서비스의 전문성과 신뢰감을 전달하는 상세페이지를 구성",
+        "상담 후기, 진행 과정, 제휴 보험사 정보를 단계별로 배치해 서비스 이해도를 높이고 상담 문의를 유도"
+      ]
+    },
+    {
+      "id": 24, "category": "상세페이지", "title": "침향원 상세페이지", "client": "명인이산", "year": "2025", "type": "detail",
+      "thumb": "/public/portfolio/24/thumb.jpg",
+      "images": ["/public/portfolio/24/img1.jpg"],
+      "hashtags": ["상세페이지", "웹디자인", "건강식품콘텐츠", "프리미엄브랜딩"],
+      "overview": [
+        "골드와 브라운 톤을 활용해 침향원의 고급스러운 이미지와 전통 한방 제품의 깊이 있는 분위기를 표현",
+        "원재료 구성과 제품 특징을 신뢰감 있게 전달해 상품 가치를 높이고 구매 관심을 유도"
+      ]
+    },
+    {
+      "id": 25, "category": "상세페이지", "title": "연지홍게 상세페이지", "client": "바다속에", "year": "2025", "type": "detail",
+      "thumb": "/public/portfolio/25/thumb.jpg",
+      "images": ["/public/portfolio/25/img1.jpg"],
+      "hashtags": ["상세페이지", "웹디자인", "수산물콘텐츠", "구매전환"],
+      "overview": [
+        "블루 컬러와 신선한 홍게 이미지를 중심으로 산지 직송 수산물의 신선함과 생동감을 강조한 상세페이지",
+        "제품 특징, 산지 정보, 손질·활용 방법을 단계적으로 전달해 상품 신뢰도를 높이고 구매 관심을 유도"
+      ]
+    },
+    {
+      "id": 26, "category": "상세페이지", "title": "장어 상세페이지", "client": "바다속에", "year": "2025", "type": "detail",
+      "thumb": "/public/portfolio/26/thumb.jpg",
+      "images": ["/public/portfolio/26/img1.jpg"],
+      "hashtags": ["상세페이지", "웹디자인", "수산물콘텐츠", "구매전환"],
+      "overview": [
+        "차분한 그레이 톤과 장어 조리 이미지를 활용해 손질장어의 신선함과 간편한 활용성을 직관적으로 표현",
+        "제품 특징, 손질 과정, 조리 예시를 단계적으로 전달해 상품 신뢰도를 높이고 구매 관심을 유도"
+      ]
+    },
+    {
+      "id": 27, "category": "상세페이지", "title": "자연산 쭈꾸미", "client": "바다속에", "year": "2025", "type": "detail",
+      "thumb": "/public/portfolio/27/thumb.jpg",
+      "images": ["/public/portfolio/27/img1.jpg"],
+      "hashtags": ["상세페이지", "웹디자인", "수산물콘텐츠", "구매전환"],
+      "overview": [
+        "딥블루 컬러와 신선한 쭈꾸미 이미지를 활용해 산지 직송 수산물의 신선함과 프리미엄 이미지를 표현",
+        "당일 조업·배송 정보와 손질 및 조리 포인트를 체계적으로 전달해 상품 신뢰도와 구매 관심을 높일 수 있도록 구성"
+      ]
+    },
+    {
+      "id": 28, "category": "상세페이지", "title": "생강진액 상세페이지", "client": "봉동들녘", "year": "2025", "type": "detail",
+      "thumb": "/public/portfolio/28/thumb.jpg",
+      "images": ["/public/portfolio/28/img1.jpg"],
+      "hashtags": ["상세페이지", "웹디자인", "건강식품콘텐츠", "구매전환"],
+      "overview": [
+        "따뜻한 베이지·브라운 톤과 생강 원물 이미지를 활용해 생강진액의 건강하고 정성스러운 이미지를 표현",
+        "원재료, 제조 과정, 섭취 방법을 단계적으로 전달해 제품 신뢰도를 높이고 구매 관심을 유도"
+      ]
+    },
+    {
+      "id": 29, "category": "상세페이지", "title": "한우선물세트", "client": "올미트", "year": "2025", "type": "detail",
+      "thumb": "/public/portfolio/29/thumb.jpg",
+      "images": ["/public/portfolio/29/img1.jpg"],
+      "hashtags": ["상세페이지", "웹디자인", "프리미엄브랜딩", "구매전환"],
+      "overview": [
+        "딥한 와인·브라운 톤과 고급스러운 패키지 이미지를 활용해 한우 선물세트의 품격과 프리미엄 이미지를 표현",
+        "상품 구성, 품질 인증, 포장 과정을 신뢰감 있게 전달해 선물 구매 관심과 전환을 유도"
+      ]
+    },
+    {
+      "id": 30, "category": "상세페이지", "title": "추석 종합과일선물세트", "client": "금메달농산물", "year": "2025", "type": "detail",
+      "thumb": "/public/portfolio/30/thumb.jpg",
+      "images": ["/public/portfolio/30/img1.jpg"],
+      "hashtags": ["상세페이지", "웹디자인", "시즌콘텐츠", "프리미엄브랜딩"],
+      "overview": [
+        "딥그린 컬러와 고급스러운 패키지 이미지를 활용해 추석 선물세트의 품격과 명절 분위기를 표현",
+        "상품 구성과 포장 옵션을 명확하게 전달해 선물 구매 니즈를 높이고 구매 전환을 유도"
+      ]
+    },
+    {
+      "id": 31, "category": "상세페이지", "title": "추석선물특선 과일선물세트", "client": "금메달농산물", "year": "2025", "type": "detail",
+      "thumb": "/public/portfolio/31/thumb.jpg",
+      "images": ["/public/portfolio/31/img1.jpg"],
+      "hashtags": ["상세페이지", "웹디자인", "시즌콘텐츠", "프리미엄브랜딩"],
+      "overview": [
+        "차분한 브라운·그린 톤과 고급스러운 패키지 이미지를 활용해 추석 선물세트의 품격과 따뜻한 명절 분위기를 표현",
+        "상품별 구성과 포장 옵션을 보기 쉽게 정리해 선물 선택을 돕고, 구매 관심으로 이어질 수 있도록 구성"
+      ]
+    },
+    {
+      "id": 32, "category": "상세페이지", "title": "명란김선물세트", "client": "한민족농수산", "year": "2025", "type": "detail",
+      "thumb": "/public/portfolio/32/thumb.jpg",
+      "images": ["/public/portfolio/32/img1.jpg"],
+      "hashtags": ["상세페이지", "웹디자인", "시즌콘텐츠", "식품콘텐츠"],
+      "overview": [
+        "딥네이비 컬러와 패키지 이미지를 중심으로 명란김 선물세트의 고급스럽고 실속 있는 이미지를 표현",
+        "상품 구성과 포장 형태를 명확하게 정리해 선물용 제품의 가치를 높이고 구매 선택을 유도"
+      ]
+    },
+    {
+      "id": 33, "category": "상세페이지", "title": "편지지 상세페이지", "client": "우편나라", "year": "2026", "type": "detail",
+      "thumb": "/public/portfolio/33/thumb.jpg",
+      "images": ["/public/portfolio/33/img1.jpg"],
+      "hashtags": ["상세페이지", "웹디자인", "서비스콘텐츠", "사용자경험"],
+      "overview": [
+        "코랄 컬러와 부드러운 편지지 비주얼을 활용해 온라인 편지 서비스의 따뜻한 감성과 사용 편의성을 표현",
+        "편지지 구성, 작성 방법, 모바일 이용 흐름을 단계적으로 안내해 서비스 이해도와 이용 전환을 높일 수 있도록 구성"
       ]
     }
   ]
