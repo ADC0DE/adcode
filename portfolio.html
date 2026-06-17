@@ -197,11 +197,11 @@
         const items = list();
         if (!items.length) {
           grid.innerHTML = '<p class="pf-empty">해당 카테고리의 작업물이 준비 중입니다.</p>';
-          moreWrap.hidden = false;
+          moreWrap.hidden = true;
           return;
         }
         grid.innerHTML = items.map((p, i) => cardHTML(p, i >= shown)).join('');
-        moreWrap.hidden = false; // 항상 보이도록 유지
+        moreWrap.hidden = shown >= items.length; // 모두 펼치면 더보기 숨김
       }
 
       filters.addEventListener('click', (e) => {

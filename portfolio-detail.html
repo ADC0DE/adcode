@@ -201,8 +201,11 @@
           `;
 
           const wrap = document.getElementById('pf-images');
-          wrap.className = `pf-images--${p.type || 'detail'}`;
-          wrap.innerHTML = (p.images || [])
+          const imgs = p.images || [];
+          // SNS 단일 이미지는 좁은 격자 대신 가운데 큰 단독 배치
+          const cls = (p.type === 'sns' && imgs.length === 1) ? 'solo' : (p.type || 'detail');
+          wrap.className = `pf-images--${cls}`;
+          wrap.innerHTML = imgs
             .map(src => `<img loading="lazy" src="${src}" alt="${esc(p.title)}" />`).join('');
         })
         .catch(() => { location.replace('/portfolio'); });

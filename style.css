@@ -3494,8 +3494,13 @@ select {
 }
 
 .pf-images--detail img {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
+  /* 원본보다 키우지 않음(화질 깨짐 방지) */
+  height: auto;
   display: block;
+  margin: 0 auto;
+  /* 가운데 정렬 */
 }
 
 .pf-images--wide {
@@ -3503,27 +3508,47 @@ select {
   margin: 0 auto;
   display: grid;
   gap: 24px;
+  justify-items: center;
 }
 
 .pf-images--wide img {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
+  /* 원본보다 키우지 않음 */
+  height: auto;
   display: block;
   border-radius: 8px;
 }
 
 .pf-images--sns {
-  max-width: 1000px;
+  max-width: 980px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  columns: 2;
+  /* 원본 비율 유지(잘림 없음) — 메이슨리 컬럼. 2열로 키움 */
+  column-gap: 12px;
 }
 
 .pf-images--sns img {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  height: auto;
   display: block;
+  margin-bottom: 12px;
+  break-inside: avoid;
+}
+
+/* 단일 이미지(특히 SNS 1장) — 잘림 없이 가운데 크게(우편나라 배너 수준) */
+.pf-images--solo {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pf-images--solo img {
+  width: auto;
+  max-width: 100%;
+  /* 원본보다 키우지 않음(화질 깨짐 방지) */
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .pf-detail-foot {
@@ -3734,6 +3759,6 @@ select {
   }
 
   .pf-images--sns {
-    grid-template-columns: repeat(2, 1fr);
+    columns: 1;
   }
 }
