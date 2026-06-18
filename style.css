@@ -797,10 +797,11 @@ select {
 }
 
 .contact-tag {
-  margin-top: 28px;
-  font-size: 19px;
-  /* 좌측 큰 문구 — 더 키우려면 20~22px */
-  font-weight: 600;
+  margin-top: 72px;
+  /* 제목과 간격 확대 → 빨강 세로선도 함께 길어짐 */
+  font-size: 23px;
+  /* 좌측 큰 문구 — 키움 */
+  font-weight: 700;
   line-height: 1.2;
   color: var(--fg);
   letter-spacing: -0.015em;
@@ -809,7 +810,7 @@ select {
 }
 
 .contact-tag-sub {
-  margin-top: 14px;
+  margin-top: 22px;
   font-size: 16px;
   /* 좌측 부문구 — 더 키우려면 17~18px */
   line-height: 1.5;
@@ -822,7 +823,7 @@ select {
 .contact-info {
   margin-top: 44px;
   display: grid;
-  gap: 18px;
+  gap: 22px;
   padding-top: 28px;
   border-top: 1px solid var(--line);
   letter-spacing: 0.03em;
@@ -835,6 +836,11 @@ select {
   align-items: start;
 }
 
+/* SNS 행 — 아이콘·라벨·버튼 세로 가운데 정렬 */
+.contact-info .row.sns {
+  align-items: center;
+}
+
 /* 주소 블록 아이콘 — 보조 그레이 */
 .contact-info .ci-ico {
   width: 18px;
@@ -843,11 +849,12 @@ select {
   margin-top: 1px;
 }
 
-/* 사이드 문구 [ *~ ] — 작게, 보조 그레이 */
+/* 사이드 문구 [ *~ ] — 작게, 보조 그레이, 앞 텍스트와 간격 */
 .contact-info .ci-note {
   font-size: 13px;
   color: var(--gray);
   letter-spacing: 0;
+  margin-left: 12px;
 }
 
 .contact-info .k {
@@ -955,8 +962,8 @@ select {
   /* 칩 글자 크기 — 더 키우려면 16px */
   font-weight: 500;
   letter-spacing: -0.005em;
-  border-radius: 10px;
-  /* 둥근 사각형 */
+  border-radius: 999px;
+  /* SNS 버튼처럼 완전히 둥근(pill) */
   cursor: pointer;
   transition: background-color .25s ease, border-color .25s ease, color .25s ease;
 }
