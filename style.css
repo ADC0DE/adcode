@@ -1482,7 +1482,44 @@ select {
   color: var(--red);
 }
 
-/* 1섹션 회사소개서 버튼은 공통 .pill-cta 클래스를 사용 (별도 정의 없음) */
+/* 1섹션 VIEW PROFILE 버튼 — 얇은 흰색 아웃라인 타원(투명 배경) + 작은 화살표.
+   절제된 프리미엄 느낌. 커서 올리면 빨강 롤오버. (about 전용) */
+.view-profile {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 50px;
+  padding: 0 26px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  color: var(--fg);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  transition: background-color .25s ease, border-color .25s ease, color .25s ease;
+}
+
+.view-profile:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+
+.view-profile .vp-arrow {
+  display: inline-flex;
+  align-items: center;
+  transition: transform .25s ease;
+}
+
+.view-profile .vp-arrow svg {
+  width: 15px;
+  height: 15px;
+}
+
+.view-profile:hover .vp-arrow {
+  transform: translateX(3px);
+}
 
 /* 우측 캡션 — 짧은 빨강 라인 장식 (about_참고1 기준) */
 .about-hero-caption {
@@ -1491,9 +1528,11 @@ select {
   text-align: right;
   font-size: 15px;
   font-weight: 400;
-  line-height: 1.75;
+  line-height: 1.5;
+  /* 문서: 줄간격 150% */
   color: var(--fg-2);
-  letter-spacing: -0.005em;
+  letter-spacing: 0.05em;
+  /* 문서: 글자간격 50 */
 }
 
 /* 텍스트 오른쪽의 세로 빨강선 ( | ) */
@@ -1505,6 +1544,94 @@ select {
   bottom: 0;
   width: 3px;
   background: var(--red);
+}
+
+/* ===== 히어로 하단 핵심 강점 3종 — 아이콘(좌) + 타이틀/설명(우), 사이 세로 구분선(676d6d) ===== */
+.about-pillars {
+  padding: 0 44px 72px;
+}
+
+.about-pillars-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.pillar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 각 칸 안에서 가운데 정렬 → 가운데 칸(FULL SERVICE)이 페이지 중앙에 오고 좌우 대칭 */
+  gap: 26px;
+  padding: 6px 44px;
+}
+
+/* 칸 사이 세로 구분선 */
+.pillar + .pillar {
+  border-left: 1px solid var(--gray);
+}
+
+.pillar-ico {
+  flex: 0 0 auto;
+  color: var(--fg);
+  /* 흰색 베이스 */
+}
+
+.pillar-ico svg {
+  width: 50px;
+  height: 50px;
+  display: block;
+}
+
+/* 일부 포인트만 브랜드 레드 강조 (사이트 공통 --red 토큰 사용) */
+.pillar-ico .ac {
+  stroke: var(--red);
+}
+
+.pillar-ico .ac-f {
+  fill: var(--red);
+}
+
+.pillar-title {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  /* 문서: 타이틀 글자간격 100 */
+  color: var(--fg);
+}
+
+.pillar-desc {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.2;
+  /* 문서: 설명 줄간격 120% */
+  color: var(--gray);
+  /* 문서: 설명 컬러 676d6d */
+  word-break: keep-all;
+}
+
+/* 모바일 — 3칸 세로 stack, 구분선은 위쪽 가로선으로 */
+@media (max-width: 760px) {
+  .about-pillars {
+    padding: 0 20px 48px;
+  }
+
+  .about-pillars-inner {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .pillar {
+    justify-content: flex-start;
+    /* 모바일 stack 에서는 좌측 정렬 */
+    padding: 16px 0 0;
+  }
+
+  .pillar + .pillar {
+    border-left: 0;
+    border-top: 1px solid var(--gray);
+  }
 }
 
 /* === Section 1 hero reveal — 줄별 마스크 슬라이드 + 우측 본문 stagger fade-up.
