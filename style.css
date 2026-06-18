@@ -3654,6 +3654,11 @@ select {
   border-radius: 8px;
 }
 
+/* uniform: 한 작업물 안 배너들을 지정 폭(컨테이너)에 맞춰 동일 가로폭으로 통일 */
+.pf-images--wide.is-uniform img {
+  width: 100%;
+}
+
 .pf-images--sns {
   max-width: 980px;
   margin: 0 auto;

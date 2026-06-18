@@ -2,7 +2,7 @@
   "note": "포트폴리오 데이터(33개). 1~9=기존 9개(우편나라배너·고종시곶감·방쿡·쌍화고·보험롤링·백진주안계쌀·해란명란김·콜라겐·달다구니), 10~33=신규(받은 순서). 원고 출처: public/20260617_추가이미지 각 폴더 포트폴리오_*.txt. type: detail=긴 상세페이지(풀폭 세로), wide=광고소재 가로배너(세로 나열), sns=인스타/카드뉴스(원본 비율). 클라이언트 추론 항목(의뢰인 공란분, 표기 제거): 11·12·13·14·15·30·31 → 확인 후 교체. 상세: public/portfolio_detail.md",
   "projects": [
     {
-      "id": 1, "category": "광고소재", "title": "우편나라 배너", "client": "우편나라", "year": "2026", "type": "wide",
+      "id": 1, "category": "광고소재", "title": "우편나라 배너", "client": "우편나라", "year": "2026", "type": "wide", "uniform": 888,
       "thumb": "/public/portfolio/1/thumb.jpg",
       "images": ["/public/portfolio/1/img1.jpg", "/public/portfolio/1/img2.jpg", "/public/portfolio/1/img3.jpg"],
       "hashtags": ["배너디자인", "비주얼디자인", "브랜드콘텐츠", "콘텐츠마케팅"],
@@ -102,7 +102,7 @@
       ]
     },
     {
-      "id": 11, "category": "SNS", "title": "추석 과일선물세트 인스타그램", "client": "금메달농산물", "year": "2025", "type": "sns",
+      "id": 11, "category": "SNS", "title": "추석 과일선물세트 인스타그램", "client": "", "year": "2025", "type": "sns",
       "thumb": "/public/portfolio/11/thumb.jpg",
       "images": ["/public/portfolio/11/img1.jpg"],
       "hashtags": ["인스타그램", "SNS디자인", "명절마케팅", "브랜드홍보"],
@@ -112,7 +112,7 @@
       ]
     },
     {
-      "id": 12, "category": "광고소재", "title": "과메기 · 굴무침 롤링배너", "client": "바다속에", "year": "2025", "type": "wide",
+      "id": 12, "category": "광고소재", "title": "과메기 · 굴무침 롤링배너", "client": "", "year": "2025", "type": "wide", "uniform": 800,
       "thumb": "/public/portfolio/12/thumb.jpg",
       "images": ["/public/portfolio/12/img1.jpg", "/public/portfolio/12/img2.jpg"],
       "hashtags": ["롤링배너", "배너디자인", "식품콘텐츠", "콘텐츠디자인"],
@@ -122,7 +122,7 @@
       ]
     },
     {
-      "id": 13, "category": "광고소재", "title": "스테비아 토마토 롤링배너", "client": "금메달농산물", "year": "2025", "type": "wide",
+      "id": 13, "category": "광고소재", "title": "스테비아 토마토 롤링배너", "client": "", "year": "2025", "type": "wide", "uniform": 750,
       "thumb": "/public/portfolio/13/thumb.jpg",
       "images": ["/public/portfolio/13/img1.jpg", "/public/portfolio/13/img2.jpg"],
       "hashtags": ["롤링배너", "배너디자인", "식품콘텐츠", "판매촉진"],
@@ -132,7 +132,7 @@
       ]
     },
     {
-      "id": 14, "category": "광고소재", "title": "오이 롤링배너", "client": "금메달농산물", "year": "2025", "type": "wide",
+      "id": 14, "category": "광고소재", "title": "오이 롤링배너", "client": "", "year": "2025", "type": "wide", "uniform": 750,
       "thumb": "/public/portfolio/14/thumb.jpg",
       "images": ["/public/portfolio/14/img1.jpg", "/public/portfolio/14/img2.jpg"],
       "hashtags": ["롤링배너", "배너디자인", "식품콘텐츠", "판매촉진"],
@@ -142,7 +142,7 @@
       ]
     },
     {
-      "id": 15, "category": "광고소재", "title": "프리미엄 오렌지 롤링배너", "client": "금메달농산물", "year": "2025", "type": "wide",
+      "id": 15, "category": "광고소재", "title": "프리미엄 오렌지 롤링배너", "client": "", "year": "2025", "type": "wide", "uniform": 750,
       "thumb": "/public/portfolio/15/thumb.jpg",
       "images": ["/public/portfolio/15/img1.jpg", "/public/portfolio/15/img2.jpg"],
       "hashtags": ["롤링배너", "배너디자인", "식품콘텐츠", "판매촉진"],
@@ -292,7 +292,7 @@
       ]
     },
     {
-      "id": 30, "category": "상세페이지", "title": "추석 종합과일선물세트", "client": "금메달농산물", "year": "2025", "type": "detail",
+      "id": 30, "category": "상세페이지", "title": "추석 종합과일선물세트", "client": "", "year": "2025", "type": "detail",
       "thumb": "/public/portfolio/30/thumb.jpg",
       "images": ["/public/portfolio/30/img1.jpg"],
       "hashtags": ["상세페이지", "웹디자인", "시즌콘텐츠", "프리미엄브랜딩"],
@@ -302,7 +302,7 @@
       ]
     },
     {
-      "id": 31, "category": "상세페이지", "title": "추석선물특선 과일선물세트", "client": "금메달농산물", "year": "2025", "type": "detail",
+      "id": 31, "category": "상세페이지", "title": "추석선물특선 과일선물세트", "client": "", "year": "2025", "type": "detail",
       "thumb": "/public/portfolio/31/thumb.jpg",
       "images": ["/public/portfolio/31/img1.jpg"],
       "hashtags": ["상세페이지", "웹디자인", "시즌콘텐츠", "프리미엄브랜딩"],

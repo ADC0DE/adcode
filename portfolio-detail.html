@@ -205,6 +205,11 @@
           // SNS 단일 이미지는 좁은 격자 대신 가운데 큰 단독 배치
           const cls = (p.type === 'sns' && imgs.length === 1) ? 'solo' : (p.type || 'detail');
           wrap.className = `pf-images--${cls}`;
+          // uniform: 한 작업물 안 배너 폭을 기준값으로 통일(지정 폭으로 가로 꽉 채움 — 주로 축소)
+          if (p.uniform) {
+            wrap.classList.add('is-uniform');
+            wrap.style.maxWidth = p.uniform + 'px';
+          }
           wrap.innerHTML = imgs
             .map(src => `<img loading="lazy" src="${src}" alt="${esc(p.title)}" />`).join('');
         })
