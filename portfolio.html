@@ -70,11 +70,11 @@
     <section class="pf-list" data-screen-label="02 Portfolio List">
       <div class="pf-filters" id="pf-filters" role="tablist" aria-label="카테고리 필터">
         <button class="pill-rect is-active" data-cat="전체">전체</button>
-        <button class="pill-rect" data-cat="브랜딩">브랜딩</button>
         <button class="pill-rect" data-cat="SNS">SNS</button>
         <button class="pill-rect" data-cat="상세페이지">상세페이지</button>
         <button class="pill-rect" data-cat="광고소재">광고소재</button>
         <button class="pill-rect" data-cat="콘텐츠">콘텐츠</button>
+        <button class="pill-rect" data-cat="AI인플루언서">AI인플루언서</button>
       </div>
 
       <div class="pf-grid" id="pf-grid">
@@ -183,8 +183,12 @@
 
       const list = () => cat === '전체' ? all : all.filter(p => p.category === cat);
 
-      const cardHTML = (p, hidden) => `
-        <a class="pf-card" href="/portfolio-detail?id=${p.id}"${hidden ? ' hidden' : ''}>
+      const cardHTML = (p, hidden) => {
+        // url 이 있으면(콘텐츠·AI인플루언서 SNS 작업물) 상세 대신 해당 계정으로 새 탭 이동
+        const href = p.url ? p.url : `/portfolio-detail?id=${p.id}`;
+        const ext = p.url ? ' target="_blank" rel="noopener"' : '';
+        return `
+        <a class="pf-card" href="${href}"${ext}${hidden ? ' hidden' : ''}>
           <div class="pf-card-thumb"><img loading="lazy" src="${p.thumb}" alt="${p.title}" /></div>
           <div class="pf-card-meta">
             <span class="pf-card-cat">${p.category}</span>
@@ -192,6 +196,7 @@
             <span class="pf-card-client">${p.client}</span>
           </div>
         </a>`;
+      };
 
       function render() {
         const items = list();

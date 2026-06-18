@@ -330,6 +330,46 @@
         "코랄 컬러와 부드러운 편지지 비주얼을 활용해 온라인 편지 서비스의 따뜻한 감성과 사용 편의성을 표현",
         "편지지 구성, 작성 방법, 모바일 이용 흐름을 단계적으로 안내해 서비스 이해도와 이용 전환을 높일 수 있도록 구성"
       ]
+    },
+    {
+      "id": 34, "category": "콘텐츠", "title": "세모트", "client": "", "year": "", "type": "link",
+      "thumb": "/public/portfolio/34/thumb.jpg",
+      "url": "https://www.instagram.com/se__mot__/"
+    },
+    {
+      "id": 35, "category": "콘텐츠", "title": "XP매거진", "client": "", "year": "", "type": "link",
+      "thumb": "/public/portfolio/35/thumb.jpg",
+      "url": "https://www.instagram.com/xpmagazine_/"
+    },
+    {
+      "id": 36, "category": "콘텐츠", "title": "케이나우", "client": "", "year": "", "type": "link",
+      "thumb": "/public/portfolio/36/thumb.jpg",
+      "url": "https://www.instagram.com/k___now_/"
+    },
+    {
+      "id": 37, "category": "콘텐츠", "title": "트렌드레터", "client": "", "year": "", "type": "link",
+      "thumb": "/public/portfolio/37/thumb.jpg",
+      "url": "https://www.instagram.com/trend_letter_/"
+    },
+    {
+      "id": 38, "category": "콘텐츠", "title": "하이라이트", "client": "", "year": "", "type": "link",
+      "thumb": "/public/portfolio/38/thumb.jpg",
+      "url": "https://www.instagram.com/highl1ght_mag/"
+    },
+    {
+      "id": 39, "category": "콘텐츠", "title": "형들", "client": "", "year": "", "type": "link",
+      "thumb": "/public/portfolio/39/thumb.jpg",
+      "url": "https://www.instagram.com/hyung.dul/"
+    },
+    {
+      "id": 40, "category": "AI인플루언서", "title": "송키키", "client": "", "year": "", "type": "link",
+      "thumb": "/public/portfolio/40/thumb.jpg",
+      "url": "https://www.instagram.com/song_kiki__/"
+    },
+    {
+      "id": 41, "category": "AI인플루언서", "title": "타임비숑만두", "client": "", "year": "", "type": "link",
+      "thumb": "/public/portfolio/41/thumb.jpg",
+      "url": "https://www.instagram.com/time_bic/"
     }
   ]
 }
