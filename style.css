@@ -326,9 +326,9 @@ select {
    ================================================================= */
 .hero {
   position: relative;
-  /* 3개 페이지 1섹션 공통 높이 — 마퀴 위치를 페이지 간 동일하게 맞춤 */
-  min-height: 490px;
-  padding: 185px 44px 80px;
+  /* 콘텐츠를 위로 — 상단(헤더쪽) 여백 줄이고 하단(마퀴쪽) 여백 늘림 */
+  min-height: 450px;
+  padding: 130px 44px 120px;
   display: grid;
   grid-template-rows: auto;
   gap: 32px;
@@ -821,7 +821,8 @@ select {
 }
 
 .contact-info {
-  margin-top: 44px;
+  margin-top: 80px;
+  /* 좌측 회색 상단선을 우측 폼 입력선(홈페이지) 높이에 맞춤(데스크톱 기준) */
   display: grid;
   gap: 22px;
   padding-top: 28px;
@@ -1363,6 +1364,12 @@ select {
    ================================================================= */
 
 /* SECTION 1 — HERO INTRO */
+/* 1섹션 묶음(히어로+핵심강점) — 사진 배경을 마퀴 위까지 공유해 경계(떠보임) 제거 */
+.about-top {
+  position: relative;
+  overflow: hidden;
+}
+
 .about-hero {
   position: relative;
   /* 메인(.hero) 1섹션과 통일 — 공통 높이 490px, 콘텐츠 상단 고정 */
@@ -1370,8 +1377,8 @@ select {
   padding: 185px 44px 80px;
   display: flex;
   align-items: flex-start;
-  overflow: hidden;
-  background: var(--bg);
+  background: transparent;
+  /* 배경은 .about-top 의 사진이 담당 */
 }
 
 /* 배경 — about_1.png 풀블리드 + 좌측 어둡게(텍스트 가독성) + 좌상단 와인레드 글로우 */
@@ -1482,44 +1489,7 @@ select {
   color: var(--red);
 }
 
-/* 1섹션 VIEW PROFILE 버튼 — 얇은 흰색 아웃라인 타원(투명 배경) + 작은 화살표.
-   절제된 프리미엄 느낌. 커서 올리면 빨강 롤오버. (about 전용) */
-.view-profile {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  height: 50px;
-  padding: 0 26px;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 999px;
-  color: var(--fg);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  transition: background-color .25s ease, border-color .25s ease, color .25s ease;
-}
-
-.view-profile:hover {
-  background: var(--red);
-  border-color: var(--red);
-  color: #fff;
-}
-
-.view-profile .vp-arrow {
-  display: inline-flex;
-  align-items: center;
-  transition: transform .25s ease;
-}
-
-.view-profile .vp-arrow svg {
-  width: 15px;
-  height: 15px;
-}
-
-.view-profile:hover .vp-arrow {
-  transform: translateX(3px);
-}
+/* 1섹션 회사소개서 버튼은 공통 .pill-cta 클래스를 사용 (메인·사업영역과 통일) */
 
 /* 우측 캡션 — 짧은 빨강 라인 장식 (about_참고1 기준) */
 .about-hero-caption {
@@ -1548,6 +1518,9 @@ select {
 
 /* ===== 히어로 하단 핵심 강점 3종 — 아이콘(좌) + 타이틀/설명(우), 사이 세로 구분선(676d6d) ===== */
 .about-pillars {
+  position: relative;
+  z-index: 1;
+  /* .about-top 사진 배경 위에 표시 */
   padding: 0 44px 72px;
 }
 
@@ -2039,14 +2012,16 @@ select {
   color: var(--fg-3);
 }
 
-/* 조직구성 타이틀 — 공통 .section-title 토큰 사용(크기/자간/줄간격 상속), 좌측 정렬만 지정 */
+/* 조직구성 타이틀 — 공통 .section-title 토큰, 좌측 정렬 + 자간 0.025em(문서 요청, 뭉침 방지) */
 .about-org-title {
   text-align: left;
+  letter-spacing: 0.025em;
 }
 
-/* 찾아오시는길 타이틀 — 공통 .section-title 토큰 사용, 좌측 정렬만 지정 */
+/* 찾아오시는길 타이틀 — 공통 .section-title 토큰, 좌측 정렬 + 자간 0.025em */
 .about-location-title {
   text-align: left;
+  letter-spacing: 0.025em;
 }
 
 /* 우측 설명 — 세로 빨강 라인 + 2줄 (참고2: 너무 오른쪽 X, 안쪽으로 들여쓰기) */
@@ -2308,6 +2283,11 @@ select {
   .right-col {
     justify-items: start;
     text-align: left;
+  }
+
+  /* 모바일: 버튼 정상 흐름으로 복귀(데스크톱 절대배치 해제) */
+  .right-col .pill-cta {
+    position: static;
   }
 
   .watermark {
@@ -3000,10 +2980,12 @@ select {
    높이 고정 시 정사각형 비율 이미지(디자인·콘텐츠)가 좁게 보이던 문제 해결. */
 .biz-cat-icon {
   display: block;
-  width: 100%;
-  height: auto;
+  /* 원본 가로폭이 제각각이라 높이를 고정해 4개 아이콘 크기·위치 통일(가운데 정렬) */
+  width: auto;
+  height: clamp(200px, 22vw, 300px);
+  max-width: 100%;
   object-fit: contain;
-  margin-top: 40px;
+  margin: 40px auto 0;
 }
 
 /* 우측 */
@@ -3818,6 +3800,10 @@ select {
 
 /* 회사소개서 버튼 — 마지막에 등장. hover(색연해짐+가로늘어남)는 즉시 반응하도록 delay 분리 */
 .right-col .pill-cta {
+  /* 버튼을 흐름에서 빼 sub 밑선이 좌측 헤드라인과 정렬되도록(버튼은 sub 아래에 배치) */
+  position: absolute;
+  top: calc(100% + 28px);
+  right: 0;
   opacity: 0;
   transform: translateY(14px);
   transition: opacity .6s ease var(--d, 0s), transform .6s ease var(--d, 0s),
@@ -3832,15 +3818,19 @@ select {
 
 /* 우측 블록 — 로고 위 · PRACTICAL BRAND SOLUTION(BRAND만 빨강) · 설명 회색 (세로선 없음) */
 .right-col .english .brand-logo-img {
-  height: 48px;
+  height: 54px;
+  /* 살짝 키움 */
   margin-top: 0;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
+  /* 로고↔텍스트 간격 축소 */
 }
 
 .right-col .english .eyebrow {
   display: block;
   color: var(--fg-2);
   font-weight: 600;
+  font-size: 13px;
+  /* 살짝 키움(하단 설명문에 맞춰) */
   letter-spacing: 0.3em;
 }
 
