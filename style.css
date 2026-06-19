@@ -1526,7 +1526,7 @@ select {
   position: relative;
   padding-right: 22px;
   text-align: right;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
   /* 문서: 줄간격 150% */
@@ -2411,15 +2411,9 @@ select {
     display: none;
   }
 
-  /* 프로세스 — 1100 이하 세로 스택 (각 단계 한 줄, 막대 100%) */
+  /* 프로세스 — 1100 이하 띠 높이만 약간 축소(가로 유지) */
   .process-track {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .process-step {
-    flex: none;
-    width: 100%;
+    height: 66px;
   }
 }
 
@@ -2821,11 +2815,12 @@ select {
 /* ---------- Section 1 — Intro ---------- */
 .biz-hero {
   position: relative;
-  /* 메인(.hero) 1섹션과 통일 — 공통 높이 490px, 콘텐츠 상단 고정 */
+  /* 메인(.hero) 1섹션과 통일 — 공통 높이·여백·표시모델(grid) 동일 */
   min-height: 490px;
   padding: 185px 44px 80px;
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-rows: auto;
+  gap: 32px;
   overflow: hidden;
   background:
     radial-gradient(ellipse 50% 40% at 0% 100%, rgba(200, 24, 31, 0.16), transparent 60%),
@@ -2838,7 +2833,7 @@ select {
   z-index: 1;
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
+  grid-template-columns: minmax(0, 1fr) 380px;
   column-gap: 56px;
   align-items: end;
 }
@@ -2856,6 +2851,8 @@ select {
 .biz-hero-label {
   display: inline-flex;
   align-items: center;
+  gap: 0.5em;
+  /* BUSINESS 와 AREA(flex 아이템) 사이 1칸 간격 — flex라 공백이 무시되므로 gap으로 처리 */
   margin-left: 5px;
   margin-bottom: 30px;
   font-size: 14px;
@@ -2887,7 +2884,7 @@ select {
   position: relative;
   padding-right: 22px;
   text-align: right;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.75;
   color: var(--fg-2);
@@ -3128,63 +3125,65 @@ select {
 }
 
 /* 프로세스 트랙 — 7단계 가로 한 줄 (감싸는 박스 없음) */
+/* 프로세스 — 하나의 둥근 띠에 회색→빨강 그라데이션, 단계 사이 흰 원형 셰브론(›) */
 .process-track {
+  position: relative;
   display: flex;
-  align-items: center;
-  gap: 28px;
+  align-items: stretch;
   max-width: 1500px;
   margin: 0 auto;
+  height: 72px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: linear-gradient(90deg,
+      #767676 0%, #a4a4a4 20%, #cccccc 38%, #e9e3e3 52%,
+      #f1c9c9 66%, #e58387 82%, var(--red) 100%);
 }
 
-/* 한 단계 = 왼쪽 원형 배지 + 오른쪽만 둥근 막대 */
-.process-step {
-  position: relative;
+/* 한 단계 — 번호 + 라벨, 띠 위에 균등 배치 */
+.proc-step {
   flex: 1;
   min-width: 0;
-}
-
-/* 막대 — 왼쪽 거의 직각 / 오른쪽만 크게 둥근 D자 */
-.step-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 74px;
-  padding: 0 18px 0 28px;            /* 왼쪽 배지와 안 겹치게 */
-  border-radius: 6px 36px 36px 6px;
-  font-size: clamp(13px, 1vw, 16px);
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  gap: 10px;
   white-space: nowrap;
   color: var(--ink);
 }
 
-/* 배지 — 작은 원, 막대 바깥 왼쪽에 분리 */
-.step-badge {
-  position: absolute;
-  left: -20px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  width: 34px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  color: var(--ink);
+.proc-n {
   font-family: var(--mono);
   font-size: 13px;
   font-weight: 700;
+  opacity: .55;
 }
 
-/* 단계별 색상 — 막대 / 배지(막대보다 한 톤 진하게) */
-.step-01 .step-bar { background: #6b6b6b; } .step-01 .step-badge { background: #555555; }
-.step-02 .step-bar { background: #8a8a8a; } .step-02 .step-badge { background: #6e6e6e; }
-.step-03 .step-bar { background: #b0b0b0; } .step-03 .step-badge { background: #8f8f8f; }
-.step-04 .step-bar { background: #e0e0e0; } .step-04 .step-badge { background: #b8b8b8; }
-.step-05 .step-bar { background: #f5d4d4; } .step-05 .step-badge { background: #e8a5a5; }
-.step-06 .step-bar { background: #e87a7a; } .step-06 .step-badge { background: #d44b4b; }
-.step-07 .step-bar { background: #c8181f; } .step-07 .step-badge { background: #9e1218; }
+.proc-t {
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* 단계 사이 흰 원형 셰브론 — 띠 높이만큼의 원, 양옆 단계와 살짝 겹침 */
+.proc-chev {
+  flex: 0 0 auto;
+  width: 72px;
+  height: 72px;
+  margin: 0 -14px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  z-index: 1;
+}
+
+.proc-chev svg {
+  width: 18px;
+  height: 18px;
+}
 
 /* ---------- 반응형 ---------- */
 /* 히어로 스택 — about과 동일 분기점(≤1100). 우측 컬럼이 카피 아래로, 왼쪽 정렬(Plan A) */
@@ -3303,18 +3302,27 @@ select {
     padding: 80px 20px 100px;
   }
 
-  /* 프로세스 — 모바일 글자/배지 약간 축소 */
-  .step-bar {
-    height: 64px;
-    font-size: 14px;
-    padding-left: 26px;
+  /* 프로세스 — 모바일은 가로 스크롤(스와이프), 각 단계 자연폭 유지 */
+  .process-track {
+    height: 60px;
+    border-radius: 30px;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
-  .step-badge {
-    width: 30px;
-    height: 30px;
-    left: -16px;
-    font-size: 12px;
+  .proc-step {
+    flex: 0 0 auto;
+    padding: 0 16px;
+  }
+
+  .proc-t {
+    font-size: 13px;
+  }
+
+  .proc-chev {
+    width: 60px;
+    height: 60px;
+    margin: 0 -10px;
   }
 }
 
@@ -3843,6 +3851,7 @@ select {
 
 .right-col .sub {
   color: var(--fg-3);
+  font-size: 18px;
   line-height: 1.5;
 }
 
