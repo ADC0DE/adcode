@@ -541,7 +541,7 @@ select {
   position: relative;
   z-index: 2;
   display: grid;
-  gap: 28px;
+  gap: 20px;
   justify-items: end;
   text-align: right;
   padding-bottom: 4px;
@@ -564,6 +564,7 @@ select {
   letter-spacing: .26em;
   color: var(--fg-3);
   line-height: 1.9;
+  margin-top: 30px;
 }
 
 .english .big {
