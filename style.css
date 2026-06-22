@@ -2989,6 +2989,13 @@ select {
   margin: 40px auto 0;
 }
 
+/* 디자인 탭 이미지만 텍스트 라인에 맞춰 왼쪽 정렬 및 크기 확대 */
+.biz-panel[data-panel="design"] .biz-cat-icon {
+  height: clamp(250px, 30vw, 420px);
+  object-position: left center;
+  margin: 40px 0 0 0;
+}
+
 /* 우측 */
 .biz-hint {
   margin-bottom: 18px;
@@ -3032,7 +3039,7 @@ select {
 /* 번호 — 아주 작게, 은은하게 */
 .biz-num {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--red);
   transition: color .35s ease;
