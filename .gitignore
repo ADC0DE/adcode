@@ -1,2 +1,7 @@
 # Markdown docs (작업 메모/문서는 저장소에 올리지 않음)
 # *.md
+
+# Local development
+dev_server.py
+.idea/
+package-lock.json
