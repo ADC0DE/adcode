@@ -89,7 +89,8 @@
 
     setLoading(true);
     try {
-      const { data, error } = await client.from('inquiries').insert([payload]).select().single();
+      // anon 은 INSERT 만 허용 — .select() 를 붙이면 SELECT RLS 때문에 42501 발생
+      const { error } = await client.from('inquiries').insert([payload]);
       if (error) throw error;
 
       // 관리자 메일 알림 (실패해도 문의 접수는 성공 처리)
@@ -97,7 +98,10 @@
         await fetch('/api/notify-inquiry', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data || payload),
+          body: JSON.stringify({
+            ...payload,
+            created_at: new Date().toISOString(),
+          }),
         });
       } catch (mailErr) {
         console.warn('[ADCODE] notify mail skipped', mailErr);
