@@ -93,11 +93,16 @@
       const { error } = await client.from('inquiries').insert([payload]);
       if (error) throw error;
 
-      // 관리자 메일 알림 (실패해도 문의 접수는 성공 처리)
+      // 관리자 메일 알림 (Supabase Edge Function — GitHub Pages 에서도 동작)
       try {
-        await fetch('/api/notify-inquiry', {
+        const cfg = window.ADCODE_SUPABASE || {};
+        await fetch(`${cfg.url}/functions/v1/notify-inquiry`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            apikey: cfg.anonKey,
+            Authorization: `Bearer ${cfg.anonKey}`,
+          },
           body: JSON.stringify({
             ...payload,
             created_at: new Date().toISOString(),
