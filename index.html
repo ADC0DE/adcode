@@ -154,15 +154,8 @@
       <p class="contact-desc">간단한 정보만 남겨주시면 담당자가 빠르게 연락드립니다.</p>
     </div>
 
-    <form class="form reveal" id="contactForm" data-delay="2" action="https://formsubmit.co/usarmy0220@naver.com"
-      method="POST">
+    <form class="form reveal" id="contactForm" data-delay="2">
 
-      <input type="hidden" name="_subject" value="ADCODE 웹사이트 문의" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_autoresponse" value="문의해주셔서 감사합니다. 아래에서 애드코드 회사소개서를 확인하실 수 있습니다.
-https://adcode.co.kr/public/애드코드_회사소개서_2026.pdf
-빠른 시일 내에 담당자가 연락드리겠습니다." />
       <input type="hidden" name="희망서비스" id="services-input" value="상세페이지 제작" />
       <input type="hidden" name="연락방법" id="contact-method-input" value="전화" />
 
@@ -518,47 +511,14 @@ https://adcode.co.kr/public/애드코드_회사소개서_2026.pdf
       window.__openModal = open;
     })();
 
-    // ===== contact form: submit to FormSubmit via hidden iframe (no navigation) + success modal =====
-    (function () {
-      const form = document.getElementById('contactForm');
-      if (!form) return;
-      const iframe = document.createElement('iframe');
-      iframe.name = 'contact-submit-frame';
-      iframe.style.display = 'none';
-      document.body.appendChild(iframe);
-      form.target = 'contact-submit-frame';
-      let pending = false;
-      iframe.addEventListener('load', () => {
-        if (!pending) return;
-        pending = false;
-        window.__openModal && window.__openModal('modal-success');
-        form.reset();
-        const servicesInput = document.getElementById('services-input');
-        const serviceGrid = document.getElementById('service-grid');
-        if (serviceGrid && servicesInput) {
-          const selected = [...serviceGrid.querySelectorAll('input[type="checkbox"]:checked')]
-            .map((el) => el.value);
-          servicesInput.value = selected.join(', ');
-        } else if (servicesInput) {
-          servicesInput.value = '상세페이지 제작';
-        }
-        const methodInput = document.getElementById('contact-method-input');
-        const methodGrid = document.getElementById('method-grid');
-        if (methodInput) methodInput.value = '전화';
-        if (methodGrid) {
-          [...methodGrid.querySelectorAll('.method-item')].forEach((el) => {
-            const on = el.dataset.method === '전화';
-            el.classList.toggle('is-active', on);
-            el.setAttribute('aria-pressed', on ? 'true' : 'false');
-          });
-        }
-      });
-      form.addEventListener('submit', () => { pending = true; });
-    })();
-
     // ===== burger placeholder =====
     document.querySelector('.burger')?.addEventListener('click', () => { });
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/assets/js/supabase-config.js"></script>
+  <script src="/assets/js/supabase-client.js"></script>
+  <script src="/assets/js/contact-form.js"></script>
 
 </body>
 

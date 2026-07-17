@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>ADCODE Admin</title>
+  <link rel="icon" href="/adcode_fabicon.jpg" type="image/jpeg" />
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+  <div id="login-view" class="auth-wrap">
+    <form id="login-form" class="auth-card">
+      <p class="auth-eyebrow">ADCODE</p>
+      <h1 class="auth-title">관리자 로그인</h1>
+      <p class="auth-desc">문의 내역을 확인하려면 로그인하세요.</p>
+      <label class="auth-field">
+        <span>이메일</span>
+        <input type="email" id="login-email" required autocomplete="username" placeholder="admin@example.com" />
+      </label>
+      <label class="auth-field">
+        <span>비밀번호</span>
+        <input type="password" id="login-password" required autocomplete="current-password" placeholder="••••••••" />
+      </label>
+      <p id="login-error" class="auth-error" hidden></p>
+      <button type="submit" class="auth-btn" id="login-btn">로그인</button>
+    </form>
+  </div>
+
+  <div id="app-view" class="app" hidden>
+    <header class="app-header">
+      <div class="app-brand">
+        <strong>ADCODE</strong>
+        <span>문의 관리</span>
+      </div>
+      <div class="app-actions">
+        <span id="admin-email" class="app-email"></span>
+        <button type="button" id="logout-btn" class="ghost-btn">로그아웃</button>
+      </div>
+    </header>
+
+    <section class="toolbar">
+      <div class="filters" role="tablist" aria-label="상태 필터">
+        <button type="button" class="filter-btn is-active" data-status="all">전체</button>
+        <button type="button" class="filter-btn" data-status="new">신규</button>
+        <button type="button" class="filter-btn" data-status="in_progress">진행중</button>
+        <button type="button" class="filter-btn" data-status="done">완료</button>
+        <button type="button" class="filter-btn" data-status="archived">보관</button>
+      </div>
+      <div class="toolbar-right">
+        <input type="search" id="search-input" placeholder="상호명, 성함, 연락처, 이메일 검색" />
+        <button type="button" id="refresh-btn" class="ghost-btn">새로고침</button>
+      </div>
+    </section>
+
+    <p id="list-status" class="list-status">불러오는 중...</p>
+
+    <div class="table-wrap">
+      <table class="inquiry-table">
+        <thead>
+          <tr>
+            <th>접수일시</th>
+            <th>상태</th>
+            <th>상호명</th>
+            <th>성함</th>
+            <th>연락처</th>
+            <th>희망서비스</th>
+            <th>연락방법</th>
+          </tr>
+        </thead>
+        <tbody id="inquiry-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <aside id="detail-drawer" class="drawer" hidden aria-hidden="true">
+    <div class="drawer-backdrop" data-close-drawer></div>
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="문의 상세">
+      <header class="drawer-header">
+        <h2>문의 상세</h2>
+        <button type="button" class="icon-btn" data-close-drawer aria-label="닫기">&times;</button>
+      </header>
+      <div class="drawer-body" id="detail-body"></div>
+      <footer class="drawer-footer">
+        <label class="auth-field">
+          <span>상태</span>
+          <select id="detail-status">
+            <option value="new">신규</option>
+            <option value="in_progress">진행중</option>
+            <option value="done">완료</option>
+            <option value="archived">보관</option>
+          </select>
+        </label>
+        <label class="auth-field">
+          <span>관리자 메모</span>
+          <textarea id="detail-note" rows="4" placeholder="내부 메모를 남겨주세요"></textarea>
+        </label>
+        <div class="drawer-actions">
+          <button type="button" id="save-detail-btn" class="auth-btn">저장</button>
+          <button type="button" id="delete-detail-btn" class="danger-btn">삭제</button>
+        </div>
+        <p id="detail-msg" class="auth-error" hidden></p>
+      </footer>
+    </div>
+  </aside>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/assets/js/supabase-config.js"></script>
+  <script src="/assets/js/supabase-client.js"></script>
+  <script src="/admin/admin.js"></script>
+</body>
+</html>
