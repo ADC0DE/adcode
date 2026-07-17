@@ -21,10 +21,25 @@ function escapeHtml(value: unknown) {
     .replace(/"/g, '&quot;')
 }
 
+function formatKst(value: unknown) {
+  const d = value ? new Date(String(value)) : new Date()
+  if (Number.isNaN(d.getTime())) return String(value ?? '')
+  return new Intl.DateTimeFormat('ko-KR', {
+    timeZone: 'Asia/Seoul',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  }).format(d) + ' (KST)'
+}
+
 function buildMail(inquiry: Record<string, unknown>) {
   const subject = `[ADCODE 문의] ${inquiry.company_name || ''} - ${inquiry.name || ''}`
   const rows: Array<[string, unknown]> = [
-    ['접수일시', inquiry.created_at || new Date().toISOString()],
+    ['접수일시', formatKst(inquiry.created_at)],
     ['상호명', inquiry.company_name],
     ['성함', inquiry.name],
     ['연락처', inquiry.phone],
