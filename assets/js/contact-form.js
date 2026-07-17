@@ -89,8 +89,19 @@
 
     setLoading(true);
     try {
-      const { error } = await client.from('inquiries').insert([payload]);
+      const { data, error } = await client.from('inquiries').insert([payload]).select().single();
       if (error) throw error;
+
+      // 관리자 메일 알림 (실패해도 문의 접수는 성공 처리)
+      try {
+        await fetch('/api/notify-inquiry', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data || payload),
+        });
+      } catch (mailErr) {
+        console.warn('[ADCODE] notify mail skipped', mailErr);
+      }
 
       form.reset();
       resetFormExtras();

@@ -5,6 +5,7 @@
 dev_server.py
 .idea/
 package-lock.json
+node_modules/
 
 # Local secrets (if you move keys out of supabase-config.js)
 .env
