@@ -26,6 +26,13 @@ button, input, select, textarea {
   color: inherit;
 }
 
+/* display:grid/flex 가 [hidden] 의 display:none 을 덮어쓰지 않도록 */
+.auth-wrap[hidden],
+.app[hidden],
+.drawer[hidden] {
+  display: none !important;
+}
+
 .auth-wrap {
   min-height: 100vh;
   display: grid;

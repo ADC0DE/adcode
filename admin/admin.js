@@ -207,7 +207,7 @@
     const email = document.getElementById('login-email').value.trim();
     const password = document.getElementById('login-password').value;
 
-    const { error } = await sb.auth.signInWithPassword({ email, password });
+    const { data, error } = await sb.auth.signInWithPassword({ email, password });
     loginBtn.disabled = false;
     loginBtn.textContent = '로그인';
 
@@ -215,6 +215,9 @@
       setLoginError(error.message || '로그인에 실패했습니다.');
       return;
     }
+
+    showApp(data.session);
+    await loadInquiries();
   });
 
   logoutBtn?.addEventListener('click', async () => {
