@@ -1,4 +1,4 @@
-// 공통 마퀴 — 모든 페이지(index/about/business/portfolio)에서 동일하게 사용.
+// 공통 마퀴 — 모든 페이지(index/about/design/portfolio)에서 동일하게 사용.
 // 점·색·속도는 여기 한 곳에서만 수정하면 전체에 반영됨(통일성).
 // 문구만 페이지별로 다르게: 트랙 요소에 data-marquee="ADCODE PORTFOLIO" 처럼 지정.
 //   - 미지정 시 기본값 "ADCODE BRAND OPERATING".

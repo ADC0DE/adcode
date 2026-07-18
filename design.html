@@ -1,551 +1,185 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>디자인 제작 | 애드코드</title>
-    <link rel="icon" href="/adcode_fabicon.jpg" type="image/jpeg" />
-    <!-- Include CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    <style>
-      body {
-        background-color: #f9f9f9;
-        word-break: keep-all; /* 모바일에서 단어 잘림 방지 (keep-all) */
-        overflow-wrap: break-word;
-      }
 
-      .subpage-container {
-        padding-top: 100px;
-        min-height: 80vh;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="애드코드(ADCODE) 디자인 — SNS · 상세페이지 디자인 작업을 소개합니다.">
+  <link rel="icon" href="adcode_fabicon.jpg" type="image/jpeg">
+  <meta property="og:image" content="https://adcode.co.kr/adcode_logo.jpg">
+  <title>디자인 | 애드코드(ADCODE)</title>
 
-  <body>
-    <div id="header-placeholder"></div>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 
-    <div class="subpage-container">
-      <!-- 1번째 컨테이너 (3개의 슬라이더) -->
-      <section id="hero-stats" class="section py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4 text-center">
-          <!-- 슬라이드 전체를 감싸는 컨테이너: 모바일 (비대칭 그리드) 최적화 높이 -->
-          <div
-            class="relative max-w-6xl mx-auto min-h-[580px] md:min-h-[650px] grid place-items-center"
-          >
-            <!-- [공통 화살표] 이제 화살표는 슬라이드 외부에 고정되어 디자인이 틀어지지 않습니다. -->
-            <button
-              class="absolute -left-12 lg:-left-4 z-20 text-gray-200 hidden lg:block opacity-40 hover:opacity-80 transition-opacity cursor-pointer slide-prev-btn"
-              style="top: 50%; transform: translateY(-50%)"
-            >
-              <i class="fas fa-chevron-left text-5xl"></i>
-            </button>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/nav.js" defer></script>
+  <script src="/marquee.js" defer></script>
 
-            <!-- 1번째 슬라이드: What do we design -->
-            <div
-              id="slide-1"
-              class="col-start-1 row-start-1 w-full flex-col items-center justify-center fade-in flex"
-              style="opacity: 1; z-index: 10; transition: opacity 0.5s"
-            >
-              <h2 class="section-title fade-in !text-4xl md:!text-5xl !leading-[1.3] md:!leading-tight">
-                What do we<br class="block sm:hidden" />
-                <span class="text-[#53a7e0]">design</span>
-              </h2>
+</head>
 
-              <div class="mb-10 fade-in !mt-8 md:!mt-6 !mb-14 md:!mb-10">
-                <p class="section-subtitle fade-in !text-xl md:!text-2xl !leading-relaxed">
-                  브랜드의
-                  <span class="text-[#53a7e0]">첫인상을 설계</span>합니다<br />
-                  <span class="font-bold">그리고 매출을 바꿉니다</span>
-                </p>
-              </div>
+<body>
 
-              <!-- 이미지 레이아웃: 모바일에서는 비대칭 그리드(Asymmetric Grid), PC에서는 3열 그리드 -->
-              <div
-                class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8 w-full max-w-4xl mx-auto px-4 md:px-0"
-              >
-                <!-- 기획 (모바일 상단 크게 배치) -->
-                <div
-                  class="col-span-2 md:col-span-1 flex flex-col items-center bg-white p-2 md:p-0 rounded-2xl shadow-sm md:shadow-none border md:border-0 border-gray-100"
-                >
-                  <div
-                    class="w-full aspect-[16/9] md:aspect-[4/3] overflow-hidden rounded-xl"
-                  >
-                    <img
-                      src="/public/design/1_2_1.jpg"
-                      alt="기획"
-                      class="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div
-                    class="py-2 md:py-4 font-bold text-lg md:text-xl text-gray-800"
-                  >
-                    기획
-                  </div>
-                </div>
+  <!-- ============================== GNB ============================== -->
+  <header class="gnb" data-screen-label="GNB">
+    <a href="/" class="brand" aria-label="ADCODE home">
+      <img src="/public/logo/ad_code_logo.png" alt="애드코드 ADCODE" />
+    </a>
 
-                <!-- 디자인 -->
-                <div
-                  class="col-span-1 flex flex-col items-center bg-white p-2 md:p-0 rounded-2xl shadow-sm md:shadow-none border md:border-0 border-gray-100"
-                >
-                  <div class="w-full aspect-[4/3] overflow-hidden rounded-xl">
-                    <img
-                      src="/public/design/1_2_2.jpg"
-                      alt="디자인"
-                      class="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div
-                    class="py-2 md:py-4 font-bold text-lg md:text-xl text-gray-800"
-                  >
-                    디자인
-                  </div>
-                </div>
+    <nav class="nav" aria-label="Primary">
+      <a href="/about">BRAND PACKAGE</a>
+      <a href="/design">DESIGN</a>
+      <a href="/design">VIRAL</a>
+      <a href="/portfolio">CONTENT</a>
+    </nav>
 
-                <!-- 촬영 -->
-                <div
-                  class="col-span-1 flex flex-col items-center bg-white p-2 md:p-0 rounded-2xl shadow-sm md:shadow-none border md:border-0 border-gray-100"
-                >
-                  <div class="w-full aspect-[4/3] overflow-hidden rounded-xl">
-                    <img
-                      src="/public/design/1_2_3.jpg"
-                      alt="촬영"
-                      class="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div
-                    class="py-2 md:py-4 font-bold text-lg md:text-xl text-gray-800"
-                  >
-                    촬영
-                  </div>
-                </div>
-              </div>
-            </div>
+    <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
 
-            <!-- 2번째 슬라이드: We are -->
-            <div
-              id="slide-2"
-              class="col-start-1 row-start-1 w-full flex-col items-center justify-center fade-in flex"
-              style="
-                opacity: 0;
-                z-index: 0;
-                pointer-events: none;
-                transition: opacity 0.5s;
-              "
-            >
-              <h2 class="section-title fade-in !text-4xl md:!text-5xl">We are</h2>
+  <main class="design">
 
-              <div
-                class="border-[1.2px] border-[#53a7e0] rounded-[50px] md:rounded-full px-6 py-10 md:px-12 md:py-8 flex flex-col lg:flex-row gap-6 lg:gap-10 items-center justify-center bg-white shadow-sm w-full max-w-[800px] mx-auto"
-              >
-                <div
-                  class="w-56 h-56 md:w-56 md:h-56 flex-shrink-0 rounded-full bg-[#53a7e0] flex flex-col items-center justify-center text-white shadow-md transition-all hover:scale-105 duration-300"
-                >
-                  <span class="text-xl md:text-lg font-medium mb-1 opacity-95"
-                    >프로젝트</span
-                  >
-                  <span
-                    class="text-4xl md:text-4xl font-black stat-number"
-                    style="
-                      -webkit-text-fill-color: white !important;
-                      color: white !important;
-                      background: none !important;
-                    "
-                    >5,000+</span
-                  >
-                </div>
-                <div
-                  class="w-56 h-56 md:w-56 md:h-56 flex-shrink-0 rounded-full bg-[#53a7e0] flex flex-col items-center justify-center text-white shadow-md transition-all hover:scale-105 duration-300"
-                >
-                  <span class="text-xl md:text-lg font-medium mb-1 opacity-95"
-                    >재계약율</span
-                  >
-                  <div class="flex items-baseline gap-1">
-                    <span
-                      class="text-4xl md:text-4xl font-black stat-number"
-                      style="
-                        -webkit-text-fill-color: white !important;
-                        color: white !important;
-                        background: none !important;
-                      "
-                      >97%</span
-                    >
-                    <span class="text-2xl md:text-2xl font-bold ml-1">▲</span>
-                  </div>
-                </div>
-                <div
-                  class="w-56 h-56 md:w-56 md:h-56 flex-shrink-0 rounded-full bg-[#53a7e0] flex flex-col items-center justify-center text-white shadow-md transition-all hover:scale-105 duration-300"
-                >
-                  <span class="text-xl md:text-lg font-medium mb-1 opacity-95"
-                    >고객 만족도</span
-                  >
-                  <div class="flex items-baseline gap-1">
-                    <span
-                      class="text-4xl md:text-4xl font-black stat-number"
-                      style="
-                        -webkit-text-fill-color: white !important;
-                        color: white !important;
-                        background: none !important;
-                      "
-                      >99%</span
-                    >
-                    <span class="text-2xl md:text-2xl font-bold ml-1">▲</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <!-- ============================== SECTION 1 — HERO ============================== -->
+    <section class="ds-hero" data-screen-label="01 Design Hero">
+      <div class="ds-hero-inner">
+        <span class="ds-hero-label">DESIGN</span>
+        <h1 class="section-title ds-hero-title">
+          브랜드를 <span class="red">시각</span>으로<br />
+          완성합니다
+        </h1>
+      </div>
+    </section>
 
-            <!-- 3번째 슬라이드: Client -->
-            <div
-              id="slide-3"
-              class="col-start-1 row-start-1 w-full h-full flex flex-col items-center justify-center fade-in flex"
-              style="
-                opacity: 0;
-                z-index: 0;
-                pointer-events: none;
-                transition: opacity 0.5s;
-              "
-            >
-              <h2 class="section-title fade-in !text-4xl md:!text-5xl">Client</h2>
-              <div
-                class="flex flex-col items-center justify-center w-full px-4 text-center mt-6 mb-10"
-              >
-                <p class="section-subtitle fade-in !text-xl md:!text-2xl !leading-relaxed">
-                  애드코드 디자인 스튜디오와 함께한 소중한 클라이언트입니다.
-                </p>
-                <div class="max-w-5xl mx-auto">
-                  <img
-                    src="/public/design/1_3_1.jpg"
-                    alt="Client Logos"
-                    class="w-full max-h-[350px] md:max-h-[400px] object-contain rounded-xl"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <!-- [공통 화살표] -->
-            <button
-              class="absolute -right-12 lg:-right-4 z-20 text-gray-200 hidden lg:block opacity-40 hover:opacity-80 transition-opacity cursor-pointer slide-next-btn"
-              style="top: 50%; transform: translateY(-50%)"
-            >
-              <i class="fas fa-chevron-right text-5xl"></i>
-            </button>
-          </div>
+    <!-- ====================== MARQUEE ====================== -->
+    <section class="marquee-wrap" data-screen-label="Marquee">
+      <div class="marquee">
+        <div class="marquee-track" id="marquee-track" data-marquee="ADCODE DESIGN · SNS · DETAIL PAGE">
+          <!-- injected by marquee.js -->
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 2번째 컨테이너 (디자인 철학 섹션) -->
-      <section class="section py-20 md:py-32 bg-[#fafafa]">
-        <div class="container mx-auto px-4 text-center">
-          <h2 class="section-title fade-in !text-4xl md:!text-5xl !leading-[1.3] md:!leading-tight">
-            보이는 순간 <span class="text-[#53a7e0]">선택받도록</span
-            ><br class="block sm:hidden" />
-            디자인합니다
-          </h2>
+    <!-- ============================== SECTION 2 — LIST ============================== -->
+    <section class="ds-list" data-screen-label="02 Design List">
+      <ul class="ds-list-items" aria-label="디자인 카테고리">
+        <li>
+          <a class="ds-item" href="/design-sns">
+            <span class="ds-item-num">01</span>
+            <span class="ds-item-name">SNS</span>
+            <span class="ds-item-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a class="ds-item" href="/design-detail">
+            <span class="ds-item-num">02</span>
+            <span class="ds-item-name">상세페이지</span>
+            <span class="ds-item-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ul>
+    </section>
 
-          <div class="mb-10 fade-in !mt-8 md:!mt-6 !mb-14 md:!mb-10">
-            <p class="section-subtitle fade-in !text-xl md:!text-2xl !leading-relaxed">
-              첫 인상에서 느껴지는 완성도는<br class="block sm:hidden" />
-              구매 결정까지 이어집니다.<br />
-              우리는 감각적인 표현을 넘어<br class="block sm:hidden" />
-              전환을 만드는 구조까지 디자인합니다.
-            </p>
-          </div>
+  </main>
 
-          <!-- 타겟 아이콘 그래픽 (애니메이션 효과 추가) -->
-          <div class="mt-20 flex justify-center">
-            <div class="relative w-56 h-56 flex items-center justify-center">
-              <!-- 배경 동심원 (미세한 맥동 효과) -->
-              <div
-                class="absolute inset-0 border border-gray-200 rounded-full opacity-20 animate-[pulse_3s_infinite]"
-              ></div>
-              <div
-                class="absolute inset-8 border border-gray-200 rounded-full opacity-40 animate-[pulse_4s_infinite]"
-              ></div>
-              <div
-                class="absolute inset-16 border border-gray-200 rounded-full opacity-60"
-              ></div>
-
-              <!-- 중심 타겟 포인트 -->
-              <div
-                class="absolute inset-[92px] bg-white border border-gray-100 rounded-full flex items-center justify-center shadow-xl z-20"
-              >
-                <!-- 파동 애니메이션 (Ping) -->
-                <div
-                  class="absolute w-8 h-8 bg-[#53a7e0] rounded-full opacity-30 animate-ping"
-                ></div>
-                <!-- 중심점 -->
-                <div
-                  class="w-4 h-4 bg-[#53a7e0] rounded-full shadow-[0_0_20px_rgba(98,142,255,0.8)] relative z-20"
-                ></div>
-              </div>
-
-              <!-- 마우스 커서 아이콘 (부유 애니메이션) -->
-              <div
-                class="absolute top-[60%] left-[65%] transform -translate-x-1/2 -translate-y-1/2 z-30 text-black animate-[bounce_2s_infinite]"
-              >
-                <i class="fas fa-mouse-pointer text-6xl drop-shadow-2xl"></i>
-              </div>
-
-              <!-- 보조 장식 라인 (십자선) -->
-              <div
-                class="absolute w-full h-[1px] bg-gray-200 top-1/2 left-0 -translate-y-1/2 opacity-30"
-              ></div>
-              <div
-                class="absolute h-full w-[1px] bg-gray-200 left-1/2 top-0 -translate-x-1/2 opacity-30"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3번째 컨테이너 (온라인 스토어 디자인 섹션) -->
-      <section class="section py-20 md:py-32 bg-white">
-        <div class="container mx-auto px-4 text-center">
-          <h2 class="section-title fade-in !text-4xl md:!text-5xl">
-            For <span class="text-[#53a7e0]">online store</span>
-          </h2>
-          <p class="section-subtitle fade-in !text-xl md:!text-2xl !mt-6 !mb-12">
-            온라인 스토어를 위한 모든 디자인 작업
-          </p>
-
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto"
-          >
-            <!-- 상세페이지 디자인 -->
-            <div class="flex flex-col items-center">
-              <div class="w-full overflow-hidden rounded-xl mb-6 shadow-sm">
-                <img
-                  src="/public/design/3_1.jpg"
-                  alt="상세페이지 디자인"
-                  class="w-full h-auto object-cover transition-transform hover:scale-105 duration-500"
-                />
-              </div>
-              <div class="text-xl md:text-2xl font-bold text-gray-800">
-                상세페이지 디자인
-              </div>
-            </div>
-
-            <!-- 배너 디자인 -->
-            <div class="flex flex-col items-center">
-              <div class="w-full overflow-hidden rounded-xl mb-6 shadow-sm">
-                <img
-                  src="/public/design/3_2.jpg"
-                  alt="배너 디자인"
-                  class="w-full h-auto object-cover transition-transform hover:scale-105 duration-500"
-                />
-              </div>
-              <div class="text-xl md:text-2xl font-bold text-gray-800">
-                배너 디자인
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4번째 컨테이너 (출력물 디자인 섹션) -->
-      <section class="section py-20 md:py-32 bg-[#fafafa]">
-        <div class="container mx-auto px-4 text-center">
-          <h2 class="section-title fade-in !text-4xl md:!text-5xl">
-            For <span class="text-[#53a7e0]">printout</span>
-          </h2>
-          <p class="section-subtitle fade-in !text-xl md:!text-2xl !mt-6 !mb-12">출력을 위한 디자인 작업</p>
-
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto"
-          >
-            <!-- 명함 디자인 -->
-            <div class="flex flex-col items-center">
-              <div
-                class="w-full overflow-hidden mb-6 border border-gray-200 shadow-sm bg-white"
-              >
-                <img
-                  src="/public/design/4_1.jpg"
-                  alt="명함 디자인"
-                  class="w-full h-auto object-cover transition-transform hover:scale-105 duration-500"
-                />
-              </div>
-              <div class="text-lg md:text-xl font-bold text-gray-800">
-                명함 디자인
-              </div>
-            </div>
-
-            <!-- 포스터 디자인 -->
-            <div class="flex flex-col items-center">
-              <div
-                class="w-full overflow-hidden mb-6 border border-gray-200 shadow-sm bg-white"
-              >
-                <img
-                  src="/public/design/4_2.jpg"
-                  alt="포스터 디자인"
-                  class="w-full h-auto object-cover transition-transform hover:scale-105 duration-500"
-                />
-              </div>
-              <div class="text-lg md:text-xl font-bold text-gray-800">
-                포스터 디자인
-              </div>
-            </div>
-
-            <!-- 로고 디자인 -->
-            <div class="flex flex-col items-center">
-              <div
-                class="w-full overflow-hidden mb-6 border border-gray-200 shadow-sm bg-white"
-              >
-                <img
-                  src="/public/design/4_3.jpg"
-                  alt="로고 디자인"
-                  class="w-full h-auto object-cover transition-transform hover:scale-105 duration-500"
-                />
-              </div>
-              <div class="text-lg md:text-xl font-bold text-gray-800">
-                로고 디자인
-              </div>
-            </div>
-
-            <!-- 패키지 디자인 -->
-            <div class="flex flex-col items-center">
-              <div
-                class="w-full overflow-hidden mb-6 border border-gray-200 shadow-sm bg-white"
-              >
-                <img
-                  src="/public/design/4_4.jpg"
-                  alt="패키지 디자인"
-                  class="w-full h-auto object-cover transition-transform hover:scale-105 duration-500"
-                />
-              </div>
-              <div class="text-lg md:text-xl font-bold text-gray-800">
-                패키지 디자인
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 문의하기 CTA 섹션 -->
-      <section class="section py-16 bg-white">
-        <div class="container mx-auto px-4 text-center">
-          <div class="design-cta fade-in">
-            <a
-              href="#contact"
-              class="btn btn-primary !text-xl !px-12 !py-5 md:!text-lg md:!px-10 md:!py-4 rounded-full transition-all hover:scale-105"
-              >디자인 제작 문의하기</a
-            >
-          </div>
-        </div>
-      </section>
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="left">
+        <img src="/public/logo/ad_code_logo.png" alt="애드코드 ADCODE" />
+        <span>PRACTICAL BRAND SOLUTION</span>
+      </div>
+      <div class="center">© 2025 ADCODEMARKETING. All rights reserved.</div>
+      <div class="right">
+        <a href="#" class="legal-link" data-modal="terms">Terms of Use</a>
+        <a href="#" class="legal-link" data-modal="privacy">Privacy Policy</a>
+        <a href="#" class="legal-link" data-modal="cookie">Cookie Policy</a>
+      </div>
     </div>
+  </footer>
 
-    <!-- 모든 페이지 하단에 문의하기와 푸터 표시 -->
-    <div id="footer-contact-placeholder"></div>
-    <script src="/assets/js/layout.js"></script>
-    <script src="/assets/js/main.js"></script>
+  <!-- ====================== FLOATING WIDGET RAIL ====================== -->
+  <nav class="rail" aria-label="Quick links">
+    <a href="/public/애드코드_회사소개서_2026.pdf" download="애드코드_회사소개서_2026.pdf" class="brochure" aria-label="회사소개서">
+      <svg viewBox="0 0 24 24">
+        <path d="M7 3h7l4 4v14H7z" />
+        <path d="M14 3v4h4" />
+        <path d="M9 13h7M9 17h7M9 9h3" />
+      </svg>
+      <span class="tip">회사소개서</span>
+    </a>
+    <a href="/#contact" aria-label="문의하기">
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+      </svg>
+      <span class="tip">문의하기</span>
+    </a>
+    <a href="https://adcode.co.kr/#" target="_blank" rel="noopener" class="blog" aria-label="블로그">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <g transform="translate(0 -1)">
+          <text class="blog-word" x="12" y="12" text-anchor="middle" dominant-baseline="central">blog</text>
+        </g>
+      </svg>
+      <span class="tip">블로그</span>
+    </a>
+    <a href="https://pf.kakao.com/_myebn/chat" target="_blank" rel="noopener" class="kakao" aria-label="카카오톡 채널">
+      <span class="bubble">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 4C7.03 4 3 7.13 3 11c0 2.48 1.66 4.65 4.16 5.88L6.3 20c-.07.25.21.45.42.3l3.74-2.45c.5.07 1.02.1 1.54.1 4.97 0 9-3.13 9-7s-4.03-7-9-7Z" />
+        </svg>
+        <span class="talk">TALK</span>
+      </span>
+      <span class="tip">카카오톡 채널</span>
+    </a>
+  </nav>
 
-    <!-- 상단 We are & What do we design 슬라이드 제어 스크립트 -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // 현재 활성화된 슬라이드 인덱스 (1부터 시작)
-        let currentSlideIndex = 1;
+  <!-- ====================== POLICY MODALS ====================== -->
+  <div class="policy-modal" id="modal-terms" role="dialog" aria-modal="true" aria-label="이용약관">
+    <div class="modal-box">
+      <button class="modal-close" data-close aria-label="닫기">&times;</button>
+      <h2>이용약관</h2>
+      <h3>제1조 (목적)</h3>
+      <p>이 약관은 애드코드마케팅(이하 "회사")이 제공하는 서비스의 이용 조건 및 절차, 그리고 회사와 이용자 간의 권리, 의무 및 책임 사항을 규정하는 것을 목적으로 합니다.</p>
+    </div>
+  </div>
 
-        // 전체 슬라이드 개수
-        const TOTAL_SLIDES = 3;
+  <div class="policy-modal" id="modal-privacy" role="dialog" aria-modal="true" aria-label="개인정보 처리방침">
+    <div class="modal-box">
+      <button class="modal-close" data-close aria-label="닫기">&times;</button>
+      <h2>개인정보 처리방침</h2>
+      <h3>1. 개인정보 수집 및 이용 목적</h3>
+      <p>애드코드마케팅(이하 "회사")은 다음의 목적을 위해 개인정보를 처리합니다.</p>
+    </div>
+  </div>
 
-        // 자동 슬라이드 타이머
-        let autoSlideTimer;
-        const AUTO_SLIDE_INTERVAL = 5000;
+  <div class="policy-modal" id="modal-cookie" role="dialog" aria-modal="true" aria-label="쿠키 정책">
+    <div class="modal-box">
+      <button class="modal-close" data-close aria-label="닫기">&times;</button>
+      <h2>쿠키 정책</h2>
+      <h3>1. 쿠키 사용 목적</h3>
+      <p>회사는 이용자 경험 향상을 위해 쿠키를 사용할 수 있습니다.</p>
+    </div>
+  </div>
 
-        // 슬라이드 요소 가져오기
-        const getSlideElement = (index) =>
-          document.getElementById(`slide-${index}`);
-
-        // 자동 슬라이드 시작
-        const startAutoSlide = () => {
-          stopAutoSlide();
-          autoSlideTimer = setInterval(showNextSlide, AUTO_SLIDE_INTERVAL);
-        };
-
-        // 자동 슬라이드 중지
-        const stopAutoSlide = () => {
-          if (autoSlideTimer) clearInterval(autoSlideTimer);
-        };
-
-        // 수동 클릭 시 타이머 재설정
-        const handleManualTouch = (action) => {
-          action();
-          startAutoSlide(); // 클릭 후 다시 3초 카운트 시작
-        };
-
-        const showPrevSlide = () => {
-          hideSlide(currentSlideIndex);
-          currentSlideIndex =
-            currentSlideIndex - 1 < 1 ? TOTAL_SLIDES : currentSlideIndex - 1;
-          showSlide(currentSlideIndex);
-        };
-
-        const showNextSlide = () => {
-          hideSlide(currentSlideIndex);
-          currentSlideIndex =
-            currentSlideIndex + 1 > TOTAL_SLIDES ? 1 : currentSlideIndex + 1;
-          showSlide(currentSlideIndex);
-        };
-
-        // 슬라이드 숨기기 로직 (높이를 유지하기 위해 display: none 대신 opacity 사용 및 클릭 방지)
-        const hideSlide = (index) => {
-          const slide = getSlideElement(index);
-          if (slide) {
-            slide.style.opacity = "0";
-            slide.style.pointerEvents = "none";
-            slide.style.zIndex = "0";
-            slide.classList.remove("active"); // CSS fade-in 요소를 위해 active 제거
-          }
-        };
-
-        // 슬라이드 보여주기 로직 (Fade in 효과 적용)
-        const showSlide = (index) => {
-          const slide = getSlideElement(index);
-          if (slide) {
-            slide.style.opacity = "1";
-            slide.style.pointerEvents = "auto";
-            slide.style.zIndex = "10";
-
-            // 약간의 딜레이 후 active 클래스를 넣어 부드러운 전환 (CSS transition)
-            setTimeout(() => {
-              slide.classList.add("active");
-            }, 10);
-
-            // 숫자가 포함된 슬라이드라면 숫자 카운트 애니메이션 재실행
-            if (window.updateFadeIn) window.updateFadeIn();
-          }
-        };
-
-        // 이전/다음 버튼 이벤트 한 번에 등록
-        const bindSlideEvents = () => {
-          const prevBtns = document.querySelectorAll(".slide-prev-btn");
-          const nextBtns = document.querySelectorAll(".slide-next-btn");
-
-          prevBtns.forEach((btn) =>
-            btn.addEventListener("click", () =>
-              handleManualTouch(showPrevSlide),
-            ),
-          );
-          nextBtns.forEach((btn) =>
-            btn.addEventListener("click", () =>
-              handleManualTouch(showNextSlide),
-            ),
-          );
-        };
-
-        // 초기 실행
-        bindSlideEvents();
-        startAutoSlide();
+  <script>
+    (function () {
+      const open = (id) => document.getElementById(id)?.classList.add('open');
+      const closeAll = () => document.querySelectorAll('.policy-modal.open').forEach(m => m.classList.remove('open'));
+      document.querySelectorAll('.legal-link').forEach(link => {
+        link.addEventListener('click', (e) => { e.preventDefault(); open('modal-' + link.dataset.modal); });
       });
-    </script>
-  </body>
+      document.querySelectorAll('.policy-modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal || e.target.closest('[data-close]')) closeAll();
+        });
+      });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
+    })();
+  </script>
+
+</body>
+
 </html>

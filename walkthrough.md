@@ -12,13 +12,16 @@
 ## 활성 페이지 (현재 운영 = 리뉴얼된 것)
 - `index.html` — 메인 (히어로/마퀴/문의폼/푸터)
 - `about.html` — 회사소개 (히어로/슬로건/조직도/오시는길)
+- `design.html` — DESIGN 리스트 (/design) → SNS · 상세페이지
+- `design-sns.html` / `design-detail.html` — 2depth (가이드 대기)
+- `portfolio.html` / `portfolio-detail.html` — CONTENT
 
-두 페이지 모두:
+활성 페이지 공통:
 - 공유 스타일시트 `/style.css` 한 장을 링크.
-- 페이지별 JS는 각 HTML 하단 **인라인 `<script>`** 에 있음 (외부 .js 없음).
+- GNB: `nav.js`, 마퀴: `marquee.js`
 
 ### 구버전 / 미사용
-- `design.html`, `performance.html`, `viral.html`, `offline.html` — 리뉴얼 이전 옛 페이지. 건드리지 말 것(요청 없으면).
+- `performance.html`, `viral.html`, `offline.html` — 리뉴얼 이전 옛 페이지. 건드리지 말 것(요청 없으면).
 - `components/header.html`, `components/footer-contact.html` — **어느 HTML에서도 참조 안 됨**(과거 조각). 무시.
 - `clean_links.js` — 보조 스크립트, 평소 안 씀.
 - 루트의 `*.jpg`(marketing.jpg 등) — 옛 자산. 현재 페이지는 `public/` 자산을 씀.

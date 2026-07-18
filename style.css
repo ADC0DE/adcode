@@ -215,6 +215,14 @@ select {
   width: 100%;
 }
 
+.nav a.is-active {
+  color: var(--red);
+}
+
+.nav a.is-active::after {
+  width: 100%;
+}
+
 /* 모바일 햄버거 버튼 — 데스크톱에선 숨김 */
 .nav-toggle {
   display: none;
@@ -693,7 +701,7 @@ select {
 }
 
 /* pill download button (right column) */
-/* 공통 다운로드 버튼 — 메인/회사소개/사업영역 1섹션 '회사소개서 ↓' 버튼 모두 이 클래스 사용 */
+/* 공통 다운로드 버튼 — 메인/회사소개/디자인 1섹션 '회사소개서 ↓' 버튼 모두 이 클래스 사용 */
 .pill-cta {
   display: inline-flex;
   align-items: center;
@@ -1662,7 +1670,7 @@ select {
   color: var(--red);
 }
 
-/* 1섹션 회사소개서 버튼은 공통 .pill-cta 클래스를 사용 (메인·사업영역과 통일) */
+/* 1섹션 회사소개서 버튼은 공통 .pill-cta 클래스를 사용 (메인·디자인과 통일) */
 
 /* 우측 캡션 — 짧은 빨강 라인 장식 (about_참고1 기준) */
 .about-hero-caption {
@@ -3198,7 +3206,469 @@ select {
 }
 
 /* =================================================================
-   BUSINESS (사업영역) — /business
+   DESIGN LIST — /design
+   ================================================================= */
+
+.design {
+  background: var(--bg);
+}
+
+.ds-hero {
+  position: relative;
+  min-height: 360px;
+  padding: 150px 44px 60px;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.ds-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.ds-hero-label {
+  display: inline-block;
+  margin-bottom: 22px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: var(--fg-3);
+}
+
+.ds-hero-title {
+  margin: 0;
+}
+
+.ds-list {
+  padding: 48px 44px 120px;
+}
+
+.ds-list-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.ds-item {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 36px 8px;
+  border-bottom: 1px solid var(--line);
+  color: var(--fg);
+  text-decoration: none;
+  transition: color .2s ease, background-color .2s ease;
+}
+
+.ds-item:hover {
+  color: var(--red);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.ds-item-num {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--fg-3);
+}
+
+.ds-item:hover .ds-item-num {
+  color: var(--red);
+}
+
+.ds-item-name {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.ds-item-arrow {
+  font-size: 28px;
+  color: var(--fg-3);
+  transition: transform .2s ease, color .2s ease;
+}
+
+.ds-item:hover .ds-item-arrow {
+  color: var(--red);
+  transform: translateX(6px);
+}
+
+/* 2depth placeholder — /design-sns, /design-detail */
+.ds-sub {
+  min-height: 60vh;
+  padding: 160px 44px 100px;
+}
+
+.ds-back {
+  display: inline-block;
+  margin-bottom: 28px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--fg-3);
+  text-decoration: none;
+}
+
+.ds-back:hover {
+  color: var(--fg);
+}
+
+.ds-sub-note {
+  margin-top: 28px;
+  font-size: var(--t-desc);
+  color: var(--fg-2);
+}
+
+@media (max-width: 760px) {
+  .ds-hero {
+    min-height: 280px;
+    padding: 120px 20px 48px;
+  }
+
+  .ds-list {
+    padding: 32px 20px 80px;
+  }
+
+  .ds-item {
+    grid-template-columns: 40px 1fr auto;
+    gap: 14px;
+    padding: 28px 4px;
+  }
+
+  .ds-item-name {
+    font-size: 26px;
+  }
+
+  .ds-sub {
+    padding: 130px 20px 80px;
+  }
+}
+
+/* =================================================================
+   DESIGN SNS — /design-sns
+   ================================================================= */
+
+.design-sns {
+  background: var(--bg);
+}
+
+.sns-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: center;
+  padding: 140px var(--page-pad-x) 72px;
+  background:
+    radial-gradient(ellipse 42% 55% at 78% 48%, rgba(200, 24, 31, 0.22), transparent 70%),
+    var(--bg);
+}
+
+.sns-hero-label {
+  margin: 0 0 18px;
+  color: var(--red);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+}
+
+.sns-hero-title {
+  margin: 0;
+  color: var(--fg);
+  font-size: clamp(36px, 4.8vw, 64px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  word-break: keep-all;
+}
+
+.sns-hero-title .red {
+  color: var(--red);
+}
+
+.sns-hero-rule {
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin: 28px 0 24px;
+  background: var(--red);
+}
+
+.sns-hero-desc {
+  margin: 0;
+  max-width: 28em;
+  color: var(--fg);
+  font-size: clamp(15px, 1.3vw, 17px);
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+}
+
+.sns-hero-visual {
+  position: relative;
+  justify-self: end;
+  width: min(100%, 680px);
+}
+
+.sns-hero-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.sns-works {
+  padding: 80px var(--page-pad-x) 100px;
+}
+
+.sns-works-head {
+  margin-bottom: 48px;
+}
+
+.sns-works-eyebrow {
+  margin: 0 0 10px;
+  color: var(--red);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+}
+
+.sns-works-title {
+  margin: 0;
+  color: var(--fg);
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* PC 마퀴 / 태블릿 그리드 / 모바일 스와이퍼 — mag-channels 와 동일 패턴 */
+.sns-works-marquee {
+  display: none;
+  gap: 36px;
+  width: 100%;
+  container-type: inline-size;
+}
+
+.sns-works-swiper {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+.sns-works-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 36px 24px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* PC·태블릿: Swiper 미사용 — wrapper 스타일 고정 */
+@media (min-width: 761px) {
+  .sns-works-swiper .swiper-wrapper {
+    display: grid !important;
+    transform: none !important;
+    width: 100% !important;
+  }
+
+  .sns-works-swiper .swiper-slide {
+    width: auto !important;
+    margin: 0 !important;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .sns-works-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 18px;
+  }
+}
+
+/* PC: 2열 마퀴 — 1행 왼쪽 / 2행 오른쪽, 서로 반대로 흐름. hover 시 일시정지 */
+@media (min-width: 1101px) {
+  .sns-works-marquee {
+    display: grid;
+  }
+
+  .sns-works-swiper {
+    display: none !important;
+  }
+
+  .sns-row {
+    overflow: hidden;
+    width: 100%;
+    mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
+  }
+
+  .sns-row-track {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    will-change: transform;
+    animation: mag-marquee-left 42s linear infinite;
+  }
+
+  .sns-row--right .sns-row-track {
+    animation-name: mag-marquee-right;
+    animation-duration: 48s;
+  }
+
+  .sns-row:hover .sns-row-track {
+    animation-play-state: paused;
+  }
+
+  .sns-works-marquee .sns-card {
+    flex: 0 0 calc((100cqi - 72px) / 4);
+    width: calc((100cqi - 72px) / 4);
+  }
+}
+
+@media (min-width: 1101px) and (prefers-reduced-motion: reduce) {
+  .sns-row-track {
+    animation: none;
+    transform: none !important;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .sns-row--right .sns-row-track {
+    transform: none !important;
+  }
+
+  .sns-row-track .sns-card:nth-child(n+5) {
+    display: none;
+  }
+
+  .sns-works-marquee .sns-card {
+    flex: none;
+    width: auto;
+  }
+}
+
+.sns-card-thumb {
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--bg-3);
+  /* 원본 이미지가 전부 4:3 — 박스를 동일 비율로 맞춰 잘림 없이 표시 */
+  aspect-ratio: 4 / 3;
+}
+
+.sns-card-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .45s ease;
+}
+
+.sns-card:hover .sns-card-thumb img {
+  transform: scale(1.04);
+}
+
+.sns-card-title {
+  margin: 16px 0 6px;
+  color: var(--fg);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+}
+
+.sns-card-cat {
+  margin: 0;
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.sns-works-pagination {
+  display: none;
+}
+
+.sns-works-foot {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+}
+
+@media (max-width: 1100px) {
+  .sns-works-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .sns-hero {
+    grid-template-columns: 1fr;
+    padding: 120px 20px 48px;
+    gap: 36px;
+  }
+
+  .sns-hero-visual {
+    justify-self: center;
+    width: min(100%, 360px);
+  }
+
+  .sns-works {
+    padding: 56px 20px 72px;
+  }
+
+  .sns-works-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 14px;
+  }
+
+  .sns-card-title {
+    font-size: 14px;
+  }
+
+  /* 모바일: 한 장씩 Swiper (JS loop) — mag-channels 와 동일 */
+  .sns-works-swiper {
+    overflow: hidden;
+    padding-bottom: 28px;
+  }
+
+  .sns-works-swiper.swiper-initialized .sns-works-grid {
+    display: flex;
+    grid-template-columns: none;
+    gap: 0;
+  }
+
+  .sns-works-swiper .swiper-slide {
+    height: auto;
+    box-sizing: border-box;
+  }
+
+  .sns-works-pagination {
+    display: block;
+    bottom: 0 !important;
+  }
+
+  .sns-works-pagination .swiper-pagination-bullet {
+    width: 7px;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.35);
+    opacity: 1;
+  }
+
+  .sns-works-pagination .swiper-pagination-bullet-active {
+    background: var(--red);
+  }
+}
+
+/* =================================================================
+   DESIGN (legacy biz styles — unused by list page)
    ================================================================= */
 
 /* ---------- Section 1 — Intro ---------- */
@@ -3236,12 +3706,12 @@ select {
   padding-bottom: 4px;
 }
 
-/* "BUSINESS AREA" 라벨 — 자간 350, 보조회색(+AREA 빨강) */
+/* "DESIGN AREA" 라벨 — 자간 350, 보조회색(+AREA 빨강) */
 .biz-hero-label {
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
-  /* BUSINESS 와 AREA(flex 아이템) 사이 1칸 간격 — flex라 공백이 무시되므로 gap으로 처리 */
+  /* DESIGN 와 AREA(flex 아이템) 사이 1칸 간격 — flex라 공백이 무시되므로 gap으로 처리 */
   margin-left: 5px;
   margin-bottom: 30px;
   font-size: 14px;
@@ -3757,7 +4227,7 @@ select {
   background: var(--bg);
 }
 
-/* --- 1섹션 히어로 — about/business와 동일 톤이되 여백만 축소(문서 요구) --- */
+/* --- 1섹션 히어로 — about/design과 동일 톤이되 여백만 축소(문서 요구) --- */
 .pf-hero {
   position: relative;
   min-height: 360px;

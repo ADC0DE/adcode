@@ -1,4 +1,4 @@
-// 공통 GNB 스크립트 — index·about·business 공유.
+// 공통 GNB 스크립트 — index·about·design·portfolio 공유.
 // 모바일 전환 기준을 CSS(@media max-width:760px)와 "동일"하게 맞춰
 // CSS는 햄버거인데 JS는 hover로 판단하던 불일치(드롭다운이 안 열리던 버그)를 제거.
 (function () {
