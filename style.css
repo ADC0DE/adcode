@@ -3576,6 +3576,14 @@ select {
     width: min(100%, 360px);
   }
 
+  .brand-logo .sns-hero-visual {
+    max-width: min(100%, 260px);
+  }
+
+  .brand-homepage-blog .sns-hero-visual {
+    max-width: min(100%, 300px);
+  }
+
   .sns-works {
     padding: 56px 20px 72px;
   }
@@ -3686,12 +3694,49 @@ select {
   transform: scale(1.08);
 }
 
+/* BRAND PACKAGE — flex hero: 그리드 2열 여백 제거 + 목업 크기 조절 */
+@media (min-width: 761px) {
+  .brand-package .sns-hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(20px, 3vw, 36px);
+  }
+
+  .brand-package .sns-hero-copy {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .brand-package .sns-hero-visual {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+  }
+}
+
 .brand-logo .sns-hero-visual {
-  width: min(100%, 700px);
+  width: fit-content;
+  max-width: min(100%, 300px);
+}
+
+.brand-logo .sns-hero-visual img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .brand-homepage-blog .sns-hero-visual {
-  width: min(100%, 760px);
+  width: fit-content;
+  max-width: min(100%, 420px);
+}
+
+.brand-homepage-blog .sns-hero-visual img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .brand-homepage-blog .sns-card-thumb {
@@ -3805,10 +3850,13 @@ select {
   }
 
   .brand-logo .sns-hero-visual {
-    width: min(100%, 820px);
+    max-width: min(100%, 320px);
   }
 
-  .brand-homepage-blog .sns-hero-visual,
+  .brand-homepage-blog .sns-hero-visual {
+    max-width: min(100%, 460px);
+  }
+
   .content-blog .sns-hero-visual {
     width: min(100%, 900px);
   }
@@ -3828,12 +3876,201 @@ select {
   }
 
   .brand-logo .sns-hero-visual {
-    width: min(100%, 900px);
+    max-width: min(100%, 340px);
   }
 
-  .brand-homepage-blog .sns-hero-visual,
+  .brand-homepage-blog .sns-hero-visual {
+    max-width: min(100%, 500px);
+  }
+
   .content-blog .sns-hero-visual {
     width: min(100%, 1020px);
+  }
+}
+
+/* VIRAL — /viral */
+.viral-page .sns-hero-visual {
+  width: min(100%, 760px);
+}
+
+.viral-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.viral-tag {
+  padding: 8px 18px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  color: var(--fg-2);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.viral-brands {
+  padding: 72px var(--page-pad-x) 72px;
+  background: var(--bg);
+}
+
+.viral-brands-title {
+  margin: 0 0 48px;
+  text-align: center;
+  color: var(--fg);
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+}
+
+.viral-brands-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.viral-brands-row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.viral-brands-row--fade {
+  position: relative;
+  /* 65%까지 선명, 하단은 다단계 그radient으로 자연스럽게 녹임 */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 65%,
+    rgba(0, 0, 0, 0.94) 74%,
+    rgba(0, 0, 0, 0.78) 82%,
+    rgba(0, 0, 0, 0.52) 90%,
+    rgba(0, 0, 0, 0.22) 96%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 65%,
+    rgba(0, 0, 0, 0.94) 74%,
+    rgba(0, 0, 0, 0.78) 82%,
+    rgba(0, 0, 0, 0.52) 90%,
+    rgba(0, 0, 0, 0.22) 96%,
+    transparent 100%
+  );
+}
+
+.viral-brands-row--fade::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 50%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.08) 40%,
+    rgba(0, 0, 0, 0.35) 70%,
+    var(--bg) 100%
+  );
+  pointer-events: none;
+}
+
+.viral-brand-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 148px;
+  padding: 10px 14px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.viral-brand-card img {
+  display: block;
+  width: auto;
+  max-width: 96%;
+  max-height: 104px;
+  object-fit: contain;
+}
+
+@media (min-width: 1200px) {
+  .viral-page .sns-hero-visual {
+    width: min(100%, 880px);
+  }
+
+  .viral-brand-card {
+    min-height: 160px;
+    padding: 12px 16px;
+  }
+
+  .viral-brand-card img {
+    max-height: 112px;
+    max-width: 98%;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1099px) {
+  .viral-brands-row {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .viral-brand-card {
+    min-height: 124px;
+    padding: 8px 6px;
+  }
+
+  .viral-brand-card img {
+    max-height: 80px;
+  }
+}
+
+@media (max-width: 760px) {
+  .viral-brands {
+    padding: 56px 20px 56px;
+  }
+
+  .viral-brands-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .viral-brands-grid {
+    gap: 12px;
+  }
+
+  .viral-brands-row--fade {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 62%,
+      rgba(0, 0, 0, 0.9) 74%,
+      rgba(0, 0, 0, 0.55) 88%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 62%,
+      rgba(0, 0, 0, 0.9) 74%,
+      rgba(0, 0, 0, 0.55) 88%,
+      transparent 100%
+    );
+  }
+
+  .viral-brand-card {
+    min-height: 108px;
+    padding: 8px 10px;
+  }
+
+  .viral-brand-card img {
+    max-height: 72px;
   }
 }
 
