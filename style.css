@@ -33,8 +33,8 @@
   --page-pad-x: 40px;
 
   /* sns-hero 우측 목업 — 모든 2depth 페이지 공통 크기 */
-  --sns-hero-visual-w: min(100%, 480px);
-  --sns-hero-visual-h: 400px;
+  --sns-hero-visual-w: min(100%, 780px);
+  --sns-hero-visual-h: 520px;
 
   /* 반응형 기준 (메인 페이지)
      PC     : 1101px 이상  (기본 스타일)
@@ -185,7 +185,7 @@ select {
   top: auto;
   transform: none;
   display: flex;
-  gap: 36px;
+  gap: 150px;
   align-items: center;
   font-size: 14px;
   font-weight: 500;
@@ -2493,7 +2493,7 @@ select {
   }
 
   .nav {
-    gap: 18px;
+    gap: 48px;
     font-size: 13px;
     letter-spacing: 0.06em;
   }
@@ -3437,7 +3437,7 @@ select {
 
 .sns-hero-visual {
   position: relative;
-  justify-self: start;
+  justify-self: end;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3454,26 +3454,39 @@ select {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+  object-position: top center;
 }
 
-/* DESIGN — /design-sns, /design-detail, /viral, /content-blog: 텍스트 위치 고정 (brand-package 제외) */
+/* sns-hero — PC·태블릿: 텍스트는 내용 너비만, 목업은 우측 끝·상단 정렬 */
 @media (min-width: 761px) {
-  .design-sns:not(.brand-package) .sns-hero {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: clamp(20px, 3vw, 36px);
+  .sns-hero {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: clamp(16px, 1.6vw, 28px);
+    align-items: start;
   }
 
-  .design-sns:not(.brand-package) .sns-hero-copy {
-    flex: 1 1 auto;
-    min-width: 0;
+  .sns-hero-copy {
     align-self: flex-start;
   }
 
-  .design-sns:not(.brand-package) .sns-hero-visual {
-    align-self: center;
-    justify-self: auto;
+  .sns-hero-visual {
+    justify-self: end;
+    align-self: start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: auto;
+    overflow: visible;
+  }
+
+  .sns-hero-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: var(--sns-hero-visual-h);
+    object-fit: contain;
+    object-position: top center;
   }
 }
 
@@ -3743,26 +3756,6 @@ select {
 
 .brand-logo .sns-card:hover .sns-card-thumb img {
   transform: scale(1.08);
-}
-
-/* BRAND PACKAGE — flex hero: 텍스트 위치 고정 + 목업 크기 통일 */
-@media (min-width: 761px) {
-  .brand-package .sns-hero {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: clamp(20px, 3vw, 36px);
-  }
-
-  .brand-package .sns-hero-copy {
-    flex: 1 1 auto;
-    min-width: 0;
-    align-self: flex-start;
-  }
-
-  .brand-package .sns-hero-visual {
-    align-self: center;
-  }
 }
 
 /* NAMUWIKI — /brand-namuwiki */
@@ -4036,8 +4029,8 @@ select {
 /* Large screens — hero copy/visual 간격 축소 */
 @media (min-width: 1200px) {
   :root {
-    --sns-hero-visual-w: min(100%, 520px);
-    --sns-hero-visual-h: 420px;
+    --sns-hero-visual-w: min(100%, 940px);
+    --sns-hero-visual-h: 620px;
   }
 
   .hero-grid {
@@ -4047,11 +4040,6 @@ select {
 
   .hero-visual img {
     max-width: min(100%, 960px);
-  }
-
-  .sns-hero {
-    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-    gap: clamp(20px, 1.8vw, 32px);
   }
 }
 
