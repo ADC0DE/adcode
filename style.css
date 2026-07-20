@@ -3576,11 +3576,8 @@ select {
     width: min(100%, 360px);
   }
 
-  .brand-logo .sns-hero-visual {
-    max-width: min(100%, 260px);
-  }
-
-  .brand-homepage-blog .sns-hero-visual {
+  .brand-homepage-blog .sns-hero-visual,
+  .brand-namuwiki .sns-hero-visual {
     max-width: min(100%, 300px);
   }
 
@@ -3631,7 +3628,7 @@ select {
   }
 }
 
-/* BRAND PACKAGE — /brand-logo, /brand-homepage-blog */
+/* BRAND PACKAGE — /brand-logo, /brand-namuwiki, /brand-homepage-blog */
 .brand-package .sns-card-thumb {
   aspect-ratio: 2000 / 754;
   background: var(--bg-3);
@@ -3647,17 +3644,33 @@ select {
 /* 홈페이지형 블로그 — 태블릿 3열 / 데스크톱 4열, 썸네일 높이 확대 */
 .brand-homepage-blog .sns-card-thumb {
   aspect-ratio: 4 / 3;
+  cursor: pointer;
+}
+
+.brand-namuwiki .sns-card-thumb {
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+}
+
+.brand-namuwiki .sns-card-thumb img {
+  transition: transform 0.45s ease;
+}
+
+.brand-namuwiki .sns-card:hover .sns-card-thumb img {
+  transform: scale(1.04);
 }
 
 @media (min-width: 761px) {
-  .brand-homepage-blog .sns-works-grid {
+  .brand-homepage-blog .sns-works-grid,
+  .brand-namuwiki .sns-works-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 32px 22px;
   }
 }
 
 @media (min-width: 1100px) {
-  .brand-homepage-blog .sns-works-grid {
+  .brand-homepage-blog .sns-works-grid,
+  .brand-namuwiki .sns-works-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 28px 20px;
   }
@@ -3727,20 +3740,120 @@ select {
   height: auto;
 }
 
-.brand-homepage-blog .sns-hero-visual {
+.brand-homepage-blog .sns-hero-visual,
+.brand-namuwiki .sns-hero-visual {
   width: fit-content;
   max-width: min(100%, 420px);
 }
 
-.brand-homepage-blog .sns-hero-visual img {
+.brand-homepage-blog .sns-hero-visual img,
+.brand-namuwiki .sns-hero-visual img {
   display: block;
   width: auto;
   max-width: 100%;
   height: auto;
 }
 
-.brand-homepage-blog .sns-card-thumb {
-  cursor: pointer;
+/* NAMUWIKI — /brand-namuwiki */
+.nw-process {
+  padding: 80px var(--page-pad-x) 96px;
+  background: var(--bg);
+}
+
+.nw-process-title {
+  margin: 0 0 48px;
+  text-align: center;
+  color: var(--fg);
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.nw-process-track {
+  display: flex;
+  align-items: stretch;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.nw-process-step {
+  flex: 1;
+  min-width: 0;
+  padding: 28px 18px 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+}
+
+.nw-process-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.nw-process-name {
+  margin: 0 0 10px;
+  color: var(--fg);
+  font-size: clamp(14px, 1.1vw, 16px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+}
+
+.nw-process-desc {
+  margin: 0;
+  color: var(--fg-2);
+  font-size: 13px;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+
+.nw-process-chev {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  color: var(--fg-2);
+}
+
+.nw-process-chev svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 1099px) {
+  .nw-process-track {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nw-process-chev {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .nw-process {
+    padding: 56px 20px 72px;
+  }
+
+  .nw-process-title {
+    margin-bottom: 32px;
+  }
+
+  .nw-process-step {
+    padding: 22px 18px 20px;
+  }
 }
 
 /* 홈페이지형 블로그 — 포트폴리오 라이트박스 */
@@ -3853,7 +3966,8 @@ select {
     max-width: min(100%, 320px);
   }
 
-  .brand-homepage-blog .sns-hero-visual {
+  .brand-homepage-blog .sns-hero-visual,
+  .brand-namuwiki .sns-hero-visual {
     max-width: min(100%, 460px);
   }
 
@@ -3879,7 +3993,8 @@ select {
     max-width: min(100%, 340px);
   }
 
-  .brand-homepage-blog .sns-hero-visual {
+  .brand-homepage-blog .sns-hero-visual,
+  .brand-namuwiki .sns-hero-visual {
     max-width: min(100%, 500px);
   }
 
