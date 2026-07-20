@@ -32,6 +32,10 @@
   /* 메인 좌우 시작점 — 모든 섹션 공통 (GNB / 히어로 / 매거진 / CONTACT / 푸터) */
   --page-pad-x: 40px;
 
+  /* sns-hero 우측 목업 — 모든 2depth 페이지 공통 크기 */
+  --sns-hero-visual-w: min(100%, 480px);
+  --sns-hero-visual-h: 400px;
+
   /* 반응형 기준 (메인 페이지)
      PC     : 1101px 이상  (기본 스타일)
      Tablet : 761px ~ 1100px
@@ -3434,18 +3438,43 @@ select {
 .sns-hero-visual {
   position: relative;
   justify-self: start;
-  width: min(100%, 760px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: var(--sns-hero-visual-w);
+  max-width: var(--sns-hero-visual-w);
+  height: var(--sns-hero-visual-h);
 }
 
 .sns-hero-visual img {
   display: block;
-  width: 100%;
+  width: auto;
   height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
-/* /design-detail — 히어로 비주얼이 세로로 긴 목업이라 폭을 줄여 균형 맞춤 */
-.design-detail .sns-hero-visual {
-  width: min(100%, 580px);
+/* DESIGN — /design-sns, /design-detail, /viral, /content-blog: 텍스트 위치 고정 (brand-package 제외) */
+@media (min-width: 761px) {
+  .design-sns:not(.brand-package) .sns-hero {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: clamp(20px, 3vw, 36px);
+  }
+
+  .design-sns:not(.brand-package) .sns-hero-copy {
+    flex: 1 1 auto;
+    min-width: 0;
+    align-self: flex-start;
+  }
+
+  .design-sns:not(.brand-package) .sns-hero-visual {
+    align-self: center;
+    justify-self: auto;
+  }
 }
 
 .sns-works {
@@ -3565,6 +3594,11 @@ select {
 }
 
 @media (max-width: 760px) {
+  :root {
+    --sns-hero-visual-w: min(100%, 320px);
+    --sns-hero-visual-h: 280px;
+  }
+
   .sns-hero {
     grid-template-columns: 1fr;
     padding: 120px 20px 48px;
@@ -3573,12 +3607,6 @@ select {
 
   .sns-hero-visual {
     justify-self: center;
-    width: min(100%, 360px);
-  }
-
-  .brand-homepage-blog .sns-hero-visual,
-  .brand-namuwiki .sns-hero-visual {
-    max-width: min(100%, 300px);
   }
 
   .sns-works {
@@ -3707,11 +3735,11 @@ select {
   transform: scale(1.08);
 }
 
-/* BRAND PACKAGE — flex hero: 그리드 2열 여백 제거 + 목업 크기 조절 */
+/* BRAND PACKAGE — flex hero: 텍스트 위치 고정 + 목업 크기 통일 */
 @media (min-width: 761px) {
   .brand-package .sns-hero {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: clamp(20px, 3vw, 36px);
   }
@@ -3719,39 +3747,12 @@ select {
   .brand-package .sns-hero-copy {
     flex: 1 1 auto;
     min-width: 0;
+    align-self: flex-start;
   }
 
   .brand-package .sns-hero-visual {
-    flex: 0 0 auto;
-    width: auto;
-    max-width: none;
+    align-self: center;
   }
-}
-
-.brand-logo .sns-hero-visual {
-  width: fit-content;
-  max-width: min(100%, 300px);
-}
-
-.brand-logo .sns-hero-visual img {
-  display: block;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-}
-
-.brand-homepage-blog .sns-hero-visual,
-.brand-namuwiki .sns-hero-visual {
-  width: fit-content;
-  max-width: min(100%, 420px);
-}
-
-.brand-homepage-blog .sns-hero-visual img,
-.brand-namuwiki .sns-hero-visual img {
-  display: block;
-  width: auto;
-  max-width: 100%;
-  height: auto;
 }
 
 /* NAMUWIKI — /brand-namuwiki */
@@ -3922,10 +3923,6 @@ select {
   line-height: 1.5;
 }
 
-.content-blog .sns-hero-visual {
-  width: min(100%, 760px);
-}
-
 @media (min-width: 761px) and (max-width: 1200px) {
   .content-blog .sns-works-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3938,8 +3935,13 @@ select {
   }
 }
 
-/* Large screens — hero copy/visual 간격 축소 + 비주얼 확대 */
+/* Large screens — hero copy/visual 간격 축소 */
 @media (min-width: 1200px) {
+  :root {
+    --sns-hero-visual-w: min(100%, 520px);
+    --sns-hero-visual-h: 420px;
+  }
+
   .hero-grid {
     grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
     column-gap: clamp(20px, 1.8vw, 32px);
@@ -3953,61 +3955,15 @@ select {
     grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
     gap: clamp(20px, 1.8vw, 32px);
   }
-
-  .sns-hero-visual {
-    width: min(100%, 880px);
-  }
-
-  .design-detail .sns-hero-visual {
-    width: min(100%, 680px);
-  }
-
-  .brand-logo .sns-hero-visual {
-    max-width: min(100%, 320px);
-  }
-
-  .brand-homepage-blog .sns-hero-visual,
-  .brand-namuwiki .sns-hero-visual {
-    max-width: min(100%, 460px);
-  }
-
-  .content-blog .sns-hero-visual {
-    width: min(100%, 900px);
-  }
 }
 
 @media (min-width: 1600px) {
   .hero-visual img {
     max-width: min(100%, 1080px);
   }
-
-  .sns-hero-visual {
-    width: min(100%, 980px);
-  }
-
-  .design-detail .sns-hero-visual {
-    width: min(100%, 760px);
-  }
-
-  .brand-logo .sns-hero-visual {
-    max-width: min(100%, 340px);
-  }
-
-  .brand-homepage-blog .sns-hero-visual,
-  .brand-namuwiki .sns-hero-visual {
-    max-width: min(100%, 500px);
-  }
-
-  .content-blog .sns-hero-visual {
-    width: min(100%, 1020px);
-  }
 }
 
 /* VIRAL — /viral */
-.viral-page .sns-hero-visual {
-  width: min(100%, 760px);
-}
-
 .viral-tags {
   display: flex;
   flex-wrap: wrap;
@@ -4115,10 +4071,6 @@ select {
 }
 
 @media (min-width: 1200px) {
-  .viral-page .sns-hero-visual {
-    width: min(100%, 880px);
-  }
-
   .viral-brand-card {
     min-height: 160px;
     padding: 12px 16px;
