@@ -1,0 +1,164 @@
+{
+  "detail": [
+    {
+      "id": 1,
+      "category": "상세페이지",
+      "title": "해란명란김 | 해란김",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/01_해란명란김/[1]_해란김_해란명란김.jpg",
+        "/public/design/detail/01_해란명란김/[2]_해란김_해란명란김.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "category": "상세페이지",
+      "title": "명인이산 | 쌍화고",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/02_쌍화고/[1]_명인이산_쌍화고.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "category": "상세페이지",
+      "title": "대한곡물농산 | 백진주안계쌀",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/03_백진주안계쌀/[1]_대한곡물농산_백진주안계쌀.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "category": "상세페이지",
+      "title": "고씨네농장 | 고종시 곶감",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/04_고종시곶감/[1]_고씨네농장_곶감.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "category": "상세페이지",
+      "title": "네이처푸룻 | 두리안",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/05_두리안/[1]_네이처푸릇_두리안.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "category": "상세페이지",
+      "title": "더블유에셋 | 보험",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/06_보험/[1]_보험.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "category": "상세페이지",
+      "title": "올미트 | 한우선물세트",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/07_한우선물세트/[1]_올미트_한우선물세트.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "category": "상세페이지",
+      "title": "봉동들녘 | 생강진액",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/08_생강진액/[1]_생강진액.jpg"
+      ]
+    }
+  ],
+  "sns": [
+    {
+      "id": 1,
+      "category": "광고소재",
+      "title": "우편나라 이벤트 | 홍보 게시글",
+      "layout": "sns",
+      "images": [
+        "/public/design/sns/01_우편나라이벤트/[1]_0610_오크나무_이벤트 게시물_이미지 가이드_1.png",
+        "/public/design/sns/01_우편나라이벤트/[2]_0610_오크나무_이벤트 게시물_이미지 가이드_2.png",
+        "/public/design/sns/01_우편나라이벤트/[3]_0610_오크나무_이벤트 게시물_이미지 가이드_3.png",
+        "/public/design/sns/01_우편나라이벤트/[4]_0610_오크나무_이벤트 게시물_이미지가이드_4.png"
+      ]
+    },
+    {
+      "id": 2,
+      "category": "SNS",
+      "title": "달다구니 샐러드 | 인스타그램",
+      "layout": "sns",
+      "images": [
+        "/public/design/sns/02_달다구니샐러드/[1]_☆인스타☆달다구니_샐러드(1).jpg",
+        "/public/design/sns/02_달다구니샐러드/[2]_☆인스타☆달다구니_샐러드(2).jpg",
+        "/public/design/sns/02_달다구니샐러드/[3]_☆인스타☆달다구니_샐러드(3).jpg",
+        "/public/design/sns/02_달다구니샐러드/[4]_☆인스타☆달다구니_샐러드(4).jpg",
+        "/public/design/sns/02_달다구니샐러드/[5]_☆인스타☆달다구니_샐러드(5).jpg",
+        "/public/design/sns/02_달다구니샐러드/[6]_☆인스타☆달다구니_샐러드(6).jpg",
+        "/public/design/sns/02_달다구니샐러드/[7]_☆인스타☆달다구니_샐러드(7).jpg",
+        "/public/design/sns/02_달다구니샐러드/[8]_☆인스타☆달다구니_샐러드(8).jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "category": "광고소재",
+      "title": "과메기 굴무침 | 롤링배너",
+      "layout": "wide",
+      "images": [
+        "/public/design/sns/03_과메기굴무침/[1]_(PC)롤링배너_굴무침.jpg",
+        "/public/design/sns/03_과메기굴무침/[2]_(PC)롤링배너_과메기.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "category": "SNS",
+      "title": "추석선물세트 | 인스타그램",
+      "layout": "solo",
+      "images": [
+        "/public/design/sns/04_추석선물세트/[1]_☆인스타☆과일선물세트.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "category": "광고소재",
+      "title": "대저토마토 | 롤링배너",
+      "layout": "wide",
+      "images": [
+        "/public/design/sns/05_대저토마토/[1]_팝업_대저토마토(1).jpg",
+        "/public/design/sns/05_대저토마토/[2]_팝업_대저토마토(2).jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "category": "광고소재",
+      "title": "방콕 오픈 | 롤링배너",
+      "layout": "wide",
+      "images": [
+        "/public/design/sns/06_방쿡오픈/[1]_(PC)롤링배너_오픈.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "category": "광고소재",
+      "title": "더블유에셋 보험 | 롤링배너",
+      "layout": "wide",
+      "images": [
+        "/public/design/sns/07_더블유에셋보험/[1]_롤링배너_보험.png"
+      ]
+    },
+    {
+      "id": 8,
+      "category": "광고소재",
+      "title": "우편나라 | 홍보배너",
+      "layout": "wide",
+      "images": [
+        "/public/design/sns/08_우편나라/[1]_0609_오크나무 카페_홍보배너_우편나라,판다서점_시안최종_메인_시안B_542X516.png",
+        "/public/design/sns/08_우편나라/[2]_0609_오크나무 카페_홍보배너_우편나라,판다서점_시안최종_하단_시안B_1594X264.png"
+      ]
+    }
+  ]
+}

@@ -3540,6 +3540,16 @@ select {
   }
 }
 
+.sns-card {
+  cursor: pointer;
+}
+
+.sns-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
 .sns-card-thumb {
   overflow: hidden;
   border-radius: 8px;
@@ -5148,6 +5158,15 @@ select {
   display: flex;
   justify-content: center;
   padding: 36px 36px 100px;
+}
+
+.design-work-head {
+  grid-template-columns: 1fr;
+  padding-bottom: 24px;
+}
+
+.design-work-head .pf-detail-title {
+  margin-bottom: 0;
 }
 
 /* =================================================================
