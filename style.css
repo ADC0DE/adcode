@@ -408,8 +408,8 @@ select {
 /* hero main grid — 좌:카피 / 우:비주얼 (풀폭 사용) */
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  column-gap: clamp(28px, 3vw, 48px);
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  column-gap: clamp(24px, 2.5vw, 40px);
   align-items: center;
   position: relative;
   z-index: 2;
@@ -483,14 +483,14 @@ select {
   z-index: 2;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-width: 0;
 }
 
 .hero-visual img {
   display: block;
   width: 100%;
-  max-width: none;
+  max-width: min(100%, 820px);
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 24px 60px rgba(0, 0, 0, 0.55));
@@ -3381,8 +3381,8 @@ select {
 
 .sns-hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
-  gap: clamp(28px, 4vw, 56px);
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(24px, 2.8vw, 44px);
   align-items: center;
   padding: 140px var(--page-pad-x) 72px;
   background:
@@ -3433,8 +3433,8 @@ select {
 
 .sns-hero-visual {
   position: relative;
-  justify-self: end;
-  width: min(100%, 680px);
+  justify-self: start;
+  width: min(100%, 760px);
 }
 
 .sns-hero-visual img {
@@ -3445,7 +3445,7 @@ select {
 
 /* /design-detail — 히어로 비주얼이 세로로 긴 목업이라 폭을 줄여 균형 맞춤 */
 .design-detail .sns-hero-visual {
-  width: min(100%, 540px);
+  width: min(100%, 580px);
 }
 
 .sns-works {
@@ -3636,14 +3636,40 @@ select {
   object-fit: cover;
 }
 
+/* 홈페이지형 블로그 — 태블릿 3열 / 데스크톱 4열, 썸네일 높이 확대 */
+.brand-homepage-blog .sns-card-thumb {
+  aspect-ratio: 4 / 3;
+}
+
+@media (min-width: 761px) {
+  .brand-homepage-blog .sns-works-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px 22px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .brand-homepage-blog .sns-works-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px 20px;
+  }
+}
+
 .bp-works-note {
   margin: 48px auto 0;
-  max-width: 36em;
   text-align: center;
-  color: var(--fg-3);
-  font-size: 13px;
+  color: var(--fg);
+  font-size: 15px;
   line-height: 1.6;
-  word-break: keep-all;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .bp-works-note {
+    white-space: normal;
+    font-size: 14px;
+    padding: 0 var(--page-pad-x);
+  }
 }
 
 .brand-logo .sns-card-thumb {
@@ -3661,11 +3687,11 @@ select {
 }
 
 .brand-logo .sns-hero-visual {
-  width: min(100%, 620px);
+  width: min(100%, 700px);
 }
 
 .brand-homepage-blog .sns-hero-visual {
-  width: min(100%, 680px);
+  width: min(100%, 760px);
 }
 
 .brand-homepage-blog .sns-card-thumb {
@@ -3720,6 +3746,95 @@ select {
   max-height: calc(100vh - 96px);
   object-fit: contain;
   border-radius: 8px;
+}
+
+/* CONTENT — /content-blog */
+.content-blog .sns-works-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 28px 18px;
+}
+
+.content-blog .sns-card-thumb {
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+}
+
+.content-blog .sns-card-title {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.content-blog .sns-hero-visual {
+  width: min(100%, 760px);
+}
+
+@media (min-width: 761px) and (max-width: 1200px) {
+  .content-blog .sns-works-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .content-blog .sns-works-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Large screens — hero copy/visual 간격 축소 + 비주얼 확대 */
+@media (min-width: 1200px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+    column-gap: clamp(20px, 1.8vw, 32px);
+  }
+
+  .hero-visual img {
+    max-width: min(100%, 960px);
+  }
+
+  .sns-hero {
+    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+    gap: clamp(20px, 1.8vw, 32px);
+  }
+
+  .sns-hero-visual {
+    width: min(100%, 880px);
+  }
+
+  .design-detail .sns-hero-visual {
+    width: min(100%, 680px);
+  }
+
+  .brand-logo .sns-hero-visual {
+    width: min(100%, 820px);
+  }
+
+  .brand-homepage-blog .sns-hero-visual,
+  .content-blog .sns-hero-visual {
+    width: min(100%, 900px);
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero-visual img {
+    max-width: min(100%, 1080px);
+  }
+
+  .sns-hero-visual {
+    width: min(100%, 980px);
+  }
+
+  .design-detail .sns-hero-visual {
+    width: min(100%, 760px);
+  }
+
+  .brand-logo .sns-hero-visual {
+    width: min(100%, 900px);
+  }
+
+  .brand-homepage-blog .sns-hero-visual,
+  .content-blog .sns-hero-visual {
+    width: min(100%, 1020px);
+  }
 }
 
 /* =================================================================
