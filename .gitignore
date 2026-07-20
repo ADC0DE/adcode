@@ -3,6 +3,7 @@
 
 # Local development
 dev_server.py
+__pycache__/
 .idea/
 package-lock.json
 node_modules/

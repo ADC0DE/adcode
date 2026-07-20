@@ -251,7 +251,7 @@ select {
 
 /* CONTACT menu — same styling as other nav items */
 
-/* === GNB dropdown ("애드코드" → 회사소개) === */
+/* === GNB dropdown (DESIGN → SNS · 상세페이지) === */
 .nav-item.has-dropdown {
   position: relative;
 }
@@ -260,7 +260,7 @@ select {
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
-  min-width: 110px;
+  min-width: 130px;
   padding: 2px 0;
   background: #ffffff;
   border: 0;
@@ -310,6 +310,11 @@ select {
 }
 
 .nav-item .dropdown a:hover {
+  color: var(--red);
+  background: rgba(200, 24, 31, 0.12);
+}
+
+.nav-item .dropdown a.is-active {
   color: var(--red);
   background: rgba(200, 24, 31, 0.12);
 }
@@ -3451,14 +3456,7 @@ select {
   letter-spacing: -0.02em;
 }
 
-/* PC 마퀴 / 태블릿 그리드 / 모바일 스와이퍼 — mag-channels 와 동일 패턴 */
-.sns-works-marquee {
-  display: none;
-  gap: 36px;
-  width: 100%;
-  container-type: inline-size;
-}
-
+/* PC·태블릿 그리드 / 모바일 스와이퍼 */
 .sns-works-swiper {
   position: relative;
   width: 100%;
@@ -3494,69 +3492,6 @@ select {
   .sns-works-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 28px 18px;
-  }
-}
-
-/* PC: 2열 마퀴 — 1행 왼쪽 / 2행 오른쪽, 서로 반대로 흐름. hover 시 일시정지 */
-@media (min-width: 1101px) {
-  .sns-works-marquee {
-    display: grid;
-  }
-
-  .sns-works-swiper {
-    display: none !important;
-  }
-
-  .sns-row {
-    overflow: hidden;
-    width: 100%;
-    mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
-  }
-
-  .sns-row-track {
-    display: flex;
-    gap: 24px;
-    width: max-content;
-    will-change: transform;
-    animation: mag-marquee-left 42s linear infinite;
-  }
-
-  .sns-row--right .sns-row-track {
-    animation-name: mag-marquee-right;
-    animation-duration: 48s;
-  }
-
-  .sns-row:hover .sns-row-track {
-    animation-play-state: paused;
-  }
-
-  .sns-works-marquee .sns-card {
-    flex: 0 0 calc((100cqi - 72px) / 4);
-    width: calc((100cqi - 72px) / 4);
-  }
-}
-
-@media (min-width: 1101px) and (prefers-reduced-motion: reduce) {
-  .sns-row-track {
-    animation: none;
-    transform: none !important;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .sns-row--right .sns-row-track {
-    transform: none !important;
-  }
-
-  .sns-row-track .sns-card:nth-child(n+5) {
-    display: none;
-  }
-
-  .sns-works-marquee .sns-card {
-    flex: none;
-    width: auto;
   }
 }
 
@@ -4614,14 +4549,7 @@ select {
   line-height: 1.5;
 }
 
-/* PC: 4×2 — 기본 그리드(태블릿) / PC 마퀴는 .mag-channels-marquee */
-.mag-channels-marquee {
-  display: none;
-  gap: 18px;
-  width: 100%;
-  container-type: inline-size;
-}
-
+/* PC·태블릿: 4×2 정적 그리드 / 모바일 스와이퍼 */
 .mag-channels-swiper {
   position: relative;
   width: 100%;
@@ -4657,93 +4585,6 @@ select {
   .mag-channels-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
-  }
-}
-
-/* PC: 2열 마퀴 — 1행 왼쪽 / 2행 오른쪽, 서로 반대로 흐름 */
-@media (min-width: 1101px) {
-  .mag-channels-marquee {
-    display: grid;
-  }
-
-  .mag-channels-swiper {
-    display: none !important;
-  }
-
-  .mag-row {
-    overflow: hidden;
-    width: 100%;
-    mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 2%, #000 98%, transparent);
-  }
-
-  .mag-row-track {
-    display: flex;
-    gap: 18px;
-    width: max-content;
-    will-change: transform;
-    animation: mag-marquee-left 42s linear infinite;
-  }
-
-  .mag-row--right .mag-row-track {
-    animation-name: mag-marquee-right;
-    animation-duration: 48s;
-  }
-
-  .mag-row:hover .mag-row-track {
-    animation-play-state: paused;
-  }
-
-  .mag-channels-marquee .mag-channels-item {
-    flex: 0 0 calc((100cqi - 54px) / 4);
-    width: calc((100cqi - 54px) / 4);
-  }
-}
-
-@keyframes mag-marquee-left {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-@keyframes mag-marquee-right {
-  from {
-    transform: translate3d(-50%, 0, 0);
-  }
-
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@media (min-width: 1101px) and (prefers-reduced-motion: reduce) {
-  .mag-row-track {
-    animation: none;
-    transform: none !important;
-  }
-
-  .mag-row--right .mag-row-track {
-    transform: none !important;
-  }
-
-  /* 모션 감소 시 앞 4장만 보이게 두지 않고, 원본 4장 폭으로 정적 정렬 */
-  .mag-row-track {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .mag-row-track .mag-channels-item:nth-child(n+5) {
-    display: none;
-  }
-
-  .mag-channels-marquee .mag-channels-item {
-    flex: none;
-    width: auto;
   }
 }
 

@@ -6,13 +6,13 @@
   const gnb = document.querySelector(".gnb");
   if (!gnb) return;
 
-  // 드롭다운("애드코드") — 모바일: 탭하면 펼침/접힘(이동 안 함, 홈은 로고로) / 데스크톱: hover(CSS)
+  // 드롭다운(DESIGN 등) — 모바일: 탭하면 펼침/접힘 / 데스크톱: hover(CSS), 클릭 시 이동 없음
   gnb.querySelectorAll(".nav-item.has-dropdown").forEach((item) => {
     const trigger = item.querySelector(":scope > a");
     if (!trigger) return;
     trigger.addEventListener("click", (e) => {
+      e.preventDefault();
       if (window.matchMedia(MOBILE).matches) {
-        e.preventDefault();
         item.classList.toggle("open");
       }
     });
@@ -34,9 +34,10 @@
       const open = gnb.classList.toggle("nav-open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
-    // 실제 이동 링크 클릭 시 메뉴 닫기 (애드코드 토글 트리거는 제외)
+    // 실제 이동 링크 클릭 시 메뉴 닫기 (드롭다운 트리거는 제외)
     gnb.querySelectorAll(".nav a[href]").forEach((a) => {
-      if (a.parentElement.classList.contains("has-dropdown")) return;
+      const navItem = a.closest(".nav-item.has-dropdown");
+      if (navItem && navItem.querySelector(":scope > a") === a) return;
       a.addEventListener("click", () => gnb.classList.remove("nav-open"));
     });
   }
