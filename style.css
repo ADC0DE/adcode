@@ -1545,6 +1545,22 @@ select {
   transition-delay: .32s;
 }
 
+.reveal[data-delay="5"] {
+  transition-delay: .40s;
+}
+
+.reveal[data-delay="6"] {
+  transition-delay: .48s;
+}
+
+.reveal[data-delay="7"] {
+  transition-delay: .56s;
+}
+
+.reveal[data-delay="8"] {
+  transition-delay: .64s;
+}
+
 /* =================================================================
    ABOUT PAGE (/about)
    ================================================================= */
@@ -3605,6 +3621,105 @@ select {
   .sns-works-pagination .swiper-pagination-bullet-active {
     background: var(--red);
   }
+}
+
+/* BRAND PACKAGE — /brand-logo, /brand-homepage-blog */
+.brand-package .sns-card-thumb {
+  aspect-ratio: 2000 / 754;
+  background: var(--bg-3);
+  border-radius: 8px;
+}
+
+.brand-package .sns-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bp-works-note {
+  margin: 48px auto 0;
+  max-width: 36em;
+  text-align: center;
+  color: var(--fg-3);
+  font-size: 13px;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.brand-logo .sns-card-thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.brand-logo .sns-card-thumb img {
+  transition: transform 0.45s ease;
+}
+
+.brand-logo .sns-card:hover .sns-card-thumb img {
+  transform: scale(1.08);
+}
+
+.brand-logo .sns-hero-visual {
+  width: min(100%, 620px);
+}
+
+.brand-homepage-blog .sns-hero-visual {
+  width: min(100%, 680px);
+}
+
+.brand-homepage-blog .sns-card-thumb {
+  cursor: pointer;
+}
+
+/* 홈페이지형 블로그 — 포트폴리오 라이트박스 */
+.bp-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px 24px;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(4px);
+}
+
+.bp-lightbox.open {
+  display: flex;
+}
+
+.bp-lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  color: var(--fg);
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.bp-lightbox-close:hover {
+  color: var(--red);
+}
+
+.bp-lightbox-inner {
+  width: min(1200px, 96vw);
+  max-height: calc(100vh - 96px);
+}
+
+.bp-lightbox-inner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 96px);
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 /* =================================================================

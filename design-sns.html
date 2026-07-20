@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="/nav.js" defer></script>
+  <script src="/reveal.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <script src="/sns-works.js" defer></script>
 
@@ -30,7 +31,13 @@
     </a>
 
     <nav class="nav" aria-label="Primary">
-      <a href="/about">BRAND PACKAGE</a>
+      <div class="nav-item has-dropdown">
+        <a href="#">BRAND PACKAGE</a>
+        <div class="dropdown">
+          <a href="/brand-homepage-blog">홈페이지형 블로그</a>
+          <a href="/brand-logo">로고</a>
+        </div>
+      </div>
       <div class="nav-item has-dropdown">
         <a href="#" class="is-active">DESIGN</a>
         <div class="dropdown">
@@ -64,7 +71,7 @@
           팔로워와 고객의 마음을 사로잡아 보세요.
         </p>
       </div>
-      <div class="sns-hero-visual">
+      <div class="sns-hero-visual reveal">
         <img src="/public/design/sns/00_main.png" alt="SNS 디자인 미리보기" />
       </div>
     </section>
@@ -78,7 +85,7 @@
 
       <div class="swiper sns-works-swiper">
         <div class="swiper-wrapper sns-works-grid">
-          <article class="swiper-slide sns-card">
+          <article class="swiper-slide sns-card reveal" data-delay="1">
           <div class="sns-card-thumb">
             <img src="/public/design/sns/01_upyeonnara-event.jpg" alt="우편나라·판다서점 입점 이벤트" loading="lazy" />
           </div>
@@ -86,7 +93,7 @@
           <p class="sns-card-cat">SNS</p>
         </article>
 
-          <article class="swiper-slide sns-card">
+          <article class="swiper-slide sns-card reveal" data-delay="2">
           <div class="sns-card-thumb">
             <img src="/public/design/sns/02_daldaguni-salad.jpg" alt="달다구니 샐러드" loading="lazy" />
           </div>
@@ -94,7 +101,7 @@
           <p class="sns-card-cat">SNS</p>
         </article>
 
-          <article class="swiper-slide sns-card">
+          <article class="swiper-slide sns-card reveal" data-delay="3">
           <div class="sns-card-thumb">
             <img src="/public/design/sns/03_gwamegi.jpg" alt="과메기·귤무침" loading="lazy" />
           </div>
@@ -102,7 +109,7 @@
           <p class="sns-card-cat">SNS</p>
         </article>
 
-          <article class="swiper-slide sns-card">
+          <article class="swiper-slide sns-card reveal" data-delay="4">
           <div class="sns-card-thumb">
             <img src="/public/design/sns/04_chuseok-set.jpg" alt="추석 과일선물세트" loading="lazy" />
           </div>
@@ -110,7 +117,7 @@
           <p class="sns-card-cat">SNS</p>
         </article>
 
-          <article class="swiper-slide sns-card">
+          <article class="swiper-slide sns-card reveal" data-delay="5">
           <div class="sns-card-thumb">
             <img src="/public/design/sns/05_tomato.jpg" alt="대저토마토" loading="lazy" />
           </div>
@@ -118,7 +125,7 @@
           <p class="sns-card-cat">SNS</p>
         </article>
 
-          <article class="swiper-slide sns-card">
+          <article class="swiper-slide sns-card reveal" data-delay="6">
           <div class="sns-card-thumb">
             <img src="/public/design/sns/06_bangcook.jpg" alt="방쿡 오픈" loading="lazy" />
           </div>
@@ -126,7 +133,7 @@
           <p class="sns-card-cat">SNS</p>
         </article>
 
-          <article class="swiper-slide sns-card">
+          <article class="swiper-slide sns-card reveal" data-delay="7">
           <div class="sns-card-thumb">
             <img src="/public/design/sns/07_wasset.jpg" alt="더블유에셋 보험" loading="lazy" />
           </div>
@@ -134,7 +141,7 @@
           <p class="sns-card-cat">SNS</p>
         </article>
 
-          <article class="swiper-slide sns-card">
+          <article class="swiper-slide sns-card reveal" data-delay="8">
           <div class="sns-card-thumb">
             <img src="/public/design/sns/08_upyeonnara.jpg" alt="우편나라" loading="lazy" />
           </div>
@@ -414,18 +421,6 @@
   </div>
 
   <script>
-    (function () {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('in-view');
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-    })();
-
     (function () {
       const servicesInput = document.getElementById('services-input');
       const serviceGrid = document.getElementById('service-grid');

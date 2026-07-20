@@ -15,6 +15,7 @@
 
   <link rel="stylesheet" href="/style.css" />
   <script src="/nav.js" defer></script>
+  <script src="/reveal.js" defer></script>
   <script src="/marquee.js" defer></script>
 
 </head>
@@ -28,7 +29,13 @@
     </a>
 
     <nav class="nav" aria-label="Primary">
-      <a href="/about">BRAND PACKAGE</a>
+      <div class="nav-item has-dropdown">
+        <a href="#">BRAND PACKAGE</a>
+        <div class="dropdown">
+          <a href="/brand-homepage-blog">홈페이지형 블로그</a>
+          <a href="/brand-logo">로고</a>
+        </div>
+      </div>
       <div class="nav-item has-dropdown">
         <a href="#">DESIGN</a>
         <div class="dropdown">
@@ -415,19 +422,6 @@
   </div>
 
   <script>
-    // ===== scroll reveal =====
-    (function () {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('in-view');
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-    })();
-
     // ===== Section 2 슬로건 — 대각선 와이프 reveal (about_2 사선 펼침 + 텍스트 staggered) =====
     (function () {
       const pin = document.querySelector('.about-slogan-pin');

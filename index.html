@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="/nav.js" defer></script>
+  <script src="/reveal.js" defer></script>
   <script src="/marquee.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <script src="/mag-channels.js" defer></script>
@@ -34,7 +35,13 @@
     </a>
 
     <nav class="nav" aria-label="Primary">
-      <a href="/about">BRAND PACKAGE</a>
+      <div class="nav-item has-dropdown">
+        <a href="#">BRAND PACKAGE</a>
+        <div class="dropdown">
+          <a href="/brand-homepage-blog">홈페이지형 블로그</a>
+          <a href="/brand-logo">로고</a>
+        </div>
+      </div>
       <div class="nav-item has-dropdown">
         <a href="#">DESIGN</a>
         <div class="dropdown">
@@ -102,28 +109,28 @@
 
     <div class="swiper mag-channels-swiper">
       <div class="swiper-wrapper mag-channels-grid">
-        <a class="swiper-slide mag-channels-item" href="https://www.instagram.com/se__mot__/" target="_blank" rel="noopener noreferrer">
+        <a class="swiper-slide mag-channels-item reveal" data-delay="1" href="https://www.instagram.com/se__mot__/" target="_blank" rel="noopener noreferrer">
           <img src="/public/main/01_세모트.png" alt="세모트" loading="lazy" draggable="false" />
         </a>
-        <a class="swiper-slide mag-channels-item" href="https://www.instagram.com/trend_letter_/" target="_blank" rel="noopener noreferrer">
+        <a class="swiper-slide mag-channels-item reveal" data-delay="2" href="https://www.instagram.com/trend_letter_/" target="_blank" rel="noopener noreferrer">
           <img src="/public/main/02_트렌드레터.png" alt="트렌드레터" loading="lazy" draggable="false" />
         </a>
-        <a class="swiper-slide mag-channels-item" href="https://www.instagram.com/k___now_/" target="_blank" rel="noopener noreferrer">
+        <a class="swiper-slide mag-channels-item reveal" data-delay="3" href="https://www.instagram.com/k___now_/" target="_blank" rel="noopener noreferrer">
           <img src="/public/main/03_케이나우.png" alt="케이나우" loading="lazy" draggable="false" />
         </a>
-        <a class="swiper-slide mag-channels-item" href="https://www.instagram.com/zip_isfp/" target="_blank" rel="noopener noreferrer">
+        <a class="swiper-slide mag-channels-item reveal" data-delay="4" href="https://www.instagram.com/zip_isfp/" target="_blank" rel="noopener noreferrer">
           <img src="/public/main/04_집프피.png" alt="집프피" loading="lazy" draggable="false" />
         </a>
-        <a class="swiper-slide mag-channels-item" href="https://www.instagram.com/orvian_magazine/" target="_blank" rel="noopener noreferrer">
+        <a class="swiper-slide mag-channels-item reveal" data-delay="5" href="https://www.instagram.com/orvian_magazine/" target="_blank" rel="noopener noreferrer">
           <img src="/public/main/05_오르비안 무비 매거진.png" alt="오르비안 무비 매거진" loading="lazy" draggable="false" />
         </a>
-        <a class="swiper-slide mag-channels-item" href="https://www.instagram.com/maknaga.review/" target="_blank" rel="noopener noreferrer">
+        <a class="swiper-slide mag-channels-item reveal" data-delay="6" href="https://www.instagram.com/maknaga.review/" target="_blank" rel="noopener noreferrer">
           <img src="/public/main/06_미희의 오늘 영화.png" alt="미희의 오늘 영화" loading="lazy" draggable="false" />
         </a>
-        <a class="swiper-slide mag-channels-item" href="https://www.instagram.com/eateat.mag/" target="_blank" rel="noopener noreferrer">
+        <a class="swiper-slide mag-channels-item reveal" data-delay="7" href="https://www.instagram.com/eateat.mag/" target="_blank" rel="noopener noreferrer">
           <img src="/public/main/07_잇잇.png" alt="잇잇" loading="lazy" draggable="false" />
         </a>
-        <a class="swiper-slide mag-channels-item" href="https://www.instagram.com/aporia_magazine/" target="_blank" rel="noopener noreferrer">
+        <a class="swiper-slide mag-channels-item reveal" data-delay="8" href="https://www.instagram.com/aporia_magazine/" target="_blank" rel="noopener noreferrer">
           <img src="/public/main/08_아포리아매거진.png" alt="아포리아매거진" loading="lazy" draggable="false" />
         </a>
       </div>
@@ -416,30 +423,6 @@
   </div>
 
   <script>
-    // ===== scroll reveal (late) — 더 많이 스크롤됐을 때(약 50% 노출) 나타남.
-    //        비주얼섹션(.hero-media)에 .in-view가 붙으면 ADCODE/MARKETING 텍스트가 아래에서 올라옴(CSS) =====
-    (function () {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
-        });
-      }, { threshold: 0.5 });
-      document.querySelectorAll('.reveal-late').forEach(el => io.observe(el));
-    })();
-
-    // ===== scroll reveal =====
-    (function () {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('in-view');
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-      document.querySelectorAll('.reveal:not(.reveal-late)').forEach(el => io.observe(el));
-    })();
-
     // ===== hero 진입 시 .played 부여 → 좌측 헤드라인 + 우측 비주얼이 한 줄씩 아래에서 올라옴(CSS) =====
     (function () {
       const hero = document.querySelector('.hero');
