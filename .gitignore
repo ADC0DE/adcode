@@ -11,3 +11,4 @@ node_modules/
 # Local secrets (if you move keys out of supabase-config.js)
 .env
 .env.*
+
