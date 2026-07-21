@@ -357,18 +357,14 @@ select {
    ================================================================= */
 .hero {
   position: relative;
-  /* 콘텐츠를 위로 — 상단(헤더쪽) 여백 줄이고 하단(마퀴쪽) 여백 늘림 */
-  min-height: min(100vh, 820px);
-  padding: 110px var(--page-pad-x) 80px;
+  min-height: auto;
+  padding: var(--page-hero-pt) var(--page-pad-x) 72px;
   display: grid;
   grid-template-rows: auto;
   gap: 32px;
   overflow: hidden;
-  /* clean black w/ very subtle dark radial — no red slash */
   background:
-    radial-gradient(ellipse 55% 55% at 78% 48%, rgba(200, 24, 31, 0.12), transparent 62%),
-    radial-gradient(ellipse 60% 50% at 70% 30%, rgba(255, 255, 255, 0.025), transparent 60%),
-    radial-gradient(ellipse 80% 60% at 20% 90%, rgba(200, 24, 31, 0.04), transparent 60%),
+    radial-gradient(ellipse 42% 55% at 78% 48%, rgba(200, 24, 31, 0.22), transparent 70%),
     var(--bg);
 }
 
@@ -445,7 +441,7 @@ select {
 }
 
 .hero-rule {
-  width: 36px;
+  width: 56px;
   height: 3px;
   margin: 28px 0 24px;
   background: transparent;
@@ -489,18 +485,25 @@ select {
 .hero-visual {
   position: relative;
   z-index: 2;
+  justify-self: end;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: var(--sns-hero-visual-w);
+  max-width: var(--sns-hero-visual-w);
+  height: var(--sns-hero-visual-h);
   min-width: 0;
 }
 
 .hero-visual img {
   display: block;
-  width: 100%;
-  max-width: min(100%, 820px);
+  width: auto;
   height: auto;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
+  object-position: top center;
   filter: drop-shadow(0 24px 60px rgba(0, 0, 0, 0.55));
   opacity: 0;
   transform: translateY(18px) scale(0.98);
@@ -510,6 +513,37 @@ select {
 .hero.played .hero-visual img {
   opacity: 1;
   transform: none;
+}
+
+/* hero — PC·태블릿: sns-hero 와 동일 그리드·비주얼 정렬 */
+@media (min-width: 761px) {
+  .hero-grid {
+    grid-template-columns: max-content 1fr;
+    gap: clamp(16px, 1.6vw, 28px);
+    align-items: start;
+  }
+
+  .hero-copy {
+    align-self: flex-start;
+  }
+
+  .hero-visual {
+    justify-self: end;
+    align-self: start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: auto;
+    overflow: visible;
+  }
+
+  .hero-visual img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: var(--sns-hero-visual-h);
+    object-fit: contain;
+    object-position: top center;
+  }
 }
 
 /* headline — fits in 3 lines on desktop */
@@ -2504,23 +2538,8 @@ select {
 
   .hero {
     min-height: auto;
-    padding: 100px var(--page-pad-x) 56px;
+    padding: var(--page-hero-pt) var(--page-pad-x) 56px;
     gap: 28px;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    row-gap: 36px;
-    align-items: start;
-  }
-
-  .hero-visual {
-    max-width: 520px;
-    margin: 0 auto;
-  }
-
-  .hero-visual img {
-    max-width: 100%;
   }
 
   .right-col {
@@ -2818,12 +2837,13 @@ select {
   }
 
   .hero {
-    padding: 88px var(--page-pad-x) 48px;
+    padding: var(--page-hero-pt-mobile) var(--page-pad-x) 48px;
     gap: 24px;
   }
 
   .hero-grid {
-    row-gap: 28px;
+    grid-template-columns: 1fr;
+    row-gap: 36px;
   }
 
   .hero-eyebrow {
@@ -2841,7 +2861,10 @@ select {
   }
 
   .hero-visual {
-    max-width: 100%;
+    justify-self: center;
+    width: var(--sns-hero-visual-w);
+    max-width: var(--sns-hero-visual-w);
+    height: var(--sns-hero-visual-h);
   }
 
   .headline {
@@ -4030,26 +4053,11 @@ select {
   }
 }
 
-/* Large screens — hero copy/visual 간격 축소 */
+/* Large screens — hero visual 크기 확대 (sns-hero 와 공통 토큰) */
 @media (min-width: 1200px) {
   :root {
     --sns-hero-visual-w: min(100%, 940px);
     --sns-hero-visual-h: 620px;
-  }
-
-  .hero-grid {
-    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-    column-gap: clamp(20px, 1.8vw, 32px);
-  }
-
-  .hero-visual img {
-    max-width: min(100%, 960px);
-  }
-}
-
-@media (min-width: 1600px) {
-  .hero-visual img {
-    max-width: min(100%, 1080px);
   }
 }
 
@@ -5359,8 +5367,10 @@ select {
 .headline--rise {
   color: var(--fg);
   white-space: normal;
-  line-height: 1.2;
-  letter-spacing: 0.01em;
+  font-size: clamp(36px, 4.8vw, 64px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
 .rise-line {
