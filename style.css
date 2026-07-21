@@ -40,6 +40,9 @@
   --page-hero-pt: 190px;
   --page-hero-pt-mobile: 155px;
 
+  /* 대형 데스크톱 — 콘텐츠 최대 폭 (좌우 여백은 --page-pad-x calc 로 자동) */
+  --page-content-max: 1400px;
+
   /* 반응형 기준 (메인 페이지)
      PC     : 1101px 이상  (기본 스타일)
      Tablet : 761px ~ 1100px
@@ -83,6 +86,27 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+}
+
+/* 대형 데스크톱 — 콘텐츠 프레임 안쪽 정렬 (GNB·섹션·푸터 공통 --page-pad-x) */
+@media (min-width: 1400px) {
+  :root {
+    --page-pad-x: max(40px, calc((100vw - var(--page-content-max)) / 2));
+  }
+
+  body {
+    padding-bottom: 20px;
+  }
+
+  .rail {
+    right: max(28px, calc(var(--page-pad-x) - 16px));
+  }
+}
+
+@media (min-width: 1800px) {
+  :root {
+    --page-content-max: 1480px;
+  }
 }
 
 /* Lenis 호환 — 브라우저 네이티브 smooth 와 충돌 방지 */
@@ -3743,20 +3767,6 @@ select {
   width: 100%;
   max-width: none;
   margin-inline: 0;
-}
-
-@media (min-width: 761px) {
-  .brand-namuwiki .sns-works {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-}
-
-@media (min-width: 1101px) {
-  .brand-namuwiki .sns-works {
-    padding-left: 28px;
-    padding-right: 28px;
-  }
 }
 
 .brand-namuwiki .sns-card-thumb img {
