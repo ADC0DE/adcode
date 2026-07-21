@@ -36,6 +36,10 @@
   --sns-hero-visual-w: min(100%, 780px);
   --sns-hero-visual-h: 520px;
 
+  /* 2depth 히어로 — GNB 아래 ~ 콘텐츠 시작 여백 (모든 서브 페이지 공통) */
+  --page-hero-pt: 190px;
+  --page-hero-pt-mobile: 155px;
+
   /* 반응형 기준 (메인 페이지)
      PC     : 1101px 이상  (기본 스타일)
      Tablet : 761px ~ 1100px
@@ -3327,7 +3331,7 @@ select {
 /* 2depth placeholder — /design-sns, /design-detail */
 .ds-sub {
   min-height: 60vh;
-  padding: 160px 44px 100px;
+  padding: var(--page-hero-pt) 44px 100px;
 }
 
 .ds-back {
@@ -3371,7 +3375,7 @@ select {
   }
 
   .ds-sub {
-    padding: 130px 20px 80px;
+    padding: var(--page-hero-pt-mobile) 20px 80px;
   }
 }
 
@@ -3388,7 +3392,7 @@ select {
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
   gap: clamp(24px, 2.8vw, 44px);
   align-items: center;
-  padding: 140px var(--page-pad-x) 72px;
+  padding: var(--page-hero-pt) var(--page-pad-x) 72px;
   background:
     radial-gradient(ellipse 42% 55% at 78% 48%, rgba(200, 24, 31, 0.22), transparent 70%),
     var(--bg);
@@ -3624,7 +3628,7 @@ select {
 
   .sns-hero {
     grid-template-columns: 1fr;
-    padding: 120px 20px 48px;
+    padding: var(--page-hero-pt-mobile) 20px 48px;
     gap: 36px;
   }
 
