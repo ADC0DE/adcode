@@ -3730,6 +3730,12 @@ select {
   cursor: pointer;
 }
 
+.brand-namuwiki .sns-works-swiper {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
 .brand-namuwiki .sns-card-thumb img {
   transition: transform 0.45s ease;
 }
@@ -3739,7 +3745,11 @@ select {
 }
 
 @media (min-width: 761px) {
-  .brand-homepage-blog .sns-works-grid,
+  .brand-homepage-blog .sns-works-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px 22px;
+  }
+
   .brand-namuwiki .sns-works-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 32px 22px;
@@ -3747,7 +3757,11 @@ select {
 }
 
 @media (min-width: 1100px) {
-  .brand-homepage-blog .sns-works-grid,
+  .brand-homepage-blog .sns-works-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px 20px;
+  }
+
   .brand-namuwiki .sns-works-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 28px 20px;
