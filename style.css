@@ -189,7 +189,7 @@ select {
   top: auto;
   transform: none;
   display: flex;
-  gap: 150px;
+  gap: 120px;
   align-items: center;
   font-size: 14px;
   font-weight: 500;
@@ -2531,7 +2531,7 @@ select {
   }
 
   .nav {
-    gap: 48px;
+    gap: 40px;
     font-size: 13px;
     letter-spacing: 0.06em;
   }
