@@ -4067,6 +4067,76 @@ select {
   }
 }
 
+/* CONTENT — /content-instagram */
+.content-instagram .ig-ai-works .sns-works-swiper {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+.content-instagram .ig-ai-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px 20px;
+}
+
+.content-instagram .ig-ai-card {
+  cursor: pointer;
+}
+
+.content-instagram .ig-ai-card .sns-card-thumb {
+  aspect-ratio: 1 / 1;
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 50% 68%, rgba(200, 24, 31, 0.32), transparent 62%),
+    var(--bg-3);
+}
+
+.content-instagram .ig-ai-card .sns-card-thumb img {
+  object-fit: cover;
+}
+
+.content-instagram .ig-ai-card:hover .sns-card-thumb img {
+  transform: scale(1.04);
+}
+
+.content-instagram .ig-magazine {
+  padding-top: 0;
+}
+
+.content-instagram .ig-magazine .mag-channels-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px 22px;
+}
+
+.content-instagram .contact-desc {
+  color: var(--fg);
+}
+
+@media (min-width: 1101px) {
+  .content-instagram .ig-ai-works .sns-works-swiper {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .content-instagram .ig-ai-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px 16px;
+  }
+
+  .content-instagram .ig-magazine .mag-channels-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 14px;
+  }
+}
+
+@media (max-width: 760px) {
+  .content-instagram .ig-ai-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 14px;
+  }
+}
+
 /* Large screens — hero visual 크기 확대 (sns-hero 와 공통 토큰) */
 @media (min-width: 1200px) {
   :root {
