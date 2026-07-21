@@ -4213,8 +4213,8 @@ select {
 /* Large screens — hero visual 크기 확대 (sns-hero 와 공통 토큰) */
 @media (min-width: 1200px) {
   :root {
-    --sns-hero-visual-w: min(100%, 940px);
-    --sns-hero-visual-h: 620px;
+    --sns-hero-visual-w: min(100%, 1020px);
+    --sns-hero-visual-h: 680px;
   }
 }
 
