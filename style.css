@@ -4103,8 +4103,8 @@ select {
 /* CONTENT — /content-instagram */
 .content-instagram .ig-ai-works .sns-works-swiper {
   width: 100%;
-  max-width: 1180px;
-  margin-inline: auto;
+  max-width: none;
+  margin-inline: 0;
 }
 
 .content-instagram .ig-ai-grid {
@@ -4132,23 +4132,54 @@ select {
   transform: scale(1.04);
 }
 
+.content-instagram .ig-ai-num {
+  display: block;
+  margin-top: 14px;
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
 .content-instagram .ig-magazine {
   padding-top: 0;
 }
 
+.content-instagram .ig-magazine .mag-channels-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px 20px;
+  margin-bottom: 32px;
+}
+
+.content-instagram .ig-magazine .mag-channels-title {
+  margin: 0;
+  color: var(--fg);
+  letter-spacing: 0.02em;
+}
+
+.content-instagram .ig-magazine .mag-channels-sub {
+  margin: 0;
+  color: var(--fg-3);
+  font-size: clamp(14px, 1.2vw, 16px);
+  font-weight: 500;
+}
+
 .content-instagram .ig-magazine .mag-channels-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px 22px;
+  row-gap: 6px;
+  column-gap: 20px;
+}
+
+.content-instagram .ig-magazine .mag-channels-item {
+  border-radius: 14px;
+  aspect-ratio: 2084 / 2400;
 }
 
 .content-instagram .contact-desc {
   color: var(--fg);
-}
-
-@media (min-width: 1101px) {
-  .content-instagram .ig-ai-works .sns-works-swiper {
-    max-width: 1280px;
-  }
 }
 
 @media (min-width: 761px) and (max-width: 1100px) {
@@ -4159,7 +4190,8 @@ select {
 
   .content-instagram .ig-magazine .mag-channels-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px 14px;
+    row-gap: 6px;
+    column-gap: 14px;
   }
 }
 
