@@ -213,7 +213,7 @@ select {
   top: auto;
   transform: none;
   display: flex;
-  gap: 100px;
+  gap: 72px;
   align-items: center;
   font-size: 14px;
   font-weight: 500;
@@ -2555,7 +2555,7 @@ select {
   }
 
   .nav {
-    gap: 32px;
+    gap: 24px;
     font-size: 13px;
     letter-spacing: 0.06em;
   }
@@ -4117,6 +4117,8 @@ select {
   width: 100%;
   max-width: none;
   margin-inline: 0;
+  box-sizing: border-box;
+  padding-inline: clamp(32px, 7vw, 120px);
 }
 
 .content-instagram .ig-ai-grid {
@@ -4158,7 +4160,7 @@ select {
 
 .content-instagram .ig-magazine .mag-channels-swiper {
   box-sizing: border-box;
-  padding-inline: clamp(24px, 5vw, 72px);
+  padding-inline: clamp(32px, 7vw, 120px);
 }
 
 .content-instagram .ig-magazine .mag-channels-head {
