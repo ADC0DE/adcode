@@ -33,8 +33,8 @@
   --page-pad-x: 40px;
 
   /* sns-hero 우측 목업 — 모든 2depth 페이지 공통 크기 */
-  --sns-hero-visual-w: min(100%, 780px);
-  --sns-hero-visual-h: 520px;
+  --sns-hero-visual-w: min(100%, 840px);
+  --sns-hero-visual-h: 560px;
 
   /* 2depth 히어로 — GNB 아래 ~ 콘텐츠 시작 여백 (모든 서브 페이지 공통) */
   --page-hero-pt: 190px;
@@ -213,7 +213,7 @@ select {
   top: auto;
   transform: none;
   display: flex;
-  gap: 120px;
+  gap: 100px;
   align-items: center;
   font-size: 14px;
   font-weight: 500;
@@ -1395,7 +1395,7 @@ select {
 .rail {
   position: fixed;
   right: 28px;
-  bottom: 28px;
+  bottom: 56px;
   z-index: 40;
   display: flex;
   flex-direction: column;
@@ -2555,7 +2555,7 @@ select {
   }
 
   .nav {
-    gap: 40px;
+    gap: 32px;
     font-size: 13px;
     letter-spacing: 0.06em;
   }
@@ -3057,7 +3057,7 @@ select {
 
   .rail {
     right: 12px;
-    bottom: 12px;
+    bottom: 28px;
     gap: 8px;
   }
 
@@ -3432,6 +3432,15 @@ select {
 
 .design-sns {
   background: var(--bg);
+}
+
+/* 히어로↔포트폴리오 세로 간격 */
+.design-sns .sns-hero {
+  padding-bottom: 48px;
+}
+
+.design-sns .sns-works {
+  padding-top: 56px;
 }
 
 .sns-hero {
@@ -3992,6 +4001,10 @@ select {
 
 .content-blog .blog-card {
   height: 100%;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .content-blog .blog-card-frame {
@@ -4044,7 +4057,6 @@ select {
 .content-blog .blog-card-thumb {
   aspect-ratio: 1 / 1;
   border-radius: 0;
-  cursor: pointer;
   background: #111;
 }
 
@@ -4119,9 +4131,7 @@ select {
 .content-instagram .ig-ai-card .sns-card-thumb {
   aspect-ratio: 1 / 1;
   border-radius: 22px;
-  background:
-    radial-gradient(circle at 50% 68%, rgba(200, 24, 31, 0.32), transparent 62%),
-    var(--bg-3);
+  background: transparent;
 }
 
 .content-instagram .ig-ai-card .sns-card-thumb img {
@@ -4144,6 +4154,11 @@ select {
 
 .content-instagram .ig-magazine {
   padding-top: 0;
+}
+
+.content-instagram .ig-magazine .mag-channels-swiper {
+  box-sizing: border-box;
+  padding-inline: clamp(24px, 5vw, 72px);
 }
 
 .content-instagram .ig-magazine .mag-channels-head {
@@ -4204,6 +4219,14 @@ select {
     padding-top: 40px;
   }
 
+  .design-sns .sns-hero {
+    padding-bottom: 36px;
+  }
+
+  .design-sns .sns-works {
+    padding-top: 40px;
+  }
+
   .content-instagram .ig-ai-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px 14px;
@@ -4213,8 +4236,8 @@ select {
 /* Large screens — hero visual 크기 확대 (sns-hero 와 공통 토큰) */
 @media (min-width: 1200px) {
   :root {
-    --sns-hero-visual-w: min(100%, 1020px);
-    --sns-hero-visual-h: 680px;
+    --sns-hero-visual-w: min(100%, 1080px);
+    --sns-hero-visual-h: 720px;
   }
 }
 
