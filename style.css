@@ -3760,7 +3760,6 @@ select {
 
 .brand-namuwiki .sns-card-thumb {
   aspect-ratio: 4 / 3;
-  cursor: pointer;
 }
 
 /* 히어로↔포트폴리오 세로 간격 — 이미지 하단 여백 보정 */
@@ -3859,8 +3858,7 @@ select {
 .nw-process-track {
   display: flex;
   align-items: stretch;
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .nw-process-step {

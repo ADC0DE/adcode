@@ -105,16 +105,20 @@
             <span class="ig-ai-num" aria-hidden="true">02</span>
           </article>
           <article class="swiper-slide sns-card ig-ai-card reveal" data-delay="3">
-            <div class="sns-card-thumb">
-              <img src="/public/content/instagram/03_aI인플루언서_찹떡맨.png" alt="AI 인플루언서 찹떡맨" loading="lazy" />
-            </div>
-            <span class="ig-ai-num" aria-hidden="true">03</span>
+            <a class="sns-card-link" href="https://www.instagram.com/reel/DaaPCxYxo3Y/" target="_blank" rel="noopener noreferrer">
+              <div class="sns-card-thumb">
+                <img src="/public/content/instagram/03_aI인플루언서_찹떡맨.png" alt="AI 인플루언서 찹떡맨" loading="lazy" />
+              </div>
+              <span class="ig-ai-num" aria-hidden="true">03</span>
+            </a>
           </article>
           <article class="swiper-slide sns-card ig-ai-card reveal" data-delay="4">
-            <div class="sns-card-thumb">
-              <img src="/public/content/instagram/04_aI인플루언서_마틴킴.png" alt="AI 인플루언서 마틴킴" loading="lazy" />
-            </div>
-            <span class="ig-ai-num" aria-hidden="true">04</span>
+            <a class="sns-card-link" href="https://www.instagram.com/reel/DZMgcdCS3IS/" target="_blank" rel="noopener noreferrer">
+              <div class="sns-card-thumb">
+                <img src="/public/content/instagram/04_aI인플루언서_마틴킴.png" alt="AI 인플루언서 마틴킴" loading="lazy" />
+              </div>
+              <span class="ig-ai-num" aria-hidden="true">04</span>
+            </a>
           </article>
           <article class="swiper-slide sns-card ig-ai-card reveal" data-delay="5">
             <div class="sns-card-thumb">
@@ -135,10 +139,12 @@
             <span class="ig-ai-num" aria-hidden="true">07</span>
           </article>
           <article class="swiper-slide sns-card ig-ai-card reveal" data-delay="8">
-            <div class="sns-card-thumb">
-              <img src="/public/content/instagram/08_aI인플루언서_오드피플.png" alt="AI 인플루언서 오드피플" loading="lazy" />
-            </div>
-            <span class="ig-ai-num" aria-hidden="true">08</span>
+            <a class="sns-card-link" href="https://www.instagram.com/reel/DaAJ7H9y5kj/" target="_blank" rel="noopener noreferrer">
+              <div class="sns-card-thumb">
+                <img src="/public/content/instagram/08_aI인플루언서_오드피플.png" alt="AI 인플루언서 오드피플" loading="lazy" />
+              </div>
+              <span class="ig-ai-num" aria-hidden="true">08</span>
+            </a>
           </article>
         </div>
         <div class="swiper-pagination sns-works-pagination" aria-hidden="true"></div>
@@ -503,7 +509,7 @@
         lightboxImg.alt = '';
       };
 
-      document.querySelectorAll('.content-instagram .ig-ai-card .sns-card-thumb').forEach((thumb) => {
+      document.querySelectorAll('.content-instagram .ig-ai-card:not(:has(.sns-card-link)) .sns-card-thumb').forEach((thumb) => {
         thumb.addEventListener('click', () => {
           const img = thumb.querySelector('img');
           if (img) openLightbox(img);

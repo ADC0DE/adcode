@@ -412,14 +412,6 @@
     -->
   </nav>
 
-  <!-- ====================== PORTFOLIO LIGHTBOX ====================== -->
-  <div class="bp-lightbox" id="bp-lightbox" role="dialog" aria-modal="true" aria-label="포트폴리오 미리보기">
-    <button class="bp-lightbox-close" type="button" data-close aria-label="닫기">&times;</button>
-    <div class="bp-lightbox-inner">
-      <img src="" alt="" id="bp-lightbox-img" />
-    </div>
-  </div>
-
   <!-- ====================== POLICY / SUCCESS MODALS ====================== -->
   <div class="policy-modal" id="modal-terms" role="dialog" aria-modal="true" aria-label="이용약관">
     <div class="modal-box">
@@ -485,41 +477,6 @@
           methodInput.value = btn.dataset.method || '';
         });
       }
-    })();
-
-    (function () {
-      const lightbox = document.getElementById('bp-lightbox');
-      const lightboxImg = document.getElementById('bp-lightbox-img');
-      if (!lightbox || !lightboxImg) return;
-
-      const openLightbox = (img) => {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      };
-
-      const closeLightbox = () => {
-        lightbox.classList.remove('open');
-        document.body.style.overflow = '';
-        lightboxImg.removeAttribute('src');
-        lightboxImg.alt = '';
-      };
-
-      document.querySelectorAll('.brand-namuwiki .sns-card-thumb').forEach((thumb) => {
-        thumb.addEventListener('click', () => {
-          const img = thumb.querySelector('img');
-          if (img) openLightbox(img);
-        });
-      });
-
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox || e.target.closest('[data-close]')) closeLightbox();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
-      });
     })();
 
     (function () {
