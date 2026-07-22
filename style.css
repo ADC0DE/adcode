@@ -39,6 +39,11 @@
   /* sns-hero 우측 목업 — 모든 2depth 페이지 공통 크기 */
   --sns-hero-visual-w: min(100%, 840px);
   --sns-hero-visual-h: 560px;
+  /* 히어로 목업 하단 → 다음 섹션 (~268px @ 560px visual, 콘텐츠 h1400 + 104px 패딩) */
+  --hero-next-pad-bottom: 48px;
+  --hero-next-pad-top: 56px;
+  --hero-next-pad-bottom-mobile: 36px;
+  --hero-next-pad-top-mobile: 40px;
 
   /* 2depth 히어로 — GNB 아래 ~ 콘텐츠 시작 여백 (모든 서브 페이지 공통) */
   --page-hero-pt: 190px;
@@ -386,7 +391,7 @@ select {
 .hero {
   position: relative;
   min-height: auto;
-  padding: var(--page-hero-pt) var(--page-pad-x) 72px;
+  padding: var(--page-hero-pt) var(--page-pad-x) var(--hero-next-pad-bottom);
   display: grid;
   grid-template-rows: auto;
   gap: 32px;
@@ -2567,7 +2572,7 @@ select {
 
   .hero {
     min-height: auto;
-    padding: var(--page-hero-pt) var(--page-pad-x) 56px;
+    padding: var(--page-hero-pt) var(--page-pad-x) var(--hero-next-pad-bottom);
     gap: 28px;
   }
 
@@ -2609,7 +2614,7 @@ select {
   }
 
   .mag-channels {
-    padding: 64px var(--page-pad-x) 72px;
+    padding: var(--hero-next-pad-top) var(--page-pad-x) 72px;
   }
 
   .mag-channels-head {
@@ -2866,7 +2871,7 @@ select {
   }
 
   .hero {
-    padding: var(--page-hero-pt-mobile) var(--page-pad-x) 48px;
+    padding: var(--page-hero-pt-mobile) var(--page-pad-x) var(--hero-next-pad-bottom-mobile);
     gap: 24px;
   }
 
@@ -2911,7 +2916,7 @@ select {
   }
 
   .mag-channels {
-    padding: 48px var(--page-pad-x) 56px;
+    padding: var(--hero-next-pad-top-mobile) var(--page-pad-x) 56px;
   }
 
   .mag-channels-head {
@@ -3440,13 +3445,13 @@ select {
   background: var(--bg);
 }
 
-/* 히어로↔포트폴리오 세로 간격 */
+/* 히어로 목업 하단 → 다음 섹션 세로 간격 (모든 페이지 공통) */
 .design-sns .sns-hero {
-  padding-bottom: 48px;
+  padding-bottom: var(--hero-next-pad-bottom);
 }
 
 .design-sns .sns-works {
-  padding-top: 56px;
+  padding-top: var(--hero-next-pad-top);
 }
 
 .sns-hero {
@@ -3724,7 +3729,7 @@ select {
 
   .sns-hero {
     grid-template-columns: 1fr;
-    padding: var(--page-hero-pt-mobile) 20px 48px;
+    padding: var(--page-hero-pt-mobile) 20px var(--hero-next-pad-bottom-mobile);
     gap: 36px;
   }
 
@@ -3734,7 +3739,7 @@ select {
   }
 
   .sns-works {
-    padding: 56px 20px 72px;
+    padding: var(--hero-next-pad-top-mobile) 20px 72px;
   }
 
   .sns-works-grid {
@@ -3803,15 +3808,6 @@ select {
   aspect-ratio: 4 / 3;
 }
 
-/* 히어로↔포트폴리오 세로 간격 — 이미지 하단 여백 보정 */
-.brand-namuwiki .sns-hero {
-  padding-bottom: 48px;
-}
-
-.brand-namuwiki .sns-works {
-  padding-top: 56px;
-}
-
 .brand-namuwiki .sns-works-swiper {
   width: 100%;
   max-width: none;
@@ -3871,6 +3867,10 @@ select {
   aspect-ratio: 4 / 3;
   overflow: hidden;
   cursor: pointer;
+}
+
+.brand-logo .sns-hero-visual img {
+  object-position: top right;
 }
 
 .brand-logo .sns-card-thumb img {
@@ -4252,20 +4252,12 @@ select {
 }
 
 @media (max-width: 760px) {
-  .brand-namuwiki .sns-hero {
-    padding-bottom: 36px;
-  }
-
-  .brand-namuwiki .sns-works {
-    padding-top: 40px;
-  }
-
   .design-sns .sns-hero {
-    padding-bottom: 36px;
+    padding-bottom: var(--hero-next-pad-bottom-mobile);
   }
 
   .design-sns .sns-works {
-    padding-top: 40px;
+    padding-top: var(--hero-next-pad-top-mobile);
   }
 
   .content-instagram .ig-ai-grid {
@@ -4308,7 +4300,7 @@ select {
 }
 
 .viral-brands {
-  padding: 72px var(--page-pad-x) 72px;
+  padding: var(--hero-next-pad-top) var(--page-pad-x) 72px;
   background: var(--bg);
 }
 
@@ -4445,7 +4437,7 @@ select {
 
 @media (max-width: 760px) {
   .viral-brands {
-    padding: 56px 20px 56px;
+    padding: var(--hero-next-pad-top-mobile) 20px 56px;
   }
 
   .viral-brands-row {
@@ -5407,7 +5399,7 @@ select {
 
 .mag-channels {
   background: var(--bg);
-  padding: 72px var(--page-pad-x) 80px;
+  padding: var(--hero-next-pad-top) var(--page-pad-x) 80px;
   box-sizing: border-box;
 }
 
