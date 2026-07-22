@@ -4242,7 +4242,7 @@ select {
 
   .sns-hero,
   .hero-grid {
-    gap: clamp(32px, 2.8vw, 56px);
+    gap: clamp(48px, 4vw, 88px);
   }
 }
 
