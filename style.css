@@ -32,6 +32,10 @@
   /* 메인 좌우 시작점 — 모든 섹션 공통 (GNB / 히어로 / 매거진 / CONTACT / 푸터) */
   --page-pad-x: 40px;
 
+  /* sns-hero 좌우 그리드 — 카피/비주얼 비율·간격 (모든 2depth·메인 공통) */
+  --sns-hero-gap: clamp(24px, 2.8vw, 44px);
+  --sns-hero-copy-col: minmax(0, 0.85fr);
+  --sns-hero-visual-col: minmax(0, 1.15fr);
   /* sns-hero 우측 목업 — 모든 2depth 페이지 공통 크기 */
   --sns-hero-visual-w: min(100%, 840px);
   --sns-hero-visual-h: 560px;
@@ -436,9 +440,9 @@ select {
 /* hero main grid — 좌:카피 / 우:비주얼 (풀폭 사용) */
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
-  column-gap: clamp(24px, 2.5vw, 40px);
-  align-items: center;
+  grid-template-columns: var(--sns-hero-copy-col) var(--sns-hero-visual-col);
+  gap: var(--sns-hero-gap);
+  align-items: start;
   position: relative;
   z-index: 2;
   width: 100%;
@@ -453,6 +457,7 @@ select {
   gap: 0;
   position: relative;
   z-index: 2;
+  min-width: 0;
 }
 
 .hero-eyebrow {
@@ -510,13 +515,15 @@ select {
   position: relative;
   z-index: 2;
   justify-self: end;
+  align-self: start;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   flex: 0 0 auto;
   width: var(--sns-hero-visual-w);
   max-width: var(--sns-hero-visual-w);
-  height: var(--sns-hero-visual-h);
+  margin-top: 0;
+  padding-top: 0;
   min-width: 0;
 }
 
@@ -525,7 +532,7 @@ select {
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: 100%;
+  max-height: var(--sns-hero-visual-h);
   object-fit: contain;
   object-position: top center;
   filter: drop-shadow(0 24px 60px rgba(0, 0, 0, 0.55));
@@ -542,8 +549,6 @@ select {
 /* hero — PC·태블릿: sns-hero 와 동일 그리드·비주얼 정렬 */
 @media (min-width: 761px) {
   .hero-grid {
-    grid-template-columns: max-content 1fr;
-    gap: clamp(16px, 1.6vw, 28px);
     align-items: start;
   }
 
@@ -2886,9 +2891,10 @@ select {
 
   .hero-visual {
     justify-self: center;
+    align-items: flex-start;
     width: var(--sns-hero-visual-w);
     max-width: var(--sns-hero-visual-w);
-    height: var(--sns-hero-visual-h);
+    height: auto;
   }
 
   .headline {
@@ -3445,9 +3451,9 @@ select {
 
 .sns-hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: clamp(24px, 2.8vw, 44px);
-  align-items: center;
+  grid-template-columns: var(--sns-hero-copy-col) var(--sns-hero-visual-col);
+  gap: var(--sns-hero-gap);
+  align-items: start;
   padding: var(--page-hero-pt) var(--page-pad-x) 72px;
   background:
     radial-gradient(ellipse 42% 55% at 78% 48%, rgba(200, 24, 31, 0.22), transparent 70%),
@@ -3495,16 +3501,52 @@ select {
   word-break: keep-all;
 }
 
+.sns-hero-copy {
+  min-width: 0;
+  align-self: start;
+}
+
 .sns-hero-visual {
   position: relative;
   justify-self: end;
+  align-self: start;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   flex: 0 0 auto;
   width: var(--sns-hero-visual-w);
   max-width: var(--sns-hero-visual-w);
-  height: var(--sns-hero-visual-h);
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* reveal 애니메이션 — 그리드 정렬 유지 (컨테이너는 고정, img만 fade-up) */
+.sns-hero-visual.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.sns-hero-visual.reveal:not(.in-view) img {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .9s cubic-bezier(.2, .7, .15, 1), transform .9s cubic-bezier(.2, .7, .15, 1);
+}
+
+.sns-hero-visual.reveal.in-view img {
+  opacity: 1;
+  transform: none;
+}
+
+@media (min-width: 761px) {
+  .sns-hero-visual {
+    height: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .sns-hero-visual {
+    height: auto;
+  }
 }
 
 .sns-hero-visual img {
@@ -3512,17 +3554,14 @@ select {
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: 100%;
+  max-height: var(--sns-hero-visual-h);
   object-fit: contain;
   object-position: top center;
 }
 
-/* sns-hero — PC·태블릿: 텍스트는 내용 너비만, 목업은 우측 끝·상단 정렬 */
+/* sns-hero — PC·태블릿: 고정 비율 그리드, 목업은 우측 끝·상단 정렬 */
 @media (min-width: 761px) {
   .sns-hero {
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    gap: clamp(16px, 1.6vw, 28px);
     align-items: start;
   }
 
@@ -3548,6 +3587,7 @@ select {
     object-fit: contain;
     object-position: top center;
   }
+
 }
 
 .sns-works {
@@ -3690,6 +3730,7 @@ select {
 
   .sns-hero-visual {
     justify-self: center;
+    height: auto;
   }
 
   .sns-works {
@@ -4233,16 +4274,18 @@ select {
   }
 }
 
+@media (min-width: 761px) {
+  :root {
+    --sns-hero-gap: 40px;
+  }
+}
+
 /* Large screens — hero visual 크기 확대 (sns-hero 와 공통 토큰) */
 @media (min-width: 1200px) {
   :root {
     --sns-hero-visual-w: min(100%, 1080px);
     --sns-hero-visual-h: 720px;
-  }
-
-  .sns-hero,
-  .hero-grid {
-    gap: clamp(48px, 4vw, 88px);
+    --sns-hero-gap: 56px;
   }
 }
 
