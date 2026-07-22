@@ -4239,6 +4239,11 @@ select {
     --sns-hero-visual-w: min(100%, 1080px);
     --sns-hero-visual-h: 720px;
   }
+
+  .sns-hero,
+  .hero-grid {
+    gap: clamp(32px, 2.8vw, 56px);
+  }
 }
 
 /* VIRAL — /viral */
