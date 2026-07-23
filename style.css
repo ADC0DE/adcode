@@ -3894,6 +3894,17 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   object-position: top right;
 }
 
+/* 나무위키 히어로 — PNG 상단 여백(395/2000) 보정, 다른 페이지 목업 top 정렬과 맞춤 */
+.brand-namuwiki .sns-hero-visual {
+  overflow: hidden;
+  height: var(--sns-hero-visual-h);
+  max-height: var(--sns-hero-visual-h);
+}
+
+.brand-namuwiki .sns-hero-visual img {
+  margin-top: calc(var(--sns-hero-visual-h) * -395 / 2000);
+}
+
 .brand-logo .sns-card-thumb img {
   transition: transform 0.45s ease;
 }
