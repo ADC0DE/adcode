@@ -98,7 +98,7 @@
             </div>
             <span class="ig-ai-num" aria-hidden="true">01</span>
           </article>
-          <article class="swiper-slide sns-card ig-ai-card reveal" data-delay="2">
+          <article class="swiper-slide sns-card ig-ai-card reveal" data-delay="2" data-video="/public/content/instagram/송키키_영상.mp4">
             <div class="sns-card-thumb">
               <img src="/public/content/instagram/02_aI인플루언서_송키키.png" alt="AI 인플루언서 송키키" loading="lazy" />
             </div>
@@ -120,19 +120,19 @@
               <span class="ig-ai-num" aria-hidden="true">04</span>
             </a>
           </article>
-          <article class="swiper-slide sns-card ig-ai-card reveal" data-delay="5">
+          <article class="swiper-slide sns-card ig-ai-card reveal" data-delay="5" data-video="/public/content/instagram/05_릴스_백호(영상).mp4">
             <div class="sns-card-thumb">
               <img src="/public/content/instagram/05_aI인플루언서_백호.png" alt="AI 인플루언서 백호" loading="lazy" />
             </div>
             <span class="ig-ai-num" aria-hidden="true">05</span>
           </article>
-          <article class="swiper-slide sns-card ig-ai-card reveal" data-delay="6">
+          <article class="swiper-slide sns-card ig-ai-card reveal" data-delay="6" data-video="/public/content/instagram/06_릴스_토끼-1(영상).mp4">
             <div class="sns-card-thumb">
               <img src="/public/content/instagram/06_aI인플루언서_해란씨.png" alt="AI 인플루언서 해란씨" loading="lazy" />
             </div>
             <span class="ig-ai-num" aria-hidden="true">06</span>
           </article>
-          <article class="swiper-slide sns-card ig-ai-card reveal" data-delay="7">
+          <article class="swiper-slide sns-card ig-ai-card reveal" data-delay="7" data-video="/public/content/instagram/07_릴스_외계인-3(영상).mp4">
             <div class="sns-card-thumb">
               <img src="/public/content/instagram/07_aI인플루언서_외계인.png" alt="AI 인플루언서 외계인" loading="lazy" />
             </div>
@@ -420,6 +420,7 @@
     <button class="bp-lightbox-close" type="button" data-close aria-label="닫기">&times;</button>
     <div class="bp-lightbox-inner">
       <img src="" alt="" id="bp-lightbox-img" />
+      <video id="bp-lightbox-video" controls playsinline preload="metadata" aria-label="릴스 영상"></video>
     </div>
   </div>
 
@@ -493,25 +494,51 @@
     (function () {
       const lightbox = document.getElementById('bp-lightbox');
       const lightboxImg = document.getElementById('bp-lightbox-img');
-      if (!lightbox || !lightboxImg) return;
+      const lightboxVideo = document.getElementById('bp-lightbox-video');
+      if (!lightbox || !lightboxImg || !lightboxVideo) return;
 
       const openLightbox = (img) => {
+        lightbox.classList.remove('is-video');
+        lightboxVideo.pause();
+        lightboxVideo.removeAttribute('src');
+        lightboxVideo.load();
         lightboxImg.src = img.src;
         lightboxImg.alt = img.alt;
         lightbox.classList.add('open');
         document.body.style.overflow = 'hidden';
       };
 
+      const openVideoLightbox = (src, label) => {
+        lightboxImg.removeAttribute('src');
+        lightboxImg.alt = '';
+        lightboxVideo.src = src;
+        lightboxVideo.setAttribute('aria-label', label || '릴스 영상');
+        lightbox.classList.add('is-video', 'open');
+        document.body.style.overflow = 'hidden';
+        lightboxVideo.play().catch(() => {});
+      };
+
       const closeLightbox = () => {
-        lightbox.classList.remove('open');
+        lightbox.classList.remove('open', 'is-video');
         document.body.style.overflow = '';
         lightboxImg.removeAttribute('src');
         lightboxImg.alt = '';
+        lightboxVideo.pause();
+        lightboxVideo.removeAttribute('src');
+        lightboxVideo.load();
       };
 
-      document.querySelectorAll('.content-instagram .ig-ai-card:not(:has(.sns-card-link)) .sns-card-thumb').forEach((thumb) => {
+      document.querySelectorAll('.content-instagram .ig-ai-card:not(:has(.sns-card-link))').forEach((card) => {
+        const thumb = card.querySelector('.sns-card-thumb');
+        if (!thumb) return;
+
         thumb.addEventListener('click', () => {
+          const videoSrc = card.dataset.video;
           const img = thumb.querySelector('img');
+          if (videoSrc) {
+            openVideoLightbox(videoSrc, img?.alt || '릴스 영상');
+            return;
+          }
           if (img) openLightbox(img);
         });
       });

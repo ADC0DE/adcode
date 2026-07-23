@@ -4032,6 +4032,22 @@ select {
   border-radius: 8px;
 }
 
+.bp-lightbox-inner video {
+  display: none;
+  width: 100%;
+  max-height: calc(100vh - 96px);
+  border-radius: 8px;
+  background: #000;
+}
+
+.bp-lightbox.is-video .bp-lightbox-inner img {
+  display: none;
+}
+
+.bp-lightbox.is-video .bp-lightbox-inner video {
+  display: block;
+}
+
 /* CONTENT — /content-blog */
 .content-blog .sns-works-grid {
   grid-template-columns: repeat(5, minmax(0, 1fr));
