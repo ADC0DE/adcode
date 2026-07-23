@@ -39,11 +39,11 @@
   /* sns-hero 우측 목업 — 모든 2depth 페이지 공통 크기 */
   --sns-hero-visual-w: min(100%, 840px);
   --sns-hero-visual-h: 560px;
-  /* 히어로 목업 하단 → 다음 섹션 (~268px @ 560px visual, 콘텐츠 h1400 + 104px 패딩) */
-  --hero-next-pad-bottom: 48px;
-  --hero-next-pad-top: 56px;
-  --hero-next-pad-bottom-mobile: 36px;
-  --hero-next-pad-top-mobile: 40px;
+  /* 히어로 하단 → 다음 섹션 세로 간격 (bottom + top = 170px, 모든 페이지 공통) */
+  --hero-next-pad-bottom: 85px;
+  --hero-next-pad-top: 85px;
+  --hero-next-pad-bottom-mobile: 85px;
+  --hero-next-pad-top-mobile: 85px;
 
   /* 2depth 히어로 — GNB 아래 ~ 콘텐츠 시작 여백 (모든 서브 페이지 공통) */
   --page-hero-pt: 190px;
