@@ -1405,7 +1405,7 @@ select {
 .rail {
   position: fixed;
   right: 28px;
-  bottom: 56px;
+  bottom: 88px;
   z-index: 40;
   display: flex;
   flex-direction: column;
@@ -3068,7 +3068,7 @@ select {
 
   .rail {
     right: 12px;
-    bottom: 28px;
+    bottom: 52px;
     gap: 8px;
   }
 
