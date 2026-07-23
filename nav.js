@@ -41,4 +41,15 @@
       a.addEventListener("click", () => gnb.classList.remove("nav-open"));
     });
   }
+
+  // 우측 위젯 전화 — PC: 문의 섹션 이동 / 모바일: 바로 전화
+  const railPhone = document.querySelector('.rail a[aria-label="문의하기"]');
+  if (railPhone) {
+    railPhone.addEventListener("click", (e) => {
+      if (window.matchMedia(MOBILE).matches) {
+        e.preventDefault();
+        window.location.href = "tel:0537216061";
+      }
+    });
+  }
 })();
