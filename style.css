@@ -4306,7 +4306,6 @@ select {
 
 .viral-brands-head {
   margin-bottom: 48px;
-  text-align: center;
 }
 
 .viral-brands-eyebrow {
@@ -4319,7 +4318,6 @@ select {
 
 .viral-brands-title {
   margin: 0 0 14px;
-  text-align: center;
   color: var(--fg);
   font-size: clamp(22px, 2.4vw, 32px);
   font-weight: 700;
