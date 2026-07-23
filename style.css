@@ -44,6 +44,9 @@
   --hero-next-pad-top: 85px;
   --hero-next-pad-bottom-mobile: 85px;
   --hero-next-pad-top-mobile: 85px;
+  /* 나무위키 / SNS / 상세페이지 / 바이럴 — gap 130px */
+  --hero-next-pad-bottom-compact: 65px;
+  --hero-next-pad-top-compact: 65px;
 
   /* 2depth 히어로 — GNB 아래 ~ 콘텐츠 시작 여백 (모든 서브 페이지 공통) */
   --page-hero-pt: 190px;
@@ -3454,6 +3457,24 @@ select {
   padding-top: var(--hero-next-pad-top);
 }
 
+/* 히어로 gap 130px — /brand-namuwiki, /design-sns, /design-detail, /viral */
+.brand-namuwiki .sns-hero,
+.design-detail .sns-hero,
+.viral-page .sns-hero,
+main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .sns-hero {
+  padding-bottom: var(--hero-next-pad-bottom-compact);
+}
+
+.brand-namuwiki .sns-works,
+.design-detail .sns-works,
+main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .sns-works {
+  padding-top: var(--hero-next-pad-top-compact);
+}
+
+.viral-page .viral-brands {
+  padding-top: var(--hero-next-pad-top-compact);
+}
+
 .sns-hero {
   display: grid;
   grid-template-columns: var(--sns-hero-copy-col) var(--sns-hero-visual-col);
@@ -4021,6 +4042,9 @@ select {
 .bp-lightbox-inner {
   width: min(1200px, 96vw);
   max-height: calc(100vh - 96px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bp-lightbox-inner img {
@@ -4034,10 +4058,15 @@ select {
 
 .bp-lightbox-inner video {
   display: none;
-  width: 100%;
-  max-height: calc(100vh - 96px);
-  border-radius: 8px;
+}
+
+.bp-lightbox.is-video .bp-lightbox-inner {
+  width: min(360px, 82vw, calc((100vh - 120px) * 9 / 16));
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: 12px;
   background: #000;
+  flex: 0 0 auto;
 }
 
 .bp-lightbox.is-video .bp-lightbox-inner img {
@@ -4046,6 +4075,12 @@ select {
 
 .bp-lightbox.is-video .bp-lightbox-inner video {
   display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background: #000;
+  object-fit: contain;
+  object-position: center;
 }
 
 /* CONTENT — /content-blog */
@@ -4276,6 +4311,23 @@ select {
     padding-top: var(--hero-next-pad-top-mobile);
   }
 
+  .brand-namuwiki .sns-hero,
+  .design-detail .sns-hero,
+  .viral-page .sns-hero,
+  main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .sns-hero {
+    padding-bottom: var(--hero-next-pad-bottom-compact);
+  }
+
+  .brand-namuwiki .sns-works,
+  .design-detail .sns-works,
+  main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .sns-works {
+    padding-top: var(--hero-next-pad-top-compact);
+  }
+
+  .viral-page .viral-brands {
+    padding-top: var(--hero-next-pad-top-compact);
+  }
+
   .content-instagram .ig-ai-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px 14px;
@@ -4452,6 +4504,10 @@ select {
 @media (max-width: 760px) {
   .viral-brands {
     padding: var(--hero-next-pad-top-mobile) 20px 56px;
+  }
+
+  .viral-page .viral-brands {
+    padding-top: var(--hero-next-pad-top-compact);
   }
 
   .viral-brands-row {
