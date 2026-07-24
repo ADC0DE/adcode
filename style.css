@@ -583,6 +583,13 @@ select {
   }
 }
 
+/* 메인 히어로 — PNG 하단 투명 여백(585/1980) 보정, 목업 실제 하단 기준 간격 맞춤 */
+.hero-visual {
+  overflow: hidden;
+  height: calc(var(--sns-hero-visual-h) * 1394 / 1980);
+  max-height: calc(var(--sns-hero-visual-h) * 1394 / 1980);
+}
+
 /* headline — fits in 3 lines on desktop */
 .headline {
   font-weight: 700;
@@ -2902,7 +2909,9 @@ select {
     align-items: flex-start;
     width: var(--sns-hero-visual-w);
     max-width: var(--sns-hero-visual-w);
-    height: auto;
+    overflow: hidden;
+    height: calc(var(--sns-hero-visual-h) * 1394 / 1980);
+    max-height: calc(var(--sns-hero-visual-h) * 1394 / 1980);
   }
 
   .headline {
