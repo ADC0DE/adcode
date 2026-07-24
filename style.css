@@ -2887,7 +2887,7 @@ select {
 
   .hero-grid {
     grid-template-columns: 1fr;
-    row-gap: 36px;
+    row-gap: 0;
   }
 
   .hero-eyebrow {
@@ -2906,10 +2906,11 @@ select {
 
   .hero-visual {
     justify-self: center;
-    align-self: center;
+    align-self: start;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin-inline: auto;
+    margin-top: 64px;
     width: 100%;
     max-width: 100%;
     overflow: hidden;
@@ -2924,7 +2925,7 @@ select {
     height: auto;
     margin-inline: auto;
     object-fit: contain;
-    object-position: center center;
+    object-position: top center;
   }
 
   .headline {
@@ -3598,12 +3599,6 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   }
 }
 
-@media (max-width: 760px) {
-  .sns-hero-visual {
-    height: auto;
-  }
-}
-
 .sns-hero-visual img {
   display: block;
   width: auto;
@@ -3781,15 +3776,17 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   .sns-hero {
     grid-template-columns: 1fr;
     padding: var(--page-hero-pt-mobile) 20px var(--hero-next-pad-bottom-mobile);
-    gap: 80px;
+    /* gap 만으로는 목업 크롭 때문에 체감이 약함 — 비주얼 margin-top 으로 확보 */
+    gap: 0;
   }
 
   .sns-hero-visual {
     justify-self: center;
-    align-self: center;
+    align-self: start;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin-inline: auto;
+    margin-top: 64px;
     width: 100%;
     max-width: 100%;
   }
@@ -3801,7 +3798,7 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
     height: auto;
     margin-inline: auto;
     object-fit: contain;
-    object-position: center center;
+    object-position: top center;
   }
 
   .sns-works {
