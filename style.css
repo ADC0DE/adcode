@@ -3802,67 +3802,56 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   }
 
   /*
-    일부 목업 PNG는 실콘텐츠가 캔버스 우상단에 치우침 (좌측 투명 여백 큼).
-    모바일에서는 초점(콘텐츠 중심)을 화면 정중앙에 맞춤.
+    모바일: PC용 height 크롭·초점 보정 해제 — 목업 상·하단 잘림 방지.
+    (나무위키·바이럴 등 페이지별 overflow:hidden 이 모바일에서도 적용되던 문제)
   */
+  .hero-visual,
   .brand-logo .sns-hero-visual,
-  .content-instagram .sns-hero-visual,
+  .brand-namuwiki .sns-hero-visual,
+  .brand-homepage-blog .sns-hero-visual,
+  .design-detail .sns-hero-visual,
   .viral-page .sns-hero-visual,
-  .design-detail .sns-hero-visual {
-    position: relative;
-    overflow: hidden;
+  .content-instagram .sns-hero-visual,
+  .content-blog .sns-hero-visual,
+  main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .sns-hero-visual {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    position: static;
   }
 
   .brand-logo .sns-hero-visual img,
-  .content-instagram .sns-hero-visual img,
+  .brand-namuwiki .sns-hero-visual img,
+  .brand-homepage-blog .sns-hero-visual img,
+  .design-detail .sns-hero-visual img,
   .viral-page .sns-hero-visual img,
-  .design-detail .sns-hero-visual img {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: auto;
-    height: 118%;
-    max-width: none;
+  .content-instagram .sns-hero-visual img,
+  .content-blog .sns-hero-visual img,
+  main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .sns-hero-visual img {
+    position: static;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
     max-height: none;
     margin: 0;
     object-fit: contain;
-    object-position: center center;
+    object-position: top center;
   }
 
-  .brand-logo .sns-hero-visual img,
-  .brand-logo .sns-hero-visual.reveal.in-view img {
-    transform: translate(-63.2%, -35.3%);
-  }
-
-  .brand-logo .sns-hero-visual.reveal:not(.in-view) img {
-    transform: translate(-63.2%, -35.3%) translateY(18px);
-  }
-
-  .content-instagram .sns-hero-visual img,
-  .content-instagram .sns-hero-visual.reveal.in-view img {
-    transform: translate(-62.6%, -35.4%);
-  }
-
-  .content-instagram .sns-hero-visual.reveal:not(.in-view) img {
-    transform: translate(-62.6%, -35.4%) translateY(18px);
-  }
-
-  .viral-page .sns-hero-visual img,
-  .viral-page .sns-hero-visual.reveal.in-view img {
-    transform: translate(-61.2%, -35.2%);
-  }
-
-  .viral-page .sns-hero-visual.reveal:not(.in-view) img {
-    transform: translate(-61.2%, -35.2%) translateY(18px);
-  }
-
-  .design-detail .sns-hero-visual img,
+  .brand-logo .sns-hero-visual.reveal.in-view img,
+  .brand-namuwiki .sns-hero-visual.reveal.in-view img,
+  .viral-page .sns-hero-visual.reveal.in-view img,
+  .content-instagram .sns-hero-visual.reveal.in-view img,
   .design-detail .sns-hero-visual.reveal.in-view img {
-    transform: translate(-62.3%, -35.3%);
+    transform: none;
   }
 
+  .brand-logo .sns-hero-visual.reveal:not(.in-view) img,
+  .brand-namuwiki .sns-hero-visual.reveal:not(.in-view) img,
+  .viral-page .sns-hero-visual.reveal:not(.in-view) img,
+  .content-instagram .sns-hero-visual.reveal:not(.in-view) img,
   .design-detail .sns-hero-visual.reveal:not(.in-view) img {
-    transform: translate(-62.3%, -35.3%) translateY(18px);
+    transform: translateY(18px);
   }
 
   .sns-works {
