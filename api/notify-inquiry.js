@@ -13,6 +13,28 @@ const ADMIN_TO = [
   'thegoingsolution@gmail.com',
 ];
 
+const BROCHURE_FILENAME = '애드코드_회사소개서_2026.pdf';
+const BROCHURE_URL = `https://adcode.co.kr/public/${encodeURIComponent(BROCHURE_FILENAME)}`;
+
+async function loadBrochureAttachment() {
+  try {
+    const res = await fetch(BROCHURE_URL);
+    if (!res.ok) {
+      console.warn('[notify-inquiry] brochure fetch failed', res.status);
+      return null;
+    }
+    const content = Buffer.from(await res.arrayBuffer());
+    return {
+      filename: BROCHURE_FILENAME,
+      content,
+      contentType: 'application/pdf',
+    };
+  } catch (err) {
+    console.warn('[notify-inquiry] brochure fetch error', err);
+    return null;
+  }
+}
+
 function escapeHtml(value) {
   return String(value ?? '')
     .replace(/&/g, '&amp;')
@@ -82,6 +104,7 @@ module.exports = async function handler(req, res) {
     });
 
     const mail = buildMail(inquiry);
+    const brochure = await loadBrochureAttachment();
     await transporter.sendMail({
       from: `"ADCODE 문의" <${SMTP.user}>`,
       to: ADMIN_TO.join(', '),
@@ -89,6 +112,7 @@ module.exports = async function handler(req, res) {
       subject: mail.subject,
       text: mail.text,
       html: mail.html,
+      attachments: brochure ? [brochure] : [],
     });
 
     return res.status(200).json({ ok: true });

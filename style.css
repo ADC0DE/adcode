@@ -2906,12 +2906,20 @@ select {
 
   .hero-visual {
     justify-self: center;
-    align-items: flex-start;
-    width: var(--sns-hero-visual-w);
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+    width: fit-content;
     max-width: var(--sns-hero-visual-w);
     overflow: hidden;
     height: calc(var(--sns-hero-visual-h) * 1394 / 1980);
     max-height: calc(var(--sns-hero-visual-h) * 1394 / 1980);
+  }
+
+  .hero-visual img {
+    margin-inline: auto;
+    object-position: center center;
   }
 
   .headline {
@@ -3772,7 +3780,23 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 
   .sns-hero-visual {
     justify-self: center;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+    width: fit-content;
+    max-width: var(--sns-hero-visual-w);
     height: auto;
+  }
+
+  .sns-hero-visual img {
+    margin-inline: auto;
+    object-position: center center;
+  }
+
+  /* 페이지별 PC용 object-position 보정 — 모바일에선 가운데 정렬 우선 */
+  .brand-logo .sns-hero-visual img {
+    object-position: center center;
   }
 
   .sns-works {
