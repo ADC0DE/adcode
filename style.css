@@ -584,10 +584,12 @@ select {
 }
 
 /* 메인 히어로 — PNG 하단 투명 여백(585/1980) 보정, 목업 실제 하단 기준 간격 맞춤 */
-.hero-visual {
-  overflow: hidden;
-  height: calc(var(--sns-hero-visual-h) * 1394 / 1980);
-  max-height: calc(var(--sns-hero-visual-h) * 1394 / 1980);
+@media (min-width: 761px) {
+  .hero-visual {
+    overflow: hidden;
+    height: calc(var(--sns-hero-visual-h) * 1394 / 1980);
+    max-height: calc(var(--sns-hero-visual-h) * 1394 / 1980);
+  }
 }
 
 /* headline — fits in 3 lines on desktop */
@@ -2913,9 +2915,9 @@ select {
     margin-top: 96px;
     width: 100%;
     max-width: 100%;
-    overflow: hidden;
-    height: calc(var(--sns-hero-visual-h) * 1394 / 1980);
-    max-height: calc(var(--sns-hero-visual-h) * 1394 / 1980);
+    overflow: visible;
+    height: auto;
+    max-height: none;
   }
 
   .hero-visual img {
@@ -3499,10 +3501,12 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 }
 
 /* SNS 디자인 히어로 — PNG 하단 투명 여백(936/1980) 보정, 목업 실제 하단 기준 간격 맞춤 */
-main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .sns-hero-visual {
-  overflow: hidden;
-  height: calc(var(--sns-hero-visual-h) * 1044 / 1980);
-  max-height: calc(var(--sns-hero-visual-h) * 1044 / 1980);
+@media (min-width: 761px) {
+  main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .sns-hero-visual {
+    overflow: hidden;
+    height: calc(var(--sns-hero-visual-h) * 1044 / 1980);
+    max-height: calc(var(--sns-hero-visual-h) * 1044 / 1980);
+  }
 }
 
 .sns-hero {
@@ -3796,6 +3800,7 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
     width: 100%;
     max-width: 100%;
     height: auto;
+    max-height: none;
     margin-inline: auto;
     object-fit: contain;
     object-position: top center;
@@ -3985,58 +3990,57 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   cursor: pointer;
 }
 
-/* 로고 히어로 — PNG 하단 투명 여백(584/1980) 보정, 목업 실제 하단 기준 간격 맞춤 */
-.brand-logo .sns-hero-visual {
-  overflow: hidden;
-  height: calc(var(--sns-hero-visual-h) * 1396 / 1980);
-  max-height: calc(var(--sns-hero-visual-h) * 1396 / 1980);
-}
-
+/* 로고·나무위키·홈페이지블로그·상세·바이럴·인스타·블로그 히어로 — PC 전용 PNG 여백 보정 */
 @media (min-width: 761px) {
+  .brand-logo .sns-hero-visual {
+    overflow: hidden;
+    height: calc(var(--sns-hero-visual-h) * 1396 / 1980);
+    max-height: calc(var(--sns-hero-visual-h) * 1396 / 1980);
+  }
+
   .brand-logo .sns-hero-visual img {
     object-position: top right;
   }
-}
 
-/* 나무위키 히어로 — PNG 상·하단 투명 여백(395+421/2000) 보정 */
-.brand-namuwiki .sns-hero-visual {
-  overflow: hidden;
-  height: calc(var(--sns-hero-visual-h) * 1184 / 2000);
-  max-height: calc(var(--sns-hero-visual-h) * 1184 / 2000);
-}
+  .brand-namuwiki .sns-hero-visual {
+    overflow: hidden;
+    height: calc(var(--sns-hero-visual-h) * 1184 / 2000);
+    max-height: calc(var(--sns-hero-visual-h) * 1184 / 2000);
+  }
 
-@media (min-width: 761px) {
   .brand-namuwiki .sns-hero-visual img {
     margin-top: calc(var(--sns-hero-visual-h) * -395 / 2000);
   }
-}
 
-/* 홈페이지형 블로그 히어로 — PNG 하단 투명 여백(581/1980) 보정 */
-.brand-homepage-blog .sns-hero-visual {
-  overflow: hidden;
-  height: calc(var(--sns-hero-visual-h) * 1399 / 1980);
-  max-height: calc(var(--sns-hero-visual-h) * 1399 / 1980);
-}
+  .brand-homepage-blog .sns-hero-visual {
+    overflow: hidden;
+    height: calc(var(--sns-hero-visual-h) * 1399 / 1980);
+    max-height: calc(var(--sns-hero-visual-h) * 1399 / 1980);
+  }
 
-/* 상세페이지 히어로 — PNG 하단 투명 여백(583/1980) 보정 */
-.design-detail .sns-hero-visual {
-  overflow: hidden;
-  height: calc(var(--sns-hero-visual-h) * 1397 / 1980);
-  max-height: calc(var(--sns-hero-visual-h) * 1397 / 1980);
-}
+  .design-detail .sns-hero-visual {
+    overflow: hidden;
+    height: calc(var(--sns-hero-visual-h) * 1397 / 1980);
+    max-height: calc(var(--sns-hero-visual-h) * 1397 / 1980);
+  }
 
-/* 바이럴 히어로 — PNG 하단 투명 여백(607/1980) 보정 */
-.viral-page .sns-hero-visual {
-  overflow: hidden;
-  height: calc(var(--sns-hero-visual-h) * 1372 / 1980);
-  max-height: calc(var(--sns-hero-visual-h) * 1372 / 1980);
-}
+  .viral-page .sns-hero-visual {
+    overflow: hidden;
+    height: calc(var(--sns-hero-visual-h) * 1372 / 1980);
+    max-height: calc(var(--sns-hero-visual-h) * 1372 / 1980);
+  }
 
-/* 인스타 운영 히어로 — PNG 하단 투명 여백(580/1980) 보정 */
-.content-instagram .sns-hero-visual {
-  overflow: hidden;
-  height: calc(var(--sns-hero-visual-h) * 1399 / 1980);
-  max-height: calc(var(--sns-hero-visual-h) * 1399 / 1980);
+  .content-instagram .sns-hero-visual {
+    overflow: hidden;
+    height: calc(var(--sns-hero-visual-h) * 1399 / 1980);
+    max-height: calc(var(--sns-hero-visual-h) * 1399 / 1980);
+  }
+
+  .content-blog .sns-hero-visual {
+    overflow: hidden;
+    height: calc(var(--sns-hero-visual-h) * 1398 / 1980);
+    max-height: calc(var(--sns-hero-visual-h) * 1398 / 1980);
+  }
 }
 
 .brand-logo .sns-card-thumb img {
@@ -4229,13 +4233,6 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 }
 
 /* CONTENT — /content-blog */
-/* 블로그 히어로 — PNG 하단 투명 여백(582/1980) 보정, 목업 실제 하단 기준 간격 맞춤 */
-.content-blog .sns-hero-visual {
-  overflow: hidden;
-  height: calc(var(--sns-hero-visual-h) * 1398 / 1980);
-  max-height: calc(var(--sns-hero-visual-h) * 1398 / 1980);
-}
-
 .content-blog .sns-works-grid {
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 20px 14px;
