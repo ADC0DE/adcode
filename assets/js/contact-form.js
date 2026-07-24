@@ -93,24 +93,23 @@
       const { error } = await client.from('inquiries').insert([payload]);
       if (error) throw error;
 
-      // 관리자 메일 알림 (Supabase Edge Function — GitHub Pages 에서도 동작)
-      try {
-        const cfg = window.ADCODE_SUPABASE || {};
-        await fetch(`${cfg.url}/functions/v1/notify-inquiry`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            apikey: cfg.anonKey,
-            Authorization: `Bearer ${cfg.anonKey}`,
-          },
-          body: JSON.stringify({
-            ...payload,
-            created_at: new Date().toISOString(),
-          }),
-        });
-      } catch (mailErr) {
+      // 메일 알림은 백그라운드 — PDF 첨부 등으로 오래 걸려도 UX 차단하지 않음
+      const cfg = window.ADCODE_SUPABASE || {};
+      fetch(`${cfg.url}/functions/v1/notify-inquiry`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          apikey: cfg.anonKey,
+          Authorization: `Bearer ${cfg.anonKey}`,
+        },
+        body: JSON.stringify({
+          ...payload,
+          created_at: new Date().toISOString(),
+        }),
+        keepalive: true,
+      }).catch((mailErr) => {
         console.warn('[ADCODE] notify mail skipped', mailErr);
-      }
+      });
 
       form.reset();
       resetFormExtras();

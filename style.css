@@ -2910,15 +2910,20 @@ select {
     justify-content: center;
     align-items: center;
     margin-inline: auto;
-    width: fit-content;
-    max-width: var(--sns-hero-visual-w);
+    width: 100%;
+    max-width: 100%;
     overflow: hidden;
     height: calc(var(--sns-hero-visual-h) * 1394 / 1980);
     max-height: calc(var(--sns-hero-visual-h) * 1394 / 1980);
   }
 
   .hero-visual img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
     margin-inline: auto;
+    object-fit: contain;
     object-position: center center;
   }
 
@@ -3768,14 +3773,15 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 
 @media (max-width: 760px) {
   :root {
-    --sns-hero-visual-w: min(100%, 320px);
-    --sns-hero-visual-h: 280px;
+    /* 모바일: 화면 폭을 거의 다 쓰도록 (기존 320px는 너무 작음) */
+    --sns-hero-visual-w: 100%;
+    --sns-hero-visual-h: min(88vw, 420px);
   }
 
   .sns-hero {
     grid-template-columns: 1fr;
     padding: var(--page-hero-pt-mobile) 20px var(--hero-next-pad-bottom-mobile);
-    gap: 36px;
+    gap: 80px;
   }
 
   .sns-hero-visual {
@@ -3784,18 +3790,17 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
     justify-content: center;
     align-items: center;
     margin-inline: auto;
-    width: fit-content;
-    max-width: var(--sns-hero-visual-w);
-    height: auto;
+    width: 100%;
+    max-width: 100%;
   }
 
   .sns-hero-visual img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
     margin-inline: auto;
-    object-position: center center;
-  }
-
-  /* 페이지별 PC용 object-position 보정 — 모바일에선 가운데 정렬 우선 */
-  .brand-logo .sns-hero-visual img {
+    object-fit: contain;
     object-position: center center;
   }
 
@@ -3937,8 +3942,10 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   max-height: calc(var(--sns-hero-visual-h) * 1396 / 1980);
 }
 
-.brand-logo .sns-hero-visual img {
-  object-position: top right;
+@media (min-width: 761px) {
+  .brand-logo .sns-hero-visual img {
+    object-position: top right;
+  }
 }
 
 /* 나무위키 히어로 — PNG 상·하단 투명 여백(395+421/2000) 보정 */
@@ -3948,8 +3955,10 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   max-height: calc(var(--sns-hero-visual-h) * 1184 / 2000);
 }
 
-.brand-namuwiki .sns-hero-visual img {
-  margin-top: calc(var(--sns-hero-visual-h) * -395 / 2000);
+@media (min-width: 761px) {
+  .brand-namuwiki .sns-hero-visual img {
+    margin-top: calc(var(--sns-hero-visual-h) * -395 / 2000);
+  }
 }
 
 /* 홈페이지형 블로그 히어로 — PNG 하단 투명 여백(581/1980) 보정 */
