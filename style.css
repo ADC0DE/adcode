@@ -1296,27 +1296,18 @@ select {
 }
 
 /* 동의 체크박스 — 둘 다 required 라서 미체크 시 브라우저가 자동으로 제출 차단 */
-.consent-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px 40px;
-  margin-top: 4px;
-  flex-wrap: wrap;
-}
-
 .consents {
   display: grid;
   gap: 10px;
+  margin-top: 4px;
 }
 
 .brochure-note {
   margin: 0;
   font-size: 13px;
-  line-height: 1.65;
+  line-height: 1.5;
   color: var(--fg-2);
   letter-spacing: -0.02em;
-  text-align: right;
   word-break: keep-all;
 }
 
@@ -3042,16 +3033,6 @@ select {
 
   .form {
     gap: 16px;
-  }
-
-  .consent-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .brochure-note {
-    text-align: left;
   }
 
   .field--inline {
