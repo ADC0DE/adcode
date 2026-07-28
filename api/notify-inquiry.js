@@ -9,7 +9,7 @@ const SMTP = {
 };
 
 const ADMIN_TO = [
-  'usarmy0220@naver.com',
+  'adcode_mkt@naver.com',
   'thegoingsolution@gmail.com',
 ];
 
