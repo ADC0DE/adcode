@@ -149,28 +149,52 @@ Deno.serve(async (req) => {
     })
 
     const mail = buildMail(inquiry)
-    const brochure = await loadBrochureAttachment()
-    await transporter.sendMail({
-      from: `"ADCODE 문의" <${SMTP.user}>`,
-      to: ADMIN_TO.join(', '),
-      replyTo: String(inquiry.email),
-      subject: mail.subject,
-      text: mail.text,
-      html: mail.html,
-      attachments: brochure ? [brochure] : [],
-    })
-
     const replyMail = buildReplyMail(inquiry)
-    await transporter.sendMail({
-      from: `"ADCODE" <${SMTP.user}>`,
-      to: String(inquiry.email),
-      subject: replyMail.subject,
-      text: replyMail.text,
-      html: replyMail.html,
-      attachments: brochure ? [brochure] : [],
-    })
+    const brochure = await loadBrochureAttachment()
+    const attachments = brochure ? [brochure] : []
 
-    return new Response(JSON.stringify({ ok: true }), {
+    // 관리자 알림 + 문의자 회사소개서 회신을 각각 독립 발송
+    // (한쪽 실패해도 다른 쪽은 계속 시도)
+    const [adminResult, customerResult] = await Promise.allSettled([
+      transporter.sendMail({
+        from: `"ADCODE 문의" <${SMTP.user}>`,
+        to: ADMIN_TO.join(', '),
+        replyTo: String(inquiry.email),
+        subject: mail.subject,
+        text: mail.text,
+        html: mail.html,
+        attachments,
+      }),
+      transporter.sendMail({
+        from: `"ADCODE" <${SMTP.user}>`,
+        to: String(inquiry.email),
+        subject: replyMail.subject,
+        text: replyMail.text,
+        html: replyMail.html,
+        attachments,
+      }),
+    ])
+
+    if (adminResult.status === 'rejected') {
+      console.error('[notify-inquiry] admin mail failed', adminResult.reason)
+    }
+    if (customerResult.status === 'rejected') {
+      console.error('[notify-inquiry] customer brochure mail failed', customerResult.reason)
+    }
+    if (!brochure) {
+      console.warn('[notify-inquiry] brochure attachment missing')
+    }
+
+    if (adminResult.status === 'rejected' && customerResult.status === 'rejected') {
+      throw new Error('Both admin and customer emails failed')
+    }
+
+    return new Response(JSON.stringify({
+      ok: true,
+      adminSent: adminResult.status === 'fulfilled',
+      customerSent: customerResult.status === 'fulfilled',
+      brochureAttached: Boolean(brochure),
+    }), {
       status: 200,
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
     })
