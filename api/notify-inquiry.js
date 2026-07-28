@@ -75,6 +75,27 @@ function buildMail(inquiry) {
   return { subject, text, html };
 }
 
+function buildReplyMail(inquiry) {
+  const customerName = String(inquiry.name || '고객');
+  const subject = '[ADCODE] 문의 접수 및 회사소개서 전달드립니다';
+  const text = [
+    `${customerName}님, 문의해주셔서 감사합니다.`,
+    '',
+    '요청하신 회사소개서를 첨부해드립니다.',
+    '확인 후 빠른 시일 내에 연락드리겠습니다.',
+    '',
+    '- ADCODE',
+  ].join('\n');
+  const html = `
+    <div style="font-family:Apple SD Gothic Neo,Malgun Gothic,sans-serif;line-height:1.7;color:#111">
+      <p style="margin:0 0 12px">${escapeHtml(customerName)}님, 문의해주셔서 감사합니다.</p>
+      <p style="margin:0 0 12px">요청하신 회사소개서를 첨부해드립니다.</p>
+      <p style="margin:0">확인 후 빠른 시일 내에 연락드리겠습니다.<br/>- ADCODE</p>
+    </div>
+  `;
+  return { subject, text, html };
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -112,6 +133,16 @@ module.exports = async function handler(req, res) {
       subject: mail.subject,
       text: mail.text,
       html: mail.html,
+      attachments: brochure ? [brochure] : [],
+    });
+
+    const replyMail = buildReplyMail(inquiry);
+    await transporter.sendMail({
+      from: `"ADCODE" <${SMTP.user}>`,
+      to: String(inquiry.email),
+      subject: replyMail.subject,
+      text: replyMail.text,
+      html: replyMail.html,
       attachments: brochure ? [brochure] : [],
     });
 
