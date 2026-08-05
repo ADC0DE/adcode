@@ -42,8 +42,9 @@
   /* 히어로 하단 → 다음 섹션 세로 간격 (bottom + top = 170px, 모든 페이지 공통) */
   --hero-next-pad-bottom: 85px;
   --hero-next-pad-top: 85px;
-  --hero-next-pad-bottom-mobile: 85px;
-  --hero-next-pad-top-mobile: 85px;
+  /* 모바일: PC 대비 약 절반 (bottom + top ≈ 84px) */
+  --hero-next-pad-bottom-mobile: 42px;
+  --hero-next-pad-top-mobile: 42px;
   /* 나무위키 / SNS / 상세페이지 / 바이럴 — gap 130px */
   --hero-next-pad-bottom-compact: 65px;
   --hero-next-pad-top-compact: 65px;
@@ -4469,21 +4470,22 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
     padding-top: var(--hero-next-pad-top-mobile);
   }
 
+  /* 모바일은 compact 대신 공통 mobile 간격 사용 (전 페이지 동일) */
   .brand-namuwiki .sns-hero,
   .design-detail .sns-hero,
   .viral-page .sns-hero,
   main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .sns-hero {
-    padding-bottom: var(--hero-next-pad-bottom-compact);
+    padding-bottom: var(--hero-next-pad-bottom-mobile);
   }
 
   .brand-namuwiki .sns-works,
   .design-detail .sns-works,
   main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .sns-works {
-    padding-top: var(--hero-next-pad-top-compact);
+    padding-top: var(--hero-next-pad-top-mobile);
   }
 
   .viral-page .viral-brands {
-    padding-top: var(--hero-next-pad-top-compact);
+    padding-top: var(--hero-next-pad-top-mobile);
   }
 
   .content-instagram .ig-ai-grid {
@@ -4665,7 +4667,7 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   }
 
   .viral-page .viral-brands {
-    padding-top: var(--hero-next-pad-top-compact);
+    padding-top: var(--hero-next-pad-top-mobile);
   }
 
   .viral-brands-row {
