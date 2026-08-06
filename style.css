@@ -42,9 +42,9 @@
   /* 히어로 하단 → 다음 섹션 세로 간격 (bottom + top = 170px, 모든 페이지 공통) */
   --hero-next-pad-bottom: 85px;
   --hero-next-pad-top: 85px;
-  /* 모바일: PC 대비 축소 (bottom + top ≈ 56px) */
-  --hero-next-pad-bottom-mobile: 28px;
-  --hero-next-pad-top-mobile: 28px;
+  /* 모바일: PC 대비 축소 (bottom + top ≈ 20px) */
+  --hero-next-pad-bottom-mobile: 10px;
+  --hero-next-pad-top-mobile: 10px;
   /* 나무위키 / SNS / 상세페이지 / 바이럴 — gap 130px */
   --hero-next-pad-bottom-compact: 65px;
   --hero-next-pad-top-compact: 65px;
