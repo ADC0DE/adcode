@@ -3456,8 +3456,11 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 
 /* 히어로 ↔ 다음 섹션 사이 서비스 소개 카피 */
 .page-pitch {
+  display: flex;
+  justify-content: center;
   padding: var(--hero-next-pad-top) var(--page-pad-x);
   background: var(--bg);
+  text-align: center;
 }
 
 .brand-namuwiki .page-pitch,
@@ -3474,8 +3477,14 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 }
 
 .page-pitch-inner {
+  width: 100%;
   max-width: 780px;
-  margin: 0 auto;
+  text-align: center;
+}
+
+.page-pitch-title,
+.page-pitch-body,
+.page-pitch-body p {
   text-align: center;
 }
 
