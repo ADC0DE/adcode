@@ -3475,10 +3475,12 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 
 .page-pitch-inner {
   max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .page-pitch-title {
-  margin: 0;
+  margin: 0 0 20px;
   color: var(--fg);
   font-size: clamp(26px, 3.2vw, 42px);
   font-weight: 800;
@@ -3489,14 +3491,6 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 
 .page-pitch-title .red {
   color: var(--red);
-}
-
-.page-pitch-rule {
-  display: block;
-  width: 36px;
-  height: 3px;
-  margin: 22px 0 20px;
-  background: var(--red);
 }
 
 .page-pitch-body {
