@@ -42,9 +42,9 @@
   /* 히어로 하단 → 다음 섹션 세로 간격 (bottom + top = 170px, 모든 페이지 공통) */
   --hero-next-pad-bottom: 85px;
   --hero-next-pad-top: 85px;
-  /* 모바일: 히어로 ↔ 다음 섹션 간격 최소화 */
-  --hero-next-pad-bottom-mobile: 1px;
-  --hero-next-pad-top-mobile: 1px;
+  /* 모바일: PC 대비 약 절반 (bottom + top ≈ 84px) */
+  --hero-next-pad-bottom-mobile: 42px;
+  --hero-next-pad-top-mobile: 42px;
   /* 나무위키 / SNS / 상세페이지 / 바이럴 — gap 130px */
   --hero-next-pad-bottom-compact: 65px;
   --hero-next-pad-top-compact: 65px;
@@ -2635,14 +2635,6 @@ select {
     display: none;
   }
 
-  .mag-channels {
-    padding: var(--hero-next-pad-top) var(--page-pad-x) 72px;
-  }
-
-  .mag-channels-head {
-    margin-bottom: 32px;
-  }
-
   .contact {
     grid-template-columns: 1fr;
     gap: 36px;
@@ -2951,54 +2943,6 @@ select {
 
   .english .big {
     font-size: 22px;
-  }
-
-  .mag-channels {
-    padding: var(--hero-next-pad-top-mobile) var(--page-pad-x) 56px;
-  }
-
-  .mag-channels-head {
-    margin-bottom: 24px;
-  }
-
-  /* 모바일: 한 장씩 Swiper (JS loop)
-     주의: wrapper에 transform/width를 고정하면 슬라이드가 덜 넘어가며 여백이 누적됨 */
-  .mag-channels-swiper {
-    overflow: hidden;
-    padding-bottom: 28px;
-  }
-
-  .mag-channels-swiper.swiper-initialized .mag-channels-grid {
-    display: flex;
-    grid-template-columns: none;
-    gap: 0;
-    /* transform / width 는 Swiper가 계산 — 여기서 덮어쓰지 않음 */
-  }
-
-  .mag-channels-swiper .swiper-slide {
-    border-radius: 12px;
-    height: auto;
-    box-sizing: border-box;
-  }
-
-  .mag-channels-pagination {
-    display: block;
-    bottom: 0 !important;
-  }
-
-  .mag-channels-pagination .swiper-pagination-bullet {
-    width: 7px;
-    height: 7px;
-    background: rgba(255, 255, 255, 0.35);
-    opacity: 1;
-  }
-
-  .mag-channels-pagination .swiper-pagination-bullet-active {
-    background: var(--red);
-  }
-
-  .mag-channels-foot {
-    padding-top: 28px;
   }
 
   .about .marquee-wrap {
@@ -5746,7 +5690,66 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   padding: 40px 0 0;
 }
 
-/* mag-channels 반응형 — tablet 2열 / mobile swiper 는 RESPONSIVE 블록 */
+/* mag-channels 반응형 — 기본 스타일보다 뒤에 두어 cascade 우선순위 확보 */
+@media (max-width: 1100px) {
+  .mag-channels {
+    padding: var(--hero-next-pad-top) var(--page-pad-x) 72px;
+  }
+
+  .mag-channels-head {
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 760px) {
+  .mag-channels {
+    padding: var(--hero-next-pad-top-mobile) var(--page-pad-x) 56px;
+  }
+
+  .mag-channels-head {
+    margin-bottom: 24px;
+  }
+
+  /* 모바일: 한 장씩 Swiper (JS loop)
+     주의: wrapper에 transform/width를 고정하면 슬라이드가 덜 넘어가며 여백이 누적됨 */
+  .mag-channels-swiper {
+    overflow: hidden;
+    padding-bottom: 28px;
+  }
+
+  .mag-channels-swiper.swiper-initialized .mag-channels-grid {
+    display: flex;
+    grid-template-columns: none;
+    gap: 0;
+    /* transform / width 는 Swiper가 계산 — 여기서 덮어쓰지 않음 */
+  }
+
+  .mag-channels-swiper .swiper-slide {
+    border-radius: 12px;
+    height: auto;
+    box-sizing: border-box;
+  }
+
+  .mag-channels-pagination {
+    display: block;
+    bottom: 0 !important;
+  }
+
+  .mag-channels-pagination .swiper-pagination-bullet {
+    width: 7px;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.35);
+    opacity: 1;
+  }
+
+  .mag-channels-pagination .swiper-pagination-bullet-active {
+    background: var(--red);
+  }
+
+  .mag-channels-foot {
+    padding-top: 28px;
+  }
+}
 
 /* 작업물 썸네일 가로 롤링 — 상단 텍스트 띠와 반대 방향, 어두운 오버레이 */
 .pf-roll {
