@@ -47,6 +47,8 @@
       pagination: {
         el: swiperRoot.querySelector('.mag-channels-pagination'),
         clickable: true,
+        dynamicBullets: true,
+        dynamicMainBullets: 3,
       },
     });
   }

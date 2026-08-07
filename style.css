@@ -5827,7 +5827,7 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
      주의: wrapper에 transform/width를 고정하면 슬라이드가 덜 넘어가며 여백이 누적됨 */
   .mag-channels-swiper {
     overflow: hidden;
-    padding-bottom: 28px;
+    padding-bottom: 0;
   }
 
   .mag-channels-swiper.swiper-initialized .mag-channels-grid {
@@ -5844,13 +5844,19 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   }
 
   .mag-channels-pagination {
-    display: block;
-    bottom: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static !important;
+    width: 100%;
+    margin-top: 16px;
+    transform: none !important;
   }
 
   .mag-channels-pagination .swiper-pagination-bullet {
     width: 7px;
     height: 7px;
+    margin: 0 4px !important;
     background: rgba(255, 255, 255, 0.35);
     opacity: 1;
   }
