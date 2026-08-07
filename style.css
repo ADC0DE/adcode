@@ -4507,6 +4507,16 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
     padding-bottom: var(--hero-next-pad-top-mobile);
   }
 
+  /* 블로그운영: 히어로↔피치 간격이 유독 커 보여 소폭 축소 */
+  .content-blog .sns-hero {
+    padding-bottom: 8px;
+  }
+
+  .content-blog .page-pitch {
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+
   .design-sns .page-pitch + .sns-works,
   .design-sns .page-pitch + .viral-brands {
     padding-top: 0;
