@@ -5774,7 +5774,7 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 
 /* add 목업(3750×7084)이 원본(2084×3334)보다 좁아 폰이 커 보임 → 프레임 맞춤 */
 .mag-channels-item--more img {
-  transform: scale(0.88);
+  transform: scale(0.76);
   transform-origin: top center;
 }
 
@@ -5783,7 +5783,7 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 }
 
 .mag-channels-item--more:hover img {
-  transform: scale(0.91);
+  transform: scale(0.79);
 }
 
 .mag-channels-pagination {
@@ -5853,7 +5853,7 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   }
 
   .mag-channels-foot {
-    padding-top: 28px;
+    display: none;
   }
 }
 

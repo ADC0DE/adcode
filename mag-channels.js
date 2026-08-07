@@ -1,7 +1,6 @@
 /* Magazine channels
-   - Desktop/tablet (≥761): static grid (CSS)
-   - Mobile (≤760): Swiper 1-slide loop
-   - Optional: #magChannelsMore loads +8 from /public/main/add per click (×2)
+   - Desktop/tablet (≥761): static grid + VIEW MORE (+8 × 2)
+   - Mobile (≤760): Swiper — 24개 전부 노출, 더보기 버튼 숨김
 */
 (function () {
   const mqMobile = window.matchMedia('(max-width: 760px)');
@@ -58,19 +57,6 @@
     swiper = null;
   }
 
-  function sync() {
-    if (mqMobile.matches) {
-      disableSwiper();
-      enableSwiper();
-    } else {
-      disableSwiper();
-    }
-  }
-
-  function onChange() {
-    sync();
-  }
-
   function makeItem(item, delay) {
     const el = document.createElement('a');
     el.className = 'swiper-slide mag-channels-item mag-channels-item--more reveal in-view';
@@ -89,25 +75,43 @@
     return el;
   }
 
-  function loadMore() {
-    if (!grid || shown >= MORE_ITEMS.length) return;
+  function appendMore(count) {
+    if (!grid || !moreBtn || shown >= MORE_ITEMS.length) return 0;
 
-    const batch = MORE_ITEMS.slice(shown, shown + BATCH);
-    const wasMobile = mqMobile.matches;
-
-    if (wasMobile) disableSwiper();
-
+    const batch = MORE_ITEMS.slice(shown, shown + count);
     batch.forEach((item, i) => {
       grid.appendChild(makeItem(item, (i % 8) + 1));
     });
-
     shown += batch.length;
+    return batch.length;
+  }
 
-    if (wasMobile) enableSwiper();
+  function updateMoreFoot() {
+    if (!moreFoot) return;
+    moreFoot.hidden = mqMobile.matches || shown >= MORE_ITEMS.length;
+  }
 
-    if (shown >= MORE_ITEMS.length && moreFoot) {
-      moreFoot.hidden = true;
+  function loadMore() {
+    if (mqMobile.matches) return;
+
+    appendMore(BATCH);
+    updateMoreFoot();
+  }
+
+  function sync() {
+    if (mqMobile.matches) {
+      disableSwiper();
+      appendMore(MORE_ITEMS.length - shown);
+      updateMoreFoot();
+      enableSwiper();
+    } else {
+      disableSwiper();
+      updateMoreFoot();
     }
+  }
+
+  function onChange() {
+    sync();
   }
 
   if (typeof mqMobile.addEventListener === 'function') {
