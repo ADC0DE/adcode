@@ -5749,6 +5749,13 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   cursor: pointer;
 }
 
+/* VIEW MORE로 붙은 첫 줄 — 기존 그리드 줄간격과 시각적으로 맞춤 */
+@media (min-width: 761px) {
+  .mag-channels-item--more-lead {
+    margin-top: clamp(36px, 4.5vw, 64px);
+  }
+}
+
 .mag-channels-item::after {
   content: "";
   position: absolute;
@@ -5775,7 +5782,7 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 /* add 목업(3750×7084)이 원본(2084×3334)보다 좁아 폰이 커 보임 → 프레임 맞춤 */
 .mag-channels-item--more img {
   transform: scale(0.76);
-  transform-origin: top center;
+  transform-origin: center center;
 }
 
 .mag-channels-item:hover img {

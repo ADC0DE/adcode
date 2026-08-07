@@ -75,12 +75,21 @@
     return el;
   }
 
+  function batchLeadCount() {
+    if (mqMobile.matches) return 0;
+    if (window.matchMedia('(max-width: 1100px)').matches) return 2;
+    return 4;
+  }
+
   function appendMore(count) {
     if (!grid || !moreBtn || shown >= MORE_ITEMS.length) return 0;
 
     const batch = MORE_ITEMS.slice(shown, shown + count);
+    const lead = batchLeadCount();
     batch.forEach((item, i) => {
-      grid.appendChild(makeItem(item, (i % 8) + 1));
+      const el = makeItem(item, (i % 8) + 1);
+      if (i < lead) el.classList.add('mag-channels-item--more-lead');
+      grid.appendChild(el);
     });
     shown += batch.length;
     return batch.length;
