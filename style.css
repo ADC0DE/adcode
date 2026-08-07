@@ -4650,7 +4650,8 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   min-height: 148px;
   height: 148px;
   padding: 6px 10px;
-  background: #fff;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   box-sizing: border-box;
 }
