@@ -5740,13 +5740,13 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   padding: 0;
   overflow: hidden;
   border-radius: 18px;
-  background: #111;
+  background: #000;
   aspect-ratio: 9 / 9.3;
   cursor: pointer;
 }
 
 .mag-channels-item--more {
-  cursor: default;
+  cursor: pointer;
 }
 
 .mag-channels-item::after {
@@ -5766,14 +5766,24 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top left;
+  object-position: top center;
   transition: transform .45s ease;
   pointer-events: none;
   -webkit-user-drag: none;
 }
 
+/* add 목업(3750×7084)이 원본(2084×3334)보다 좁아 폰이 커 보임 → 프레임 맞춤 */
+.mag-channels-item--more img {
+  transform: scale(0.88);
+  transform-origin: top center;
+}
+
 .mag-channels-item:hover img {
   transform: scale(1.03);
+}
+
+.mag-channels-item--more:hover img {
+  transform: scale(0.91);
 }
 
 .mag-channels-pagination {
