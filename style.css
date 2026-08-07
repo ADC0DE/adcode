@@ -921,11 +921,13 @@ select {
   padding: 18px 32px;
   background: transparent;
   color: var(--fg);
+  font-family: inherit;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: .04em;
   border: 1px solid var(--line-2);
   border-radius: 999px;
+  cursor: pointer;
   transition: background-color .3s ease, border-color .3s ease, color .3s ease, padding .3s ease;
 }
 
@@ -5741,6 +5743,10 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   background: #111;
   aspect-ratio: 9 / 9.3;
   cursor: pointer;
+}
+
+.mag-channels-item--more {
+  cursor: default;
 }
 
 .mag-channels-item::after {
