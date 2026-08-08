@@ -102,11 +102,26 @@
     moreFoot.hidden = mqMobile.matches || shown >= MORE_ITEMS.length;
   }
 
+  function scrollToNewStart(el) {
+    if (!el) return;
+    // fixed GNB 여유 + 추가 구간 시작이 바로 보이게
+    const offset = 96;
+    const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  }
+
   function loadMore() {
     if (mqMobile.matches) return;
 
-    appendMore(BATCH);
+    const startIndex = grid.children.length;
+    const added = appendMore(BATCH);
     updateMoreFoot();
+    if (!added) return;
+
+    // 레이아웃(리드 마진 등) 반영 후 추가 구간 시작점으로 스크롤
+    requestAnimationFrame(() => {
+      scrollToNewStart(grid.children[startIndex]);
+    });
   }
 
   function sync() {
