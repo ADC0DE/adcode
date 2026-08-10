@@ -4561,6 +4561,31 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
     padding-bottom: 28px;
   }
 
+  /* 나무위키·홈페이지형블로그·바이럴·인스타 모바일: 카피↔히어로(96px) 기준으로 히어로↔피치·피치↔다음섹션 동일 */
+  .brand-namuwiki .sns-hero,
+  .brand-homepage-blog .sns-hero,
+  .viral-page .sns-hero,
+  .content-instagram .sns-hero {
+    padding-bottom: 0;
+  }
+
+  .brand-namuwiki .page-pitch,
+  .brand-homepage-blog .page-pitch,
+  .viral-page .page-pitch,
+  .content-instagram .page-pitch {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  /* SNS 디자인 모바일: 카피↔히어로(96px) 기준으로 히어로↔포트폴리오 동일 */
+  main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .sns-hero {
+    padding-bottom: 0;
+  }
+
+  main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .sns-works {
+    padding-top: 96px;
+  }
+
   .design-sns .page-pitch + .sns-works,
   .design-sns .page-pitch + .viral-brands {
     padding-top: 0;
@@ -4583,7 +4608,17 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   }
 
   .brand-logo .sns-hero-visual {
-    aspect-ratio: 2000 / 1396;
+    /* PNG 실콘텐츠 bbox ≈ (560,1)-(1969,1395) / 2000×1980 — 박스에 맞춰 크롭 후 정중앙 */
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 1409 / 1395;
+    margin-top: 40px;
+    margin-inline: auto;
+    justify-self: center;
+    align-self: center;
+    overflow: hidden;
   }
 
   .brand-homepage-blog .sns-hero-visual {
@@ -4599,7 +4634,16 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   }
 
   .content-instagram .sns-hero-visual {
-    aspect-ratio: 2000 / 1400;
+    /* PNG 실콘텐츠 bbox ≈ (604,1)-(1899,1399) / 2000×1980 — 박스에 맞춰 크롭 후 정중앙 */
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 1295 / 1398;
+    margin-inline: auto;
+    justify-self: center;
+    align-self: center;
+    overflow: hidden;
   }
 
   .brand-namuwiki .sns-hero-visual {
@@ -4620,14 +4664,53 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
     aspect-ratio: 2000 / 1044;
   }
 
-  /* 히어로 PNG 콘텐츠가 우측으로 치우침 → 모바일에서 시각 중앙 보정 */
   .content-instagram .sns-hero-visual img {
-    margin-left: calc(-251.5 / 2000 * 100%);
+    position: absolute;
+    left: calc(-604 / 1295 * 100%);
+    top: calc(-1 / 1398 * 100%);
+    width: calc(2000 / 1295 * 100%);
+    max-width: none;
+    height: auto;
+    margin: 0;
+    object-fit: contain;
+    object-position: top left;
+  }
+
+  .content-instagram .sns-hero-visual.reveal.in-view img {
+    transform: none;
+  }
+
+  .content-instagram .sns-hero-visual.reveal:not(.in-view) img {
+    transform: translateY(18px);
   }
 
   .brand-logo .sns-hero-visual img {
-    margin-left: calc(-264 / 2000 * 100%);
-    object-position: top center;
+    position: absolute;
+    left: calc(-560 / 1409 * 100%);
+    top: calc(-1 / 1395 * 100%);
+    width: calc(2000 / 1409 * 100%);
+    max-width: none;
+    height: auto;
+    margin: 0;
+    object-fit: contain;
+    object-position: top left;
+  }
+
+  .brand-logo .sns-hero-visual.reveal.in-view img {
+    transform: none;
+  }
+
+  .brand-logo .sns-hero-visual.reveal:not(.in-view) img {
+    transform: translateY(18px);
+  }
+
+  /* 카피↔이미지 / 이미지↔포트폴리오 상하 간격 균형 (합 40px) */
+  .brand-logo .sns-hero {
+    padding-bottom: 20px;
+  }
+
+  .brand-logo .sns-works {
+    padding-top: 20px;
   }
 
   .design-detail .sns-hero-visual img {
