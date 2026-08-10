@@ -4619,7 +4619,7 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
     width: 100%;
     max-width: 100%;
     aspect-ratio: 1409 / 1395;
-    margin-top: 40px;
+    margin-top: 96px;
     margin-inline: auto;
     justify-self: center;
     align-self: center;
@@ -4709,13 +4709,13 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
     transform: translateY(18px);
   }
 
-  /* 카피↔이미지 / 이미지↔포트폴리오 상하 간격 균형 (합 40px) */
+  /* 로고 모바일: 카피↔히어로(96px) 기준으로 히어로↔포트폴리오 동일 */
   .brand-logo .sns-hero {
-    padding-bottom: 20px;
+    padding-bottom: 0;
   }
 
   .brand-logo .sns-works {
-    padding-top: 20px;
+    padding-top: 96px;
   }
 
   .design-detail .sns-hero-visual img {
