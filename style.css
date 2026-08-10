@@ -2887,7 +2887,8 @@ select {
   }
 
   .hero {
-    padding: var(--page-hero-pt-mobile) var(--page-pad-x) 8px;
+    /* 하단 간격은 .mag-channels padding-top(96px)과 맞춤 — 카피↔히어로와 동일 */
+    padding: var(--page-hero-pt-mobile) var(--page-pad-x) 0;
     gap: 24px;
   }
 
@@ -6035,7 +6036,8 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 
 @media (max-width: 760px) {
   .mag-channels {
-    padding: 20px var(--page-pad-x) 56px;
+    /* 카피↔히어로(96px)와 히어로↔매거진 간격 동일 */
+    padding: 96px var(--page-pad-x) 56px;
   }
 
   .mag-channels-head {
