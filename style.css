@@ -4255,6 +4255,16 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 }
 
 /* CONTENT — /content-blog */
+@media (min-width: 761px) {
+  .content-blog .sns-hero {
+    padding-bottom: 60px;
+  }
+
+  .content-blog .page-pitch {
+    padding-top: 60px;
+  }
+}
+
 .content-blog .sns-works-grid {
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 20px 14px;
@@ -4374,6 +4384,16 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 }
 
 /* CONTENT — /content-instagram */
+@media (min-width: 761px) {
+  .content-instagram .sns-hero {
+    padding-bottom: 60px;
+  }
+
+  .content-instagram .page-pitch {
+    padding-top: 60px;
+  }
+}
+
 .content-instagram .ig-ai-works .sns-works-swiper {
   width: 100%;
   max-width: none;
@@ -4509,14 +4529,35 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
     padding-bottom: var(--hero-next-pad-top-mobile);
   }
 
-  /* 블로그운영: 히어로↔피치 간격이 유독 커 보여 소폭 축소 */
-  .content-blog .sns-hero {
+  /* 히어로 ↔ 피치/포트폴리오: 모바일 간격 축소 */
+  .brand-logo .sns-hero,
+  .brand-namuwiki .sns-hero,
+  .brand-homepage-blog .sns-hero,
+  .design-detail .sns-hero,
+  .content-blog .sns-hero,
+  .content-instagram .sns-hero,
+  main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .sns-hero {
     padding-bottom: 8px;
   }
 
-  .content-blog .page-pitch {
-    padding-top: 24px;
-    padding-bottom: 32px;
+  .brand-logo .sns-works,
+  .brand-namuwiki .sns-works,
+  .brand-homepage-blog .sns-works,
+  .design-detail .sns-works,
+  .content-blog .sns-works,
+  .content-instagram .sns-works,
+  main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .sns-works {
+    padding-top: 20px;
+  }
+
+  .brand-namuwiki .page-pitch,
+  .brand-homepage-blog .page-pitch,
+  .design-detail .page-pitch,
+  .content-blog .page-pitch,
+  .content-instagram .page-pitch,
+  main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .page-pitch {
+    padding-top: 20px;
+    padding-bottom: 28px;
   }
 
   .design-sns .page-pitch + .sns-works,
@@ -4527,6 +4568,65 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   .content-instagram .ig-ai-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px 14px;
+  }
+
+  /* 모바일: PNG 하단 투명 여백 크롭 (히어로↔다음 섹션 과다 간격 해소) */
+  .brand-logo .sns-hero-visual,
+  .brand-homepage-blog .sns-hero-visual,
+  .design-detail .sns-hero-visual,
+  .content-blog .sns-hero-visual,
+  .content-instagram .sns-hero-visual {
+    overflow: hidden;
+    height: auto;
+    max-height: none;
+  }
+
+  .brand-logo .sns-hero-visual {
+    aspect-ratio: 2000 / 1396;
+  }
+
+  .brand-homepage-blog .sns-hero-visual {
+    aspect-ratio: 2000 / 1399;
+  }
+
+  .design-detail .sns-hero-visual {
+    aspect-ratio: 2000 / 1397;
+  }
+
+  .content-blog .sns-hero-visual {
+    aspect-ratio: 2000 / 1398;
+  }
+
+  .content-instagram .sns-hero-visual {
+    aspect-ratio: 2000 / 1400;
+  }
+
+  .brand-namuwiki .sns-hero-visual {
+    overflow: hidden;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 2000 / 1183;
+  }
+
+  .brand-namuwiki .sns-hero-visual img {
+    margin-top: calc(-395 / 2000 * 100%);
+  }
+
+  main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):not(.design-detail):not(.viral-page) .sns-hero-visual {
+    overflow: hidden;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 2000 / 1044;
+  }
+
+  /* 히어로 PNG 콘텐츠가 우측으로 치우침 → 모바일에서 시각 중앙 보정 */
+  .content-instagram .sns-hero-visual img {
+    margin-left: calc(-251.5 / 2000 * 100%);
+  }
+
+  .brand-logo .sns-hero-visual img {
+    margin-left: calc(-264 / 2000 * 100%);
+    object-position: top center;
   }
 }
 
