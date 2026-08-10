@@ -2887,7 +2887,7 @@ select {
   }
 
   .hero {
-    padding: var(--page-hero-pt-mobile) var(--page-pad-x) var(--hero-next-pad-bottom-mobile);
+    padding: var(--page-hero-pt-mobile) var(--page-pad-x) 8px;
     gap: 24px;
   }
 
@@ -2919,9 +2919,10 @@ select {
     margin-top: 96px;
     width: 100%;
     max-width: 100%;
-    overflow: visible;
+    overflow: hidden;
     height: auto;
     max-height: none;
+    aspect-ratio: 2000 / 1395;
   }
 
   .hero-visual img {
@@ -3831,8 +3832,8 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   /*
     모바일: PC용 height 크롭·초점 보정 해제 — 목업 상·하단 잘림 방지.
     (나무위키·바이럴 등 페이지별 overflow:hidden 이 모바일에서도 적용되던 문제)
+    메인 .hero-visual 은 하단 여백 크롭을 유지하므로 제외.
   */
-  .hero-visual,
   .brand-logo .sns-hero-visual,
   .brand-namuwiki .sns-hero-visual,
   .brand-homepage-blog .sns-hero-visual,
@@ -5946,7 +5947,7 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 
 @media (max-width: 760px) {
   .mag-channels {
-    padding: var(--hero-next-pad-top-mobile) var(--page-pad-x) 56px;
+    padding: 20px var(--page-pad-x) 56px;
   }
 
   .mag-channels-head {
