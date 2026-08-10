@@ -34,6 +34,7 @@
 
   const BATCH = 8;
   let shown = 0;
+  let loading = false;
 
   function enableSwiper() {
     if (swiper || typeof Swiper === 'undefined') return;
@@ -71,6 +72,7 @@
     img.src = '/public/main/add/' + encodeURIComponent(item.file);
     img.alt = item.alt;
     img.loading = 'lazy';
+    img.decoding = 'async';
     img.draggable = false;
 
     el.appendChild(img);
@@ -111,16 +113,42 @@
   }
 
   function loadMore() {
-    if (mqMobile.matches) return;
+    if (mqMobile.matches || loading || !moreBtn) return;
+    if (shown >= MORE_ITEMS.length) {
+      updateMoreFoot();
+      return;
+    }
+
+    loading = true;
+    moreBtn.disabled = true;
 
     const startIndex = grid.children.length;
     const added = appendMore(BATCH);
-    updateMoreFoot();
-    if (!added) return;
+    if (!added) {
+      loading = false;
+      moreBtn.disabled = false;
+      updateMoreFoot();
+      return;
+    }
 
-    // 레이아웃(리드 마진 등) 반영 후 추가 구간 시작점으로 스크롤
+    const finished = shown >= MORE_ITEMS.length;
+
+    // 레이아웃 확정 후 스크롤. 마지막 배치는 foot 숨김을 스크롤 뒤로 미룸
     requestAnimationFrame(() => {
-      scrollToNewStart(grid.children[startIndex]);
+      requestAnimationFrame(() => {
+        scrollToNewStart(grid.children[startIndex]);
+
+        if (finished) {
+          window.setTimeout(() => {
+            updateMoreFoot();
+            loading = false;
+          }, 450);
+        } else {
+          moreBtn.disabled = false;
+          loading = false;
+          updateMoreFoot();
+        }
+      });
     });
   }
 
