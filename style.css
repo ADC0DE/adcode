@@ -4562,18 +4562,22 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
     padding-bottom: 28px;
   }
 
-  /* 나무위키·홈페이지형블로그·바이럴·인스타 모바일: 카피↔히어로(96px) 기준으로 히어로↔피치·피치↔다음섹션 동일 */
+  /* 나무위키·홈페이지형블로그·바이럴·인스타·블로그·상세 모바일: 카피↔히어로(96px) 기준으로 히어로↔피치·피치↔다음섹션 동일 */
   .brand-namuwiki .sns-hero,
   .brand-homepage-blog .sns-hero,
   .viral-page .sns-hero,
-  .content-instagram .sns-hero {
+  .content-instagram .sns-hero,
+  .content-blog .sns-hero,
+  .design-detail .sns-hero {
     padding-bottom: 0;
   }
 
   .brand-namuwiki .page-pitch,
   .brand-homepage-blog .page-pitch,
   .viral-page .page-pitch,
-  .content-instagram .page-pitch {
+  .content-instagram .page-pitch,
+  .content-blog .page-pitch,
+  .design-detail .page-pitch {
     padding-top: 96px;
     padding-bottom: 96px;
   }
