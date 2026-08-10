@@ -4629,6 +4629,11 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
     margin-left: calc(-264 / 2000 * 100%);
     object-position: top center;
   }
+
+  .design-detail .sns-hero-visual img {
+    margin-left: calc(-244.5 / 2000 * 100%);
+    object-position: top center;
+  }
 }
 
 @media (min-width: 761px) {
