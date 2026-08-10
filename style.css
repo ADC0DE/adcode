@@ -4048,8 +4048,8 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 
   .viral-page .sns-hero-visual {
     overflow: hidden;
-    height: calc(var(--sns-hero-visual-h) * 1372 / 1980);
-    max-height: calc(var(--sns-hero-visual-h) * 1372 / 1980);
+    height: calc(var(--sns-hero-visual-h) * 1952 / 2000);
+    max-height: calc(var(--sns-hero-visual-h) * 1952 / 2000);
   }
 
   .content-instagram .sns-hero-visual {
