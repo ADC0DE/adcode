@@ -4601,6 +4601,17 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
     gap: 20px 14px;
   }
 
+  /* AI 인플루언서: 번호(01…)와 페이지네이션 점이 겹치지 않도록 점 영역을 아래로 */
+  .content-instagram .ig-ai-works .sns-works-swiper {
+    padding-bottom: 56px;
+  }
+
+  .content-instagram .ig-ai-num {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 16px;
+  }
+
   /* 모바일: PNG 하단 투명 여백 크롭 (히어로↔다음 섹션 과다 간격 해소) */
   .brand-logo .sns-hero-visual,
   .brand-homepage-blog .sns-hero-visual,
@@ -5960,7 +5971,7 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   padding: 0;
   overflow: hidden;
   border-radius: 18px;
-  background: #000;
+  background: transparent;
   aspect-ratio: 9 / 9.3;
   cursor: pointer;
 }
@@ -5974,18 +5985,6 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   .mag-channels-item--more-lead {
     margin-top: clamp(36px, 4.5vw, 64px);
   }
-}
-
-.mag-channels-item::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 18%;
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.72));
-  pointer-events: none;
-  z-index: 1;
 }
 
 .mag-channels-item img {
@@ -6072,10 +6071,18 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
     display: flex;
     justify-content: center;
     align-items: center;
-    position: static !important;
+    position: relative !important;
+    left: 0;
     width: 100%;
     margin-top: 16px;
     transform: none !important;
+  }
+
+  /* dynamicBullets: translateX(-50%)로 중앙 정렬 — transform:none 이 덮어쓰면 왼쪽으로 치우침 */
+  .mag-channels-pagination.swiper-pagination-bullets-dynamic {
+    left: 50% !important;
+    width: auto !important;
+    transform: translate3d(-50%, 0, 0) !important;
   }
 
   .mag-channels-pagination .swiper-pagination-bullet {
