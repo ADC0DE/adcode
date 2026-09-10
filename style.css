@@ -4071,8 +4071,8 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   /* 무비미디어 — 큰 폰 + 하단 크롭, 통계 박스가 위로 겹침 */
   .content-movie .sns-hero-visual {
     overflow: hidden;
-    height: 640px;
-    max-height: 640px;
+    height: 560px;
+    max-height: 560px;
     margin-top: -120px;
     justify-content: flex-end;
   }
@@ -4413,6 +4413,18 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 }
 
 /* CONTENT — /content-instagram */
+.content-instagram {
+  --sns-hero-visual-w: min(100%, 920px);
+  --sns-hero-visual-h: 610px;
+}
+
+@media (min-width: 1200px) {
+  .content-instagram {
+    --sns-hero-visual-w: min(100%, 1180px);
+    --sns-hero-visual-h: 790px;
+  }
+}
+
 @media (min-width: 761px) {
   .content-instagram .sns-hero {
     padding-bottom: 60px;
@@ -6545,8 +6557,8 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 
 /* CONTENT — /content-movie */
 .content-movie {
-  --sns-hero-visual-w: min(100%, 640px);
-  --sns-hero-visual-h: 720px;
+  --sns-hero-visual-w: min(100%, 560px);
+  --sns-hero-visual-h: 640px;
 }
 
 .content-movie .sns-hero {
@@ -7032,8 +7044,8 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 
 @media (max-width: 760px) {
   .content-movie {
-    --sns-hero-visual-w: min(100%, 420px);
-    --sns-hero-visual-h: min(88vw, 420px);
+    --sns-hero-visual-w: min(100%, 380px);
+    --sns-hero-visual-h: min(88vw, 380px);
   }
 
   .content-movie .sns-hero {
