@@ -6708,6 +6708,15 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   aspect-ratio: 3 / 4;
 }
 
+.content-movie .movie-phone a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .content-movie .movie-phone img {
   display: block;
   width: 100%;
