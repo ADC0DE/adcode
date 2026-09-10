@@ -4413,25 +4413,36 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 }
 
 /* CONTENT — /content-instagram */
+/* 그리드 칸 너비에 막혀 w/h 상한만 키우면 캐릭터는 안 커지고 빈 크롭 박스만 커짐.
+   → 크롭 크기는 공통 토큰 유지, transform으로 실제 비주얼만 확대(상단 고정·아래로 성장) */
 .content-instagram {
-  --sns-hero-visual-w: min(100%, 920px);
-  --sns-hero-visual-h: 610px;
+  --sns-hero-visual-w: min(100%, 840px);
+  --sns-hero-visual-h: 560px;
 }
 
 @media (min-width: 1200px) {
   .content-instagram {
-    --sns-hero-visual-w: min(100%, 1180px);
-    --sns-hero-visual-h: 790px;
+    --sns-hero-visual-w: min(100%, 1080px);
+    --sns-hero-visual-h: 720px;
   }
 }
 
 @media (min-width: 761px) {
   .content-instagram .sns-hero {
-    padding-bottom: 60px;
+    overflow: visible;
+    padding-bottom: 20px;
   }
 
   .content-instagram .page-pitch {
-    padding-top: 60px;
+    padding-top: 28px;
+  }
+
+  .content-instagram .sns-hero-visual,
+  .content-instagram .sns-hero-visual.reveal {
+    align-self: start;
+    align-items: flex-start;
+    transform: translateX(56px) scale(1.18);
+    transform-origin: top right;
   }
 }
 
