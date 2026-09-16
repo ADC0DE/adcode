@@ -4530,7 +4530,7 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 .content-instagram .ig-ai-label {
   position: relative;
   width: 84%;
-  margin: 0 auto;
+  margin: 8px auto 0;
   padding: 18px 12px 16px;
   border-radius: 16px;
   background: #111111;
@@ -4541,11 +4541,11 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   position: absolute;
   top: 0;
   left: 50%;
-  width: 56px;
+  width: 72px;
   height: 5px;
   background: var(--red);
   transform: translate(-50%, -50%);
-  clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 8px 100%);
 }
 
 .content-instagram .ig-ai-num {
