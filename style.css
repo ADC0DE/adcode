@@ -4552,7 +4552,7 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   display: block;
   margin: 0 0 4px;
   color: var(--red);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-align: center;
