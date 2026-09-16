@@ -4542,10 +4542,10 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   top: 0;
   left: 50%;
   width: 72px;
-  height: 5px;
+  height: 3px;
   background: var(--red);
   transform: translate(-50%, -50%);
-  clip-path: polygon(0 0, 100% 0, calc(100% - 5px) 100%, 5px 100%);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 3px) 100%, 3px 100%);
 }
 
 .content-instagram .ig-ai-num {
