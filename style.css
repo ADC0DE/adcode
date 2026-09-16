@@ -4530,20 +4530,22 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
 .content-instagram .ig-ai-label {
   position: relative;
   width: 84%;
-  margin: 14px auto 0;
-  padding: 12px 12px 18px;
+  margin: 10px auto 0;
+  padding: 18px 12px 16px;
   border-radius: 16px;
   background: #111111;
   text-align: center;
 }
 
 .content-instagram .ig-ai-rule {
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
   width: 56px;
   height: 5px;
-  margin: 0 auto 10px;
   border-radius: 999px;
   background: var(--red);
+  transform: translate(-50%, -50%);
 }
 
 .content-instagram .ig-ai-num {
