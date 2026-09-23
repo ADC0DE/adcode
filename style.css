@@ -7065,8 +7065,6 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
-  max-width: 1240px;
-  margin-inline: auto;
 }
 
 .content-movie .movie-viral-card {
