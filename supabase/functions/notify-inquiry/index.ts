@@ -110,6 +110,74 @@ function buildReplyMail(inquiry: Record<string, unknown>) {
   return { subject, text, html }
 }
 
+const ALIGO = {
+  key: Deno.env.get('ALIGO_API_KEY') || 'b0djw91xd9wrbio8rcx4uktgjl4zfy5a',
+  userId: Deno.env.get('ALIGO_USER_ID') || 'koadcode11',
+  sender: Deno.env.get('ALIGO_SENDER') || '01050826061',
+  testMode: Deno.env.get('ALIGO_TEST_MODE') || '',
+}
+
+const SMS_TO = '01020131709'
+
+function eucKrBytes(text: string) {
+  let n = 0
+  for (const ch of text) {
+    n += (ch.codePointAt(0) ?? 0) <= 0x7f ? 1 : 2
+  }
+  return n
+}
+
+function trimEucKr(text: string, maxBytes: number) {
+  let n = 0
+  let out = ''
+  for (const ch of text) {
+    const size = (ch.codePointAt(0) ?? 0) <= 0x7f ? 1 : 2
+    if (n + size > maxBytes) return out
+    out += ch
+    n += size
+  }
+  return out
+}
+
+function buildSmsText(inquiry: Record<string, unknown>) {
+  const head = [
+    '[ADCODE 문의]',
+    `상호: ${inquiry.company_name ?? ''}`,
+    `성함: ${inquiry.name ?? ''}`,
+    `연락처: ${inquiry.phone ?? ''}`,
+    `이메일: ${inquiry.email ?? ''}`,
+    `서비스: ${inquiry.services ?? ''}`,
+    `연락방법: ${inquiry.contact_method ?? ''}`,
+    '내용: ',
+  ].join('\n')
+  const room = Math.max(0, 2000 - eucKrBytes(head))
+  return head + trimEucKr(String(inquiry.message ?? ''), room)
+}
+
+async function sendInquirySms(inquiry: Record<string, unknown>) {
+  const params = new URLSearchParams({
+    key: ALIGO.key,
+    user_id: ALIGO.userId,
+    sender: ALIGO.sender,
+    receiver: SMS_TO,
+    msg: buildSmsText(inquiry),
+    msg_type: 'LMS',
+    title: 'ADCODE 문의',
+  })
+  if (ALIGO.testMode === 'Y') params.set('testmode_yn', 'Y')
+
+  const res = await fetch('https://apis.aligo.in/send/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: params.toString(),
+  })
+  const data = await res.json().catch(() => ({}))
+  if (!res.ok || String(data.result_code) !== '1') {
+    throw new Error(String(data.message || `aligo http ${res.status}`))
+  }
+  return data
+}
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, {
@@ -153,9 +221,9 @@ Deno.serve(async (req) => {
     const brochure = await loadBrochureAttachment()
     const attachments = brochure ? [brochure] : []
 
-    // 관리자 알림 + 문의자 회사소개서 회신을 각각 독립 발송
+    // 관리자 알림 + 문의자 회사소개서 회신 + 담당자 문자를 각각 독립 발송
     // (한쪽 실패해도 다른 쪽은 계속 시도)
-    const [adminResult, customerResult] = await Promise.allSettled([
+    const [adminResult, customerResult, smsResult] = await Promise.allSettled([
       transporter.sendMail({
         from: `"ADCODE 문의" <${SMTP.user}>`,
         to: ADMIN_TO.join(', '),
@@ -173,6 +241,7 @@ Deno.serve(async (req) => {
         html: replyMail.html,
         attachments,
       }),
+      sendInquirySms(inquiry),
     ])
 
     if (adminResult.status === 'rejected') {
@@ -180,6 +249,9 @@ Deno.serve(async (req) => {
     }
     if (customerResult.status === 'rejected') {
       console.error('[notify-inquiry] customer brochure mail failed', customerResult.reason)
+    }
+    if (smsResult.status === 'rejected') {
+      console.error('[notify-inquiry] sms failed', smsResult.reason)
     }
     if (!brochure) {
       console.warn('[notify-inquiry] brochure attachment missing')
@@ -193,6 +265,7 @@ Deno.serve(async (req) => {
       ok: true,
       adminSent: adminResult.status === 'fulfilled',
       customerSent: customerResult.status === 'fulfilled',
+      smsSent: smsResult.status === 'fulfilled',
       brochureAttached: Boolean(brochure),
     }), {
       status: 200,
