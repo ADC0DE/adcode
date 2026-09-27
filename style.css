@@ -7055,12 +7055,6 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   padding: 40px var(--page-pad-x) 96px;
 }
 
-.content-movie .movie-viral .movie-section-sub {
-  color: var(--fg);
-  font-size: clamp(17px, 1.55vw, 20px);
-  font-weight: 500;
-}
-
 .content-movie .movie-viral-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
