@@ -110,22 +110,10 @@ function buildReplyMail(inquiry: Record<string, unknown>) {
   return { subject, text, html }
 }
 
-const ALIGO = {
-  key: Deno.env.get('ALIGO_API_KEY') || 'b0djw91xd9wrbio8rcx4uktgjl4zfy5a',
-  userId: Deno.env.get('ALIGO_USER_ID') || 'koadcode11',
-  sender: Deno.env.get('ALIGO_SENDER') || '01050826061',
-  testMode: Deno.env.get('ALIGO_TEST_MODE') || '',
-}
-
-const SMS_TO = [
-  '01020131709',
-  '01028010820', // 유진경
-  '01050326061', // 유진경
-  '01088633363', // 서경호
-  '01089990509', // 유학성
-  '01020622133', // 우형석
-  '01077812615', // 김재욱
-].join(',')
+// 알리고는 등록된 고정 IP만 받는다. Supabase Edge는 IP가 바뀌므로
+// 우편나라(NAT Elastic IP)가 대신 보낸다. 수신번호는 우편나라 중계에 있다.
+const WPNARA_SMS_RELAY_URL = Deno.env.get('WPNARA_SMS_RELAY_URL')
+  || 'https://wpnara.com/api/internal/adcode-inquiry-sms'
 
 function eucKrBytes(text: string) {
   let n = 0
@@ -163,25 +151,25 @@ function buildSmsText(inquiry: Record<string, unknown>) {
 }
 
 async function sendInquirySms(inquiry: Record<string, unknown>) {
-  const params = new URLSearchParams({
-    key: ALIGO.key,
-    user_id: ALIGO.userId,
-    sender: ALIGO.sender,
-    receiver: SMS_TO,
-    msg: buildSmsText(inquiry),
-    msg_type: 'LMS',
-    title: 'ADCODE 문의',
-  })
-  if (ALIGO.testMode === 'Y') params.set('testmode_yn', 'Y')
+  const secret = Deno.env.get('WPNARA_SMS_RELAY_SECRET') || ''
+  if (!secret) {
+    throw new Error('WPNARA_SMS_RELAY_SECRET is not set')
+  }
 
-  const res = await fetch('https://apis.aligo.in/send/', {
+  const res = await fetch(WPNARA_SMS_RELAY_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: params.toString(),
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${secret}`,
+    },
+    body: JSON.stringify({
+      title: 'ADCODE 문의',
+      msg: buildSmsText(inquiry),
+    }),
   })
   const data = await res.json().catch(() => ({}))
-  if (!res.ok || String(data.result_code) !== '1') {
-    throw new Error(String(data.message || `aligo http ${res.status}`))
+  if (!res.ok || data.ok !== true) {
+    throw new Error(String(data.error || data.message || `wpnara http ${res.status}`))
   }
   return data
 }
