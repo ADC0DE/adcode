@@ -117,7 +117,15 @@ const ALIGO = {
   testMode: Deno.env.get('ALIGO_TEST_MODE') || '',
 }
 
-const SMS_TO = '01020131709'
+const SMS_TO = [
+  '01020131709',
+  '01028010820', // 유진경
+  '01050326061', // 유진경
+  '01088633363', // 서경호
+  '01089990509', // 유학성
+  '01020622133', // 우형석
+  '01077812615', // 김재욱
+].join(',')
 
 function eucKrBytes(text: string) {
   let n = 0
