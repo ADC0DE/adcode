@@ -4002,6 +4002,50 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   white-space: nowrap;
 }
 
+.sns-works-more-foot {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.sns-works-more-foot[hidden] {
+  display: none;
+}
+
+.sns-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 4px;
+  background: none;
+  border: 0;
+  color: var(--fg);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+}
+
+.sns-more-mark {
+  width: 26px;
+  height: 26px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  color: var(--red);
+  transition: transform .25s ease;
+}
+
+.sns-more-mark svg {
+  width: 26px;
+  height: 26px;
+}
+
+.sns-more-btn:hover .sns-more-mark {
+  transform: scale(1.06);
+}
+
 @media (max-width: 900px) {
   .bp-works-note {
     white-space: normal;
@@ -5100,6 +5144,10 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
   gap: 18px;
 }
 
+.viral-brands-row[hidden] {
+  display: none;
+}
+
 .viral-brands-row--fade {
   position: relative;
   /* 65%까지 선명, 하단은 다단계 그radient으로 자연스럽게 녹임 */
@@ -5253,6 +5301,25 @@ main.design-sns:not(.brand-package):not(.content-instagram):not(.content-blog):n
     padding: 8px 10px;
   }
 }
+
+.viral-brand-card:has(.viral-logo-fit) {
+  overflow: hidden;
+}
+
+.viral-brand-card .viral-logo-fit {
+  flex: none;
+  width: var(--logo-w);
+  height: auto;
+  max-width: none;
+  max-height: none;
+}
+
+.viral-logo-fit--more { --logo-w: 68%; }
+.viral-logo-fit--jachi { --logo-w: 76%; }
+.viral-logo-fit--sanji { --logo-w: 70%; }
+.viral-logo-fit--ogam { --logo-w: 57%; }
+.viral-logo-fit--renu { --logo-w: 73%; }
+.viral-logo-fit--morning { --logo-w: 74%; }
 
 /* =================================================================
    DESIGN (legacy biz styles — unused by list page)

@@ -133,11 +133,59 @@
               <img src="/public/brand_package/logo/08_리클린.jpg" alt="리클린 로고" loading="lazy" />
             </div>
           </article>
+
+          <article class="swiper-slide sns-card sns-card--more" hidden data-delay="1">
+            <div class="sns-card-thumb">
+              <img src="/public/logo/%EA%B7%B8%EB%A3%A8%EC%88%B2.jpg" alt="그루숲 로고" loading="lazy" />
+            </div>
+          </article>
+          <article class="swiper-slide sns-card sns-card--more" hidden data-delay="2">
+            <div class="sns-card-thumb">
+              <img src="/public/logo/%EB%84%A4%EC%9D%BC%2C%20%EC%98%A8%EB%B4%84.jpg" alt="네일, 온봄 로고" loading="lazy" />
+            </div>
+          </article>
+          <article class="swiper-slide sns-card sns-card--more" hidden data-delay="3">
+            <div class="sns-card-thumb">
+              <img src="/public/logo/%EB%85%B8%EB%B8%94%EC%95%88%EA%B3%BC.jpg" alt="노블안과 로고" loading="lazy" />
+            </div>
+          </article>
+          <article class="swiper-slide sns-card sns-card--more" hidden data-delay="4">
+            <div class="sns-card-thumb">
+              <img src="/public/logo/%EC%9D%B8%EC%A1%B4%EB%9D%BC%EC%9D%B4%ED%94%84.jpg" alt="인존라이프 로고" loading="lazy" />
+            </div>
+          </article>
+          <article class="swiper-slide sns-card sns-card--more" hidden data-delay="5">
+            <div class="sns-card-thumb">
+              <img src="/public/logo/%ED%82%B4%EB%A0%88%EC%9D%B4_%EC%83%9D%ED%99%9C%EA%BF%80%ED%8C%81.jpg" alt="킴레이 생활꿀팁 로고" loading="lazy" />
+            </div>
+          </article>
+          <article class="swiper-slide sns-card sns-card--more" hidden data-delay="6">
+            <div class="sns-card-thumb">
+              <img src="/public/logo/%ED%95%9C%EA%B5%AD%20%ED%95%B4%EC%96%91%20%EC%8A%A4%ED%8F%AC%EC%B8%A0%20%EC%97%B0%EA%B5%AC%EC%84%BC%ED%84%B0.jpg" alt="한국 해양 스포츠 연구센터 로고" loading="lazy" />
+            </div>
+          </article>
+          <article class="swiper-slide sns-card sns-card--more" hidden data-delay="7">
+            <div class="sns-card-thumb">
+              <img src="/public/logo/%ED%95%B4%EB%9E%80%EA%B9%80.jpg" alt="해란김 로고" loading="lazy" />
+            </div>
+          </article>
         </div>
         <div class="swiper-pagination sns-works-pagination" aria-hidden="true"></div>
       </div>
 
       <p class="bp-works-note">상기 이미지는 실제 제작 사례이며, 업종 및 요구사항에 따라 맞춤형 로고가 제작됩니다.</p>
+
+      <div class="sns-works-more-foot">
+        <button type="button" class="sns-more-btn" id="snsWorksMore">
+          <span class="sns-more-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.4" />
+              <path d="M7.2 12.3 10.5 15.5 16.8 8.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span>더보기</span>
+        </button>
+      </div>
     </section>
 
     <!-- ============================== CONTACT ============================== -->
@@ -352,6 +400,14 @@
     </a>
   </nav>
 
+  <!-- ====================== PORTFOLIO LIGHTBOX ====================== -->
+  <div class="bp-lightbox" id="bp-lightbox" role="dialog" aria-modal="true" aria-label="로고 미리보기">
+    <button class="bp-lightbox-close" type="button" data-close aria-label="닫기">&times;</button>
+    <div class="bp-lightbox-inner">
+      <img src="" alt="" id="bp-lightbox-img" />
+    </div>
+  </div>
+
   <!-- ====================== POLICY / SUCCESS MODALS ====================== -->
   <div class="policy-modal" id="modal-terms" role="dialog" aria-modal="true" aria-label="이용약관">
     <div class="modal-box">
@@ -432,6 +488,34 @@
       });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
       window.__openModal = open;
+    })();
+
+    (function () {
+      const lightbox = document.getElementById('bp-lightbox');
+      const lightboxImg = document.getElementById('bp-lightbox-img');
+      const works = document.querySelector('.brand-logo .sns-works');
+      if (!lightbox || !lightboxImg || !works) return;
+
+      const closeLightbox = () => {
+        lightbox.classList.remove('open');
+        lightboxImg.removeAttribute('src');
+        lightboxImg.alt = '';
+      };
+
+      works.addEventListener('click', (e) => {
+        const img = e.target.closest('.sns-card-thumb')?.querySelector('img');
+        if (!img) return;
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+      });
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target.closest('[data-close]')) closeLightbox();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+      });
     })();
   </script>
 

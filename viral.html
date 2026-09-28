@@ -158,9 +158,42 @@
             <img src="/public/viral/로고_15_무신사.png" alt="무신사" loading="lazy" />
           </div>
         </div>
+        <div class="viral-brands-row viral-brands-row--more" hidden>
+          <div class="viral-brand-card" data-delay="1">
+            <img class="viral-logo-fit viral-logo-fit--more" src="/public/viral/%EB%A1%9C%EA%B3%A0_01_%EB%AA%A8%EC%96%B4%EB%84%A4%EC%9D%B4%EC%B2%98.png" alt="모어네이처" loading="lazy" />
+          </div>
+          <div class="viral-brand-card" data-delay="2">
+            <img class="viral-logo-fit viral-logo-fit--jachi" src="/public/viral/%EB%A1%9C%EA%B3%A0_02_%EC%9E%90%EC%B7%A8%EC%84%B8%EB%81%BC.png" alt="자취세끼" loading="lazy" />
+          </div>
+          <div class="viral-brand-card" data-delay="3">
+            <img class="viral-logo-fit viral-logo-fit--sanji" src="/public/viral/%EB%A1%9C%EA%B3%A0_03_%EC%82%B0%EC%A7%80%EB%8F%84%EB%A7%A4%EC%84%BC%ED%84%B0.png" alt="산지도매센터" loading="lazy" />
+          </div>
+          <div class="viral-brand-card" data-delay="4">
+            <img class="viral-logo-fit viral-logo-fit--ogam" src="/public/viral/%EB%A1%9C%EA%B3%A0_04_%EC%98%A4%EA%B0%90%EC%8B%9D%ED%83%81.png" alt="오감식탁" loading="lazy" />
+          </div>
+          <div class="viral-brand-card" data-delay="5">
+            <img class="viral-logo-fit viral-logo-fit--renu" src="/public/viral/%EB%A1%9C%EA%B3%A0_05_%EB%A6%AC%EB%89%B4.png" alt="리뉴" loading="lazy" />
+          </div>
+        </div>
+        <div class="viral-brands-row viral-brands-row--more" hidden>
+          <div class="viral-brand-card" data-delay="6">
+            <img class="viral-logo-fit viral-logo-fit--morning" src="/public/viral/%EB%A1%9C%EA%B3%A0_05_%EC%95%84%EC%B9%A8%EC%9D%B4%EC%8A%AC%EB%86%8D%EC%9B%90.png" alt="아침이슬농원" loading="lazy" />
+          </div>
+        </div>
       </div>
 
       <p class="bp-works-note">그 외 수많은 업체가 애드코드와 함께 하고 있습니다.</p>
+      <div class="sns-works-more-foot">
+        <button type="button" class="sns-more-btn" id="viralBrandsMore">
+          <span class="sns-more-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.4" />
+              <path d="M7.2 12.3 10.5 15.5 16.8 8.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span>더보기</span>
+        </button>
+      </div>
     </section>
 
     <!-- ============================== CONTACT ============================== -->
@@ -462,6 +495,29 @@
   <script src="/assets/js/supabase-config.js"></script>
   <script src="/assets/js/supabase-client.js"></script>
   <script src="/assets/js/contact-form.js"></script>
+  <script>
+    (function () {
+      const btn = document.getElementById('viralBrandsMore');
+      const foot = btn && btn.closest('.sns-works-more-foot');
+      const rows = [...document.querySelectorAll('.viral-brands-row--more')];
+      const fadeRow = document.querySelector('.viral-brands-row--fade');
+      if (!btn || !rows.length) return;
+
+      btn.addEventListener('click', () => {
+        rows.forEach((row) => { row.hidden = false; });
+        if (fadeRow) fadeRow.classList.remove('viral-brands-row--fade');
+        rows[rows.length - 1].classList.add('viral-brands-row--fade');
+        const cards = rows.flatMap((row) => [...row.querySelectorAll('.viral-brand-card')]);
+        cards.forEach((card) => card.classList.add('reveal'));
+        if (foot) foot.hidden = true;
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            cards.forEach((card) => card.classList.add('in-view'));
+          });
+        });
+      });
+    })();
+  </script>
 
 </body>
 

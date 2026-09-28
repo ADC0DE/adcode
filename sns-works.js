@@ -8,6 +8,13 @@
   if (!swiperRoot) return;
 
   let swiper = null;
+  const grid = swiperRoot.querySelector('.sns-works-grid');
+  const moreCards = grid ? [...grid.querySelectorAll('.sns-card--more')] : [];
+  const moreBtn = document.getElementById('snsWorksMore');
+  const moreFoot = moreBtn ? moreBtn.closest('.sns-works-more-foot') : null;
+  const parked = document.createDocumentFragment();
+
+  moreCards.forEach((card) => parked.appendChild(card));
 
   function enableSwiper() {
     if (swiper || typeof Swiper === 'undefined') return;
@@ -40,6 +47,26 @@
     }
   }
 
+  let revealed = false;
+
+  function revealMore() {
+    if (revealed || !grid || !moreCards.length) return;
+    revealed = true;
+    if (mqMobile.matches) disableSwiper();
+    moreCards.forEach((card) => {
+      card.hidden = false;
+      card.classList.add('reveal');
+      grid.appendChild(card);
+    });
+    if (moreFoot) moreFoot.hidden = true;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        moreCards.forEach((card) => card.classList.add('in-view'));
+      });
+    });
+    if (mqMobile.matches) enableSwiper();
+  }
+
   function onChange() {
     sync();
   }
@@ -51,4 +78,8 @@
   }
 
   sync();
+
+  if (moreBtn) {
+    moreBtn.addEventListener('click', revealMore);
+  }
 })();

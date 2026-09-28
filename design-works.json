@@ -72,6 +72,114 @@
       "images": [
         "/public/design/detail/08_생강진액/[1]_생강진액.jpg"
       ]
+    },
+    {
+      "id": 9,
+      "category": "상세페이지",
+      "title": "우편나라 | 편지지",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/[1]_11_waiting for a message.jpg"
+      ]
+    },
+    {
+      "id": 10,
+      "category": "상세페이지",
+      "title": "39파머스 | 초당옥수수",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/[1]_39파머스_초당옥수수.jpg"
+      ]
+    },
+    {
+      "id": 11,
+      "category": "상세페이지",
+      "title": "고씨네농장 | 사과",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/[1]_고씨네농장_사과.jpg"
+      ]
+    },
+    {
+      "id": 12,
+      "category": "상세페이지",
+      "title": "금메달농산물 | 콩물",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/[1]_금메달_콩물.jpg"
+      ]
+    },
+    {
+      "id": 13,
+      "category": "상세페이지",
+      "title": "명인이산 | 침향원",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/[1]_명인이산_침향원.jpg"
+      ]
+    },
+    {
+      "id": 14,
+      "category": "상세페이지",
+      "title": "바다속에 | 연지홍게",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/[1]_바다속에_연지홍게.jpg"
+      ]
+    },
+    {
+      "id": 15,
+      "category": "상세페이지",
+      "title": "바다속에 | 장어",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/[1]_바다속에_장어.jpg"
+      ]
+    },
+    {
+      "id": 16,
+      "category": "상세페이지",
+      "title": "바다속에 | 쭈꾸미",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/[1]_바다속에_쭈꾸미.jpg"
+      ]
+    },
+    {
+      "id": 17,
+      "category": "상세페이지",
+      "title": "웰리카 | 콜라겐",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/[1]_▶강조◀콜라겐_상품구성.jpg"
+      ]
+    },
+    {
+      "id": 18,
+      "category": "상세페이지",
+      "title": "추석 | 종합과일선물세트",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/[1]_선물세트(종합1).jpg"
+      ]
+    },
+    {
+      "id": 19,
+      "category": "상세페이지",
+      "title": "추석 | 선물특선",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/[1]_선물세트(종합).jpg"
+      ]
+    },
+    {
+      "id": 20,
+      "category": "상세페이지",
+      "title": "한민족농수산 | 명란김선물세트",
+      "layout": "detail",
+      "images": [
+        "/public/design/detail/▶강조◀한민족농수산_명란김선물세트.jpg"
+      ]
     }
   ],
   "sns": [
@@ -158,6 +266,56 @@
       "images": [
         "/public/design/sns/08_우편나라/[1]_0609_오크나무 카페_홍보배너_우편나라,판다서점_시안최종_메인_시안B_542X516.png",
         "/public/design/sns/08_우편나라/[2]_0609_오크나무 카페_홍보배너_우편나라,판다서점_시안최종_하단_시안B_1594X264.png"
+      ]
+    },
+    {
+      "id": 9,
+      "category": "광고소재",
+      "title": "스테비아 토마토 | 롤링배너",
+      "layout": "wide",
+      "images": [
+        "/public/design/sns/[1]_롤링배너_스테비아(3).jpg",
+        "/public/design/sns/[2]_롤링배너_스테비아(4).jpg"
+      ]
+    },
+    {
+      "id": 10,
+      "category": "광고소재",
+      "title": "가시오이 백오이 | 롤링배너",
+      "layout": "wide",
+      "images": [
+        "/public/design/sns/[1]_롤링배너_오이(1).jpg",
+        "/public/design/sns/[2]_롤링배너_오이(2).jpg"
+      ]
+    },
+    {
+      "id": 11,
+      "category": "광고소재",
+      "title": "프리미엄 오렌지 | 롤링배너",
+      "layout": "wide",
+      "images": [
+        "/public/design/sns/[1]_롤링배너_오렌지(1).jpg",
+        "/public/design/sns/[2]_롤링배너_오렌지(2).jpg"
+      ]
+    },
+    {
+      "id": 12,
+      "category": "광고소재",
+      "title": "우편나라 | 이용안내",
+      "layout": "wide",
+      "images": [
+        "/public/design/sns/[1]_(우편나라)_처음이신가요_배너_888x500px.png",
+        "/public/design/sns/[2]_(우편나라)_편지봉투 주소 표기 안내_배너_888x550px.png",
+        "/public/design/sns/[3]_오픈-배너_최종.jpg"
+      ]
+    },
+    {
+      "id": 13,
+      "category": "광고소재",
+      "title": "그루숲 카페 | 하단배너",
+      "layout": "wide",
+      "images": [
+        "/public/design/sns/[1]_0605_우편나라_하단배너_그루숲카페_2304X720.jpg"
       ]
     }
   ]

@@ -168,7 +168,7 @@
 
       document.getElementById('dw-back').href = listUrl;
 
-      fetch('/design-works.json')
+      fetch('/design-works.json', { cache: 'no-store' })
         .then(r => r.json())
         .then(data => {
           const work = (data[type] || []).find(x => x.id === id);
