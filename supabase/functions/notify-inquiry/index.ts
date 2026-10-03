@@ -4,8 +4,8 @@ const SMTP = {
   host: 'smtp.gmail.com',
   port: 587,
   secure: false,
-  user: 'min1512@genaidev.io',
-  pass: 'tlusdeaoectefhvm',
+  user: 'thegoingsolution@xn--299aj6jp4e44jsiao92a.kr',
+  pass: 'srvtgwlnnfyfzxwl',
 }
 
 const ADMIN_TO = [
