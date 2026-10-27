@@ -80,7 +80,10 @@
         <p class="home-hero__lead">사람과 브랜드를 연결하여, 더 큰 가능성을 만듭니다.</p>
         <h1 class="home-hero__headline">
           WE MAKE<br />
-          <span class="accent">BRANDS</span><br />
+          <span class="home-hero__rotate" aria-live="polite">
+            <span class="home-hero__rotate-slot" aria-hidden="true">CULTURE</span>
+            <span class="home-hero__rotate-word accent" data-home-hero-word>BRANDS</span>
+          </span><br />
           MATTER<span class="home-dot">.</span>
         </h1>
         <a class="home-btn home-btn--fill" href="#" data-open-contact>
@@ -90,7 +93,7 @@
           </svg>
         </a>
       </div>
-      <div class="home-hero__visual">
+      <div class="home-hero__visual home-hero__visual--enter">
         <img src="/public/main/home-hero-building.jpg" alt="" width="1200" height="1600" />
       </div>
     </section>
@@ -98,11 +101,11 @@
     <!-- About -->
     <section class="home-about" id="about" data-screen-label="About">
       <div class="home-about__grid">
-        <div class="home-about__lead reveal">
+        <div class="home-about__lead" data-home-about-title>
           <p class="home-kicker"><span class="home-kicker-line" aria-hidden="true"></span>About Adcode</p>
-          <h2 class="home-title">
-            브랜드를 이해하는 전략,<br />
-            <span class="accent">사람에게 닿는</span>마케팅.
+          <h2 class="home-title home-title--rise">
+            <span class="home-rise-line" style="--d: 0s"><span>브랜드를 이해하는 전략,</span></span>
+            <span class="home-rise-line" style="--d: 0.75s"><span><span class="accent">사람에게 닿는</span>마케팅.</span></span>
           </h2>
         </div>
         <div class="home-about__body reveal" data-delay="2">
@@ -134,18 +137,24 @@
             애드코드가 소유한 미디어 네트워크의<br />
             채널을 선정하고 콘텐츠를 기획합니다
           </p>
-          <div class="home-works__stats">
+          <div class="home-works__stats" data-home-works-stats>
             <div class="home-works__stat">
               <span class="home-works__stat-label">네트워크 소속 계정</span>
-              <span class="home-works__stat-num">60개<span class="plus"> +</span></span>
+              <span class="home-works__stat-num">
+                <span class="home-works__stat-value" data-count-to="60" data-count-suffix="개">60개</span><span class="plus"> +</span>
+              </span>
             </div>
             <div class="home-works__stat">
               <span class="home-works__stat-label">누적 팔로워 수</span>
-              <span class="home-works__stat-num">150만<span class="plus"> +</span></span>
+              <span class="home-works__stat-num">
+                <span class="home-works__stat-value" data-count-to="150" data-count-suffix="만">150만</span><span class="plus"> +</span>
+              </span>
             </div>
             <div class="home-works__stat">
               <span class="home-works__stat-label">일일 콘텐츠 노출 수</span>
-              <span class="home-works__stat-num">2M<span class="plus"> +</span></span>
+              <span class="home-works__stat-num">
+                <span class="home-works__stat-value" data-count-to="2" data-count-suffix="M">2M</span><span class="plus"> +</span>
+              </span>
             </div>
           </div>
           <a class="home-btn home-btn--outline" href="/content-instagram">
@@ -155,7 +164,7 @@
             </svg>
           </a>
         </div>
-        <div class="home-works__collage-wrap reveal" data-delay="2">
+        <div class="home-works__collage-wrap home-works__collage-enter" data-home-works-collage>
           <img
             class="home-works__collage-img"
             src="/public/main/works-collage-composite.png"
@@ -176,11 +185,12 @@
           <p class="home-kicker"><span class="home-kicker-line" aria-hidden="true"></span>Our Value</p>
           <h2 class="home-value__title">
             브랜드의 가치를<br />
-            <span class="bracket">[ </span><span class="accent" data-home-value-accent>관심으로</span><span class="bracket"> ]</span> 연결하다<span class="home-dot">.</span>
+            <span class="bracket">[ </span><span class="home-value__phrase" aria-live="polite"><span class="home-value__phrase-slot" aria-hidden="true">전환으로</span><span class="accent home-value__phrase-word" data-home-value-accent>관심으로</span></span><span class="bracket"> ]</span> 연결하다<span class="home-dot">.</span>
           </h2>
         </div>
         <div class="home-value__rule" aria-hidden="true"></div>
-        <div class="home-value__tabs" role="tablist" aria-label="브랜드 가치 키워드">
+        <div class="home-value__tabs" role="tablist" aria-label="브랜드 가치 키워드" data-home-value-tabs>
+          <span class="home-value__tab-indicator" aria-hidden="true"></span>
           <button type="button" class="home-value__tab is-active" role="tab" aria-selected="true" data-value-phrase="관심으로">관심</button>
           <button type="button" class="home-value__tab" role="tab" aria-selected="false" data-value-phrase="공감으로">공감</button>
           <button type="button" class="home-value__tab" role="tab" aria-selected="false" data-value-phrase="신뢰로">신뢰</button>
@@ -194,75 +204,64 @@
 
     <!-- Services -->
     <div class="home-services" id="services">
-      <section class="home-service home-service--viral" id="home-viral" data-screen-label="Viral">
-        <div class="home-service__shell">
-          <nav class="home-service__rail" aria-label="서비스 구분">
-            <span class="home-service__rail-item is-active" aria-current="true">VIRAL</span>
-            <a class="home-service__rail-item" href="#home-sns">SNS</a>
-            <a class="home-service__rail-item" href="#home-design">DESIGN</a>
-          </nav>
-          <div class="home-service__grid">
-            <div class="home-service__copy reveal">
-              <p class="home-kicker"><span class="home-kicker-line" aria-hidden="true"></span>Strategy &amp; Viral</p>
-              <h2 class="home-title">관심을 이끌어내고, 신뢰를 쌓는 마케팅<span class="home-dot">.</span></h2>
-              <p class="home-desc home-desc--lines">
-                커뮤니티와 SNS의 특성에 맞춰 전략을 수립하고,<br />
-                브랜드의 메시지를 자연스럽게 확산시켜<br />
-                소비자의 관심과 신뢰를 높입니다.
-              </p>
+      <div class="home-services__frame">
+        <nav class="home-service__rail home-service__rail--spy" data-home-service-rail aria-label="서비스 구분">
+          <span class="home-service__rail-indicator" aria-hidden="true"></span>
+          <a class="home-service__rail-item is-active" href="#home-viral" data-service-section="home-viral" aria-current="true">VIRAL</a>
+          <a class="home-service__rail-item" href="#home-sns" data-service-section="home-sns">SNS</a>
+          <a class="home-service__rail-item" href="#home-design" data-service-section="home-design">DESIGN</a>
+        </nav>
+        <div class="home-services__stack">
+          <section class="home-service home-service--viral" id="home-viral" data-screen-label="Viral" data-service-section="home-viral">
+            <div class="home-service__grid">
+              <div class="home-service__copy reveal">
+                <p class="home-kicker"><span class="home-kicker-line" aria-hidden="true"></span>Strategy &amp; Viral</p>
+                <h2 class="home-title">관심을 이끌어내고, 신뢰를 쌓는 마케팅<span class="home-dot">.</span></h2>
+                <p class="home-desc home-desc--lines">
+                  커뮤니티와 SNS의 특성에 맞춰 전략을 수립하고,<br />
+                  브랜드의 메시지를 자연스럽게 확산시켜<br />
+                  소비자의 관심과 신뢰를 높입니다.
+                </p>
+              </div>
+              <div class="home-service__media reveal" data-delay="2">
+                <img src="/public/main/home-service-viral.jpg" alt="" loading="lazy" width="1200" height="800" />
+              </div>
             </div>
-            <div class="home-service__media reveal" data-delay="2">
-              <img src="/public/main/home-service-viral.jpg" alt="" loading="lazy" width="1200" height="800" />
+          </section>
+          <section class="home-service home-service--sns" id="home-sns" data-screen-label="SNS" data-service-section="home-sns">
+            <div class="home-service__grid">
+              <div class="home-service__copy reveal">
+                <p class="home-kicker"><span class="home-kicker-line" aria-hidden="true"></span>SNS Content</p>
+                <h2 class="home-title">브랜드의 개성을 담아, 지속적인 소통을 만들다<span class="home-dot">.</span></h2>
+                <p class="home-desc home-desc--lines">
+                  브랜드에 맞는 이미지·숏폼 콘텐츠를 제작하고,<br />
+                  체계적인 SNS 계정 운영을 통해<br />
+                  고객과의 접점을 꾸준히 넓혀갑니다.
+                </p>
+              </div>
+              <div class="home-service__media reveal" data-delay="2">
+                <img src="/public/main/home-service-sns.jpg" alt="" loading="lazy" width="1200" height="800" />
+              </div>
             </div>
-          </div>
+          </section>
+          <section class="home-service home-service--design" id="home-design" data-screen-label="Design" data-service-section="home-design">
+            <div class="home-service__grid">
+              <div class="home-service__copy reveal">
+                <p class="home-kicker"><span class="home-kicker-line" aria-hidden="true"></span>Brand Design</p>
+                <h2 class="home-title">브랜드의 가치를 담아, 디자인으로 완성하다<span class="home-dot">.</span></h2>
+                <p class="home-desc home-desc--lines">
+                  로고부터 광고 소재, 상세페이지까지<br />
+                  브랜드의 목적에 맞는 디자인을 제작하고,<br />
+                  메시지를 효과적으로 전달합니다.
+                </p>
+              </div>
+              <div class="home-service__media reveal" data-delay="2">
+                <img src="/public/main/home-service-design.jpg" alt="" loading="lazy" width="1200" height="800" />
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
-      <section class="home-service home-service--sns" id="home-sns" data-screen-label="SNS">
-        <div class="home-service__shell">
-          <nav class="home-service__rail" aria-label="서비스 구분">
-            <a class="home-service__rail-item" href="#home-viral">VIRAL</a>
-            <span class="home-service__rail-item is-active" aria-current="true">SNS</span>
-            <a class="home-service__rail-item" href="#home-design">DESIGN</a>
-          </nav>
-          <div class="home-service__grid">
-            <div class="home-service__copy reveal">
-              <p class="home-kicker"><span class="home-kicker-line" aria-hidden="true"></span>SNS Content</p>
-              <h2 class="home-title">브랜드의 개성을 담아, 지속적인 소통을 만들다<span class="home-dot">.</span></h2>
-              <p class="home-desc home-desc--lines">
-                브랜드에 맞는 이미지·숏폼 콘텐츠를 제작하고,<br />
-                체계적인 SNS 계정 운영을 통해<br />
-                고객과의 접점을 꾸준히 넓혀갑니다.
-              </p>
-            </div>
-            <div class="home-service__media reveal" data-delay="2">
-              <img src="/public/main/home-service-sns.jpg" alt="" loading="lazy" width="1200" height="800" />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="home-service home-service--design" id="home-design" data-screen-label="Design">
-        <div class="home-service__shell">
-          <nav class="home-service__rail" aria-label="서비스 구분">
-            <a class="home-service__rail-item" href="#home-viral">VIRAL</a>
-            <a class="home-service__rail-item" href="#home-sns">SNS</a>
-            <span class="home-service__rail-item is-active" aria-current="true">DESIGN</span>
-          </nav>
-          <div class="home-service__grid">
-            <div class="home-service__copy reveal">
-              <p class="home-kicker"><span class="home-kicker-line" aria-hidden="true"></span>Brand Design</p>
-              <h2 class="home-title">브랜드의 가치를 담아, 디자인으로 완성하다<span class="home-dot">.</span></h2>
-              <p class="home-desc home-desc--lines">
-                로고부터 광고 소재, 상세페이지까지<br />
-                브랜드의 목적에 맞는 디자인을 제작하고,<br />
-                메시지를 효과적으로 전달합니다.
-              </p>
-            </div>
-            <div class="home-service__media reveal" data-delay="2">
-              <img src="/public/main/home-service-design.jpg" alt="" loading="lazy" width="1200" height="800" />
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
 
     <!-- CTA -->
