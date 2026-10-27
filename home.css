@@ -659,6 +659,15 @@ a.home-service__rail-item:hover {
     padding-bottom: 64px;
   }
 
+  /* PC용 lead 들여쓰기 제거 → 섹션 공통 --home-pad 시작선 */
+  .home-main {
+    --home-lead-inset: 0;
+  }
+
+  .home-about__body {
+    padding-top: 0;
+  }
+
   .home-about__grid,
   .home-works__grid,
   .home-cta__grid {
@@ -729,6 +738,38 @@ a.home-service__rail-item:hover {
 @media (max-width: 760px) {
   body.page-home .gnb-contact {
     display: none;
+  }
+
+  .home-hero__copy {
+    padding-left: var(--home-pad);
+    padding-right: var(--home-pad);
+  }
+
+  .home-about,
+  .home-works,
+  .home-value__inner,
+  .home-service__shell,
+  .home-cta__shell {
+    padding-top: clamp(56px, 14vw, 72px);
+    padding-bottom: clamp(56px, 14vw, 72px);
+  }
+
+  .home-value__inner {
+    padding-left: var(--home-pad);
+    padding-right: var(--home-pad);
+  }
+
+  .home-value__title {
+    margin-bottom: 32px;
+  }
+
+  .home-value__rule {
+    margin-bottom: 28px;
+  }
+
+  .home-value__tabs {
+    justify-content: flex-start;
+    gap: 10px 14px;
   }
 
   .home-works__stats {
