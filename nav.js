@@ -42,9 +42,9 @@
     });
   }
 
-  // 우측 위젯 전화 — PC: 문의 섹션 이동 / 모바일: 바로 전화
+  // 우측 위젯 전화 — 모바일: 바로 전화 (메인은 home.js + data-open-contact)
   const railPhone = document.querySelector('.rail a[aria-label="문의하기"]');
-  if (railPhone) {
+  if (railPhone && !railPhone.hasAttribute("data-open-contact")) {
     railPhone.addEventListener("click", (e) => {
       if (window.matchMedia(MOBILE).matches) {
         e.preventDefault();

@@ -17,16 +17,14 @@
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 
   <link rel="stylesheet" href="/style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/home.css?v=works-composite" />
   <script src="/nav.js" defer></script>
   <script src="/reveal.js" defer></script>
-  <script src="/marquee.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-  <script src="/mag-channels.js" defer></script>
+  <script src="/home.js" defer></script>
 
 </head>
 
-<body>
+<body class="page-home">
 
   <!-- ============================== GNB ============================== -->
   <header class="gnb" data-screen-label="GNB">
@@ -61,110 +59,252 @@
       </div>
     </nav>
 
+    <a href="#" class="gnb-contact home-btn home-btn--fill" data-open-contact>
+      <span>CONTACT</span>
+      <svg class="ico-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </a>
+
     <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </header>
 
-  <!-- ============================== HERO ============================== -->
-  <section class="hero" data-screen-label="01 Hero">
+  <main class="home-main" id="top">
 
-    <!-- main grid: 좌 카피 / 우 비주얼 -->
-    <div class="hero-grid">
-
-      <div class="hero-copy">
-        <p class="hero-eyebrow">
-          <span class="rise-line" style="--d:0s"><span>ADCODE</span></span>
-        </p>
-
-        <h1 class="headline headline--rise">
-          <span class="rise-line" style="--d:.25s"><span>브랜드의 <span class="hl-red">흐름</span>을 설계하고</span></span>
-          <span class="rise-line" style="--d:.55s"><span>가치를 확산시키는 마케팅</span></span>
+    <!-- Hero -->
+    <section class="home-hero" data-screen-label="Hero">
+      <div class="home-hero__copy reveal">
+        <p class="home-kicker"><span class="home-kicker-line" aria-hidden="true"></span></p>
+        <p class="home-hero__lead">사람과 브랜드를 연결하여, 더 큰 가능성을 만듭니다.</p>
+        <h1 class="home-hero__headline">
+          WE MAKE<br />
+          <span class="accent">BRANDS</span><br />
+          MATTER<span class="home-dot">.</span>
         </h1>
-
-        <div class="hero-rule rise-line" style="--d:.9s" aria-hidden="true"><span></span></div>
-
-        <p class="hero-lead">
-          <span class="rise-line" style="--d:1.1s"><span>우리는 트렌드를 읽고, 브랜드에 가장 적합한 방식으로<br />연결하고 확산시킵니다.</span></span>
-        </p>
-      </div>
-
-      <aside class="hero-visual">
-        <img src="/public/main/00_메인%20이미지.png?v=7" alt="ADCODE 디바이스 목업" />
-      </aside>
-
-    </div>
-  </section>
-
-  <!-- ====================== MARQUEE + VIEW MORE ====================== -->
-  <!--
-  <section class="marquee-wrap" data-screen-label="02 Marquee">
-    <div class="marquee">
-      <div class="marquee-track" id="marquee-track">
-      </div>
-    </div>
-  </section>
-  -->
-
-  <!-- ====================== OUR MAGAZINE CHANNELS ====================== -->
-  <section class="mag-channels" data-screen-label="02 Magazine Channels">
-    <div class="mag-channels-head">
-      <h2 class="mag-channels-title">OUR MAGAZINE CHANNELS</h2>
-      <p class="mag-channels-sub">다양한 시선으로, 더 많은 사람들에게.</p>
-    </div>
-
-    <div class="swiper mag-channels-swiper">
-      <div class="swiper-wrapper mag-channels-grid">
-        <a class="swiper-slide mag-channels-item reveal" data-delay="1" href="https://www.instagram.com/se__mot__/" target="_blank" rel="noopener noreferrer">
-          <img src="/public/main/01_세모트.png" alt="세모트" loading="lazy" draggable="false" />
-        </a>
-        <a class="swiper-slide mag-channels-item reveal" data-delay="2" href="https://www.instagram.com/trend_letter_/" target="_blank" rel="noopener noreferrer">
-          <img src="/public/main/02_트렌드레터.png" alt="트렌드레터" loading="lazy" draggable="false" />
-        </a>
-        <a class="swiper-slide mag-channels-item reveal" data-delay="3" href="https://www.instagram.com/k___now_/" target="_blank" rel="noopener noreferrer">
-          <img src="/public/main/03_케이나우.png" alt="케이나우" loading="lazy" draggable="false" />
-        </a>
-        <a class="swiper-slide mag-channels-item reveal" data-delay="4" href="https://www.instagram.com/zip_isfp/" target="_blank" rel="noopener noreferrer">
-          <img src="/public/main/04_집프피.png" alt="집프피" loading="lazy" draggable="false" />
-        </a>
-        <a class="swiper-slide mag-channels-item reveal" data-delay="5" href="https://www.instagram.com/orvian_magazine/" target="_blank" rel="noopener noreferrer">
-          <img src="/public/main/05_오르비안 무비 매거진.png" alt="오르비안 무비 매거진" loading="lazy" draggable="false" />
-        </a>
-        <a class="swiper-slide mag-channels-item reveal" data-delay="6" href="https://www.instagram.com/maknaga.review/" target="_blank" rel="noopener noreferrer">
-          <img src="/public/main/06_미희의 오늘 영화.png" alt="미희의 오늘 영화" loading="lazy" draggable="false" />
-        </a>
-        <a class="swiper-slide mag-channels-item reveal" data-delay="7" href="https://www.instagram.com/eateat.mag/" target="_blank" rel="noopener noreferrer">
-          <img src="/public/main/07_잇잇.png" alt="잇잇" loading="lazy" draggable="false" />
-        </a>
-        <a class="swiper-slide mag-channels-item reveal" data-delay="8" href="https://www.instagram.com/aporia_magazine/" target="_blank" rel="noopener noreferrer">
-          <img src="/public/main/08_아포리아매거진.png" alt="아포리아매거진" loading="lazy" draggable="false" />
-        </a>
-      </div>
-      <div class="swiper-pagination mag-channels-pagination" aria-hidden="true"></div>
-    </div>
-
-    <div class="mag-channels-foot">
-      <button type="button" class="pill-btn" id="magChannelsMore" aria-label="매거진 채널 더보기">
-        <span>VIEW MORE CHANNEL</span>
-        <span class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 12 12" fill="none">
-            <path d="M2.5 4.5 6 8 9.5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter" />
+        <a class="home-btn home-btn--fill" href="#" data-open-contact>
+          <span>프로젝트 문의하기</span>
+          <svg class="ico-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
-        </span>
-      </button>
+        </a>
+      </div>
+      <div class="home-hero__visual">
+        <img src="/public/main/home-hero-building.jpg" alt="" width="1200" height="1600" />
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="home-about" id="about" data-screen-label="About">
+      <div class="home-about__grid">
+        <div class="home-about__lead reveal">
+          <p class="home-kicker"><span class="home-kicker-line" aria-hidden="true"></span>About Adcode</p>
+          <h2 class="home-title">
+            브랜드를 이해하는 전략,<br />
+            <span class="accent">사람에게 닿는</span>마케팅.
+          </h2>
+        </div>
+        <div class="home-about__body reveal" data-delay="2">
+          <p class="lead">브랜드의 흐름을 설계하는 마케팅 에이전시, <span class="accent">애드코드.</span></p>
+          <div class="home-about__tight">
+            <p>우리는 브랜드의 본질과 소비자의 행동을 함께 고민합니다.</p>
+            <p>전략 기획부터 바이럴 마케팅, SNS 콘텐츠 운영, 브랜드 디자인까지</p>
+            <p>다양한 마케팅 활동을 유기적으로 연결합니다.</p>
+          </div>
+          <div class="home-about__tight">
+            <p>브랜드의 메시지가 사람들에게 닿고,</p>
+            <p>의미 있는 성과로 이어지도록 설계합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Works -->
+    <section class="home-works" id="works" data-screen-label="Works">
+      <div class="home-works__grid">
+        <div class="home-works__copy reveal">
+          <p class="home-kicker"><span class="home-kicker-line" aria-hidden="true"></span>Our Works</p>
+          <h2 class="home-title">
+            브랜드의 이야기를<br />
+            <span class="accent">콘텐츠</span>로 전달하다<span class="home-dot">.</span>
+          </h2>
+          <p class="home-desc">
+            브랜드의 개성과 목표에 맞춰<br />
+            애드코드가 소유한 미디어 네트워크의<br />
+            채널을 선정하고 콘텐츠를 기획합니다
+          </p>
+          <div class="home-works__stats">
+            <div class="home-works__stat">
+              <span class="home-works__stat-label">네트워크 소속 계정</span>
+              <span class="home-works__stat-num">60개<span class="plus"> +</span></span>
+            </div>
+            <div class="home-works__stat">
+              <span class="home-works__stat-label">누적 팔로워 수</span>
+              <span class="home-works__stat-num">150만<span class="plus"> +</span></span>
+            </div>
+            <div class="home-works__stat">
+              <span class="home-works__stat-label">일일 콘텐츠 노출 수</span>
+              <span class="home-works__stat-num">2M<span class="plus"> +</span></span>
+            </div>
+          </div>
+          <a class="home-btn home-btn--outline" href="/content-instagram">
+            <span>프로젝트 더 보기</span>
+            <svg class="ico-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+        <div class="home-works__collage-wrap reveal" data-delay="2">
+          <img
+            class="home-works__collage-img"
+            src="/public/main/works-collage-composite.png"
+            alt=""
+            width="1024"
+            height="898"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Value -->
+    <section class="home-value" data-screen-label="Value">
+      <div class="home-value__inner reveal">
+        <div class="home-value__lead">
+          <p class="home-kicker"><span class="home-kicker-line" aria-hidden="true"></span>Our Value</p>
+          <h2 class="home-value__title">
+            브랜드의 가치를<br />
+            <span class="bracket">[ </span><span class="accent" data-home-value-accent>관심으로</span><span class="bracket"> ]</span> 연결하다<span class="home-dot">.</span>
+          </h2>
+        </div>
+        <div class="home-value__rule" aria-hidden="true"></div>
+        <div class="home-value__tabs" role="tablist" aria-label="브랜드 가치 키워드">
+          <button type="button" class="home-value__tab is-active" role="tab" aria-selected="true" data-value-phrase="관심으로">관심</button>
+          <button type="button" class="home-value__tab" role="tab" aria-selected="false" data-value-phrase="공감으로">공감</button>
+          <button type="button" class="home-value__tab" role="tab" aria-selected="false" data-value-phrase="신뢰로">신뢰</button>
+          <button type="button" class="home-value__tab" role="tab" aria-selected="false" data-value-phrase="행동으로">행동</button>
+          <button type="button" class="home-value__tab" role="tab" aria-selected="false" data-value-phrase="전환으로">전환</button>
+          <button type="button" class="home-value__tab" role="tab" aria-selected="false" data-value-phrase="매출로">매출</button>
+          <button type="button" class="home-value__tab" role="tab" aria-selected="false" data-value-phrase="성과로">성과</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <div class="home-services" id="services">
+      <section class="home-service home-service--viral" id="home-viral" data-screen-label="Viral">
+        <div class="home-service__shell">
+          <nav class="home-service__rail" aria-label="서비스 구분">
+            <span class="home-service__rail-item is-active" aria-current="true">VIRAL</span>
+            <a class="home-service__rail-item" href="#home-sns">SNS</a>
+            <a class="home-service__rail-item" href="#home-design">DESIGN</a>
+          </nav>
+          <div class="home-service__grid">
+            <div class="home-service__copy reveal">
+              <p class="home-kicker"><span class="home-kicker-line" aria-hidden="true"></span>Strategy &amp; Viral</p>
+              <h2 class="home-title">관심을 이끌어내고, 신뢰를 쌓는 마케팅<span class="home-dot">.</span></h2>
+              <p class="home-desc home-desc--lines">
+                커뮤니티와 SNS의 특성에 맞춰 전략을 수립하고,<br />
+                브랜드의 메시지를 자연스럽게 확산시켜<br />
+                소비자의 관심과 신뢰를 높입니다.
+              </p>
+            </div>
+            <div class="home-service__media reveal" data-delay="2">
+              <img src="/public/main/home-service-viral.jpg" alt="" loading="lazy" width="1200" height="800" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="home-service home-service--sns" id="home-sns" data-screen-label="SNS">
+        <div class="home-service__shell">
+          <nav class="home-service__rail" aria-label="서비스 구분">
+            <a class="home-service__rail-item" href="#home-viral">VIRAL</a>
+            <span class="home-service__rail-item is-active" aria-current="true">SNS</span>
+            <a class="home-service__rail-item" href="#home-design">DESIGN</a>
+          </nav>
+          <div class="home-service__grid">
+            <div class="home-service__copy reveal">
+              <p class="home-kicker"><span class="home-kicker-line" aria-hidden="true"></span>SNS Content</p>
+              <h2 class="home-title">브랜드의 개성을 담아, 지속적인 소통을 만들다<span class="home-dot">.</span></h2>
+              <p class="home-desc home-desc--lines">
+                브랜드에 맞는 이미지·숏폼 콘텐츠를 제작하고,<br />
+                체계적인 SNS 계정 운영을 통해<br />
+                고객과의 접점을 꾸준히 넓혀갑니다.
+              </p>
+            </div>
+            <div class="home-service__media reveal" data-delay="2">
+              <img src="/public/main/home-service-sns.jpg" alt="" loading="lazy" width="1200" height="800" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="home-service home-service--design" id="home-design" data-screen-label="Design">
+        <div class="home-service__shell">
+          <nav class="home-service__rail" aria-label="서비스 구분">
+            <a class="home-service__rail-item" href="#home-viral">VIRAL</a>
+            <a class="home-service__rail-item" href="#home-sns">SNS</a>
+            <span class="home-service__rail-item is-active" aria-current="true">DESIGN</span>
+          </nav>
+          <div class="home-service__grid">
+            <div class="home-service__copy reveal">
+              <p class="home-kicker"><span class="home-kicker-line" aria-hidden="true"></span>Brand Design</p>
+              <h2 class="home-title">브랜드의 가치를 담아, 디자인으로 완성하다<span class="home-dot">.</span></h2>
+              <p class="home-desc home-desc--lines">
+                로고부터 광고 소재, 상세페이지까지<br />
+                브랜드의 목적에 맞는 디자인을 제작하고,<br />
+                메시지를 효과적으로 전달합니다.
+              </p>
+            </div>
+            <div class="home-service__media reveal" data-delay="2">
+              <img src="/public/main/home-service-design.jpg" alt="" loading="lazy" width="1200" height="800" />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
 
-  <!-- ============================== CONTACT ============================== -->
-  <section class="contact" data-screen-label="03 Contact" id="contact">
+    <!-- CTA -->
+    <section class="home-cta" data-screen-label="CTA">
+      <div class="home-cta__shell">
+      <div class="home-cta__grid">
+        <div class="reveal">
+          <p class="home-cta__eyebrow">브랜드의 다음 가능성,</p>
+          <h2 class="home-cta__title">애드코드와 함께 시작하세요<span class="home-dot">.</span></h2>
+          <p class="home-cta__sub">전략부터 실행까지, 애드코드의 전문성과 서비스를 확인해보세요.</p>
+          <a class="home-btn home-btn--fill" href="#" data-open-contact>
+            <span>소개서 요청하기</span>
+            <svg class="ico-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+        <nav class="home-cta__nav reveal" data-delay="2" aria-label="바로가기">
+          <a href="/brand-logo">BRAND PACKAGE<span class="dot">.</span></a>
+          <a href="/design-sns">DESIGN<span class="dot">.</span></a>
+          <a href="/viral">VIRAL<span class="dot">.</span></a>
+          <a href="/content-instagram">CONTENT<span class="dot">.</span></a>
+          <a href="#" data-open-contact>CONTACT<span class="dot">.</span></a>
+        </nav>
+      </div>
+      </div>
+    </section>
 
-    <div class="contact-left reveal" data-delay="1">
-      <p class="contact-eyebrow">CONTACT</p>
-      <h2 class="contact-heading">상담문의하기</h2>
-      <p class="contact-desc">간단한 정보만 남겨주시면 담당자가 빠르게 연락드립니다.</p>
-    </div>
+  </main>
 
-    <form class="form reveal" id="contactForm" data-delay="2">
+  <!-- ============================== CONTACT MODAL ============================== -->
+  <div class="policy-modal contact-modal" id="modal-contact" role="dialog" aria-modal="true" aria-label="상담문의하기">
+    <div class="modal-box modal-box--contact">
+      <button type="button" class="modal-close" data-close aria-label="닫기">&times;</button>
+      <div class="contact-modal__grid">
+        <div class="contact-left">
+          <p class="contact-eyebrow">CONTACT</p>
+          <h2 class="contact-heading">상담문의하기</h2>
+          <p class="contact-desc">간단한 정보만 남겨주시면 담당자가 빠르게 연락드립니다.</p>
+        </div>
+
+        <form class="form" id="contactForm">
 
       <input type="hidden" name="희망서비스" id="services-input" value="콘텐츠 제작" />
       <input type="hidden" name="연락방법" id="contact-method-input" value="전화" />
@@ -317,8 +457,10 @@
         </button>
       </div>
 
-    </form>
-  </section>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- ============================== FOOTER ============================== -->
   <footer class="footer">
@@ -338,7 +480,7 @@
 
   <!-- ====================== FLOATING WIDGET RAIL ====================== -->
   <nav class="rail" aria-label="Quick links">
-    <a href="#contact" aria-label="문의하기">
+    <a href="#" data-open-contact aria-label="문의하기">
       <svg viewBox="0 0 24 24">
         <path
           d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -422,28 +564,6 @@
   </div>
 
   <script>
-    // ===== hero 진입 시 .played 부여 → 좌측 헤드라인 + 우측 비주얼이 한 줄씩 아래에서 올라옴(CSS) =====
-    (function () {
-      const hero = document.querySelector('.hero');
-      if (!hero) return;
-      const play = () => hero.classList.add('played');
-      if (!('IntersectionObserver' in window)) { play(); return; }
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            play();
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.15 });
-      io.observe(hero);
-      // 첫 페인트 직후 이미 보이면 즉시 재생 (일부 환경에서 IO 지연 방지)
-      requestAnimationFrame(() => {
-        const r = hero.getBoundingClientRect();
-        if (r.top < window.innerHeight * 0.85 && r.bottom > 0) play();
-      });
-    })();
-
     // ===== form: 희망서비스(다중) / 연락방법(단일) =====
     (function () {
       const servicesInput = document.getElementById('services-input');
@@ -474,9 +594,14 @@
       }
     })();
 
-    // ===== legal / success modals =====
+    // ===== legal / success / contact modals =====
     (function () {
-      const open = (id) => document.getElementById(id)?.classList.add('open');
+      const open = (id) => {
+        if (id === 'modal-success') {
+          document.getElementById('modal-contact')?.classList.remove('open');
+        }
+        document.getElementById(id)?.classList.add('open');
+      };
       const closeAll = () => document.querySelectorAll('.policy-modal.open').forEach(m => m.classList.remove('open'));
       document.querySelectorAll('.legal-link').forEach(link => {
         link.addEventListener('click', (e) => { e.preventDefault(); open('modal-' + link.dataset.modal); });
