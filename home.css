@@ -280,12 +280,14 @@ body.page-home .gnb-contact:hover {
   background: #fff;
 }
 
+/* About/Works/Value kicker·타이틀 — 동일 시작선: home-pad + home-lead-inset (Works copy 기준) */
 .home-about__grid {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   gap: clamp(40px, 6vw, 100px);
-  max-width: var(--home-inner);
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   padding: 0 var(--home-pad);
   box-sizing: border-box;
   align-items: start;
@@ -491,8 +493,9 @@ body.page-home .gnb-contact:hover {
 }
 
 .home-value__inner {
-  max-width: var(--home-inner);
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   padding: clamp(80px, 10vw, 140px) var(--home-pad);
   box-sizing: border-box;
 }
@@ -897,6 +900,7 @@ a.home-service__rail-item:hover {
     grid-template-columns: 1fr;
   }
 
+  .home-about__grid,
   .home-works__grid {
     max-width: var(--home-inner);
     margin: 0 auto;
