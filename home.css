@@ -304,22 +304,27 @@ body.page-home .gnb-contact:hover {
 .home-rise-line {
   display: block;
   overflow: hidden;
-  padding-bottom: 0.08em;
+  padding-bottom: 0.1em;
 }
 
 .home-rise-line > span {
-  display: inline-block;
+  display: block;
   opacity: 0;
-  transform: translateY(52px);
+  transform: translate3d(0, 110%, 0);
   transition: opacity 2.4s cubic-bezier(0.2, 0.85, 0.25, 1),
     transform 2.4s cubic-bezier(0.2, 0.85, 0.25, 1);
-  transition-delay: var(--d, 0s);
+  transition-delay: 0s;
   will-change: opacity, transform;
 }
 
 .home-about__lead.is-title-in-view .home-rise-line > span {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
+  transition-delay: var(--d, 0s);
+}
+
+.home-rise-line > span .accent {
+  display: inline;
 }
 
 @media (prefers-reduced-motion: reduce) {
