@@ -43,14 +43,35 @@ body.page-home .gnb-contact:hover {
   transform: none;
 }
 
-/* 문의 모달 (메인 전용) */
+/* 문의 모달 (메인 전용) — 박스는 고정, 본문만 스크롤 → X 항상 노출 */
 .contact-modal .modal-box--contact {
+  display: flex;
+  flex-direction: column;
   max-width: min(1080px, 96vw);
-  max-height: 92vh;
-  overflow-y: auto;
-  padding: clamp(28px, 4vw, 42px) clamp(24px, 4vw, 40px) clamp(32px, 4vw, 44px);
+  max-height: min(92vh, calc(100dvh - 32px));
+  overflow: hidden;
+  padding: 0;
   background: var(--bg);
   border-radius: 14px;
+}
+
+.contact-modal .modal-box--contact > .modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+  width: 40px;
+  height: 40px;
+  font-size: 26px;
+  color: var(--fg);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.contact-modal .modal-box--contact > .modal-close:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.16);
 }
 
 .contact-modal__grid {
@@ -58,6 +79,12 @@ body.page-home .gnb-contact:hover {
   grid-template-columns: minmax(200px, 0.4fr) minmax(0, 1fr);
   gap: clamp(28px, 4vw, 52px);
   align-items: start;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: clamp(28px, 4vw, 42px) clamp(24px, 4vw, 40px) clamp(32px, 4vw, 44px);
+  padding-top: clamp(48px, 6vw, 56px);
 }
 
 .home-main {
@@ -1013,6 +1040,33 @@ a.home-service__rail-item:hover {
 @media (max-width: 900px) {
   .contact-modal__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .contact-modal.policy-modal {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .contact-modal .modal-box--contact {
+    max-width: 100%;
+    max-height: min(94dvh, calc(100dvh - 16px));
+    border-radius: 16px 16px 12px 12px;
+  }
+
+  .contact-modal .modal-box--contact > .modal-close {
+    top: 8px;
+    right: 8px;
+    width: 44px;
+    height: 44px;
+    font-size: 28px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .contact-modal__grid {
+    padding: 52px 18px 28px;
   }
 }
 
