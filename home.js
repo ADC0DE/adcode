@@ -192,6 +192,13 @@
     return 1 - (1 - t) ** 4;
   }
 
+  function formatHomeCount(value, el) {
+    const suffix = el.getAttribute('data-count-suffix') || '';
+    const format = el.getAttribute('data-count-format');
+    const text = format === 'comma' ? value.toLocaleString('en-US') : String(value);
+    return `${text}${suffix}`;
+  }
+
   function cancelHomeCountUp(el) {
     if (el._countDelay) {
       window.clearTimeout(el._countDelay);
@@ -205,13 +212,11 @@
 
   function resetHomeCountUp(el) {
     cancelHomeCountUp(el);
-    const suffix = el.getAttribute('data-count-suffix') || '';
-    el.textContent = `0${suffix}`;
+    el.textContent = formatHomeCount(0, el);
   }
 
   function runHomeCountUp(el, { delay = 0 } = {}) {
     const to = Number(el.getAttribute('data-count-to'));
-    const suffix = el.getAttribute('data-count-suffix') || '';
     if (!Number.isFinite(to)) return;
 
     cancelHomeCountUp(el);
@@ -219,16 +224,16 @@
     const duration = 2200;
     const startCount = () => {
       const startAt = performance.now();
-      el.textContent = `0${suffix}`;
+      el.textContent = formatHomeCount(0, el);
 
       const tick = (now) => {
         const progress = Math.min((now - startAt) / duration, 1);
         const value = Math.round(easeOutQuart(progress) * to);
-        el.textContent = `${value}${suffix}`;
+        el.textContent = formatHomeCount(value, el);
         if (progress < 1) {
           el._countRaf = requestAnimationFrame(tick);
         } else {
-          el.textContent = `${to}${suffix}`;
+          el.textContent = formatHomeCount(to, el);
           el._countRaf = null;
         }
       };
