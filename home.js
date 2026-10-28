@@ -25,6 +25,34 @@
   let heroWordIndex = 0;
   let heroWordTimer = null;
 
+  /* Hero 이미지 좌측선 → GNB BRAND PACKAGE 텍스트 끝 */
+  const syncHeroSplit = () => {
+    if (!heroSection) return;
+    if (window.matchMedia('(max-width: 1100px)').matches) {
+      heroSection.style.removeProperty('--home-hero-split');
+      return;
+    }
+    const brandLink = document.querySelector('.gnb .nav > .nav-item:first-child > a');
+    if (!brandLink || getComputedStyle(brandLink).display === 'none') {
+      heroSection.style.removeProperty('--home-hero-split');
+      return;
+    }
+    const right = Math.round(brandLink.getBoundingClientRect().right);
+    if (right < 120) {
+      heroSection.style.removeProperty('--home-hero-split');
+      return;
+    }
+    heroSection.style.setProperty(
+      '--home-hero-split',
+      `${right}px minmax(0, 1fr)`
+    );
+  };
+  syncHeroSplit();
+  window.addEventListener('resize', syncHeroSplit);
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(syncHeroSplit);
+  }
+
   const stopHeroWordCycle = () => {
     if (heroWordTimer) {
       window.clearInterval(heroWordTimer);
@@ -93,6 +121,51 @@
 
   const isServiceRailMobile = () => window.matchMedia('(max-width: 1100px)').matches;
 
+  /* 시안: 좌측 메뉴 상단 = 활성 섹션 설명 문구 상단 (VIRAL/SNS/DESIGN 공통) */
+  const syncServiceRailAlign = (sectionId) => {
+    if (!serviceRail) return;
+    if (isServiceRailMobile()) {
+      serviceRail.style.removeProperty('--home-service-rail-shift');
+      serviceRail.style.removeProperty('--home-service-rail-sticky');
+      return;
+    }
+
+    const firstSection = serviceSections[0];
+    const activeSection =
+      (sectionId && document.getElementById(sectionId)) ||
+      (activeServiceId && document.getElementById(activeServiceId)) ||
+      firstSection;
+    if (!firstSection || !activeSection) return;
+
+    const firstDesc = firstSection.querySelector('.home-desc');
+    const activeDesc = activeSection.querySelector('.home-desc');
+    if (!firstDesc || !activeDesc) return;
+
+    /* margin-top: 첫 섹션(VIRAL) 문서 흐름 기준 */
+    const firstShift = Math.max(
+      0,
+      Math.round(firstDesc.getBoundingClientRect().top - firstSection.getBoundingClientRect().top)
+    );
+    serviceRail.style.setProperty('--home-service-rail-shift', `${firstShift}px`);
+
+    /* sticky: 현재 보이는 섹션의 설명 문구 viewport Y에 고정 → VIRAL/SNS/DESIGN 모두 동일 */
+    const descTop = Math.round(activeDesc.getBoundingClientRect().top);
+    const sectionRect = activeSection.getBoundingClientRect();
+    const inView = sectionRect.bottom > 120 && sectionRect.top < window.innerHeight - 80;
+    if (inView && descTop > 0) {
+      serviceRail.style.setProperty('--home-service-rail-sticky', `${descTop}px`);
+    } else {
+      const fallback = Math.max(
+        0,
+        Math.round(activeDesc.getBoundingClientRect().top - activeSection.getBoundingClientRect().top)
+      );
+      serviceRail.style.setProperty('--home-service-rail-sticky', `${fallback}px`);
+    }
+  };
+  syncServiceRailAlign();
+  window.addEventListener('resize', () => syncServiceRailAlign());
+  if (document.fonts?.ready) document.fonts.ready.then(() => syncServiceRailAlign());
+
   const moveServiceIndicator = (link) => {
     if (!serviceIndicator || !serviceRail || !link) return;
     const railRect = serviceRail.getBoundingClientRect();
@@ -121,6 +194,7 @@
         link.removeAttribute('aria-current');
       }
     });
+    syncServiceRailAlign(sectionId);
   };
 
   const resolveServiceSection = () => {
@@ -159,6 +233,7 @@
       serviceRailTick = true;
       requestAnimationFrame(() => {
         resolveServiceSection();
+        syncServiceRailAlign(activeServiceId);
         const link =
           serviceLinks.find((l) => l.getAttribute('data-service-section') === activeServiceId) ||
           serviceLinks[0];
