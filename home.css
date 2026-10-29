@@ -440,7 +440,7 @@ body.page-home .gnb-contact:hover {
   justify-content: flex-end;
   align-items: center;
   min-width: 533px;
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
   padding-right: 0;
 }
@@ -455,39 +455,27 @@ body.page-home .gnb-contact:hover {
   opacity: 1;
 }
 
-/* 낙하 스테이지 — 카드가 위에서 아래로 떨어지고 비운 뒤 다시 */
+/* 낙하 스테이지 — 시안형 콜라주로 떨어져 정착 (흐림 없음) */
 .home-works__conveyor {
   position: relative;
   width: clamp(480px, 44vw, 720px);
   height: clamp(420px, 52vw, 640px);
   margin-right: clamp(-48px, -4vw, -16px);
-  overflow: hidden;
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    #000 8%,
-    #000 78%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    #000 8%,
-    #000 78%,
-    transparent 100%
-  );
+  overflow: visible;
 }
 
 .home-works__card {
   position: absolute;
   top: 0;
   left: 0;
-  width: 32%;
+  width: 38%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 12px;
   opacity: 0;
   pointer-events: none;
-  will-change: transform, filter, opacity;
+  filter: none;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  will-change: transform, opacity;
   transform-origin: center center;
 }
 
@@ -502,6 +490,7 @@ body.page-home .gnb-contact:hover {
     width: 30%;
     opacity: 1;
     inset: auto;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
   }
 
   .home-works__conveyor {
@@ -510,8 +499,6 @@ body.page-home .gnb-contact:hover {
     gap: 10px;
     align-content: center;
     justify-content: center;
-    mask-image: none;
-    -webkit-mask-image: none;
   }
 }
 
