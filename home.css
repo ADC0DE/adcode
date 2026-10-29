@@ -477,7 +477,7 @@ body.page-home .gnb-contact:hover {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
   width: 100%;
-  max-width: 460px;
+  max-width: min(560px, 100%);
   margin-bottom: 28px;
   background: #fff;
   border-top: 1px solid var(--home-line);
@@ -486,11 +486,11 @@ body.page-home .gnb-contact:hover {
 
 .home-works__stat {
   min-width: 0;
-  padding: 16px 10px 18px 12px;
+  padding: 16px 12px 18px 14px;
 }
 
 .home-works__stat + .home-works__stat {
-  padding-left: 10px;
+  padding-left: 12px;
   border-left: 1px solid var(--home-line);
 }
 
@@ -506,14 +506,12 @@ body.page-home .gnb-contact:hover {
 
 .home-works__stat-num {
   display: block;
-  font-size: clamp(20px, 1.7vw, 28px);
+  font-size: clamp(18px, 1.35vw, 26px);
   font-weight: 900;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.045em;
   color: var(--home-ink);
   line-height: 1.05;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: clip;
 }
 
 .home-works__stat-num .plus {
