@@ -440,30 +440,78 @@ body.page-home .gnb-contact:hover {
   justify-content: flex-end;
   align-items: center;
   min-width: 533px;
-  overflow: visible;
+  overflow: hidden;
   width: 100%;
   padding-right: 0;
 }
 
-/* 콜라주 — 위에서 아래로 페이드인 (컨테이너 고정, img만 모션) */
-.home-works__collage-enter .home-works__collage-img {
+/* 진입 — 낙하 스테이지 */
+.home-works__collage-enter .home-works__conveyor {
   opacity: 0;
-  transform: translateY(-56px);
-  transition: opacity 1.05s cubic-bezier(0.2, 0.7, 0.15, 1),
-    transform 1.05s cubic-bezier(0.2, 0.7, 0.15, 1);
-  will-change: opacity, transform;
+  transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.15, 1);
 }
 
-.home-works__collage-enter.is-collage-in-view .home-works__collage-img {
+.home-works__collage-enter.is-collage-in-view .home-works__conveyor {
   opacity: 1;
-  transform: translateY(0);
+}
+
+/* 낙하 스테이지 — 카드가 위에서 아래로 떨어지고 비운 뒤 다시 */
+.home-works__conveyor {
+  position: relative;
+  width: clamp(480px, 44vw, 720px);
+  height: clamp(420px, 52vw, 640px);
+  margin-right: clamp(-48px, -4vw, -16px);
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 8%,
+    #000 78%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 8%,
+    #000 78%,
+    transparent 100%
+  );
+}
+
+.home-works__card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32%;
+  height: auto;
+  border-radius: 10px;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, filter, opacity;
+  transform-origin: center center;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-works__collage-enter .home-works__collage-img {
+  .home-works__collage-enter .home-works__conveyor {
     opacity: 1;
-    transform: none;
     transition: none;
+  }
+
+  .home-works__card {
+    position: relative;
+    width: 30%;
+    opacity: 1;
+    inset: auto;
+  }
+
+  .home-works__conveyor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-content: center;
+    justify-content: center;
+    mask-image: none;
+    -webkit-mask-image: none;
   }
 }
 
@@ -519,15 +567,6 @@ body.page-home .gnb-contact:hover {
   margin-left: 4px;
 }
 
-/* OUR WORKS — 제공 콜라주 PNG (1024×898), 우측 bleed */
-.home-works__collage-img {
-  display: block;
-  flex: 0 0 auto;
-  width: clamp(480px, 44vw, 720px);
-  height: auto;
-  max-width: none;
-  margin-right: clamp(-80px, -6vw, -32px);
-}
 
 /* ----- Value ----- */
 .home-value {
@@ -976,10 +1015,11 @@ a.home-service__rail-item:hover {
     min-width: 0;
   }
 
-  .home-works__collage-img {
-    width: min(100%, 1024px);
-    margin-left: auto;
-    margin-right: auto;
+  .home-works__conveyor {
+    width: min(100%, 560px);
+    height: clamp(360px, 70vw, 520px);
+    margin-right: 0;
+    margin-inline: auto;
   }
 
   .home-services__frame {

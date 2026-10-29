@@ -323,13 +323,200 @@
   const worksSection = document.getElementById('works');
   const worksStatsBlock = document.querySelector('[data-home-works-stats]');
   const worksCollage = document.querySelector('[data-home-works-collage]');
+  const worksFallStage = worksCollage?.querySelector('[data-works-fall]');
   const worksStatValues = document.querySelectorAll('[data-home-works-stats] [data-count-to]');
+  const worksCards = worksFallStage
+    ? [...worksFallStage.querySelectorAll('.home-works__card')]
+    : [];
+  let worksFallTimer = 0;
+  let worksFallActive = false;
+  let worksFallPatternIdx = 0;
+  const worksFallAnims = [];
+
+  const rand = (min, max) => min + Math.random() * (max - min);
+  const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+  const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+
+  const worksFallPatterns = ['columns', 'cascadeL', 'cascadeR', 'centerOut', 'scatter', 'rain', 'drift'];
+
+  const clearWorksFall = () => {
+    if (worksFallTimer) {
+      window.clearTimeout(worksFallTimer);
+      worksFallTimer = 0;
+    }
+    worksFallAnims.splice(0).forEach((anim) => {
+      try {
+        anim.cancel();
+      } catch (_) {}
+    });
+    worksCards.forEach((card) => {
+      card.getAnimations?.().forEach((a) => a.cancel());
+      card.style.opacity = '0';
+      card.style.transform = '';
+      card.style.filter = '';
+      card.style.left = '';
+      card.style.zIndex = '';
+      card.style.width = '';
+    });
+  };
+
+  /* 사이클마다 다른 낙하 패턴 (위 선명 → 아래 축소·블러) */
+  const runWorksFallCycle = () => {
+    if (!worksFallStage || !worksCards.length || reducedMotion || !worksFallActive) return;
+    clearWorksFall();
+
+    const stageH = worksFallStage.clientHeight || 560;
+    const stageW = worksFallStage.clientWidth || 600;
+    const cardWRatio = 0.32;
+    const cardW = stageW * cardWRatio;
+
+    const pattern = worksFallPatterns[worksFallPatternIdx % worksFallPatterns.length];
+    worksFallPatternIdx += 1 + Math.floor(Math.random() * 2);
+
+    const shuffled = worksCards
+      .map((card, index) => ({ card, index }))
+      .sort(() => Math.random() - 0.5);
+
+    const easings = [
+      'cubic-bezier(0.33, 0.05, 0.55, 1)',
+      'cubic-bezier(0.22, 0.61, 0.36, 1)',
+      'cubic-bezier(0.45, 0.05, 0.55, 0.95)',
+      'cubic-bezier(0.25, 0.1, 0.25, 1)',
+    ];
+
+    let cycleEnd = 0;
+
+    shuffled.forEach(({ card, index }, i) => {
+      let left;
+      let delay;
+      let duration;
+      let driftX = 0;
+      let rot = rand(-4, 4);
+      let endScale = rand(0.62, 0.74);
+      let endBlur = rand(4.5, 7.5);
+
+      if (pattern === 'columns') {
+        const col = i % 3;
+        left = col * (stageW * 0.34) + rand(-0.05, 0.05) * stageW;
+        delay = rand(0, 900) + Math.floor(i / 3) * rand(180, 420);
+        duration = rand(2400, 4000);
+      } else if (pattern === 'cascadeL') {
+        left = (i % 3) * (stageW * 0.34) + rand(-0.03, 0.03) * stageW;
+        delay = i * rand(160, 320) + rand(0, 200);
+        duration = rand(2100, 3800);
+      } else if (pattern === 'cascadeR') {
+        left = ((2 - (i % 3)) * (stageW * 0.34)) + rand(-0.03, 0.03) * stageW;
+        delay = i * rand(140, 300) + rand(0, 180);
+        duration = rand(2100, 3800);
+      } else if (pattern === 'centerOut') {
+        const dist = Math.abs(index - (worksCards.length - 1) / 2);
+        left = rand(0.05, 0.63) * stageW;
+        delay = dist * rand(220, 380) + rand(0, 250);
+        duration = rand(2300, 4100);
+        driftX = rand(-40, 40);
+      } else if (pattern === 'scatter') {
+        left = rand(0.02, 0.66) * stageW;
+        delay = rand(0, 1600);
+        duration = rand(2000, 4500);
+        driftX = rand(-55, 55);
+        rot = rand(-8, 8);
+      } else if (pattern === 'rain') {
+        left = rand(0.02, 0.66) * stageW;
+        delay = rand(0, 700) + i * rand(40, 120);
+        duration = rand(1600, 2800);
+        endScale = rand(0.58, 0.7);
+        endBlur = rand(5, 8);
+      } else {
+        /* drift — 살짝 가로로 휘며 낙하 */
+        const col = Math.floor(rand(0, 3));
+        left = col * (stageW * 0.34) + rand(-0.06, 0.06) * stageW;
+        delay = rand(0, 1100) + i * rand(60, 180);
+        duration = rand(2600, 4800);
+        driftX = rand(-70, 70);
+        rot = rand(-6, 6);
+      }
+
+      left = clamp(left, 0, stageW - cardW);
+      const startY = -stageH * rand(0.2, 0.48);
+      const midY = startY + stageH * rand(0.28, 0.45);
+      const endY = stageH * rand(0.95, 1.22);
+      const midX = driftX * rand(0.3, 0.6);
+      const widthPct = 30 + rand(-2, 3);
+
+      card.style.left = `${left}px`;
+      card.style.width = `${widthPct.toFixed(1)}%`;
+      card.style.zIndex = String(8 + Math.floor(rand(0, 8)));
+      card.style.opacity = '0';
+
+      const anim = card.animate(
+        [
+          {
+            transform: `translate3d(0, ${startY}px, 0) scale(1) rotate(${rot * 0.2}deg)`,
+            filter: 'blur(0px)',
+            opacity: 0,
+          },
+          {
+            offset: 0.1,
+            transform: `translate3d(${midX * 0.2}px, ${startY + stageH * 0.1}px, 0) scale(0.99) rotate(${rot * 0.4}deg)`,
+            filter: 'blur(0px)',
+            opacity: 1,
+          },
+          {
+            offset: 0.55,
+            transform: `translate3d(${midX}px, ${midY}px, 0) scale(${(1 - (1 - endScale) * 0.45).toFixed(3)}) rotate(${rot * 0.7}deg)`,
+            filter: `blur(${(endBlur * 0.35).toFixed(1)}px)`,
+            opacity: 0.85,
+          },
+          {
+            transform: `translate3d(${driftX}px, ${endY}px, 0) scale(${endScale.toFixed(3)}) rotate(${rot}deg)`,
+            filter: `blur(${endBlur.toFixed(1)}px)`,
+            opacity: 0.15,
+          },
+        ],
+        {
+          duration,
+          delay,
+          easing: pick(easings),
+          fill: 'forwards',
+        }
+      );
+      worksFallAnims.push(anim);
+      cycleEnd = Math.max(cycleEnd, delay + duration);
+    });
+
+    worksFallTimer = window.setTimeout(() => {
+      if (!worksFallActive) return;
+      worksCards.forEach((card) => {
+        card.style.opacity = '0';
+      });
+      worksFallTimer = window.setTimeout(() => {
+        if (worksFallActive) runWorksFallCycle();
+      }, 280);
+    }, cycleEnd + 200);
+  };
+
+  const startWorksFall = () => {
+    if (reducedMotion || worksFallActive) return;
+    worksFallActive = true;
+    runWorksFallCycle();
+  };
+
+  const stopWorksFall = () => {
+    worksFallActive = false;
+    clearWorksFall();
+  };
 
   if (worksCollage && worksSection) {
     observeSection(worksSection, {
       threshold: 0.18,
-      onEnter: () => worksCollage.classList.add('is-collage-in-view'),
-      onLeave: () => worksCollage.classList.remove('is-collage-in-view'),
+      onEnter: () => {
+        worksCollage.classList.add('is-collage-in-view');
+        startWorksFall();
+      },
+      onLeave: () => {
+        worksCollage.classList.remove('is-collage-in-view');
+        stopWorksFall();
+      },
     });
   }
 
