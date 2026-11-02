@@ -475,7 +475,7 @@ body.page-home .gnb-contact:hover {
   width: clamp(480px, 44vw, 720px);
   height: auto;
   max-width: none;
-  margin-right: clamp(-80px, -6vw, -32px);
+  margin-right: clamp(20px, 3.2vw, 56px);
 }
 
 .home-works__copy .home-desc {
