@@ -412,9 +412,9 @@ body.page-home .gnb-contact:hover {
 
 /* ----- Works ----- */
 .home-works {
-  padding: clamp(48px, 5.5vw, 80px) 0;
+  padding: clamp(8px, 1vw, 18px) 0 clamp(4px, 0.6vw, 12px);
   background: var(--home-beige);
-  overflow: visible;
+  overflow: hidden;
 }
 
 /* 좌: 공통 여백·들여쓰기 / 우: Figma처럼 오른쪽 마진 밖으로 콜라주 */
@@ -438,68 +438,44 @@ body.page-home .gnb-contact:hover {
 .home-works__collage-wrap {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-start;
   min-width: 533px;
   overflow: visible;
   width: 100%;
   padding-right: 0;
+  /* 아래쪽 폰이 섹션 경계에 일부 잘리도록 */
+  margin-bottom: clamp(-96px, -9vw, -56px);
 }
 
-/* 진입 — 낙하 스테이지 */
-.home-works__collage-enter .home-works__conveyor {
+/* 콜라주 — 위에서 아래로 페이드인 */
+.home-works__collage-enter .home-works__collage-img {
   opacity: 0;
-  transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.15, 1);
+  transform: translateY(-56px);
+  transition: opacity 1.05s cubic-bezier(0.2, 0.7, 0.15, 1),
+    transform 1.05s cubic-bezier(0.2, 0.7, 0.15, 1);
+  will-change: opacity, transform;
 }
 
-.home-works__collage-enter.is-collage-in-view .home-works__conveyor {
+.home-works__collage-enter.is-collage-in-view .home-works__collage-img {
   opacity: 1;
-}
-
-/* 낙하 스테이지 — 시안형 콜라주로 떨어져 정착 (흐림 없음) */
-.home-works__conveyor {
-  position: relative;
-  width: clamp(480px, 44vw, 720px);
-  height: clamp(420px, 52vw, 640px);
-  margin-right: clamp(-48px, -4vw, -16px);
-  overflow: visible;
-}
-
-.home-works__card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 38%;
-  height: auto;
-  border-radius: 12px;
-  opacity: 0;
-  pointer-events: none;
-  filter: none;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-  will-change: transform, opacity;
-  transform-origin: center center;
+  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-works__collage-enter .home-works__conveyor {
+  .home-works__collage-enter .home-works__collage-img {
     opacity: 1;
+    transform: none;
     transition: none;
   }
+}
 
-  .home-works__card {
-    position: relative;
-    width: 30%;
-    opacity: 1;
-    inset: auto;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-  }
-
-  .home-works__conveyor {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-content: center;
-    justify-content: center;
-  }
+.home-works__collage-img {
+  display: block;
+  flex: 0 0 auto;
+  width: clamp(480px, 44vw, 720px);
+  height: auto;
+  max-width: none;
+  margin-right: clamp(-80px, -6vw, -32px);
 }
 
 .home-works__copy .home-desc {
@@ -999,14 +975,14 @@ a.home-service__rail-item:hover {
   .home-works__collage-wrap {
     justify-content: center;
     margin-top: 24px;
+    margin-bottom: clamp(-48px, -12vw, -24px);
     min-width: 0;
   }
 
-  .home-works__conveyor {
-    width: min(100%, 560px);
-    height: clamp(360px, 70vw, 520px);
-    margin-right: 0;
-    margin-inline: auto;
+  .home-works__collage-img {
+    width: min(100%, 1024px);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .home-services__frame {
@@ -1106,12 +1082,16 @@ a.home-service__rail-item:hover {
   }
 
   .home-about,
-  .home-works,
   .home-value__inner,
   .home-service,
   .home-cta__shell {
     padding-top: clamp(56px, 14vw, 72px);
     padding-bottom: clamp(56px, 14vw, 72px);
+  }
+
+  .home-works {
+    padding-top: clamp(16px, 4vw, 24px);
+    padding-bottom: clamp(8px, 2vw, 16px);
   }
 
   .home-value__inner {
