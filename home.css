@@ -13,11 +13,13 @@ body.page-home {
 body.page-home .gnb {
   background: rgba(10, 10, 10, 0.92);
   backdrop-filter: blur(10px);
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 body.page-home .home-btn--fill {
   background: var(--home-pill-fill);
-  color: #fff;
+  color: var(--home-red);
   border: none;
   box-shadow: none;
 }
@@ -30,8 +32,8 @@ body.page-home .home-btn--fill:hover {
 body.page-home .gnb-contact {
   flex-shrink: 0;
   margin-left: clamp(20px, 3vw, 36px);
-  padding: 11px 22px;
-  min-height: 42px;
+  padding: 7px 22px;
+  min-height: 34px;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -101,7 +103,7 @@ body.page-home .gnb-contact:hover {
   /* Services — 좌측 메뉴는 About 바깥선(--home-pad)에 맞춤 */
   --home-services-pad: var(--home-pad);
   --home-service-rail-w: clamp(56px, 5vw, 72px);
-  --home-service-rail-gap: clamp(28px, 3.2vw, 48px);
+  --home-service-rail-gap: clamp(48px, 5vw, 80px);
 }
 
 .home-kicker {
@@ -187,7 +189,9 @@ body.page-home .gnb-contact:hover {
   display: grid;
   /* JS가 GNB BRAND PACKAGE 끝선에 맞춰 --home-hero-split 설정 */
   grid-template-columns: var(--home-hero-split, minmax(0, 1fr) minmax(0, 1fr));
-  min-height: calc(100vh - 72px);
+  /* GNB는 fixed라 뷰포트에서 빠지지 않음 — PC에서 첫 화면을 끝까지 채움 */
+  min-height: 100vh;
+  min-height: 100dvh;
   margin-top: 0;
 }
 
@@ -208,10 +212,17 @@ body.page-home .gnb-contact:hover {
   word-break: keep-all;
 }
 
+@media (min-width: 1101px) {
+  .home-hero .home-kicker,
+  .home-hero__lead {
+    transform: translateY(-65px);
+  }
+}
+
 .home-hero__headline {
   margin: 0 0 36px;
-  font-size: clamp(52px, 7.8vw, 108px);
-  font-weight: 900;
+  font-size: clamp(56px, 9.2vw, 130px);
+  font-weight: 800;
   line-height: 0.96;
   letter-spacing: -0.02em;
   color: var(--home-ink);
@@ -220,8 +231,18 @@ body.page-home .gnb-contact:hover {
 
 .home-hero .home-btn {
   align-self: flex-start;
-  padding: 16px 20px;
+  margin-top: 50px;
+  padding: 11px 32px;
   width: auto;
+}
+
+.home-hero .home-btn--fill,
+.home-hero .home-btn--fill:hover,
+.home-hero .home-btn--fill:focus,
+.home-hero .home-btn--fill:visited,
+.home-hero .home-btn--fill span,
+.home-hero .home-btn--fill .ico-arrow {
+  color: #fff;
 }
 
 .home-hero__headline .accent,
@@ -266,7 +287,7 @@ body.page-home .gnb-contact:hover {
 .home-hero__visual {
   position: relative;
   min-height: 360px;
-  background: #ddd;
+  background: var(--home-beige-2);
   overflow: hidden;
 }
 
@@ -313,8 +334,8 @@ body.page-home .gnb-contact:hover {
 
 /* ----- About ----- */
 .home-about {
-  padding: clamp(72px, 8vw, 120px) 0;
-  background: #fff;
+  padding: clamp(96px, 11vw, 160px) 0;
+  background: #fafafa;
 }
 
 /* About/Works/Value kicker·타이틀 — 동일 시작선: home-pad + home-lead-inset (Works copy 기준) */
@@ -334,8 +355,19 @@ body.page-home .gnb-contact:hover {
   padding-left: var(--home-lead-inset);
 }
 
+@media (min-width: 1101px) {
+  .home-about__lead .home-kicker {
+    transform: translateY(-50px);
+  }
+}
+
 .home-title--rise {
   margin: 0;
+}
+
+.home-about__lead .home-title {
+  font-size: clamp(40px, 5vw, 68px);
+  font-weight: 700;
 }
 
 .home-rise-line {
@@ -373,7 +405,7 @@ body.page-home .gnb-contact:hover {
 }
 
 .home-about__body {
-  padding-top: clamp(8px, 2vw, 48px);
+  padding-top: 48px;
 }
 
 .home-about__body .lead {
@@ -412,8 +444,8 @@ body.page-home .gnb-contact:hover {
 
 /* ----- Works ----- */
 .home-works {
-  padding: clamp(8px, 1vw, 18px) 0 clamp(4px, 0.6vw, 12px);
-  background: var(--home-beige);
+  padding: clamp(88px, 8vw, 120px) 0 clamp(48px, 5vw, 72px);
+  background: #f2f1ee;
   overflow: hidden;
 }
 
@@ -432,7 +464,18 @@ body.page-home .gnb-contact:hover {
 }
 
 .home-works__copy {
-  padding-left: var(--home-lead-inset);
+  padding-left: 0;
+}
+
+.home-works__copy .home-title {
+  font-size: clamp(40px, 5vw, 68px);
+  font-weight: 700;
+}
+
+@media (min-width: 1101px) {
+  .home-works__copy .home-kicker {
+    transform: translateY(-50px);
+  }
 }
 
 .home-works__collage-wrap {
@@ -475,11 +518,11 @@ body.page-home .gnb-contact:hover {
   width: clamp(480px, 44vw, 720px);
   height: auto;
   max-width: none;
-  margin-right: clamp(20px, 3.2vw, 56px);
+  margin-right: 0;
 }
 
 .home-works__copy .home-desc {
-  margin: 16px 0 28px;
+  margin: 48px 0;
   max-width: 26em;
 }
 
@@ -488,8 +531,8 @@ body.page-home .gnb-contact:hover {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
   width: 100%;
-  max-width: min(560px, 100%);
-  margin-bottom: 28px;
+  max-width: min(680px, 100%);
+  margin-bottom: 44px;
   background: #fff;
   border-top: 1px solid var(--home-line);
   border-bottom: 1px solid var(--home-line);
@@ -497,11 +540,11 @@ body.page-home .gnb-contact:hover {
 
 .home-works__stat {
   min-width: 0;
-  padding: 16px 12px 18px 14px;
+  padding: 24px 18px 26px 20px;
 }
 
 .home-works__stat + .home-works__stat {
-  padding-left: 12px;
+  padding-left: 18px;
   border-left: 1px solid var(--home-line);
 }
 
@@ -527,14 +570,20 @@ body.page-home .gnb-contact:hover {
 
 .home-works__stat-num .plus {
   font-weight: 800;
-  margin-left: 4px;
+  margin-left: 0;
+  color: var(--home-red);
+}
+
+.home-works__copy > .home-btn {
+  margin-top: 40px;
+  padding: 11px 36px;
 }
 
 
 /* ----- Value ----- */
 .home-value {
   padding: 0;
-  background: linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
+  background: linear-gradient(180deg, #4d4d4d 0%, #111111 100%);
   color: #fff;
 }
 
@@ -542,23 +591,29 @@ body.page-home .gnb-contact:hover {
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: clamp(80px, 10vw, 140px) var(--home-pad);
+  padding: clamp(110px, 13vw, 180px) var(--home-pad);
   box-sizing: border-box;
 }
 
 .home-value__lead {
   min-width: 0;
-  padding-left: var(--home-lead-inset);
+  padding-left: 0;
 }
 
 .home-value .home-kicker {
   color: var(--home-red);
 }
 
+@media (min-width: 1101px) {
+  .home-value .home-kicker {
+    transform: translateY(-60px);
+  }
+}
+
 .home-value__title {
   margin: 0 0 48px;
-  font-size: clamp(34px, 4.8vw, 64px);
-  font-weight: 900;
+  font-size: clamp(56px, 9.2vw, 132px);
+  font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.2;
   color: #fff;
@@ -594,6 +649,10 @@ body.page-home .gnb-contact:hover {
     transform 0.45s cubic-bezier(0.2, 0.7, 0.15, 1);
 }
 
+.home-value__phrase-suffix {
+  color: #fff;
+}
+
 .home-value__phrase-word.is-leaving {
   opacity: 0;
   transform: translateY(-10px);
@@ -605,15 +664,15 @@ body.page-home .gnb-contact:hover {
 }
 
 .home-value__title .bracket {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.45);
   font-weight: 400;
 }
 
 .home-value__rule {
   height: 1px;
   background: rgba(255, 255, 255, 0.2);
-  margin: 0 calc(-1 * var(--home-pad)) 36px;
-  width: calc(100% + 2 * var(--home-pad));
+  margin: 0 0 36px;
+  width: 100%;
 }
 
 .home-value__tabs {
@@ -651,14 +710,14 @@ body.page-home .gnb-contact:hover {
   position: relative;
   z-index: 1;
   margin: 0;
-  padding: 8px 18px;
+  padding: 10px 54px;
   border-radius: 999px;
   border: 1px solid transparent;
   background: transparent;
   font: inherit;
-  font-size: 14px;
+  font-size: clamp(18px, 1.55vw, 22px);
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.45);
+  color: #fff;
   cursor: pointer;
   transition: color 0.35s ease;
 }
@@ -728,6 +787,13 @@ body.page-home .gnb-contact:hover {
   max-width: 100%;
   margin-top: var(--home-service-rail-shift, clamp(220px, 28vh, 340px));
   padding: 0;
+  transition: opacity 0.25s ease;
+}
+
+.home-service__rail--spy.is-outside {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .home-service__rail-indicator {
@@ -772,7 +838,7 @@ a.home-service__rail-item:hover {
 }
 
 .home-service__rail-item.is-active {
-  color: var(--home-red);
+  color: var(--home-ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -782,11 +848,13 @@ a.home-service__rail-item:hover {
 }
 
 .home-service {
-  padding: clamp(72px, 8vw, 120px) 0;
+  padding: clamp(96px, 11vw, 160px) 0;
 }
 
 .home-service--sns {
-  background: var(--home-beige-2);
+  background: #f2f1ee;
+  box-shadow: 0 0 0 100vmax #f2f1ee;
+  clip-path: inset(0 -100vmax);
 }
 
 .home-service__grid {
@@ -799,15 +867,40 @@ a.home-service__rail-item:hover {
 
 .home-service--sns .home-service__grid {
   direction: rtl;
+  gap: clamp(100px, 11vw, 180px);
+  align-items: center;
 }
 
 .home-service--sns .home-service__grid > * {
   direction: ltr;
 }
 
+.home-service--sns .home-service__copy,
+.home-service--sns .home-service__media {
+  align-self: center;
+}
+
+.home-service__copy {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 1101px) {
+  .home-service__copy .home-kicker {
+    transform: translateY(-50px);
+  }
+}
+
+.home-service__copy .home-title {
+  font-weight: 700;
+}
+
 .home-service__copy .home-desc {
-  margin-top: 22px;
+  margin-top: 38px;
   max-width: 26em;
+  font-size: clamp(17px, 1.55vw, 20px);
 }
 
 .home-service__copy .home-desc--lines {
@@ -816,6 +909,7 @@ a.home-service__rail-item:hover {
 
 .home-service__media {
   position: relative;
+  align-self: center;
 }
 
 .home-service__media img {
@@ -831,19 +925,19 @@ a.home-service__rail-item:hover {
 .home-service__media::after {
   content: "";
   position: absolute;
-  right: 0;
+  right: -32px;
   bottom: 0;
-  width: 10px;
-  height: 10px;
+  width: 18px;
+  height: 18px;
   background: var(--home-red);
   border-radius: 50%;
-  transform: translate(50%, 50%);
+  transform: none;
 }
 
 .home-service--sns .home-service__media::after {
-  left: 0;
+  left: -32px;
   right: auto;
-  transform: translate(-50%, 50%);
+  transform: none;
 }
 
 /* ----- CTA ----- */
@@ -862,22 +956,23 @@ a.home-service__rail-item:hover {
 
 .home-cta__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(48px, 8vw, 140px);
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
 
-/* About Adcode 킥커와 동일 좌측선 */
+/* Hero 텍스트와 동일한 좌측 시작선 */
 .home-cta__grid > .reveal:first-child {
-  padding-left: var(--home-lead-inset);
+  padding-left: 0;
   min-width: 0;
 }
 
 .home-cta__eyebrow {
   margin: 0 0 12px;
-  font-size: clamp(16px, 1.8vw, 20px);
+  font-size: clamp(18px, 2.1vw, 24px);
+  font-weight: 500;
   color: var(--home-muted);
   word-break: keep-all;
 }
@@ -894,9 +989,23 @@ a.home-service__rail-item:hover {
 
 .home-cta__sub {
   margin: 0 0 32px;
-  font-size: 15px;
+  font-size: clamp(16px, 1.4vw, 18px);
   color: var(--home-muted);
   word-break: keep-all;
+}
+
+.home-cta .home-btn--fill,
+.home-cta .home-btn--fill:hover,
+.home-cta .home-btn--fill:focus,
+.home-cta .home-btn--fill:visited,
+.home-cta .home-btn--fill span,
+.home-cta .home-btn--fill .ico-arrow {
+  color: #fff;
+}
+
+.home-cta .home-btn--fill {
+  margin-top: 30px;
+  padding: 11px 38px;
 }
 
 .home-cta__nav {
@@ -906,7 +1015,7 @@ a.home-service__rail-item:hover {
   gap: clamp(10px, 1.6vw, 16px);
   margin-left: 0;
   max-width: none;
-  justify-self: end;
+  justify-self: center;
 }
 
 .home-cta__nav a {
@@ -928,9 +1037,11 @@ a.home-service__rail-item:hover {
 
 .home-cta__nav a .ext {
   display: inline-block;
-  font-size: 0.55em;
-  vertical-align: super;
+  font-size: 0.65em;
+  vertical-align: baseline;
   margin-left: 4px;
+  color: var(--home-red);
+  transform: translateY(0.08em);
 }
 
 /* ----- Responsive ----- */

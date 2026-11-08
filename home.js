@@ -117,12 +117,13 @@
     .map((link) => document.getElementById(link.getAttribute('data-service-section')))
     .filter(Boolean);
   const serviceIndicator = serviceRail?.querySelector('.home-service__rail-indicator');
+  const servicesRoot = document.querySelector('.home-services');
   let activeServiceId = '';
 
   const isServiceRailMobile = () => window.matchMedia('(max-width: 1100px)').matches;
 
-  /* 시안: 좌측 메뉴 상단 = 활성 섹션 설명 문구 상단 (VIRAL/SNS/DESIGN 공통) */
-  const syncServiceRailAlign = (sectionId) => {
+  /* 좌측 메뉴는 첫 섹션 설명 높이에서 시작하고, 스크롤 중 일정한 위치에 고정 */
+  const syncServiceRailAlign = () => {
     if (!serviceRail) return;
     if (isServiceRailMobile()) {
       serviceRail.style.removeProperty('--home-service-rail-shift');
@@ -131,15 +132,10 @@
     }
 
     const firstSection = serviceSections[0];
-    const activeSection =
-      (sectionId && document.getElementById(sectionId)) ||
-      (activeServiceId && document.getElementById(activeServiceId)) ||
-      firstSection;
-    if (!firstSection || !activeSection) return;
+    if (!firstSection) return;
 
     const firstDesc = firstSection.querySelector('.home-desc');
-    const activeDesc = activeSection.querySelector('.home-desc');
-    if (!firstDesc || !activeDesc) return;
+    if (!firstDesc) return;
 
     /* margin-top: 첫 섹션(VIRAL) 문서 흐름 기준 */
     const firstShift = Math.max(
@@ -147,20 +143,7 @@
       Math.round(firstDesc.getBoundingClientRect().top - firstSection.getBoundingClientRect().top)
     );
     serviceRail.style.setProperty('--home-service-rail-shift', `${firstShift}px`);
-
-    /* sticky: 현재 보이는 섹션의 설명 문구 viewport Y에 고정 → VIRAL/SNS/DESIGN 모두 동일 */
-    const descTop = Math.round(activeDesc.getBoundingClientRect().top);
-    const sectionRect = activeSection.getBoundingClientRect();
-    const inView = sectionRect.bottom > 120 && sectionRect.top < window.innerHeight - 80;
-    if (inView && descTop > 0) {
-      serviceRail.style.setProperty('--home-service-rail-sticky', `${descTop}px`);
-    } else {
-      const fallback = Math.max(
-        0,
-        Math.round(activeDesc.getBoundingClientRect().top - activeSection.getBoundingClientRect().top)
-      );
-      serviceRail.style.setProperty('--home-service-rail-sticky', `${fallback}px`);
-    }
+    serviceRail.style.removeProperty('--home-service-rail-sticky');
   };
   syncServiceRailAlign();
   window.addEventListener('resize', () => syncServiceRailAlign());
@@ -194,7 +177,7 @@
         link.removeAttribute('aria-current');
       }
     });
-    syncServiceRailAlign(sectionId);
+    syncServiceRailAlign();
   };
 
   const resolveServiceSection = () => {
@@ -232,8 +215,15 @@
       if (serviceRailTick) return;
       serviceRailTick = true;
       requestAnimationFrame(() => {
+        if (servicesRoot) {
+          const servicesRect = servicesRoot.getBoundingClientRect();
+          const isOutside =
+            servicesRect.top >= window.innerHeight ||
+            servicesRect.bottom <= window.innerHeight * 0.4;
+          serviceRail.classList.toggle('is-outside', isOutside);
+        }
         resolveServiceSection();
-        syncServiceRailAlign(activeServiceId);
+        syncServiceRailAlign();
         const link =
           serviceLinks.find((l) => l.getAttribute('data-service-section') === activeServiceId) ||
           serviceLinks[0];
@@ -386,6 +376,18 @@
       valueTabsRoot.classList.add('is-indicator-ready');
     };
 
+    const renderValuePhrase = (phrase) => {
+      const suffix = phrase.endsWith('으로') ? '으로' : phrase.endsWith('로') ? '로' : '';
+      const keyword = suffix ? phrase.slice(0, -suffix.length) : phrase;
+      valueAccent.textContent = keyword;
+      if (suffix) {
+        const suffixEl = document.createElement('span');
+        suffixEl.className = 'home-value__phrase-suffix';
+        suffixEl.textContent = suffix;
+        valueAccent.appendChild(suffixEl);
+      }
+    };
+
     const setValueActive = (index, { animatePhrase = true } = {}) => {
       const tab = valueTabs[index];
       if (!tab) return;
@@ -401,7 +403,7 @@
       moveValueIndicator(tab);
 
       if (!animatePhrase || reducedMotion) {
-        valueAccent.textContent = phrase;
+        renderValuePhrase(phrase);
         valueAccent.classList.remove('is-leaving', 'is-entering');
         return;
       }
@@ -411,7 +413,7 @@
       valueTransitionLock = true;
       valueAccent.classList.add('is-leaving');
       window.setTimeout(() => {
-        valueAccent.textContent = phrase;
+        renderValuePhrase(phrase);
         valueAccent.classList.remove('is-leaving');
         valueAccent.classList.add('is-entering');
         void valueAccent.offsetWidth;
