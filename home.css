@@ -1219,8 +1219,25 @@ a.home-service__rail-item:hover {
   }
 
   .home-value__tabs {
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
     gap: 10px 14px;
+  }
+
+  .home-service__rail--spy {
+    display: none;
+  }
+
+  .home-service__media::after {
+    right: -10px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .home-service--sns .home-service__media::after {
+    left: -10px;
+    right: auto;
   }
 
   .home-works__stats {
