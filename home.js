@@ -62,18 +62,22 @@
 
   const startHeroWordCycle = () => {
     if (reducedMotion || !heroWordEl || heroWordTimer) return;
-    const heroWordHoldMs = 2600;
-    const heroWordAnimMs = 450;
+    const heroWordHoldMs = 2200;
+    const heroWordAnimMs = 360;
 
     const swapHeroWord = () => {
-      heroWordEl.classList.add('is-leaving');
+      const nextIndex = (heroWordIndex + 1) % heroWords.length;
+      heroWordEl.dataset.nextWord = heroWords[nextIndex];
+      heroWordEl.classList.add('is-changing');
+
       window.setTimeout(() => {
-        heroWordIndex = (heroWordIndex + 1) % heroWords.length;
+        heroWordIndex = nextIndex;
+        heroWordEl.classList.add('is-resetting');
         heroWordEl.textContent = heroWords[heroWordIndex];
-        heroWordEl.classList.remove('is-leaving');
-        heroWordEl.classList.add('is-entering');
+        heroWordEl.classList.remove('is-changing');
+        delete heroWordEl.dataset.nextWord;
         void heroWordEl.offsetWidth;
-        heroWordEl.classList.remove('is-entering');
+        heroWordEl.classList.remove('is-resetting');
       }, heroWordAnimMs);
     };
 
@@ -376,15 +380,15 @@
       valueTabsRoot.classList.add('is-indicator-ready');
     };
 
-    const renderValuePhrase = (phrase) => {
+    const renderValuePhrase = (phrase, target = valueAccent) => {
       const suffix = phrase.endsWith('으로') ? '으로' : phrase.endsWith('로') ? '로' : '';
       const keyword = suffix ? phrase.slice(0, -suffix.length) : phrase;
-      valueAccent.textContent = keyword;
+      target.textContent = keyword;
       if (suffix) {
         const suffixEl = document.createElement('span');
         suffixEl.className = 'home-value__phrase-suffix';
         suffixEl.textContent = suffix;
-        valueAccent.appendChild(suffixEl);
+        target.appendChild(suffixEl);
       }
     };
 
@@ -404,20 +408,29 @@
 
       if (!animatePhrase || reducedMotion) {
         renderValuePhrase(phrase);
-        valueAccent.classList.remove('is-leaving', 'is-entering');
+        valueAccent.classList.remove('is-leaving', 'is-resetting');
         return;
       }
 
       if (valueAccent.textContent === phrase) return;
 
       valueTransitionLock = true;
+      const incomingPhrase = document.createElement('span');
+      incomingPhrase.className = 'accent home-value__phrase-word home-value__phrase-word--incoming';
+      incomingPhrase.setAttribute('aria-hidden', 'true');
+      renderValuePhrase(phrase, incomingPhrase);
+      valueAccent.parentElement.appendChild(incomingPhrase);
+      void incomingPhrase.offsetWidth;
+
       valueAccent.classList.add('is-leaving');
+      incomingPhrase.classList.add('is-active');
       window.setTimeout(() => {
         renderValuePhrase(phrase);
+        valueAccent.classList.add('is-resetting');
         valueAccent.classList.remove('is-leaving');
-        valueAccent.classList.add('is-entering');
+        incomingPhrase.remove();
         void valueAccent.offsetWidth;
-        valueAccent.classList.remove('is-entering');
+        valueAccent.classList.remove('is-resetting');
         valueTransitionLock = false;
       }, valueAnimMs);
     };

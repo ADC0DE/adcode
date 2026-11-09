@@ -34,6 +34,7 @@ body.page-home .gnb-contact {
   margin-left: clamp(20px, 3vw, 36px);
   padding: 7px 22px;
   min-height: 34px;
+  color: #fff;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -231,7 +232,7 @@ body.page-home .gnb-contact:hover {
 
 .home-hero .home-btn {
   align-self: flex-start;
-  margin-top: 50px;
+  margin-top: 40px;
   padding: 11px 32px;
   width: auto;
 }
@@ -255,6 +256,7 @@ body.page-home .gnb-contact:hover {
   display: inline-grid;
   vertical-align: top;
   text-align: left;
+  overflow: hidden;
 }
 
 .home-hero__rotate-slot,
@@ -270,18 +272,26 @@ body.page-home .gnb-contact:hover {
 
 .home-hero__rotate-word {
   display: inline-block;
-  transition: opacity 0.45s cubic-bezier(0.2, 0.7, 0.15, 1),
-    transform 0.45s cubic-bezier(0.2, 0.7, 0.15, 1);
+  position: relative;
+  white-space: nowrap;
+  transition: transform 0.36s cubic-bezier(0.7, 0, 0.2, 1);
+  will-change: transform;
 }
 
-.home-hero__rotate-word.is-leaving {
-  opacity: 0;
-  transform: translateY(-12px);
+.home-hero__rotate-word::after {
+  content: attr(data-next-word);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  color: var(--home-red);
 }
 
-.home-hero__rotate-word.is-entering {
-  opacity: 0;
-  transform: translateY(12px);
+.home-hero__rotate-word.is-changing {
+  transform: translateY(-100%);
+}
+
+.home-hero__rotate-word.is-resetting {
+  transition: none;
 }
 
 .home-hero__visual {
@@ -325,9 +335,7 @@ body.page-home .gnb-contact:hover {
     transition: none;
   }
 
-  .home-hero__rotate-word.is-leaving,
-  .home-hero__rotate-word.is-entering {
-    opacity: 1;
+  .home-hero__rotate-word.is-changing {
     transform: none;
   }
 }
@@ -452,12 +460,12 @@ body.page-home .gnb-contact:hover {
 /* 좌: 공통 여백·들여쓰기 / 우: Figma처럼 오른쪽 마진 밖으로 콜라주 */
 .home-works__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(533px, 620px);
-  gap: clamp(8px, 1.5vw, 24px);
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(40px, 6vw, 100px);
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 0 0 0 var(--home-pad);
+  padding: 0 var(--home-pad);
   box-sizing: border-box;
   align-items: center;
   overflow: visible;
@@ -482,7 +490,7 @@ body.page-home .gnb-contact:hover {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  min-width: 533px;
+  min-width: 0;
   overflow: visible;
   width: 100%;
   padding-right: 0;
@@ -515,10 +523,10 @@ body.page-home .gnb-contact:hover {
 .home-works__collage-img {
   display: block;
   flex: 0 0 auto;
-  width: clamp(480px, 44vw, 720px);
+  width: calc(100% + var(--home-pad));
   height: auto;
   max-width: none;
-  margin-right: 0;
+  margin-right: calc(-1 * var(--home-pad));
 }
 
 .home-works__copy .home-desc {
@@ -540,7 +548,7 @@ body.page-home .gnb-contact:hover {
 
 .home-works__stat {
   min-width: 0;
-  padding: 24px 18px 26px 20px;
+  padding: 30px 18px 32px 20px;
 }
 
 .home-works__stat + .home-works__stat {
@@ -550,7 +558,7 @@ body.page-home .gnb-contact:hover {
 
 .home-works__stat-label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 18px;
   font-size: 11px;
   line-height: 1.45;
   color: var(--home-muted);
@@ -560,7 +568,7 @@ body.page-home .gnb-contact:hover {
 
 .home-works__stat-num {
   display: block;
-  font-size: clamp(18px, 1.35vw, 26px);
+  font-size: clamp(20px, 1.5vw, 28px);
   font-weight: 900;
   letter-spacing: -0.045em;
   color: var(--home-ink);
@@ -575,7 +583,7 @@ body.page-home .gnb-contact:hover {
 }
 
 .home-works__copy > .home-btn {
-  margin-top: 40px;
+  margin-top: 30px;
   padding: 11px 36px;
 }
 
@@ -583,7 +591,7 @@ body.page-home .gnb-contact:hover {
 /* ----- Value ----- */
 .home-value {
   padding: 0;
-  background: linear-gradient(180deg, #4d4d4d 0%, #111111 100%);
+  background: #111111;
   color: #fff;
 }
 
@@ -630,6 +638,7 @@ body.page-home .gnb-contact:hover {
   vertical-align: top;
   text-align: center;
   justify-items: center;
+  overflow: hidden;
 }
 
 .home-value__phrase-slot,
@@ -645,8 +654,8 @@ body.page-home .gnb-contact:hover {
 
 .home-value__phrase-word {
   display: inline-block;
-  transition: opacity 0.45s cubic-bezier(0.2, 0.7, 0.15, 1),
-    transform 0.45s cubic-bezier(0.2, 0.7, 0.15, 1);
+  transition: transform 0.45s cubic-bezier(0.7, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .home-value__phrase-suffix {
@@ -654,17 +663,23 @@ body.page-home .gnb-contact:hover {
 }
 
 .home-value__phrase-word.is-leaving {
-  opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-100%);
 }
 
-.home-value__phrase-word.is-entering {
-  opacity: 0;
-  transform: translateY(10px);
+.home-value__phrase-word--incoming {
+  transform: translateY(100%);
+}
+
+.home-value__phrase-word--incoming.is-active {
+  transform: translateY(0);
+}
+
+.home-value__phrase-word.is-resetting {
+  transition: none;
 }
 
 .home-value__title .bracket {
-  color: rgba(255, 255, 255, 0.45);
+  color: #fff;
   font-weight: 400;
 }
 
@@ -736,8 +751,7 @@ body.page-home .gnb-contact:hover {
   }
 
   .home-value__phrase-word.is-leaving,
-  .home-value__phrase-word.is-entering {
-    opacity: 1;
+  .home-value__phrase-word--incoming {
     transform: none;
   }
 
@@ -849,6 +863,13 @@ a.home-service__rail-item:hover {
 
 .home-service {
   padding: clamp(96px, 11vw, 160px) 0;
+}
+
+.home-service--viral,
+.home-service--design {
+  background: #fafafa;
+  box-shadow: 0 0 0 100vmax #fafafa;
+  clip-path: inset(0 -100vmax);
 }
 
 .home-service--sns {
@@ -1004,7 +1025,7 @@ a.home-service__rail-item:hover {
 }
 
 .home-cta .home-btn--fill {
-  margin-top: 30px;
+  margin-top: 20px;
   padding: 11px 38px;
 }
 
