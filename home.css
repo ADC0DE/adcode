@@ -232,7 +232,7 @@ body.page-home .gnb-contact:hover {
 
 .home-hero .home-btn {
   align-self: flex-start;
-  margin-top: 40px;
+  margin-top: 30px;
   padding: 11px 32px;
   width: auto;
 }
@@ -452,7 +452,7 @@ body.page-home .gnb-contact:hover {
 
 /* ----- Works ----- */
 .home-works {
-  padding: clamp(88px, 8vw, 120px) 0 clamp(48px, 5vw, 72px);
+  padding: clamp(32px, 2.5vw, 48px) 0 clamp(4px, 0.5vw, 8px);
   background: #f2f1ee;
   overflow: hidden;
 }
@@ -495,7 +495,7 @@ body.page-home .gnb-contact:hover {
   width: 100%;
   padding-right: 0;
   /* 아래쪽 폰이 섹션 경계에 일부 잘리도록 */
-  margin-bottom: clamp(-96px, -9vw, -56px);
+  margin-bottom: clamp(-152px, -12.5vw, -104px);
 }
 
 /* 콜라주 — 위에서 아래로 페이드인 */
@@ -540,7 +540,7 @@ body.page-home .gnb-contact:hover {
   gap: 0;
   width: 100%;
   max-width: min(680px, 100%);
-  margin-bottom: 44px;
+  margin-bottom: 48px;
   background: #fff;
   border-top: 1px solid var(--home-line);
   border-bottom: 1px solid var(--home-line);
@@ -583,7 +583,7 @@ body.page-home .gnb-contact:hover {
 }
 
 .home-works__copy > .home-btn {
-  margin-top: 30px;
+  margin-top: 0;
   padding: 11px 36px;
 }
 
@@ -680,7 +680,7 @@ body.page-home .gnb-contact:hover {
 
 .home-value__title .bracket {
   color: #fff;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .home-value__rule {
@@ -767,6 +767,7 @@ body.page-home .gnb-contact:hover {
 }
 
 .home-services__frame {
+  position: relative;
   display: grid;
   grid-template-columns: var(--home-service-rail-w) minmax(0, 1fr);
   column-gap: var(--home-service-rail-gap);
@@ -779,6 +780,7 @@ body.page-home .gnb-contact:hover {
 }
 
 .home-services__stack {
+  grid-column: 2;
   min-width: 0;
 }
 
@@ -808,6 +810,15 @@ body.page-home .gnb-contact:hover {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+@media (min-width: 1101px) {
+  .home-service__rail--spy.is-at-end {
+    position: absolute;
+    top: var(--home-service-rail-end);
+    left: var(--home-services-pad);
+    margin-top: 0;
+  }
 }
 
 .home-service__rail-indicator {
@@ -1025,7 +1036,7 @@ a.home-service__rail-item:hover {
 }
 
 .home-cta .home-btn--fill {
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 11px 38px;
 }
 
@@ -1123,6 +1134,10 @@ a.home-service__rail-item:hover {
     column-gap: 0;
     padding-left: var(--home-pad);
     padding-right: var(--home-pad);
+  }
+
+  .home-services__stack {
+    grid-column: 1;
   }
 
   .home-hero {

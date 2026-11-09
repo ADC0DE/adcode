@@ -122,6 +122,7 @@
     .filter(Boolean);
   const serviceIndicator = serviceRail?.querySelector('.home-service__rail-indicator');
   const servicesRoot = document.querySelector('.home-services');
+  const servicesFrame = document.querySelector('.home-services__frame');
   let activeServiceId = '';
 
   const isServiceRailMobile = () => window.matchMedia('(max-width: 1100px)').matches;
@@ -132,22 +133,49 @@
     if (isServiceRailMobile()) {
       serviceRail.style.removeProperty('--home-service-rail-shift');
       serviceRail.style.removeProperty('--home-service-rail-sticky');
+      serviceRail.style.removeProperty('--home-service-rail-end');
+      serviceRail.classList.remove('is-at-end');
       return;
     }
 
     const firstSection = serviceSections[0];
-    if (!firstSection) return;
+    const lastSection = serviceSections[serviceSections.length - 1];
+    if (!firstSection || !lastSection || !servicesFrame) return;
 
     const firstDesc = firstSection.querySelector('.home-desc');
-    if (!firstDesc) return;
+    const lastDesc = lastSection.querySelector('.home-desc');
+    if (!firstDesc || !lastDesc) return;
+
+    const firstCopy = firstDesc.closest('.home-service__copy');
+    const copyTransform = firstCopy ? getComputedStyle(firstCopy).transform : 'none';
+    const revealOffsetY =
+      copyTransform === 'none' ? 0 : new DOMMatrixReadOnly(copyTransform).m42;
+    const visualOffsetY = 4;
 
     /* margin-top: 첫 섹션(VIRAL) 문서 흐름 기준 */
     const firstShift = Math.max(
       0,
-      Math.round(firstDesc.getBoundingClientRect().top - firstSection.getBoundingClientRect().top)
+      Math.round(
+        firstDesc.getBoundingClientRect().top -
+          firstSection.getBoundingClientRect().top -
+          revealOffsetY +
+          visualOffsetY
+      )
     );
     serviceRail.style.setProperty('--home-service-rail-shift', `${firstShift}px`);
     serviceRail.style.removeProperty('--home-service-rail-sticky');
+
+    const lastCopy = lastDesc.closest('.home-service__copy');
+    const lastCopyTransform = lastCopy ? getComputedStyle(lastCopy).transform : 'none';
+    const lastRevealOffsetY =
+      lastCopyTransform === 'none' ? 0 : new DOMMatrixReadOnly(lastCopyTransform).m42;
+    const endTop = Math.round(
+      lastDesc.getBoundingClientRect().top -
+        servicesFrame.getBoundingClientRect().top -
+        lastRevealOffsetY +
+        visualOffsetY
+    );
+    serviceRail.style.setProperty('--home-service-rail-end', `${endTop}px`);
   };
   syncServiceRailAlign();
   window.addEventListener('resize', () => syncServiceRailAlign());
@@ -219,15 +247,23 @@
       if (serviceRailTick) return;
       serviceRailTick = true;
       requestAnimationFrame(() => {
+        syncServiceRailAlign();
         if (servicesRoot) {
           const servicesRect = servicesRoot.getBoundingClientRect();
-          const isOutside =
-            servicesRect.top >= window.innerHeight ||
-            servicesRect.bottom <= window.innerHeight * 0.4;
+          const isOutside = servicesRect.top >= window.innerHeight;
           serviceRail.classList.toggle('is-outside', isOutside);
         }
+        if (!isServiceRailMobile() && servicesFrame) {
+          const endTop = Number.parseFloat(
+            serviceRail.style.getPropertyValue('--home-service-rail-end')
+          );
+          const stickyTop = Math.min(340, Math.max(200, window.innerHeight * 0.28));
+          const reachedEnd =
+            Number.isFinite(endTop) &&
+            servicesFrame.getBoundingClientRect().top + endTop <= stickyTop;
+          serviceRail.classList.toggle('is-at-end', reachedEnd);
+        }
         resolveServiceSection();
-        syncServiceRailAlign();
         const link =
           serviceLinks.find((l) => l.getAttribute('data-service-section') === activeServiceId) ||
           serviceLinks[0];
