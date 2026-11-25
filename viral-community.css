@@ -250,10 +250,6 @@ i,em{font-style:normal}
    8. GOAL — 이 페이지의 유일한 레드 면 + 드러난 그리드 선 (클래스명 cv-prin)
    ========================================================= */
 .cv-prin{position:relative;padding:var(--sec-y) 0 clamp(80px,7vw,134px);background:var(--red);color:#fff;overflow:hidden}
-.cv-prin__lines{position:absolute;inset:0;pointer-events:none}
-.cv-prin__lines .cv-wrap{display:grid;grid-template-columns:repeat(3,1fr);height:100%}
-.cv-prin__lines i{border-left:1px solid rgba(255,255,255,.24)}
-.cv-prin__lines i:last-child{border-right:1px solid rgba(255,255,255,.24)}
 .cv-prin__body{position:relative}
 .cv-prin__title{font-size:var(--t-big);font-weight:700;letter-spacing:-.03em;line-height:1.43}
 .cv-prin .cv-dot,.cv-tag{color:var(--ink)}
@@ -475,7 +471,6 @@ body.page-viral{font-size:clamp(15px,calc(var(--u)*0.833),16px)}
   .cv-cta__foot{justify-content:flex-start}
   .js .cv-step:not(.is-active) .cv-step__no,.js .cv-step:not(.is-active) h3{color:inherit}
 
-  .cv-prin__lines .cv-wrap{grid-template-columns:1fr}
   .cv-prin__list{grid-template-columns:1fr;row-gap:36px}
   .cv-prin__list li{padding:24px 20px 0}
   .cv-prin__list p{max-width:none}
