@@ -226,7 +226,7 @@ select {
   top: auto;
   transform: none;
   display: flex;
-  gap: 72px;
+  gap: clamp(28px, 3.2vw, 56px);
   align-items: center;
   font-size: 14px;
   font-weight: 500;
@@ -238,6 +238,39 @@ select {
   color: var(--fg);
   padding: 8px 2px;
   transition: color .25s ease;
+}
+
+.nav a.nav-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 2px 0;
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.nav-link__en,
+.nav-link__ko {
+  display: block;
+}
+
+.nav-link__en {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.nav-link__ko {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
 }
 
 .nav a::after {
@@ -262,6 +295,14 @@ select {
 
 .nav a.is-active {
   color: var(--red);
+}
+
+.nav a.is-active .nav-link__en {
+  color: var(--red);
+}
+
+.nav a.is-active .nav-link__ko {
+  color: rgba(200, 24, 31, 0.75);
 }
 
 .nav a.is-active::after {
@@ -294,7 +335,40 @@ select {
   transition: transform .25s ease, opacity .25s ease;
 }
 
-/* CONTACT menu — same styling as other nav items */
+/* GNB CONTACT 버튼 */
+.gnb-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-shrink: 0;
+  margin-left: clamp(20px, 3vw, 36px);
+  padding: 7px 22px;
+  min-height: 34px;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  box-shadow: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.gnb-contact:hover {
+  background: var(--red-hi);
+  color: #fff;
+  transform: none;
+}
+
+.gnb-contact .ext {
+  display: inline-block;
+  font-size: 0.85em;
+  line-height: 1;
+  margin-top: -1px;
+}
 
 /* === GNB dropdown (DESIGN → SNS · 상세페이지) === */
 .nav-item.has-dropdown {
@@ -2772,6 +2846,10 @@ select {
     background: rgba(10, 10, 10, 0.72);
   }
 
+  .gnb-contact {
+    display: none;
+  }
+
   .nav-toggle {
     display: flex;
     flex-direction: column;
@@ -2821,6 +2899,23 @@ select {
   .nav a {
     display: block;
     padding: 14px 4px;
+  }
+
+  .nav a.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 14px 4px;
+    text-align: left;
+  }
+
+  .nav-link__en {
+    font-size: 16px;
+  }
+
+  .nav-link__ko {
+    font-size: 12px;
   }
 
   .nav-item.has-dropdown {

@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ko">
 
 <head>
@@ -16,8 +16,9 @@
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/style.css?v=nav-bilingual" />
   <link rel="stylesheet" href="/home.css?v=works-img-left3" />
+  <link rel="stylesheet" href="/contact-modal.css?v=3" />
   <script src="/nav.js" defer></script>
   <script src="/reveal.js" defer></script>
   <script src="/home.js?v=works-crop-pad" defer></script>
@@ -33,37 +34,31 @@
     </a>
 
     <nav class="nav" aria-label="Primary">
-      <div class="nav-item has-dropdown">
-        <a href="#">BRAND PACKAGE</a>
-        <div class="dropdown">
-          <a href="/brand-logo">로고</a>
-          <a href="/brand-namuwiki">나무위키</a>
-          <a href="/brand-homepage-blog">홈페이지형 블로그</a>
-        </div>
-      </div>
-      <div class="nav-item has-dropdown">
-        <a href="#">DESIGN</a>
-        <div class="dropdown">
-          <a href="/design-sns">SNS</a>
-          <a href="/design-detail">상세페이지</a>
-        </div>
-      </div>
-      <a href="/viral">VIRAL</a>
-      <div class="nav-item has-dropdown">
-        <a href="#">CONTENT</a>
-        <div class="dropdown">
-          <a href="/content-blog">블로그운영</a>
-          <a href="/content-instagram">인스타운영</a>
-          <a href="/content-movie">무비미디어</a>
-        </div>
-      </div>
+      <a class="nav-link" href="/media-network">
+        <span class="nav-link__en">Media Network</span>
+        <span class="nav-link__ko">미디어 네트워크</span>
+      </a>
+      <a class="nav-link" href="/total-marketing">
+        <span class="nav-link__en">Total Marketing</span>
+        <span class="nav-link__ko">종합 마케팅</span>
+      </a>
+      <a class="nav-link" href="/viral">
+        <span class="nav-link__en">Viral</span>
+        <span class="nav-link__ko">바이럴</span>
+      </a>
+      <a class="nav-link" href="/brand-namuwiki">
+        <span class="nav-link__en">Wiki</span>
+        <span class="nav-link__ko">나무위키</span>
+      </a>
+      <a class="nav-link" href="#">
+        <span class="nav-link__en">Medical Marketing</span>
+        <span class="nav-link__ko">병원 마케팅</span>
+      </a>
     </nav>
 
     <a href="#" class="gnb-contact home-btn home-btn--fill" data-open-contact>
       <span>CONTACT</span>
-      <svg class="ico-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
+      <span class="ext" aria-hidden="true">↗</span>
     </a>
 
     <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
@@ -291,27 +286,29 @@
   <!-- ============================== CONTACT MODAL ============================== -->
   <div class="policy-modal contact-modal" id="modal-contact" role="dialog" aria-modal="true" aria-label="상담문의하기">
     <div class="modal-box modal-box--contact">
-      <button type="button" class="modal-close" data-close aria-label="닫기">&times;</button>
+      <div class="contact-modal__chrome">
+        <button type="button" class="modal-close" data-close aria-label="닫기">&times;</button>
+      </div>
       <div class="contact-modal__grid">
         <div class="contact-left">
           <p class="contact-eyebrow">CONTACT</p>
           <h2 class="contact-heading">상담문의하기</h2>
-          <p class="contact-desc">간단한 정보만 남겨주시면 담당자가 빠르게 연락드립니다.</p>
+          <p class="contact-desc">간단한 정보만 남겨주시면<br>담당자가 빠르게 연락드립니다.</p>
         </div>
 
         <form class="form" id="contactForm">
 
-      <input type="hidden" name="희망서비스" id="services-input" value="콘텐츠 제작" />
+      <input type="hidden" name="희망서비스" id="services-input" value="" />
       <input type="hidden" name="연락방법" id="contact-method-input" value="전화" />
 
       <div class="row-2">
         <div class="field field--inline">
           <span class="field-label">상호명</span>
-          <input type="text" name="상호명" required placeholder="상호명을 입력해주세요" />
+          <input type="text" name="상호명" required placeholder="상호명을 입력해주세요." />
         </div>
         <div class="field field--inline">
           <span class="field-label">성함</span>
-          <input type="text" name="성함" required placeholder="성함을 입력해주세요" />
+          <input type="text" name="성함" required placeholder="성함을 입력해주세요." />
         </div>
         <div class="field field--inline">
           <span class="field-label">연락처</span>
@@ -332,51 +329,35 @@
         <p class="form-block-title">원하는 서비스를 선택해주세요.</p>
         <div class="service-grid" id="service-grid">
           <label class="service-item">
-            <input type="checkbox" value="상세페이지 제작" />
+            <input type="checkbox" value="미디어 네트워크" />
             <span class="service-check" aria-hidden="true"></span>
-            <span class="service-name">상세페이지 제작</span>
+            <span class="service-name">미디어 네트워크</span>
           </label>
           <label class="service-item">
-            <input type="checkbox" value="로고 디자인" />
+            <input type="checkbox" value="종합 마케팅" />
             <span class="service-check" aria-hidden="true"></span>
-            <span class="service-name">로고 디자인</span>
+            <span class="service-name">종합 마케팅</span>
           </label>
           <label class="service-item">
-            <input type="checkbox" value="홈페이지형 블로그" />
+            <input type="checkbox" value="바이럴" />
             <span class="service-check" aria-hidden="true"></span>
-            <span class="service-name">홈페이지형 블로그</span>
+            <span class="service-name">바이럴</span>
           </label>
           <label class="service-item">
-            <input type="checkbox" value="랜딩페이지 제작" />
+            <input type="checkbox" value="병원 마케팅" />
             <span class="service-check" aria-hidden="true"></span>
-            <span class="service-name">랜딩페이지 제작</span>
+            <span class="service-name">병원 마케팅</span>
           </label>
           <label class="service-item">
-            <input type="checkbox" value="SNS광고" />
+            <input type="checkbox" value="나무위키" />
             <span class="service-check" aria-hidden="true"></span>
-            <span class="service-name">SNS광고</span>
-          </label>
-          <label class="service-item">
-            <input type="checkbox" value="바이럴광고" />
-            <span class="service-check" aria-hidden="true"></span>
-            <span class="service-name">바이럴광고</span>
-          </label>
-          <label class="service-item">
-            <input type="checkbox" value="콘텐츠 제작" checked />
-            <span class="service-check" aria-hidden="true"></span>
-            <span class="service-name">콘텐츠 제작</span>
-          </label>
-          <label class="service-item">
-            <input type="checkbox" value="기타" />
-            <span class="service-check" aria-hidden="true"></span>
-            <span class="service-name">기타</span>
+            <span class="service-name">나무위키</span>
           </label>
         </div>
       </div>
 
       <div class="form-block form-block--boxed">
         <p class="form-block-title">연락받을 방법을 선택해주세요.</p>
-        <p class="form-block-sub">원하시는 방법으로 연락드립니다.</p>
         <div class="method-grid" id="method-grid" role="radiogroup" aria-label="연락방법">
           <button type="button" class="method-item is-active" data-method="전화" aria-pressed="true">
             <span class="method-check" aria-hidden="true"></span>
@@ -617,6 +598,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="/assets/js/supabase-config.js"></script>
   <script src="/assets/js/supabase-client.js"></script>
+  <script src="/contact-modal.js?v=2"></script>
   <script src="/assets/js/contact-form.js"></script>
 
 </body>

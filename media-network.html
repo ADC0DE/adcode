@@ -1,0 +1,291 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="애드코드(ADCODE) 미디어 네트워크 — 영화·드라마·애니메이션·웹툰·서브컬처 SNS 미디어 마케팅">
+  <link rel="icon" href="adcode_fabicon.jpg" type="image/jpeg">
+  <meta property="og:image" content="https://adcode.co.kr/adcode_logo.jpg">
+  <title>미디어 네트워크 | 애드코드(ADCODE)</title>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+
+  <link rel="stylesheet" href="/style.css?v=nav-bilingual" />
+  <link rel="stylesheet" href="/media-network.css?v=1" />
+  <link rel="stylesheet" href="/contact-modal.css?v=3" />
+  <script src="/nav.js" defer></script>
+  <script src="/reveal.js" defer></script>
+  <script src="/media-network.js?v=1" defer></script>
+</head>
+
+<body class="page-media-network" data-contact-service="미디어 네트워크">
+
+  <!-- ============================== GNB ============================== -->
+  <header class="gnb" data-screen-label="GNB">
+    <a href="/" class="brand" aria-label="ADCODE home">
+      <img src="/public/logo/ad_code_logo.png" alt="애드코드 ADCODE" />
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-link is-active" href="/media-network" aria-current="page">
+        <span class="nav-link__en">Media Network</span>
+        <span class="nav-link__ko">미디어 네트워크</span>
+      </a>
+      <a class="nav-link" href="/total-marketing">
+        <span class="nav-link__en">Total Marketing</span>
+        <span class="nav-link__ko">종합 마케팅</span>
+      </a>
+      <a class="nav-link" href="/viral">
+        <span class="nav-link__en">Viral</span>
+        <span class="nav-link__ko">바이럴</span>
+      </a>
+      <a class="nav-link" href="/brand-namuwiki">
+        <span class="nav-link__en">Wiki</span>
+        <span class="nav-link__ko">나무위키</span>
+      </a>
+      <a class="nav-link" href="#">
+        <span class="nav-link__en">Medical Marketing</span>
+        <span class="nav-link__ko">병원 마케팅</span>
+      </a>
+    </nav>
+
+    <a href="#contact" class="gnb-contact home-btn home-btn--fill" data-open-contact>
+      <span>CONTACT</span>
+      <span class="ext" aria-hidden="true">↗</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="mn" id="top">
+
+    <!-- 01 HERO -->
+    <header class="hero">
+      <div class="hero__film film" aria-hidden="true">
+        <video id="heroVideo" muted playsinline loop autoplay preload="auto"></video>
+        <i class="film__grain"></i>
+      </div>
+      <div class="hero__shade" aria-hidden="true"></div>
+
+      <div class="hero__copy">
+        <p class="label rise" style="--i:0">ADCODE</p>
+        <p class="hero__en rise" style="--i:1">ENTERTAINMENT <em>MEDIA</em> NETWORK</p>
+        <h1 class="h-hero">
+          <span class="ln rise" style="--i:2">미디어 네트워크를 통한</span>
+          <span class="ln rise" style="--i:3"><em>광고 캠페인</em>을 전개합니다<i class="dot">.</i></span>
+        </h1>
+        <div class="hero__foot rise" style="--i:5">
+          <p class="genres">영화<i aria-hidden="true">·</i>드라마<i aria-hidden="true">·</i>애니메이션<i aria-hidden="true">·</i>웹툰<i aria-hidden="true">·</i>서브컬쳐</p>
+          <a class="btn" href="#contact" data-open-contact>프로젝트 문의하기<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        </div>
+      </div>
+
+      <div class="hero__strip rise" style="--i:7">
+        <div class="r">
+          <button class="pp" id="heroToggle" type="button" aria-label="배경 영상 일시정지">
+            <svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="1.5" y="1" width="2.4" height="8"/><rect x="6.1" y="1" width="2.4" height="8"/></svg>
+            <svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 1l6.5 4-6.5 4z"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- 02 AUDIENCE -->
+    <section class="aud" id="audience">
+      <div class="aud__top">
+        <div class="aud__copy">
+          <p class="label rv">AUDIENCE</p>
+          <h2 class="aud__h rv" style="--d:.08s">영화 팬<br><em>4,000만 명</em>이<br>모이는 곳<i class="dot">.</i></h2>
+          <p class="lead rv" style="--d:.16s">SNS 미디어 네트워크로 만드는 영화 콘텐츠 마케팅</p>
+        </div>
+        <figure class="aud__win win">
+          <div class="film">
+            <video muted playsinline loop preload="none" poster="/public/media-network/media/audience.jpg" data-src="/public/media-network/media/audience.mp4" aria-label="빈 객석이 저절로 펼쳐지고 관객이 들어와 극장을 채우는 장면"></video>
+            <i class="film__grain"></i>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 03 CHANNELS -->
+    <section class="ch screen" id="channels">
+      <div class="wrap">
+        <p class="label rv">CHANNELS</p>
+        <h2 class="h-sec rv" style="--d:.08s">각자 <em>독특한 시선</em>으로<br>콘텐츠를 만들어갑니다<i class="dot">.</i></h2>
+        <ul class="ch__row rv" id="chRow" style="--d:.16s">
+          <li class="ch__i" tabindex="0"><span class="ch__pic"><img src="/public/media-network/img/ch2-mondo.jpg" width="150" height="150" alt="" loading="lazy"></span><span class="ch__info"><b class="ch__n">몬도 매거진</b><span class="ch__f"><b>29.9</b>만 팔로워</span></span></li>
+          <li class="ch__i" tabindex="0"><span class="ch__pic"><img src="/public/media-network/img/ch2-semot.jpg" width="150" height="150" alt="" loading="lazy"></span><span class="ch__info"><b class="ch__n">세모트</b><span class="ch__f"><b>10.3</b>만 팔로워</span></span></li>
+          <li class="ch__i" tabindex="0"><span class="ch__pic"><img src="/public/media-network/img/ch2-trendletter.jpg" width="150" height="150" alt="" loading="lazy"></span><span class="ch__info"><b class="ch__n">트렌드레터</b><span class="ch__f"><b>9.8</b>만 팔로워</span></span></li>
+          <li class="ch__i" tabindex="0"><span class="ch__pic"><img src="/public/media-network/img/ch2-culturepick.jpg" width="150" height="150" alt="" loading="lazy"></span><span class="ch__info"><b class="ch__n">컬처픽</b><span class="ch__f"><b>9.6</b>만 팔로워</span></span></li>
+          <li class="ch__i" tabindex="0"><span class="ch__pic"><img src="/public/media-network/img/ch2-knowmag.jpg" width="150" height="150" alt="" loading="lazy"></span><span class="ch__info"><b class="ch__n">케이나우</b><span class="ch__f"><b>9.5</b>만 팔로워</span></span></li>
+          <li class="ch__i" tabindex="0"><span class="ch__pic"><img src="/public/media-network/img/ch2-cultureindex.jpg" width="150" height="150" alt="" loading="lazy"></span><span class="ch__info"><b class="ch__n">컬처인덱스</b><span class="ch__f"><b>5.2</b>만 팔로워</span></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 NETWORK -->
+    <section class="spread screen" id="network">
+      <div class="spread__film film" aria-hidden="true">
+        <video muted playsinline loop preload="none" poster="/public/media-network/media/crowd.jpg" data-src="/public/media-network/media/crowd.mp4"></video>
+        <i class="film__grain"></i>
+      </div>
+      <div class="spread__shade" aria-hidden="true"></div>
+      <div class="wrap spread__in">
+        <p class="label rv">NETWORK</p>
+        <h2 class="h-st rv" style="--d:.08s">한 곳에서 보면 광고,<br>여러 곳에서 보면 <span class="slot"><em>화제작</em></span><i class="dot">.</i></h2>
+        <p class="spread__say rv" style="--d:.16s">제작 발표부터 OTT 입성까지<br>지금 어느 단계든<br>오가는 이야깃거리로 만들어냅니다.</p>
+      </div>
+    </section>
+
+    <!-- 05 WORKED WITH -->
+    <section class="ww" id="works">
+      <div class="wrap">
+        <p class="label rv">OUR WORKS</p>
+        <h2 class="ww__t rv" style="--d:.08s">WORKED WITH<i class="dot">.</i></h2>
+        <div class="ww__flow rv" id="logoFlow" style="--d:.16s">
+          <ul class="ww__row">
+            <li><img src="/public/media-network/img/client-nexon.svg" width="1000" height="304" alt="NEXON" style="--h:40px"></li>
+            <li><img src="/public/media-network/img/client-wavve.svg" width="108" height="24" alt="wavve" style="--h:28px"></li>
+            <li><img src="/public/media-network/img/client-gmarket.png" width="284" height="75" alt="Gmarket" style="--h:38px"></li>
+            <li><img src="/public/media-network/img/client-new.png" width="86" height="34" alt="NEW" style="--h:34px"></li>
+            <li><img src="/public/media-network/img/client-cinecube.png" width="530" height="88" alt="cinecube" style="--h:26px"></li>
+            <li><img src="/public/media-network/img/client-higgsfield.png" width="246" height="54" alt="Higgsfield" style="--h:32px"></li>
+            <li><img src="/public/media-network/img/client-mnb.png" width="139" height="48" alt="MNB" style="--h:32px"></li>
+            <li><img src="/public/media-network/img/client-morphic.png" width="325" height="400" alt="Morphic" style="--h:62px"></li>
+          </ul>
+        </div>
+        <p class="note">*광고회사 협력건도 포함</p>
+      </div>
+    </section>
+
+    <!-- 06 END / TICKET -->
+    <section class="end" id="mn-contact" aria-labelledby="ticketTitle">
+      <div class="wrap">
+        <div class="ticket rv">
+          <div class="ticket__main">
+            <p class="ticket__top"><b>ADMIT ONE</b><span>MEDIA NETWORK</span></p>
+            <h2 class="ticket__h" id="ticketTitle">이 영화가 궁금해지는 순간,<br>그 첫 장면을 함께 고릅니다<i class="dot">.</i></h2>
+            <div class="ticket__foot">
+              <a class="btn" href="#contact" data-open-contact>프로젝트 문의하기<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+            </div>
+          </div>
+          <div class="ticket__stub">
+            <nav class="stubnav" aria-label="서비스 메뉴">
+              <a href="/media-network" aria-current="page">MEDIA NETWORK<i>.</i></a>
+              <a href="#">TOTAL MARKETING<i>.</i></a>
+              <a href="/viral">VIRAL<i>.</i></a>
+              <a href="#">MEDICAL MARKETING<i>.</i></a>
+              <a href="/brand-namuwiki">WIKI<i>.</i></a>
+              <a href="#contact" data-open-contact>CONTACT<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+            </nav>
+            <div class="barcode" aria-hidden="true"></div>
+          </div>
+        </div>
+        <p class="end__credits"><b>FOOTAGE</b>〈카메라를 든 사나이〉 지가 베르토프, 1929 · 〈달세계 여행〉 조르주 멜리에스, 1902 · 〈로마의 휴일〉윌리엄 와일러, 1953 · 〈사랑은 비를 타고〉스탠리 도넌, 1952 · 〈바람과 함께 사라지다〉빅터 플레밍, 1939  퍼블릭 도메인 영상</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="left">
+        <img src="/public/logo/ad_code_logo.png" alt="애드코드 ADCODE" />
+        <span>PRACTICAL BRAND SOLUTION</span>
+      </div>
+      <div class="center">© 2025 ADCODEMARKETING. All rights reserved.</div>
+      <div class="right">
+        <a href="#" class="legal-link" data-modal="terms">Terms of Use</a>
+        <a href="#" class="legal-link" data-modal="privacy">Privacy Policy</a>
+        <a href="#" class="legal-link" data-modal="cookie">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================== FLOATING WIDGET RAIL ====================== -->
+  <nav class="rail" aria-label="Quick links">
+    <a href="#contact" data-open-contact aria-label="문의하기">
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+      </svg>
+      <span class="tip">문의하기</span>
+    </a>
+    <a href="https://blog.naver.com/adcode_mkt" target="_blank" rel="noopener" class="blog" aria-label="블로그">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <g transform="translate(0 -1)">
+          <text class="blog-word" x="12" y="12" text-anchor="middle" dominant-baseline="central">blog</text>
+        </g>
+      </svg>
+      <span class="tip">블로그</span>
+    </a>
+    <a href="https://pf.kakao.com/_myebn/chat" target="_blank" rel="noopener" class="kakao" aria-label="카카오톡 채널">
+      <span class="bubble">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 4C7.03 4 3 7.13 3 11c0 2.48 1.66 4.65 4.16 5.88L6.3 20c-.07.25.21.45.42.3l3.74-2.45c.5.07 1.02.1 1.54.1 4.97 0 9-3.13 9-7s-4.03-7-9-7Z" />
+        </svg>
+        <span class="talk">TALK</span>
+      </span>
+      <span class="tip">카카오톡 채널</span>
+    </a>
+  </nav>
+
+  <div class="policy-modal" id="modal-terms" role="dialog" aria-modal="true" aria-label="이용약관">
+    <div class="modal-box">
+      <button class="modal-close" data-close aria-label="닫기">&times;</button>
+      <h2>이용약관</h2>
+      <p>이 약관은 애드코드마케팅(이하 "회사")이 제공하는 서비스의 이용 조건 및 절차를 규정합니다.</p>
+    </div>
+  </div>
+  <div class="policy-modal" id="modal-privacy" role="dialog" aria-modal="true" aria-label="개인정보 처리방침">
+    <div class="modal-box">
+      <button class="modal-close" data-close aria-label="닫기">&times;</button>
+      <h2>개인정보 처리방침</h2>
+      <p>회사는 관련 법령에 따라 이용자의 개인정보를 보호합니다.</p>
+    </div>
+  </div>
+  <div class="policy-modal" id="modal-cookie" role="dialog" aria-modal="true" aria-label="쿠키 정책">
+    <div class="modal-box">
+      <button class="modal-close" data-close aria-label="닫기">&times;</button>
+      <h2>쿠키 정책</h2>
+      <p>회사는 서비스 개선을 위해 쿠키를 사용할 수 있습니다.</p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const open = (id) => document.getElementById(id)?.classList.add('open');
+      const closeAll = () => document.querySelectorAll('.policy-modal.open').forEach((m) => m.classList.remove('open'));
+      document.querySelectorAll('.legal-link').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          open('modal-' + link.dataset.modal);
+        });
+      });
+      document.querySelectorAll('.policy-modal').forEach((modal) => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal || e.target.closest('[data-close]')) closeAll();
+        });
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeAll();
+      });
+      window.__openModal = open;
+    })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/assets/js/supabase-config.js"></script>
+  <script src="/assets/js/supabase-client.js"></script>
+  <script src="/contact-modal.js?v=2"></script>
+  <script src="/assets/js/contact-form.js"></script>
+
+</body>
+
+</html>

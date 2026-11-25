@@ -27,9 +27,9 @@
     const serviceGrid = document.getElementById('service-grid');
     if (serviceGrid && servicesInput) {
       serviceGrid.querySelectorAll('input[type="checkbox"]').forEach((el) => {
-        el.checked = el.value === '상세페이지 제작';
+        el.checked = false;
       });
-      servicesInput.value = '상세페이지 제작';
+      servicesInput.value = '';
     }
 
     const methodInput = document.getElementById('contact-method-input');

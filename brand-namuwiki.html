@@ -1,378 +1,300 @@
-<!doctype html>
-<html lang="ko">
+﻿<!doctype html>
+<html lang="ko" class="page-namuwiki-root">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="애드코드(ADCODE) 나무위키 등록 — 객관적인 자료를 바탕으로 운영 기준에 맞는 문서를 작성하고 등록을 진행합니다.">
+  <meta name="description" content="문서의 구조 설계부터 리스크 검토, 등록 이후의 모니터링까지. 애드코드의 나무위키 문서 기획·관리 서비스.">
   <link rel="icon" href="adcode_fabicon.jpg" type="image/jpeg">
   <meta property="og:image" content="https://adcode.co.kr/adcode_logo.jpg">
-  <title>나무위키 등록 | 애드코드(ADCODE)</title>
+  <title>나무위키 | 애드코드(ADCODE)</title>
 
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 
-  <link rel="stylesheet" href="/style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/style.css?v=nav-bilingual" />
+  <link rel="stylesheet" href="/namuwiki.css?v=1" />
+  <link rel="stylesheet" href="/contact-modal.css?v=3" />
   <script src="/nav.js" defer></script>
-  <script src="/reveal.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-  <script src="/sns-works.js" defer></script>
-
 </head>
 
-<body>
+<body class="page-namuwiki" data-contact-service="나무위키">
 
-  <!-- ============================== GNB ============================== -->
   <header class="gnb" data-screen-label="GNB">
     <a href="/" class="brand" aria-label="ADCODE home">
       <img src="/public/logo/ad_code_logo.png" alt="애드코드 ADCODE" />
     </a>
 
     <nav class="nav" aria-label="Primary">
-      <div class="nav-item has-dropdown">
-        <a href="#" class="is-active">BRAND PACKAGE</a>
-        <div class="dropdown">
-          <a href="/brand-logo">로고</a>
-          <a href="/brand-namuwiki" class="is-active" aria-current="page">나무위키</a>
-          <a href="/brand-homepage-blog">홈페이지형 블로그</a>
-        </div>
-      </div>
-      <div class="nav-item has-dropdown">
-        <a href="#">DESIGN</a>
-        <div class="dropdown">
-          <a href="/design-sns">SNS</a>
-          <a href="/design-detail">상세페이지</a>
-        </div>
-      </div>
-      <a href="/viral">VIRAL</a>
-      <div class="nav-item has-dropdown">
-        <a href="#">CONTENT</a>
-        <div class="dropdown">
-          <a href="/content-blog">블로그운영</a>
-          <a href="/content-instagram">인스타운영</a>
-          <a href="/content-movie">무비미디어</a>
-        </div>
-      </div>
+      <a class="nav-link" href="/media-network">
+        <span class="nav-link__en">Media Network</span>
+        <span class="nav-link__ko">미디어 네트워크</span>
+      </a>
+      <a class="nav-link" href="/total-marketing">
+        <span class="nav-link__en">Total Marketing</span>
+        <span class="nav-link__ko">종합 마케팅</span>
+      </a>
+      <a class="nav-link" href="/viral">
+        <span class="nav-link__en">Viral</span>
+        <span class="nav-link__ko">바이럴</span>
+      </a>
+      <a class="nav-link is-active" href="/brand-namuwiki" aria-current="page">
+        <span class="nav-link__en">Wiki</span>
+        <span class="nav-link__ko">나무위키</span>
+      </a>
+      <a class="nav-link" href="#">
+        <span class="nav-link__en">Medical Marketing</span>
+        <span class="nav-link__ko">병원 마케팅</span>
+      </a>
     </nav>
+
+    <a href="#contact" class="gnb-contact home-btn home-btn--fill" data-open-contact>
+      <span>CONTACT</span>
+      <span class="ext" aria-hidden="true">↗</span>
+    </a>
 
     <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </header>
 
-  <main class="design-sns brand-package brand-namuwiki">
+  <div class="nw">
+    <main id="main">
 
-    <!-- ============================== HERO ============================== -->
-    <section class="sns-hero" data-screen-label="01 Namuwiki Hero">
-      <div class="sns-hero-copy">
-        <p class="sns-hero-label">BRAND PACKAGE</p>
-        <h1 class="sns-hero-title">
-          브랜드는 검색되는 순간<br />
-          <span class="red">신뢰</span>가 시작됩니다
-        </h1>
-        <span class="sns-hero-rule" aria-hidden="true"></span>
-        <p class="sns-hero-desc">
-          객관적인 자료를 바탕으로 운영 기준에 맞는<br />
-          문서를 작성하고 등록을 진행합니다.
-        </p>
-        <a href="/public/brand_package/namuwiki/애드코드_나무위키_등록서비스_상품안내서_최종본.pdf" download="애드코드_나무위키_등록서비스_상품안내서_최종본.pdf" class="pill-cta" style="margin-top: 28px">상품소개서 <span class="arrow" aria-hidden="true">↓</span></a>
-      </div>
-      <div class="sns-hero-visual reveal">
-        <img src="/public/brand_package/namuwiki/00_메인%20이미지_(나무위키%20등록%20페이지).png?v=8" alt="나무위키 등록 미리보기" />
-      </div>
-    </section>
-
-    <!-- ============================== PITCH ============================== -->
-    <section class="page-pitch" data-screen-label="01b Namuwiki Pitch">
-      <div class="page-pitch-inner">
-        <h2 class="page-pitch-title reveal">검색되는 브랜드는 한 번 더 <span class="red">신뢰받습니다</span></h2>
-        <div class="page-pitch-body reveal">
-          <p>브랜드를 검색한 고객은 생각보다 많은 정보를 확인합니다.</p>
-          <p>나무위키는 단순히 문서를 만드는 작업이 아니라,<br />브랜드를 이해할 수 있는 정보를 체계적으로 정리하는 과정입니다.</p>
-          <p>브랜드의 특성과 공개 가능한 정보를 바탕으로,<br />검색 과정에서도 신뢰를 더할 수 있도록 구성해드립니다.</p>
+      <!-- ===== HERO ===== -->
+      <section class="nw-hero">
+        <img class="nw-hero__bg" src="/public/namuwiki/hero.jpg" width="1897" height="829" alt="">
+        <div class="nw-hero__in">
+          <span class="nw-dash" aria-hidden="true"></span>
+          <p class="nw-hero__lead">복잡한 정보를 명확하게,<br>문서의 구성을 체계적으로.</p>
+          <h1 class="nw-hero__title">WE CREATE<br><em>CLARITY.</em></h1>
+          <a class="nw-btn"
+            href="/public/brand_package/namuwiki/애드코드_나무위키_등록서비스_상품안내서_최종본.pdf"
+            download="애드코드_나무위키_등록서비스_상품안내서_최종본.pdf">
+            <span>상품 소개서 보기</span>
+            <svg class="nw-btn__arrow" viewBox="0 0 38.4 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M0 12.7H36.9L24.8.7"/></svg>
+          </a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ============================== PORTFOLIO ============================== -->
-    <section class="sns-works" data-screen-label="02 Namuwiki Portfolio">
-      <header class="sns-works-head">
-        <p class="sns-works-eyebrow">NAMUWIKI WORKS</p>
-        <h2 class="sns-works-title">나무위키 포트폴리오</h2>
-      </header>
-
-      <div class="swiper sns-works-swiper">
-        <div class="swiper-wrapper sns-works-grid">
-          <article class="swiper-slide sns-card reveal" data-delay="1">
-            <div class="sns-card-thumb">
-              <img src="/public/brand_package/namuwiki/KakaoTalk_20260803_133839370.jpg" alt="기업 나무위키 등록 사례" loading="lazy" />
+      <!-- ===== ABOUT NAMUWIKI ===== -->
+      <section class="nw-sec nw-about">
+        <div class="nw-wrap">
+          <div class="nw-eyebrow"><span class="nw-dash" aria-hidden="true"></span><p class="nw-eyebrow__label">ABOUT NAMUWIKI</p></div>
+          <div class="nw-about__grid">
+            <h2 class="nw-h2">브랜드를 이해하는<br>또 하나의 <em>정보 <span class="nw-nowrap">경로<i class="nw-dot" aria-hidden="true"></i></span></em></h2>
+            <div class="nw-about__body">
+              <p class="nw-about__lead">브랜드를 알리는 것만큼,<em>확인되는 정보도 중요합니다.</em></p>
+              <p class="nw-about__text">나무위키는 기업, 인물, 문화 콘텐츠 등 다양한 정보를 <br class="nw-br">이용자가 직접 작성하고 편집하는 온라인 위키 플랫폼입니다.</p>
+              <p class="nw-about__text">기업의 주요 연혁과 사업 현황, 브랜드 활동 등 여러 정보를 하나의 문서에서 살펴볼 수 있으며, <br class="nw-br">누구나 편집에 참여할 수 있는 구조인 만큼 정보의 출처와 정확성을 확인하는 것이 중요합니다.</p>
             </div>
-          </article>
-          <article class="swiper-slide sns-card reveal" data-delay="2">
-            <div class="sns-card-thumb">
-              <img src="/public/brand_package/namuwiki/KakaoTalk_20260803_133839370_01.jpg" alt="게임 웹진 나무위키 등록 사례" loading="lazy" />
-            </div>
-          </article>
-          <article class="swiper-slide sns-card reveal" data-delay="3">
-            <div class="sns-card-thumb">
-              <img src="/public/brand_package/namuwiki/KakaoTalk_20260803_133839370_02.jpg" alt="플랫폼 나무위키 등록 사례" loading="lazy" />
-            </div>
-          </article>
-          <article class="swiper-slide sns-card reveal" data-delay="4">
-            <div class="sns-card-thumb">
-              <img src="/public/brand_package/namuwiki/KakaoTalk_20260803_133839370_03.jpg" alt="교육 기업 나무위키 등록 사례" loading="lazy" />
-            </div>
-          </article>
-          <article class="swiper-slide sns-card reveal" data-delay="5">
-            <div class="sns-card-thumb">
-              <img src="/public/brand_package/namuwiki/KakaoTalk_20260803_133839370_04.jpg" alt="게임 나무위키 등록 사례" loading="lazy" />
-            </div>
-          </article>
-          <article class="swiper-slide sns-card reveal" data-delay="6">
-            <div class="sns-card-thumb">
-              <img src="/public/brand_package/namuwiki/KakaoTalk_20260803_133839370_05.jpg" alt="밴드 나무위키 등록 사례" loading="lazy" />
-            </div>
-          </article>
-          <article class="swiper-slide sns-card reveal" data-delay="7">
-            <div class="sns-card-thumb">
-              <img src="/public/brand_package/namuwiki/KakaoTalk_20260803_133839370_06.jpg" alt="아이돌 나무위키 등록 사례" loading="lazy" />
-            </div>
-          </article>
-          <article class="swiper-slide sns-card reveal" data-delay="8">
-            <div class="sns-card-thumb">
-              <img src="/public/brand_package/namuwiki/KakaoTalk_20260803_133839370_07.jpg" alt="연예인 나무위키 등록 사례" loading="lazy" />
-            </div>
-          </article>
-        </div>
-        <div class="swiper-pagination sns-works-pagination" aria-hidden="true"></div>
-      </div>
-
-      <p class="bp-works-note">객관적인 자료를 바탕으로 운영 기준에 맞춰 신중하게 등록을 진행합니다.</p>
-    </section>
-
-    <!-- ============================== PROCESS ============================== -->
-    <section class="nw-process" data-screen-label="03 Registration Process">
-      <h2 class="nw-process-title reveal">등록 진행 과정</h2>
-
-      <div class="nw-process-track">
-        <article class="nw-process-step reveal" data-delay="1">
-          <span class="nw-process-num">01</span>
-          <h3 class="nw-process-name">등록 가능 여부 확인</h3>
-          <p class="nw-process-desc">브랜드의 가치를 확인하고 등록 가능성을 검토합니다.</p>
-        </article>
-        <span class="nw-process-chev" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m9 6 6 6-6 6" />
-          </svg>
-        </span>
-        <article class="nw-process-step reveal" data-delay="2">
-          <span class="nw-process-num">02</span>
-          <h3 class="nw-process-name">자료 수집</h3>
-          <p class="nw-process-desc">보도자료, 홈페이지, SNS, 언론기사 등 자료를 확인합니다.</p>
-        </article>
-        <span class="nw-process-chev" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m9 6 6 6-6 6" />
-          </svg>
-        </span>
-        <article class="nw-process-step reveal" data-delay="3">
-          <span class="nw-process-num">03</span>
-          <h3 class="nw-process-name">문서 작성</h3>
-          <p class="nw-process-desc">운영 기준에 맞게 스탠다드하게 내용을 작성합니다.</p>
-        </article>
-        <span class="nw-process-chev" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m9 6 6 6-6 6" />
-          </svg>
-        </span>
-        <article class="nw-process-step reveal" data-delay="4">
-          <span class="nw-process-num">04</span>
-          <h3 class="nw-process-name">내부 검수</h3>
-          <p class="nw-process-desc">내용과 출처를 다시 확인하여 검수합니다.</p>
-        </article>
-        <span class="nw-process-chev" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m9 6 6 6-6 6" />
-          </svg>
-        </span>
-        <article class="nw-process-step reveal" data-delay="5">
-          <span class="nw-process-num">05</span>
-          <h3 class="nw-process-name">등록 진행</h3>
-          <p class="nw-process-desc">나무위키 본문 성격에 맞게 등록을 진행합니다.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============================== CONTACT ============================== -->
-    <section class="contact" data-screen-label="04 Contact" id="contact">
-
-      <div class="contact-left reveal" data-delay="1">
-        <p class="contact-eyebrow">CONTACT</p>
-        <h2 class="contact-heading">상담문의하기</h2>
-        <p class="contact-desc">간단한 정보만 남겨주시면 담당자가 빠르게 연락드립니다.</p>
-      </div>
-
-      <form class="form reveal" id="contactForm" data-delay="2">
-
-        <input type="hidden" name="희망서비스" id="services-input" value="나무위키 등록" />
-        <input type="hidden" name="연락방법" id="contact-method-input" value="전화" />
-
-        <div class="row-2">
-          <div class="field field--inline">
-            <span class="field-label">상호명</span>
-            <input type="text" name="상호명" required placeholder="상호명을 입력해주세요" />
-          </div>
-          <div class="field field--inline">
-            <span class="field-label">성함</span>
-            <input type="text" name="성함" required placeholder="성함을 입력해주세요" />
-          </div>
-          <div class="field field--inline">
-            <span class="field-label">연락처</span>
-            <input type="tel" name="연락처" required placeholder="010-0000-0000" />
-          </div>
-          <div class="field field--inline">
-            <span class="field-label">이메일</span>
-            <input type="email" name="이메일" required placeholder="contact@example.com" />
           </div>
         </div>
+      </section>
 
-        <div class="field field--box field--textarea">
-          <span class="field-label">문의내용</span>
-          <textarea name="문의내용" placeholder="문의 내용을 입력해주세요."></textarea>
+      <!-- ===== OUR IMPACT ===== -->
+      <section class="nw-sec nw-impact">
+        <div class="nw-wrap">
+          <div class="nw-eyebrow"><span class="nw-dash" aria-hidden="true"></span><p class="nw-eyebrow__label">OUR IMPACT</p></div>
+          <h2 class="nw-h2 nw-h2--md">전문성은 <em>결과로 증명</em> 합니다<em>.</em></h2>
+          <p class="nw-desc">다양한 분야의 문서를 기획하고 관리하며, <br class="nw-br">축적해 온 경험과 성과를 수치로 보여드립니다.</p>
+          <ul class="nw-stats">
+            <li class="nw-stat">
+              <p class="nw-stat__label">누적 프로젝트</p>
+              <svg class="nw-stat__icon nw-ico" viewBox="0 0 500 500" stroke-width="21" aria-hidden="true"><path d="M267 118.2 L369 173.3 Q398.1 189 369 204.7 L266.5 260.1 Q250 269 233.5 260.1 L131 204.7 Q101.9 189 131 173.3 L233 118.2 Q250 109 267 118.2 Z"/><path d="M115.5 253 L237.3 321.5 Q250 328.5 262.7 321.5 L384.5 253"/><path d="M115.5 313 L237.3 382 Q250 389 262.7 382 L384.5 313"/></svg>
+              <p class="nw-stat__value"><span class="nw-stat__num">200</span><span class="nw-stat__sign">+</span><span class="nw-stat__unit">건</span></p>
+            </li>
+            <li class="nw-stat">
+              <p class="nw-stat__label">관리 문서</p>
+              <svg class="nw-stat__icon nw-ico" viewBox="0 0 500 500" stroke-width="21" aria-hidden="true"><path d="M250 129 A68.5 68.5 0 1 0 250 266 A68.5 68.5 0 1 0 250 129 Z"/><path d="M141 371 V365 A109 99 0 0 1 359 365 V371"/><path d="M156 164 A56 52 0 1 0 156 267"/><path d="M50 362 V350 A106 83.5 0 0 1 156 266.5"/><path d="M344 164 A56 52 0 1 1 344 267"/><path d="M450 362 V350 A106 83.5 0 0 0 344 266.5"/></svg>
+              <p class="nw-stat__value"><span class="nw-stat__num">500</span><span class="nw-stat__sign">+</span><span class="nw-stat__unit">건</span></p>
+            </li>
+            <li class="nw-stat">
+              <p class="nw-stat__label">지속 관리율</p>
+              <svg class="nw-stat__icon nw-ico" viewBox="0 0 500 500" stroke-width="21" aria-hidden="true"><path d="M115 228 A136.6 136.6 0 0 1 374 197"/><path d="M386 147 V205 L330 195"/><path d="M383 256 A133 133 0 0 1 127 298"/><path d="M114 350 V294 H169"/></svg>
+              <p class="nw-stat__value"><span class="nw-stat__num">98</span><span class="nw-stat__sign nw-stat__sign--pct">%</span><span class="nw-stat__unit">이상</span></p>
+            </li>
+          </ul>
         </div>
+      </section>
 
-        <div class="form-block form-block--boxed">
-          <p class="form-block-title">원하는 서비스를 선택해주세요.</p>
-          <div class="service-grid" id="service-grid">
-            <label class="service-item">
-              <input type="checkbox" value="상세페이지 제작" />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">상세페이지 제작</span>
-            </label>
-            <label class="service-item">
-              <input type="checkbox" value="로고 디자인" />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">로고 디자인</span>
-            </label>
-            <label class="service-item">
-              <input type="checkbox" value="나무위키 등록" checked />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">나무위키 등록</span>
-            </label>
-            <label class="service-item">
-              <input type="checkbox" value="홈페이지형 블로그" />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">홈페이지형 블로그</span>
-            </label>
-            <label class="service-item">
-              <input type="checkbox" value="랜딩페이지 제작" />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">랜딩페이지 제작</span>
-            </label>
-            <label class="service-item">
-              <input type="checkbox" value="SNS광고" />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">SNS광고</span>
-            </label>
-            <label class="service-item">
-              <input type="checkbox" value="바이럴광고" />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">바이럴광고</span>
-            </label>
-            <label class="service-item">
-              <input type="checkbox" value="기타" />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">기타</span>
-            </label>
+      <!-- ===== OUR EXPERTISE ===== -->
+      <section class="nw-sec nw-expert">
+        <svg class="nw-expert__mark" viewBox="0 0 1000 646.2" aria-hidden="true"><path fill-rule="evenodd" d="M346.9 2.3 0.3 643.4 203.2 643.4 346.4 348.9 490 646 693 646ZM433.8 3.3 606.6 324.4 607.1 150.1 676.6 151.1 717.5 156.2 738.5 162.3 751.3 168.5 765.1 178.7 774.3 188.9 783.5 204.2 790.1 221.6 794.7 240.5 798.8 271.2 800.4 296.8 800.4 348.9 797.8 382.2 793.2 408.2 788.1 425.6 779.9 444 771.2 457.3 759.5 470.1 751.3 476.7 735.9 485.9 717.5 493.1 699.6 497.7 776.8 640.8 809 634.2 843.3 622.4 870.9 608.6 898.5 589.7 925.1 564.7 935.8 551.9 952.7 527.4 967 500.3 978.8 470.6 988.5 436.3 995.1 400.6 998.7 366.3 999.7 346.4 998.7 287.1 993.6 241.6 987.5 210.4 975.7 170.5 966 146.5 952.7 120.9 935.3 95.3 925.1 83.1 905.7 64.2 889.8 51.9 868.9 39.1 854 32 832.1 23.8 787.1 13 725.7 4.9 651.1 0.8 593.3 0.3Z"/></svg>
+        <div class="nw-wrap">
+          <div class="nw-eyebrow"><span class="nw-dash" aria-hidden="true"></span><p class="nw-eyebrow__label">OUR EXPERTISE</p></div>
+          <h2 class="nw-h2">나무위키는<br><em>전문적인 관리</em>가 <span class="nw-nowrap">필요합니다<i class="nw-dot" aria-hidden="true"></i></span></h2>
+          <p class="nw-desc">문서의 구조 설계부터 리스크 검토, 등록 이후의 모니터링까지 <br class="nw-br">체계적인 관리 역량을 바탕으로 접근합니다.</p>
+          <ul class="nw-cards">
+            <li class="nw-card">
+              <p class="nw-card__no">01</p>
+              <h3 class="nw-card__title">정확한 정보 설계</h3>
+              <p class="nw-card__text">편집 기준에 맞는 구조와 내용으로 <br class="nw-br">신뢰도 있는 문서를 구성합니다.</p>
+            </li>
+            <li class="nw-card">
+              <p class="nw-card__no">02</p>
+              <h3 class="nw-card__title">리스크 관리</h3>
+              <p class="nw-card__text">편향된 서술과 정보 오류, 분쟁 가능성을 <br class="nw-br">사전에 검토합니다.</p>
+            </li>
+            <li class="nw-card">
+              <p class="nw-card__no">03</p>
+              <h3 class="nw-card__title">지속적인 모니터링</h3>
+              <p class="nw-card__text">협의된 범위 내에서 문서의 변동 사항을 확인하고 <br class="nw-br">필요한 대응을 검토합니다.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== SERVICE SCOPE ===== -->
+      <section class="nw-sec nw-scope">
+        <div class="nw-wrap">
+          <div class="nw-eyebrow"><span class="nw-dash" aria-hidden="true"></span><p class="nw-eyebrow__label">SERVICE SCOPE</p></div>
+          <h2 class="nw-h2">브랜드 규모와 목적에 맞는<br><em>맞춤형 서비스</em>를 <span class="nw-nowrap">제공합니다<i class="nw-dot" aria-hidden="true"></i></span></h2>
+          <p class="nw-desc">대상의 이슈와 요구 사항에 따라 필요한 범위로 <br class="nw-br">유연하게 진행합니다.</p>
+          <div class="nw-stage" id="nw-stage">
+            <ol class="nw-tiers">
+              <li class="nw-tier is-active">
+                <p class="nw-tier__shape"><span>(High-Touch)</span><strong>전략형 운영</strong></p>
+                <div class="nw-tier__info">
+                  <span class="nw-tier__no" aria-hidden="true">01</span>
+                  <h3 class="nw-tier__title">고위험 이슈 및 대규모 브랜드 관리</h3>
+                  <p class="nw-tier__text">복합 이슈 대응과 장기적인 정보 전략이 필요한 기업·인물</p>
+                </div>
+              </li>
+              <li class="nw-tier">
+                <p class="nw-tier__shape"><span>(Growth)</span><strong>확장형 운영</strong></p>
+                <div class="nw-tier__info">
+                  <span class="nw-tier__no" aria-hidden="true">02</span>
+                  <h3 class="nw-tier__title">브랜드 신뢰도 강화 및 정보 확장</h3>
+                  <p class="nw-tier__text">브랜드 인지도 제고와 정보 정비가 필요한 기업·프로젝트</p>
+                </div>
+              </li>
+              <li class="nw-tier">
+                <p class="nw-tier__shape"><span>(Basic)</span><strong>기본형 운영</strong></p>
+                <div class="nw-tier__info">
+                  <span class="nw-tier__no" aria-hidden="true">03</span>
+                  <h3 class="nw-tier__title">기본 정보 정비 및 등록 지원</h3>
+                  <p class="nw-tier__text">핵심 정보 정리와 문서 등록 등 기본 관리가 필요한 경우</p>
+                </div>
+              </li>
+            </ol>
           </div>
         </div>
+      </section>
 
-        <div class="form-block form-block--boxed">
-          <p class="form-block-title">연락받을 방법을 선택해주세요.</p>
-          <p class="form-block-sub">원하시는 방법으로 연락드립니다.</p>
-          <div class="method-grid" id="method-grid" role="radiogroup" aria-label="연락방법">
-            <button type="button" class="method-item is-active" data-method="전화" aria-pressed="true">
-              <span class="method-check" aria-hidden="true"></span>
-              <span class="method-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-              </span>
-              <span class="method-text">
-                <span class="method-name">전화</span>
-                <span class="method-desc">유선으로 빠르게 상담</span>
-              </span>
-            </button>
-            <button type="button" class="method-item" data-method="카카오톡" aria-pressed="false">
-              <span class="method-check" aria-hidden="true"></span>
-              <span class="method-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 4C7 4 3 7.2 3 11.2c0 2.5 1.6 4.7 4.1 6L6 21l4-2.6c.7.1 1.3.2 2 .2 5 0 9-3.2 9-7.4S17 4 12 4Z" />
-                </svg>
-              </span>
-              <span class="method-text">
-                <span class="method-name">카카오톡</span>
-                <span class="method-desc">카톡으로 편하게 상담</span>
-              </span>
-            </button>
-            <button type="button" class="method-item" data-method="이메일" aria-pressed="false">
-              <span class="method-check" aria-hidden="true"></span>
-              <span class="method-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path d="m3 7 9 6 9-6" />
-                </svg>
-              </span>
-              <span class="method-text">
-                <span class="method-name">이메일</span>
-                <span class="method-desc">이메일로 자세한 안내</span>
-              </span>
-            </button>
-            <button type="button" class="method-item" data-method="상관없음" aria-pressed="false">
-              <span class="method-check" aria-hidden="true"></span>
-              <span class="method-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M8 12h8M12 8v8" />
-                </svg>
-              </span>
-              <span class="method-text">
-                <span class="method-name">상관없음</span>
-                <span class="method-desc">편한 방법으로 연락</span>
-              </span>
-            </button>
+      <!-- ===== CTA ===== -->
+      <section class="nw-sec nw-cta" id="contact">
+        <div class="nw-wrap">
+          <h2 class="nw-cta__title">브랜드를 이해하는 정보,<br><em>체계적인 기획</em>에서 시작됩니다<em>.</em></h2>
+          <div class="nw-cta__row">
+            <p class="nw-cta__text">나무위키 문서 작성 가능성부터 정보 검토와 기획까지, <br class="nw-br">애드코드와 함께 시작하세요.</p>
+            <a class="nw-btn" href="#contact" data-open-contact>
+              <span>나무위키 상담하기</span>
+              <svg class="nw-btn__arrow" viewBox="0 0 38.4 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M0 12.7H36.9L24.8.7"/></svg>
+            </a>
           </div>
         </div>
+      </section>
 
-        <div class="consents">
-          <label class="consent">
-            <input type="checkbox" name="개인정보_동의" required />
-            <span class="cbox" aria-hidden="true"></span>
-            <span class="ctxt">개인정보 수집 및 이용에 동의합니다</span>
-          </label>
-          <label class="consent">
-            <input type="checkbox" name="정보제공_동의" required />
-            <span class="cbox" aria-hidden="true"></span>
-            <span class="ctxt">원활한 상담 진행을 위해 정보 제공에 동의합니다</span>
-          </label>
-          <label class="brochure-note">회사소개서가 필요하신가요? 이메일을 남겨주시면 회사소개서를 보내드립니다.</label>
+      <!-- ===== WHY ADCODE ===== -->
+      <section class="nw-sec nw-why">
+        <div class="nw-wrap">
+          <div class="nw-eyebrow"><span class="nw-dash" aria-hidden="true"></span><p class="nw-eyebrow__label">WHY ADCODE</p></div>
+          <div class="nw-why__panel">
+            <p class="nw-why__kicker">ADCODE APPROACH</p>
+            <h2 class="nw-why__title">정보에는 근거가,<br>문서에는 <em>기획이 필요합니다.</em></h2>
+            <p class="nw-why__sub">애드코드는 자료의 양보다 정보의 근거와 문서 구성을 먼저 검토합니다.</p>
+          </div>
+          <div class="nw-tree" aria-hidden="true"><i class="nw-tree__stem"></i><i class="nw-tree__bar"></i><i class="nw-tree__drop nw-tree__drop--l"></i><i class="nw-tree__drop nw-tree__drop--r"></i></div>
+          <ul class="nw-cards">
+            <li class="nw-card">
+              <i class="nw-node" aria-hidden="true"></i>
+              <p class="nw-badge">01</p>
+              <h3 class="nw-card__title">작성 기준 검토</h3>
+              <p class="nw-card__text">대상별 등재 기준과 기존 문서 현황을 확인해 <br class="nw-br">작성 가능 범위를 검토합니다.</p>
+            </li>
+            <li class="nw-card">
+              <i class="nw-node" aria-hidden="true"></i>
+              <p class="nw-badge">02</p>
+              <h3 class="nw-card__title">공개 자료 확인</h3>
+              <p class="nw-card__text">공식 자료와 언론 보도 등 신뢰할 수 있는 <br class="nw-br">공개 출처를 확인하고 정보를 선별합니다.</p>
+            </li>
+            <li class="nw-card">
+              <i class="nw-node" aria-hidden="true"></i>
+              <p class="nw-badge">03</p>
+              <h3 class="nw-card__title">맞춤 문서 설계</h3>
+              <p class="nw-card__text">대상의 특성을 고려해 목차를 설계하고 <br class="nw-br">객관적인 서술 방향을 기획합니다.</p>
+            </li>
+          </ul>
         </div>
+      </section>
 
-        <div class="form-submit">
-          <button type="submit" class="submit-btn submit-btn--block">
-            <span>문의하기</span>
-            <span class="arrow" aria-hidden="true">→</span>
-          </button>
+      <!-- ===== OUR PROCESS ===== -->
+      <section class="nw-sec nw-proc">
+        <div class="nw-wrap">
+          <div class="nw-eyebrow"><span class="nw-dash" aria-hidden="true"></span><p class="nw-eyebrow__label">OUR PROCESS</p></div>
+          <h2 class="nw-h2 nw-h2--md">검토부터 관리까지, <em>체계적</em>으로 진행합니다<em>.</em></h2>
+          <p class="nw-desc">문서의 현황 분석부터 작성 및 사후 점검까지, 단계별 기준에 맞춰 진행합니다.</p>
+          <ol class="nw-steps">
+            <li class="nw-step">
+              <h3 class="nw-step__title"><svg class="nw-step__icon nw-ico" viewBox="0 0 500 500" stroke-width="34" aria-hidden="true"><path d="M222 82 A140 140 0 1 0 222 362 A140 140 0 1 0 222 82 Z"/><path d="M323 323 L420 420"/></svg>현황 분석</h3>
+              <p class="nw-step__text">기존 문서와 관련 이슈를 <br class="nw-br">검토합니다.</p>
+            </li>
+            <li class="nw-step">
+              <h3 class="nw-step__title"><svg class="nw-step__icon nw-ico" viewBox="0 0 500 500" stroke-width="34" aria-hidden="true"><path d="M119 88 H381 A44 44 0 0 1 425 132 V368 A44 44 0 0 1 381 412 H119 A44 44 0 0 1 75 368 V132 A44 44 0 0 1 119 88 Z"/><path d="M75 200 H425"/><path d="M215 200 V412"/></svg>구조 설계</h3>
+              <p class="nw-step__text">편집 기준에 맞는 <br class="nw-br">문서 구조를 기획합니다.</p>
+            </li>
+            <li class="nw-step">
+              <h3 class="nw-step__title"><svg class="nw-step__icon nw-ico" viewBox="0 0 500 500" stroke-width="34" aria-hidden="true"><path d="M86 414 L112 306 L326 92 Q352 66 378 92 L408 122 Q434 148 408 174 L194 388 Z"/><path d="M286 132 L368 214"/></svg>작성·수정</h3>
+              <p class="nw-step__text">검토된 자료로 문서 작성 <br class="nw-br">및 보완을 진행합니다.</p>
+            </li>
+            <li class="nw-step is-active">
+              <h3 class="nw-step__title"><svg class="nw-step__icon nw-ico" viewBox="0 0 500 500" stroke-width="34" aria-hidden="true"><path d="M249.5 299.5 V88"/><path d="M166 163 L249.5 86 L333 163"/><path d="M74.5 285 V369 A44 44 0 0 0 118.5 413 H380.5 A44 44 0 0 0 424.5 369 V285"/></svg>등록</h3>
+              <p class="nw-step__text">나무위키 규정에 따라 <br class="nw-br">문서 반영을 진행합니다.</p>
+            </li>
+            <li class="nw-step">
+              <h3 class="nw-step__title"><svg class="nw-step__icon nw-ico" viewBox="0 0 500 500" stroke-width="34" aria-hidden="true"><path d="M250 70 L402 128 V246 C402 342 338 400 250 432 C162 400 98 342 98 246 V128 Z"/><path d="M184 250 L232 298 L320 206"/></svg>사후 점검</h3>
+              <p class="nw-step__text">변경 사항 모니터링 및 <br class="nw-br">지속 관리를 진행합니다.</p>
+            </li>
+          </ol>
+          <ol class="nw-timeline" aria-hidden="true">
+            <li><i class="nw-node"></i>현황 분석</li>
+            <li><i class="nw-node"></i>구조 설계</li>
+            <li><i class="nw-node"></i>작성·수정</li>
+            <li class="is-active"><i class="nw-node"></i>등록</li>
+            <li><i class="nw-node"></i>사후 점검</li>
+          </ol>
         </div>
+      </section>
 
-      </form>
-    </section>
+      <!-- ===== 마무리 ===== -->
+      <section class="nw-sec nw-outro">
+        <div class="nw-wrap nw-outro__grid">
+          <div class="nw-outro__copy">
+            <p class="nw-outro__kicker">브랜드의 다음 가능성,</p>
+            <h2 class="nw-outro__title">애드코드와 함께 시작하세요<em>.</em></h2>
+            <p class="nw-outro__text">전략부터 실행까지, 애드코드의 전문성과 서비스를 확인해보세요.</p>
+            <a class="nw-btn nw-btn--sm" href="#contact" data-open-contact>
+              <span>소개서 요청하기</span>
+              <svg class="nw-btn__arrow" viewBox="0 0 38.4 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M0 12.7H36.9L24.8.7"/></svg>
+            </a>
+          </div>
+          <nav aria-label="바로가기">
+            <ul class="nw-outro__menu">
+              <li><a href="/about">ABOUT<i>.</i></a></li>
+              <li><a href="/media-network">SERVICES<i>.</i></a></li>
+              <li><a href="/portfolio">WORKS<i>.</i></a></li>
+              <li><a href="/brand-namuwiki" aria-current="page">WIKI<i>.</i></a></li>
+              <li><a href="#contact" data-open-contact>CONTACT<svg viewBox="0 0 1000 1000.4" aria-hidden="true"><path d="M0 835.3 611.2 224.1H154.8L156.6 0H1000V843.4H774.1L775.4 388.8L164.2 1000.4Z"/></svg></a></li>
+            </ul>
+          </nav>
+        </div>
+      </section>
 
-  </main>
+    </main>
+  </div>
 
-  <!-- ============================== FOOTER ============================== -->
   <footer class="footer">
     <div class="footer-main">
       <div class="left">
@@ -388,12 +310,10 @@
     </div>
   </footer>
 
-  <!-- ====================== FLOATING WIDGET RAIL ====================== -->
   <nav class="rail" aria-label="Quick links">
-    <a href="#contact" aria-label="문의하기">
+    <a href="#contact" data-open-contact aria-label="문의하기">
       <svg viewBox="0 0 24 24">
-        <path
-          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
       </svg>
       <span class="tip">문의하기</span>
     </a>
@@ -408,8 +328,7 @@
     <a href="https://pf.kakao.com/_myebn/chat" target="_blank" rel="noopener" class="kakao" aria-label="카카오톡 채널">
       <span class="bubble">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            d="M12 4C7.03 4 3 7.13 3 11c0 2.48 1.66 4.65 4.16 5.88L6.3 20c-.07.25.21.45.42.3l3.74-2.45c.5.07 1.02.1 1.54.1 4.97 0 9-3.13 9-7s-4.03-7-9-7Z" />
+          <path d="M12 4C7.03 4 3 7.13 3 11c0 2.48 1.66 4.65 4.16 5.88L6.3 20c-.07.25.21.45.42.3l3.74-2.45c.5.07 1.02.1 1.54.1 4.97 0 9-3.13 9-7s-4.03-7-9-7Z" />
         </svg>
         <span class="talk">TALK</span>
       </span>
@@ -417,92 +336,54 @@
     </a>
   </nav>
 
-  <!-- ====================== POLICY / SUCCESS MODALS ====================== -->
   <div class="policy-modal" id="modal-terms" role="dialog" aria-modal="true" aria-label="이용약관">
     <div class="modal-box">
       <button class="modal-close" data-close aria-label="닫기">&times;</button>
       <h2>이용약관</h2>
-      <h3>제1조 (목적)</h3>
-      <p>이 약관은 애드코드마케팅(이하 "회사")이 제공하는 서비스의 이용 조건 및 절차, 그리고 회사와 이용자 간의 권리, 의무 및 책임 사항을 규정하는 것을 목적으로 합니다.</p>
+      <p>이 약관은 애드코드마케팅(이하 "회사")이 제공하는 서비스의 이용 조건 및 절차를 규정합니다.</p>
     </div>
   </div>
-
   <div class="policy-modal" id="modal-privacy" role="dialog" aria-modal="true" aria-label="개인정보 처리방침">
     <div class="modal-box">
       <button class="modal-close" data-close aria-label="닫기">&times;</button>
       <h2>개인정보 처리방침</h2>
-      <h3>1. 개인정보 수집 및 이용 목적</h3>
-      <p>애드코드마케팅(이하 "회사")은 다음의 목적을 위해 개인정보를 처리합니다.</p>
+      <p>회사는 관련 법령에 따라 이용자의 개인정보를 보호합니다.</p>
     </div>
   </div>
-
   <div class="policy-modal" id="modal-cookie" role="dialog" aria-modal="true" aria-label="쿠키 정책">
     <div class="modal-box">
       <button class="modal-close" data-close aria-label="닫기">&times;</button>
       <h2>쿠키 정책</h2>
-      <h3>1. 쿠키 사용 목적</h3>
-      <p>회사는 이용자 경험 향상을 위해 쿠키를 사용할 수 있습니다.</p>
-    </div>
-  </div>
-
-  <div class="policy-modal" id="modal-success" role="dialog" aria-modal="true" aria-label="전송 완료">
-    <div class="modal-box modal-box--center">
-      <button class="modal-close" data-close aria-label="닫기">&times;</button>
-      <h2>전송이 완료되었습니다</h2>
-      <p>문의해주셔서 감사합니다.<br />빠른 시일 내에 답변 드리겠습니다.</p>
-      <button class="submit-btn" data-close style="margin-top:20px;">확인</button>
+      <p>회사는 서비스 개선을 위해 쿠키를 사용할 수 있습니다.</p>
     </div>
   </div>
 
   <script>
     (function () {
-      const servicesInput = document.getElementById('services-input');
-      const serviceGrid = document.getElementById('service-grid');
-      if (serviceGrid && servicesInput) {
-        const syncServices = () => {
-          const selected = [...serviceGrid.querySelectorAll('input[type="checkbox"]:checked')]
-            .map((el) => el.value);
-          servicesInput.value = selected.join(', ');
-        };
-        serviceGrid.addEventListener('change', syncServices);
-        syncServices();
-      }
-
-      const methodInput = document.getElementById('contact-method-input');
-      const methodGrid = document.getElementById('method-grid');
-      if (methodGrid && methodInput) {
-        methodGrid.addEventListener('click', (e) => {
-          const btn = e.target.closest('.method-item');
-          if (!btn) return;
-          [...methodGrid.querySelectorAll('.method-item')].forEach((el) => {
-            const on = el === btn;
-            el.classList.toggle('is-active', on);
-            el.setAttribute('aria-pressed', on ? 'true' : 'false');
-          });
-          methodInput.value = btn.dataset.method || '';
-        });
-      }
-    })();
-
-    (function () {
       const open = (id) => document.getElementById(id)?.classList.add('open');
-      const closeAll = () => document.querySelectorAll('.policy-modal.open').forEach(m => m.classList.remove('open'));
-      document.querySelectorAll('.legal-link').forEach(link => {
-        link.addEventListener('click', (e) => { e.preventDefault(); open('modal-' + link.dataset.modal); });
+      const closeAll = () => document.querySelectorAll('.policy-modal.open').forEach((m) => m.classList.remove('open'));
+      document.querySelectorAll('.legal-link').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          open('modal-' + link.dataset.modal);
+        });
       });
-      document.querySelectorAll('.policy-modal').forEach(modal => {
+      document.querySelectorAll('.policy-modal').forEach((modal) => {
         modal.addEventListener('click', (e) => {
           if (e.target === modal || e.target.closest('[data-close]')) closeAll();
         });
       });
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeAll();
+      });
       window.__openModal = open;
     })();
   </script>
-
+  <script src="/namuwiki.js?v=1"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="/assets/js/supabase-config.js"></script>
   <script src="/assets/js/supabase-client.js"></script>
+  <script src="/contact-modal.js?v=2"></script>
   <script src="/assets/js/contact-form.js"></script>
 
 </body>

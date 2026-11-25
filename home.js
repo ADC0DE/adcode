@@ -32,7 +32,7 @@
       heroSection.style.removeProperty('--home-hero-split');
       return;
     }
-    const brandLink = document.querySelector('.gnb .nav > .nav-item:first-child > a');
+    const brandLink = document.querySelector('.gnb .nav > a.nav-link:first-child');
     if (!brandLink || getComputedStyle(brandLink).display === 'none') {
       heroSection.style.removeProperty('--home-hero-split');
       return;

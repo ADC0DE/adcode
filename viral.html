@@ -1,10 +1,10 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ko">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="애드코드(ADCODE) 바이럴 마케팅 — 자연스럽게 퍼지는 입소문, 구매로 이어지는 바이럴 마케팅">
+  <meta name="description" content="브랜드와 타깃에 맞는 커뮤니티를 고르고, 채널의 언어로 이야기를 설계하는 애드코드의 커뮤니티 바이럴 마케팅.">
   <link rel="icon" href="adcode_fabicon.jpg" type="image/jpeg">
   <meta property="og:image" content="https://adcode.co.kr/adcode_logo.jpg">
   <title>바이럴 마케팅 | 애드코드(ADCODE)</title>
@@ -12,357 +12,397 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <script>document.documentElement.className += ' js';</script>
 
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/style.css?v=nav-bilingual" />
+  <link rel="stylesheet" href="/viral-community.css?v=gnb-align" />
+  <link rel="stylesheet" href="/contact-modal.css?v=3" />
   <script src="/nav.js" defer></script>
-  <script src="/reveal.js" defer></script>
-
 </head>
 
-<body>
+<body class="page-viral" data-contact-service="바이럴">
 
-  <!-- ============================== GNB ============================== -->
   <header class="gnb" data-screen-label="GNB">
     <a href="/" class="brand" aria-label="ADCODE home">
       <img src="/public/logo/ad_code_logo.png" alt="애드코드 ADCODE" />
     </a>
 
     <nav class="nav" aria-label="Primary">
-      <div class="nav-item has-dropdown">
-        <a href="#">BRAND PACKAGE</a>
-        <div class="dropdown">
-          <a href="/brand-logo">로고</a>
-          <a href="/brand-namuwiki">나무위키</a>
-          <a href="/brand-homepage-blog">홈페이지형 블로그</a>
-        </div>
-      </div>
-      <div class="nav-item has-dropdown">
-        <a href="#">DESIGN</a>
-        <div class="dropdown">
-          <a href="/design-sns">SNS</a>
-          <a href="/design-detail">상세페이지</a>
-        </div>
-      </div>
-      <a href="/viral" class="is-active" aria-current="page">VIRAL</a>
-      <div class="nav-item has-dropdown">
-        <a href="#">CONTENT</a>
-        <div class="dropdown">
-          <a href="/content-blog">블로그운영</a>
-          <a href="/content-instagram">인스타운영</a>
-          <a href="/content-movie">무비미디어</a>
-        </div>
-      </div>
+      <a class="nav-link" href="/media-network">
+        <span class="nav-link__en">Media Network</span>
+        <span class="nav-link__ko">미디어 네트워크</span>
+      </a>
+      <a class="nav-link" href="/total-marketing">
+        <span class="nav-link__en">Total Marketing</span>
+        <span class="nav-link__ko">종합 마케팅</span>
+      </a>
+      <a class="nav-link is-active" href="/viral" aria-current="page">
+        <span class="nav-link__en">Viral</span>
+        <span class="nav-link__ko">바이럴</span>
+      </a>
+      <a class="nav-link" href="/brand-namuwiki">
+        <span class="nav-link__en">Wiki</span>
+        <span class="nav-link__ko">나무위키</span>
+      </a>
+      <a class="nav-link" href="#">
+        <span class="nav-link__en">Medical Marketing</span>
+        <span class="nav-link__ko">병원 마케팅</span>
+      </a>
     </nav>
+
+    <a href="#contact" class="gnb-contact home-btn home-btn--fill" data-open-contact>
+      <span>CONTACT</span>
+      <span class="ext" aria-hidden="true">↗</span>
+    </a>
 
     <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </header>
 
-  <main class="design-sns viral-page">
+<main id="main">
 
-    <!-- ============================== HERO ============================== -->
-    <section class="sns-hero" data-screen-label="01 Viral Hero">
-      <div class="sns-hero-copy">
-        <p class="sns-hero-label">VIRAL MARKETING</p>
-        <h1 class="sns-hero-title">
-          입소문을 만들고<br />
-          <span class="red">구매</span>를 연결합니다
-        </h1>
-        <span class="sns-hero-rule" aria-hidden="true"></span>
-        <p class="sns-hero-desc">
-          브랜드의 가치와 방향을 담아<br />
-          오래 기억되는 첫인상을 만듭니다.
-        </p>
-        <div class="viral-tags reveal" data-delay="1">
-          <span class="viral-tag">#핫딜</span>
-          <span class="viral-tag">#쇼핑정보</span>
-          <span class="viral-tag">#맘카페</span>
-          <span class="viral-tag">#후기</span>
-        </div>
+<!-- ================= HERO ================= -->
+<section class="cv-hero">
+  <div class="cv-hero__copy">
+    <p class="cv-kicker cv-hero__fade">Community Viral</p>
+    <h1 class="cv-hero__headline">
+      <span class="cv-sr">커뮤니티 바이럴 마케팅</span>
+      <span class="l"><span>We make</span></span>
+      <span class="l"><span class="cv-red">People</span></span>
+      <span class="l"><span>Matter<i class="cv-dot">.</i></span></span>
+    </h1>
+    <a class="cv-btn cv-btn--fill cv-btn--lg cv-hero__fade" href="#contact" data-open-contact>
+      <span>프로젝트 문의하기</span>
+      <svg class="ico-arrow" viewBox="0 0 30 14" fill="none" aria-hidden="true"><path d="M1 7h28M23 1.5 29 7l-6 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+  <!-- 인기글 보드: [YOUR BRAND] 행이 7위에서 1위로 올라가는 연출. 다른 행은 평범한 일상 글(임시) -->
+  <div class="cv-hero__board">
+    <div class="cv-board" role="img" aria-label="커뮤니티 인기글 예시 화면. 브랜드 게시글이 7위에서 1위로 올라갑니다.">
+      <div class="cv-board__head"><strong>커뮤니티 인기글</strong><span class="cv-board__note">예시 화면</span></div>
+      <div class="cv-board__cols"><span>순위</span><span>제목</span><span>조회</span><span>댓글</span></div>
+      <div class="cv-board__list">
+        <div class="cv-board__ranks"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span></div>
+        <ol>
+          <li class="cv-row" style="--i:0"><span class="cv-row__title"><b>[일상]</b>퇴근길 노을 사진 올려요</span><span class="cv-row__num">48,210</span><span class="cv-row__num cv-row__cmt">312</span></li>
+          <li class="cv-row" style="--i:1"><span class="cv-row__title"><b>[질문]</b>주말에 아이랑 갈 만한 곳</span><span class="cv-row__num">41,087</span><span class="cv-row__num cv-row__cmt">286</span></li>
+          <li class="cv-row" style="--i:2"><span class="cv-row__title"><b>[정보]</b>이번 주 장보기 물가 정리</span><span class="cv-row__num">36,554</span><span class="cv-row__num cv-row__cmt">201</span></li>
+          <li class="cv-row" style="--i:3"><span class="cv-row__title"><b>[후기]</b>동네에 새로 생긴 빵집</span><span class="cv-row__num">29,930</span><span class="cv-row__num cv-row__cmt">174</span></li>
+          <li class="cv-row" style="--i:4"><span class="cv-row__title"><b>[일상]</b>요즘 다들 뭐 보세요?</span><span class="cv-row__num">22,418</span><span class="cv-row__num cv-row__cmt">143</span></li>
+          <li class="cv-row" style="--i:5"><span class="cv-row__title"><b>[질문]</b>이사 준비 체크리스트</span><span class="cv-row__num">18,077</span><span class="cv-row__num cv-row__cmt">96</span></li>
+          <li class="cv-row cv-row--brand" style="--i:6"><span class="cv-row__title"><b>[YOUR BRAND]</b><em class="cv-row__up">▲<span>0</span></em>지금 화제인 이야기</span><span class="cv-row__num" data-views>9,204</span><span class="cv-row__num cv-row__cmt" data-cmts>58</span></li>
+        </ol>
       </div>
-      <div class="sns-hero-visual reveal">
-        <img src="/public/viral/KakaoTalk_20260806_164238677.png" alt="바이럴 마케팅 미리보기" />
+      <p class="cv-board__cap">이야기가 인기글이 되기까지, 그 흐름을 설계합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY ================= -->
+<section class="cv-why">
+  <div class="cv-wrap">
+    <p class="cv-kicker cv-reveal">Why Community</p>
+    <!-- 스크롤에 따라 단어가 순서대로 채워짐. <em> 안쪽은 레드 -->
+    <p class="cv-statement">
+      <span class="s">소비자의 <em>질문과 후기</em>가 오가는 커뮤니티.</span>
+      <span class="s">애드코드는 그 안의 <em>언어와 흐름</em>을 읽고 설계합니다.</span>
+    </p>
+
+    <div class="cv-why__grid">
+      <div class="cv-why__body cv-reveal">
+        <p class="cv-lead">노출을 넘어, <span class="cv-red">대화</span>를 만듭니다.</p>
+        <p>브랜드와 타깃에 적합한 커뮤니티를 전략적으로 선정하고,<br class="cv-br"> 채널별 특성·문화에 맞춰 콘텐츠를 기획·집행합니다.<br class="cv-br"> 노출부터 유입, 구매 전환까지 흐름을 설계합니다.</p>
       </div>
-    </section>
+      <!-- TODO: 임시 수치 — 실제 수치로 교체 (data-count 값과 본문 숫자를 함께 수정) -->
+      <dl class="cv-stats cv-reveal">
+        <div class="cv-stat"><dt>집행 가능한 제휴 커뮤니티</dt><dd><span data-count="120">120</span><i>+</i></dd></div>
+        <div class="cv-stat"><dt>월평균 집행 콘텐츠</dt><dd><span data-count="1500">1,500</span><i>+</i></dd></div>
+        <div class="cv-stat"><dt>성과 리포트 공유 주기</dt><dd><span data-count="7">7</span><small>일</small></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
 
-    <!-- ============================== PITCH ============================== -->
-    <section class="page-pitch" data-screen-label="01b Viral Pitch">
-      <div class="page-pitch-inner">
-        <h2 class="page-pitch-title reveal">사람들은 광고보다 <span class="red">사람들의 이야기를 믿습니다</span></h2>
-        <div class="page-pitch-body reveal">
-          <p>좋은 바이럴은 단순히 많이 노출되는 것이 아닙니다.</p>
-          <p>브랜드와 맞는 채널을 찾고,<br />사람들이 공감할 수 있는 흐름을 만드는 것이 중요합니다.</p>
-          <p>애드코드는 브랜드의 특성과 목적에 맞춰,<br />신뢰가 이어질 수 있는 바이럴을 함께 설계합니다.</p>
-        </div>
+<!-- ================= CHANNEL ================= -->
+<section class="cv-ch">
+  <div class="cv-wrap">
+    <div class="cv-reveal">
+      <p class="cv-kicker cv-kicker--bright">Channel</p>
+      <h2 class="cv-ch__title">브랜드를<br><span class="cv-nowrap"><span class="cv-slot"><i>[</i><span class="cv-slot__box"><span class="cv-slot__word">맘카페</span></span><i>]</i></span>의</span> <span class="cv-nowrap">화제로<span class="cv-dot">.</span></span></h2>
+    </div>
+
+    <!-- data-slot = 제목의 대괄호 안에 들어갈 말 (7자 이내 권장) -->
+    <ul class="cv-ch__list">
+      <li class="cv-ch__row is-active" data-slot="맘카페">
+        <h3>맘카페·육아 커뮤니티</h3>
+        <p>실제 경험과 후기를 바탕으로 구매와 추천이 이루어지는 채널입니다.</p>
+        <dl><dt>잘 맞는 업종</dt><dd>유아동, 식품, 생활용품, 교육</dd></dl>
+        <dl><dt>주요 콘텐츠</dt><dd>체험단 후기, 정보형 콘텐츠</dd></dl>
+      </li>
+      <li class="cv-ch__row" data-slot="지역 커뮤니티">
+        <h3>지역 기반 커뮤니티</h3>
+        <p>지역 정보와 생활 소식이 방문 및 예약으로 이어지는 채널입니다.</p>
+        <dl><dt>잘 맞는 업종</dt><dd>요식업, 학원, 뷰티숍, 생활 서비스</dd></dl>
+        <dl><dt>주요 콘텐츠</dt><dd>오픈 소식, 이벤트, 방문 후기</dd></dl>
+      </li>
+      <li class="cv-ch__row" data-slot="종합 커뮤니티">
+        <h3>대형 종합 커뮤니티</h3>
+        <p>다양한 이슈가 빠르게 확산되고 폭넓은 관심을 얻는 채널입니다.</p>
+        <dl><dt>잘 맞는 업종</dt><dd>신제품 런칭, 앱·서비스, 엔터테인먼트</dd></dl>
+        <dl><dt>주요 콘텐츠</dt><dd>이슈형 콘텐츠, 핫딜, 이벤트</dd></dl>
+      </li>
+      <li class="cv-ch__row" data-slot="뷰티 카페">
+        <h3>뷰티·패션 커뮤니티</h3>
+        <p>성분과 사용감을 비교하며 솔직한 후기를 공유하는 채널입니다.</p>
+        <dl><dt>잘 맞는 업종</dt><dd>화장품, 패션, 헤어·네일</dd></dl>
+        <dl><dt>주요 콘텐츠</dt><dd>사용 후기, 비교 리뷰, 체험단</dd></dl>
+      </li>
+      <li class="cv-ch__row" data-slot="테크 포럼">
+        <h3>IT·테크·게임 커뮤니티</h3>
+        <p>제품의 성능과 사용 경험을 중심으로 정보를 공유하는 채널입니다.</p>
+        <dl><dt>잘 맞는 업종</dt><dd>전자기기, 앱·게임, 구독 서비스</dd></dl>
+        <dl><dt>주요 콘텐츠</dt><dd>사용기, 정보 정리, 질의응답</dd></dl>
+      </li>
+      <li class="cv-ch__row" data-slot="취미 카페">
+        <h3>재테크·자동차·취미 카페</h3>
+        <p>공통 관심사를 바탕으로 깊이 있는 정보와 의견을 나누는 채널입니다.</p>
+        <dl><dt>잘 맞는 업종</dt><dd>금융, 자동차 용품, 레저·취미</dd></dl>
+        <dl><dt>주요 콘텐츠</dt><dd>정보형 콘텐츠, 제휴 이벤트</dd></dl>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="cv-proc">
+  <div class="cv-wrap cv-proc__grid">
+    <div class="cv-proc__aside">
+      <div class="cv-reveal">
+        <p class="cv-kicker">Process</p>
+        <h2 class="cv-title">글 하나가<br>화제가 되기까지<span class="cv-dot">.</span></h2>
+        <p class="cv-proc__desc">채널 선정부터 콘텐츠 기획과 집행, 성과 분석까지,<br class="cv-br"> 하나의 흐름으로 체계적으로 연결합니다.</p>
       </div>
-    </section>
-
-    <!-- ============================== BRAND PARTNERS ============================== -->
-    <section class="viral-brands" data-screen-label="02 Brand Partners">
-      <header class="viral-brands-head">
-        <p class="viral-brands-eyebrow reveal">함께한 브랜드</p>
-        <h2 class="viral-brands-title reveal">다양한 브랜드가 애드코드와 함께하고 있습니다</h2>
-        <p class="viral-brands-desc reveal">스타트업부터 대기업까지, 업종을 불문하고 많은 브랜드가 선택한 결과입니다.</p>
-      </header>
-
-      <div class="viral-brands-grid">
-        <div class="viral-brands-row">
-          <div class="viral-brand-card reveal" data-delay="1">
-            <img src="/public/viral/로고_01_LH.png" alt="LH" loading="lazy" />
-          </div>
-          <div class="viral-brand-card reveal" data-delay="2">
-            <img src="/public/viral/로고_02_코스트코.png" alt="코스트코" loading="lazy" />
-          </div>
-          <div class="viral-brand-card reveal" data-delay="3">
-            <img src="/public/viral/로고_03_락토핏.png" alt="락토핏" loading="lazy" />
-          </div>
-          <div class="viral-brand-card reveal" data-delay="4">
-            <img src="/public/viral/로고_04_샤크%20닌자.png" alt="샤크 닌자" loading="lazy" />
-          </div>
-          <div class="viral-brand-card reveal" data-delay="5">
-            <img src="/public/viral/로고_05_폰타나.png" alt="폰타나" loading="lazy" />
-          </div>
-        </div>
-        <div class="viral-brands-row">
-          <div class="viral-brand-card reveal" data-delay="1">
-            <img src="/public/viral/로고_06_안심밥상.png" alt="안심밥상" loading="lazy" />
-          </div>
-          <div class="viral-brand-card reveal" data-delay="2">
-            <img src="/public/viral/로고_07_우듬지팜.png" alt="우듬지팜" loading="lazy" />
-          </div>
-          <div class="viral-brand-card reveal" data-delay="3">
-            <img src="/public/viral/로고_08_널담.png" alt="널담" loading="lazy" />
-          </div>
-          <div class="viral-brand-card reveal" data-delay="4">
-            <img src="/public/viral/로고_09_오바코.png" alt="오바코" loading="lazy" />
-          </div>
-          <div class="viral-brand-card reveal" data-delay="5">
-            <img src="/public/viral/로고_10_에너자이저.png" alt="에너자이저" loading="lazy" />
-          </div>
-        </div>
-        <div class="viral-brands-row viral-brands-row--fade">
-          <div class="viral-brand-card reveal" data-delay="1">
-            <img src="/public/viral/로고_11_DUDA.png" alt="DUDA" loading="lazy" />
-          </div>
-          <div class="viral-brand-card reveal" data-delay="2">
-            <img src="/public/viral/로고_12_외할머니%20밥상.png" alt="외할머니 밥상" loading="lazy" />
-          </div>
-          <div class="viral-brand-card reveal" data-delay="3">
-            <img src="/public/viral/로고_13_복음자리.png" alt="복음자리" loading="lazy" />
-          </div>
-          <div class="viral-brand-card reveal" data-delay="4">
-            <img src="/public/viral/로고_14_캘로그.png" alt="캘로그" loading="lazy" />
-          </div>
-          <div class="viral-brand-card reveal" data-delay="5">
-            <img src="/public/viral/로고_15_무신사.png" alt="무신사" loading="lazy" />
-          </div>
-        </div>
-        <div class="viral-brands-row viral-brands-row--more" hidden>
-          <div class="viral-brand-card" data-delay="1">
-            <img class="viral-logo-fit viral-logo-fit--more" src="/public/viral/%EB%A1%9C%EA%B3%A0_01_%EB%AA%A8%EC%96%B4%EB%84%A4%EC%9D%B4%EC%B2%98.png" alt="모어네이처" loading="lazy" />
-          </div>
-          <div class="viral-brand-card" data-delay="2">
-            <img class="viral-logo-fit viral-logo-fit--jachi" src="/public/viral/%EB%A1%9C%EA%B3%A0_02_%EC%9E%90%EC%B7%A8%EC%84%B8%EB%81%BC.png" alt="자취세끼" loading="lazy" />
-          </div>
-          <div class="viral-brand-card" data-delay="3">
-            <img class="viral-logo-fit viral-logo-fit--sanji" src="/public/viral/%EB%A1%9C%EA%B3%A0_03_%EC%82%B0%EC%A7%80%EB%8F%84%EB%A7%A4%EC%84%BC%ED%84%B0.png" alt="산지도매센터" loading="lazy" />
-          </div>
-          <div class="viral-brand-card" data-delay="4">
-            <img class="viral-logo-fit viral-logo-fit--ogam" src="/public/viral/%EB%A1%9C%EA%B3%A0_04_%EC%98%A4%EA%B0%90%EC%8B%9D%ED%83%81.png" alt="오감식탁" loading="lazy" />
-          </div>
-          <div class="viral-brand-card" data-delay="5">
-            <img class="viral-logo-fit viral-logo-fit--renu" src="/public/viral/%EB%A1%9C%EA%B3%A0_05_%EB%A6%AC%EB%89%B4.png" alt="리뉴" loading="lazy" />
-          </div>
-        </div>
-        <div class="viral-brands-row viral-brands-row--more" hidden>
-          <div class="viral-brand-card" data-delay="6">
-            <img class="viral-logo-fit viral-logo-fit--morning" src="/public/viral/%EB%A1%9C%EA%B3%A0_05_%EC%95%84%EC%B9%A8%EC%9D%B4%EC%8A%AC%EB%86%8D%EC%9B%90.png" alt="아침이슬농원" loading="lazy" />
-          </div>
-        </div>
+      <!-- 눈금자: 지금 보고 있는 단계 위치를 표시 -->
+      <div class="cv-ruler" aria-hidden="true">
+        <p class="cv-ruler__count"><b>01</b><span>/ 05</span></p>
+        <div class="cv-ruler__bar"><i></i><i></i><i></i><i></i><i></i><em></em></div>
       </div>
+    </div>
 
-      <div class="sns-works-more-foot">
-        <button type="button" class="sns-more-btn" id="viralBrandsMore">
-          <span class="sns-more-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10.25" stroke="currentColor" stroke-width="1.4" />
-              <path d="M7.2 12.3 10.5 15.5 16.8 8.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </span>
-          <span>더보기</span>
+    <ol class="cv-steps">
+      <li class="cv-step is-active">
+        <span class="cv-step__no" aria-hidden="true">01</span>
+        <div>
+          <h3>채널 리서치와 선정</h3>
+          <p>브랜드와 타깃에 맞는 커뮤니티를 선정하고, 채널별 특성과 규정을 확인합니다.</p>
+          <dl class="cv-step__out"><dt>산출물</dt><dd>채널 리스트</dd><dd>타깃·키워드 분석</dd></dl>
+        </div>
+      </li>
+      <li class="cv-step">
+        <span class="cv-step__no" aria-hidden="true">02</span>
+        <div>
+          <h3>콘텐츠 기획</h3>
+          <p>커뮤니티별 관심사와 소통 방식에 맞춰 콘텐츠의 방향과 메시지를 기획합니다.</p>
+          <dl class="cv-step__out"><dt>산출물</dt><dd>콘텐츠 기획안</dd><dd>원고·이미지</dd></dl>
+        </div>
+      </li>
+      <li class="cv-step">
+        <span class="cv-step__no" aria-hidden="true">03</span>
+        <div>
+          <h3>콘텐츠 집행</h3>
+          <p>채널별 운영 규정과 일정에 맞춰 게시하고, 진행 현황을 관리합니다.</p>
+          <dl class="cv-step__out"><dt>산출물</dt><dd>집행 일정표</dd><dd>게시 링크</dd></dl>
+        </div>
+      </li>
+      <li class="cv-step">
+        <span class="cv-step__no" aria-hidden="true">04</span>
+        <div>
+          <h3>모니터링</h3>
+          <p>게시 후 반응과 주요 의견을 확인하고, 필요한 대응 사항을 점검합니다.</p>
+          <dl class="cv-step__out"><dt>산출물</dt><dd>반응 모니터링 기록</dd></dl>
+        </div>
+      </li>
+      <li class="cv-step">
+        <span class="cv-step__no" aria-hidden="true">05</span>
+        <div>
+          <h3>성과 분석과 개선</h3>
+          <p>조회·댓글 등 주요 성과를 분석하고, 향후 개선 방향을 제안합니다.</p>
+          <dl class="cv-step__out"><dt>산출물</dt><dd>성과 리포트</dd><dd>개선 제안</dd></dl>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= GOAL (레드 섹션 · 클래스명은 cv-prin 그대로) ================= -->
+<section class="cv-prin">
+  <div class="cv-prin__lines" aria-hidden="true"><div class="cv-wrap"><i></i><i></i><i></i></div></div>
+  <div class="cv-wrap cv-prin__body">
+    <div class="cv-prin__head cv-reveal">
+      <p class="cv-kicker cv-kicker--inv">Our Goal</p>
+      <h2 class="cv-prin__title">조회수가 아니라<br><span class="cv-nowrap"><span class="cv-tag"><i>[</i>행동<i>]</i></span>을</span> <span class="cv-nowrap">만듭니다<span class="cv-dot">.</span></span></h2>
+    </div>
+    <ul class="cv-prin__list">
+      <li>
+        <h3>이야기를 만듭니다<i class="cv-dot">.</i></h3>
+        <p>게시 후에도 댓글과 대화가 이어지도록 기획하고,<br class="cv-br"> 브랜드에 대한 자연스러운 참여를 유도합니다.</p>
+      </li>
+      <li>
+        <h3>흥미를 만듭니다<i class="cv-dot">.</i></h3>
+        <p>콘텐츠를 통해 브랜드에 대한 관심을 높이고,<br class="cv-br"> 직접 검색하고 방문하도록 유입을 유도합니다.</p>
+      </li>
+      <li>
+        <h3>선택을 만듭니다<i class="cv-dot">.</i></h3>
+        <p>브랜드에 대한 관심이 문의와 방문, 구매 등<br class="cv-br"> 실질적인 행동으로 이어지도록 설계합니다.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= CASE ================= -->
+<section class="cv-case">
+  <div class="cv-wrap">
+    <div class="cv-case__head cv-reveal">
+      <div>
+        <p class="cv-kicker">Case</p>
+        <h2 class="cv-title">이야기가<br>성과가 된 순간<span class="cv-dot">.</span></h2>
+      </div>
+      <p class="cv-case__count">전체 <b>4</b>건</p>
+    </div>
+
+    <!-- TODO: 아래 사례 · 수치는 전부 시안용 예시. 실제 사례로 교체 -->
+    <div class="cv-tbl" data-acc="single">
+      <div class="cv-tbl__head" aria-hidden="true"><span>번호</span><span>분류</span><span>캠페인</span><span>채널</span><span>기간</span><span>결과</span><span></span></div>
+
+      <div class="cv-tbl__item" data-acc-item>
+        <button class="cv-tbl__row" type="button" aria-expanded="false" aria-controls="case-4">
+          <span class="no">1</span><span class="cat">[뷰티]</span><span class="ttl">신제품 런칭 체험단과 후기 확산</span><span class="ch">뷰티·맘카페 12곳</span><span class="term">6주</span><span class="res">누적 조회 124만</span><span class="cv-plus" aria-hidden="true"></span>
         </button>
-      </div>
-    </section>
-
-    <!-- ============================== CONTACT ============================== -->
-    <section class="contact" data-screen-label="03 Contact" id="contact">
-
-      <div class="contact-left reveal" data-delay="1">
-        <p class="contact-eyebrow">CONTACT</p>
-        <h2 class="contact-heading">상담문의하기</h2>
-        <p class="contact-desc">간단한 정보만 남겨주시면<br />담당자가 빠르게 연락드립니다.</p>
+        <div class="cv-tbl__detail" id="case-4"><div><div class="cv-tbl__inner">
+          <p>런칭 2주 전부터 체험단을 모집하고, 실제 사용 후기가 채널별로 이어지도록 게시 일정을 설계했습니다.</p>
+          <dl class="cv-tbl__metrics">
+            <div><dt>누적 조회</dt><dd>1,240,000</dd></div>
+            <div><dt>댓글·문의</dt><dd>3,860</dd></div>
+            <div><dt>자사몰 유입</dt><dd>+182%</dd></div>
+          </dl>
+        </div></div></div>
       </div>
 
-      <form class="form reveal" id="contactForm" data-delay="2">
+      <div class="cv-tbl__item" data-acc-item>
+        <button class="cv-tbl__row" type="button" aria-expanded="false" aria-controls="case-3">
+          <span class="no">2</span><span class="cat">[F&amp;B]</span><span class="ttl">신메뉴 출시 지역 커뮤니티 캠페인</span><span class="ch">지역 커뮤니티 24곳</span><span class="term">4주</span><span class="res">매장 방문 +38%</span><span class="cv-plus" aria-hidden="true"></span>
+        </button>
+        <div class="cv-tbl__detail" id="case-3"><div><div class="cv-tbl__inner">
+          <p>매장 상권별로 커뮤니티를 나눠 출시 소식과 방문 이벤트를 알렸습니다.</p>
+          <dl class="cv-tbl__metrics">
+            <div><dt>게시 콘텐츠</dt><dd>96건</dd></div>
+            <div><dt>쿠폰 사용</dt><dd>4,120건</dd></div>
+            <div><dt>매장 방문</dt><dd>+38%</dd></div>
+          </dl>
+        </div></div></div>
+      </div>
 
-        <input type="hidden" name="희망서비스" id="services-input" value="바이럴광고" />
-        <input type="hidden" name="연락방법" id="contact-method-input" value="전화" />
+      <div class="cv-tbl__item" data-acc-item>
+        <button class="cv-tbl__row" type="button" aria-expanded="false" aria-controls="case-2">
+          <span class="no">3</span><span class="cat">[IT]</span><span class="ttl">구독 서비스 사전 예약 캠페인</span><span class="ch">테크·종합 커뮤니티 8곳</span><span class="term">3주</span><span class="res">사전 예약 2.1만</span><span class="cv-plus" aria-hidden="true"></span>
+        </button>
+        <div class="cv-tbl__detail" id="case-2"><div><div class="cv-tbl__inner">
+          <p>기능 소개보다 사용 장면을 중심으로 정보형 콘텐츠와 질의응답 글을 운영했습니다.</p>
+          <dl class="cv-tbl__metrics">
+            <div><dt>누적 조회</dt><dd>680,000</dd></div>
+            <div><dt>사전 예약</dt><dd>21,000</dd></div>
+            <div><dt>예약 전환율</dt><dd>3.1%</dd></div>
+          </dl>
+        </div></div></div>
+      </div>
 
-        <div class="row-2">
-          <div class="field field--inline">
-            <span class="field-label">상호명</span>
-            <input type="text" name="상호명" required placeholder="상호명을 입력해주세요" />
-          </div>
-          <div class="field field--inline">
-            <span class="field-label">성함</span>
-            <input type="text" name="성함" required placeholder="성함을 입력해주세요" />
-          </div>
-          <div class="field field--inline">
-            <span class="field-label">연락처</span>
-            <input type="tel" name="연락처" required placeholder="010-0000-0000" />
-          </div>
-          <div class="field field--inline">
-            <span class="field-label">이메일</span>
-            <input type="email" name="이메일" required placeholder="contact@example.com" />
-          </div>
-        </div>
+      <div class="cv-tbl__item" data-acc-item>
+        <button class="cv-tbl__row" type="button" aria-expanded="false" aria-controls="case-1">
+          <span class="no">4</span><span class="cat">[교육]</span><span class="ttl">신규 캠퍼스 오픈 지역 인지도 확보</span><span class="ch">지역 맘카페 6곳</span><span class="term">8주</span><span class="res">상담 문의 +64%</span><span class="cv-plus" aria-hidden="true"></span>
+        </button>
+        <div class="cv-tbl__detail" id="case-1"><div><div class="cv-tbl__inner">
+          <p>지역 맘카페의 제휴 절차에 맞춰 오픈 소식과 설명회 일정을 꾸준히 알렸습니다.</p>
+          <dl class="cv-tbl__metrics">
+            <div><dt>제휴 게시</dt><dd>32건</dd></div>
+            <div><dt>상담 문의</dt><dd>+64%</dd></div>
+            <div><dt>설명회 신청</dt><dd>310건</dd></div>
+          </dl>
+        </div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="field field--box field--textarea">
-          <span class="field-label">문의내용</span>
-          <textarea name="문의내용" placeholder="문의 내용을 입력해주세요."></textarea>
-        </div>
+<!-- ================= FAQ ================= -->
+<section class="cv-faq">
+  <div class="cv-wrap cv-faq__grid">
+    <div class="cv-faq__aside cv-reveal">
+      <p class="cv-kicker">FAQ</p>
+      <h2 class="cv-title">자주 묻는<br>질문<span class="cv-dot">.</span></h2>
+      <p>궁금한 내용이 더 있다면 편하게 문의해 주세요.</p>
+      <a class="cv-btn cv-btn--red cv-btn--lg cv-btn--wide" href="#contact" data-open-contact>
+        <span>문의 남기기</span>
+        <svg class="ico-arrow" viewBox="0 0 30 14" fill="none" aria-hidden="true"><path d="M1 7h28M23 1.5 29 7l-6 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
 
-        <div class="form-block form-block--boxed">
-          <p class="form-block-title">원하는 서비스를 선택해주세요.</p>
-          <div class="service-grid" id="service-grid">
-            <label class="service-item">
-              <input type="checkbox" value="상세페이지 제작" />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">상세페이지 제작</span>
-            </label>
-            <label class="service-item">
-              <input type="checkbox" value="로고 디자인" />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">로고 디자인</span>
-            </label>
-            <label class="service-item">
-              <input type="checkbox" value="홈페이지형 블로그" />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">홈페이지형 블로그</span>
-            </label>
-            <label class="service-item">
-              <input type="checkbox" value="랜딩페이지 제작" />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">랜딩페이지 제작</span>
-            </label>
-            <label class="service-item">
-              <input type="checkbox" value="SNS광고" />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">SNS광고</span>
-            </label>
-            <label class="service-item">
-              <input type="checkbox" value="바이럴광고" checked />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">바이럴광고</span>
-            </label>
-            <label class="service-item">
-              <input type="checkbox" value="콘텐츠 제작" />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">콘텐츠 제작</span>
-            </label>
-            <label class="service-item">
-              <input type="checkbox" value="기타" />
-              <span class="service-check" aria-hidden="true"></span>
-              <span class="service-name">기타</span>
-            </label>
-          </div>
-        </div>
+    <!-- TODO: 답변 내용은 임시 -->
+    <div class="cv-faq__list" data-acc="single">
+      <div class="cv-qa" data-acc-item>
+        <h3><button class="cv-qa__q" type="button" aria-expanded="false" aria-controls="faq-1"><span class="q" aria-hidden="true">Q.</span><span>진행 기간과 비용은 어떻게 되나요?</span><span class="cv-plus" aria-hidden="true"></span></button></h3>
+        <div class="cv-qa__a" id="faq-1"><div><div class="cv-qa__reply"><span class="re" aria-hidden="true">ㄴ</span><div><b>애드코드</b><p>보통 4주 단위로 시작합니다. 채널 수와 콘텐츠 수량에 따라 예산이 달라지며, 목표를 듣고 맞춤 견적을 드립니다.</p></div></div></div></div>
+      </div>
+      <div class="cv-qa" data-acc-item>
+        <h3><button class="cv-qa__q" type="button" aria-expanded="false" aria-controls="faq-2"><span class="q" aria-hidden="true">Q.</span><span>어떤 커뮤니티에 집행하나요?</span><span class="cv-plus" aria-hidden="true"></span></button></h3>
+        <div class="cv-qa__a" id="faq-2"><div><div class="cv-qa__reply"><span class="re" aria-hidden="true">ㄴ</span><div><b>애드코드</b><p>업종과 타깃에 따라 채널 구성이 달라집니다. 리서치 단계에서 채널 리스트와 선정 이유를 먼저 공유합니다.</p></div></div></div></div>
+      </div>
+      <div class="cv-qa" data-acc-item>
+        <h3><button class="cv-qa__q" type="button" aria-expanded="false" aria-controls="faq-3"><span class="q" aria-hidden="true">Q.</span><span>진행 결과는 어떻게 확인하나요?</span><span class="cv-plus" aria-hidden="true"></span></button></h3>
+        <div class="cv-qa__a" id="faq-3"><div><div class="cv-qa__reply"><span class="re" aria-hidden="true">ㄴ</span><div><b>애드코드</b><p>게시 링크와 함께 조회, 댓글, 유입 지표를 정리한 리포트를 정기적으로 드립니다.</p></div></div></div></div>
+      </div>
+      <div class="cv-qa" data-acc-item>
+        <h3><button class="cv-qa__q" type="button" aria-expanded="false" aria-controls="faq-4"><span class="q" aria-hidden="true">Q.</span><span>작업 레퍼런스는 어떻게 확인하나요?</span><span class="cv-plus" aria-hidden="true"></span></button></h3>
+        <div class="cv-qa__a" id="faq-4"><div><div class="cv-qa__reply"><span class="re" aria-hidden="true">ㄴ</span><div><b>애드코드</b><p>상담 과정에서 브랜드 특성 파악 후 비슷한 사례의 레퍼런스를 투명하게 제공해드리고 있습니다.</p></div></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="form-block form-block--boxed">
-          <p class="form-block-title">연락받을 방법을 선택해주세요.</p>
-          <p class="form-block-sub">원하시는 방법으로 연락드립니다.</p>
-          <div class="method-grid" id="method-grid" role="radiogroup" aria-label="연락방법">
-            <button type="button" class="method-item is-active" data-method="전화" aria-pressed="true">
-              <span class="method-check" aria-hidden="true"></span>
-              <span class="method-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-              </span>
-              <span class="method-text">
-                <span class="method-name">전화</span>
-                <span class="method-desc">유선으로 빠르게 상담</span>
-              </span>
-            </button>
-            <button type="button" class="method-item" data-method="카카오톡" aria-pressed="false">
-              <span class="method-check" aria-hidden="true"></span>
-              <span class="method-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 4C7 4 3 7.2 3 11.2c0 2.5 1.6 4.7 4.1 6L6 21l4-2.6c.7.1 1.3.2 2 .2 5 0 9-3.2 9-7.4S17 4 12 4Z" />
-                </svg>
-              </span>
-              <span class="method-text">
-                <span class="method-name">카카오톡</span>
-                <span class="method-desc">카톡으로 편하게 상담</span>
-              </span>
-            </button>
-            <button type="button" class="method-item" data-method="이메일" aria-pressed="false">
-              <span class="method-check" aria-hidden="true"></span>
-              <span class="method-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path d="m3 7 9 6 9-6" />
-                </svg>
-              </span>
-              <span class="method-text">
-                <span class="method-name">이메일</span>
-                <span class="method-desc">이메일로 자세한 안내</span>
-              </span>
-            </button>
-            <button type="button" class="method-item" data-method="상관없음" aria-pressed="false">
-              <span class="method-check" aria-hidden="true"></span>
-              <span class="method-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M8 12h8M12 8v8" />
-                </svg>
-              </span>
-              <span class="method-text">
-                <span class="method-name">상관없음</span>
-                <span class="method-desc">편한 방법으로 연락</span>
-              </span>
-            </button>
-          </div>
-        </div>
+<!-- ================= CONTACT ================= -->
+<section class="cv-cta" id="contact">
+  <div class="cv-wrap">
+    <p class="cv-kicker cv-kicker--bright cv-reveal">Contact</p>
+    <div class="cv-cta__grid">
+      <div class="cv-reveal">
+        <h2 class="cv-cta__title">다음 화제는,<br><span class="cv-nowrap"><span class="cv-slot"><i>[</i><span class="cv-slot__fixed">당신의 브랜드</span><i>]</i></span><span class="cv-dot">.</span></span></h2>
+        <p class="cv-cta__desc">브랜드에 맞는 채널 제안부터 견적 안내까지,<br class="cv-br"> 영업일 기준 1일 이내에 답변드립니다.</p>
+      </div>
 
-        <div class="consents">
-          <label class="consent">
-            <input type="checkbox" name="개인정보_동의" required />
-            <span class="cbox" aria-hidden="true"></span>
-            <span class="ctxt">개인정보 수집 및 이용에 동의합니다</span>
-          </label>
-          <label class="consent">
-            <input type="checkbox" name="정보제공_동의" required />
-            <span class="cbox" aria-hidden="true"></span>
-            <span class="ctxt">원활한 상담 진행을 위해 정보 제공에 동의합니다</span>
-          </label>
-          <label class="brochure-note">회사소개서가 필요하신가요? 이메일을 남겨주시면 회사소개서를 보내드립니다.</label>
-        </div>
+      <!-- TODO: 서비스 메뉴 링크(href)는 실제 서브페이지 주소로 교체 -->
+      <nav class="cv-cta__menu cv-reveal" aria-label="다른 서비스">
+        <a href="/media-network">MEDIA NETWORK<i class="cv-dot">.</i></a>
+        <a href="/total-marketing">TOTAL MARKETING<i class="cv-dot">.</i></a>
+        <a href="#">MEDICAL MARKETING<i class="cv-dot">.</i></a>
+        <a href="/brand-namuwiki">WIKI<i class="cv-dot">.</i></a>
+      </nav>
+    </div>
 
-        <div class="form-submit">
-          <button type="submit" class="submit-btn submit-btn--block">
-            <span>문의하기</span>
-            <span class="arrow" aria-hidden="true">→</span>
-          </button>
-        </div>
+    <div class="cv-cta__foot">
+      <a href="https://pf.kakao.com/_myebn/chat" target="_blank" rel="noopener">카카오톡 채널</a>
+      <a href="https://blog.naver.com/adcode_mkt" target="_blank" rel="noopener">블로그</a>
+      <!-- 사이트의 문의 모달(data-open-contact)에 연결 -->
+      <a class="cv-btn cv-btn--line cv-btn--lg cv-btn--wide cv-btn--w280" href="#contact" data-open-contact>
+        <span>소개서 요청하기</span>
+        <svg class="ico-arrow" viewBox="0 0 30 14" fill="none" aria-hidden="true"><path d="M1 7h28M23 1.5 29 7l-6 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
 
-      </form>
-    </section>
+</main>
 
-  </main>
-
-  <!-- ============================== FOOTER ============================== -->
   <footer class="footer">
     <div class="footer-main">
       <div class="left">
@@ -378,12 +418,10 @@
     </div>
   </footer>
 
-  <!-- ====================== FLOATING WIDGET RAIL ====================== -->
   <nav class="rail" aria-label="Quick links">
-    <a href="#contact" aria-label="문의하기">
+    <a href="#contact" data-open-contact aria-label="문의하기">
       <svg viewBox="0 0 24 24">
-        <path
-          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
       </svg>
       <span class="tip">문의하기</span>
     </a>
@@ -398,8 +436,7 @@
     <a href="https://pf.kakao.com/_myebn/chat" target="_blank" rel="noopener" class="kakao" aria-label="카카오톡 채널">
       <span class="bubble">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            d="M12 4C7.03 4 3 7.13 3 11c0 2.48 1.66 4.65 4.16 5.88L6.3 20c-.07.25.21.45.42.3l3.74-2.45c.5.07 1.02.1 1.54.1 4.97 0 9-3.13 9-7s-4.03-7-9-7Z" />
+          <path d="M12 4C7.03 4 3 7.13 3 11c0 2.48 1.66 4.65 4.16 5.88L6.3 20c-.07.25.21.45.42.3l3.74-2.45c.5.07 1.02.1 1.54.1 4.97 0 9-3.13 9-7s-4.03-7-9-7Z" />
         </svg>
         <span class="talk">TALK</span>
       </span>
@@ -407,116 +444,55 @@
     </a>
   </nav>
 
-  <!-- ====================== POLICY / SUCCESS MODALS ====================== -->
   <div class="policy-modal" id="modal-terms" role="dialog" aria-modal="true" aria-label="이용약관">
     <div class="modal-box">
       <button class="modal-close" data-close aria-label="닫기">&times;</button>
       <h2>이용약관</h2>
-      <h3>제1조 (목적)</h3>
-      <p>이 약관은 애드코드마케팅(이하 "회사")이 제공하는 서비스의 이용 조건 및 절차, 그리고 회사와 이용자 간의 권리, 의무 및 책임 사항을 규정하는 것을 목적으로 합니다.</p>
+      <p>이 약관은 애드코드마케팅(이하 "회사")이 제공하는 서비스의 이용 조건 및 절차를 규정합니다.</p>
     </div>
   </div>
-
   <div class="policy-modal" id="modal-privacy" role="dialog" aria-modal="true" aria-label="개인정보 처리방침">
     <div class="modal-box">
       <button class="modal-close" data-close aria-label="닫기">&times;</button>
       <h2>개인정보 처리방침</h2>
-      <h3>1. 개인정보 수집 및 이용 목적</h3>
-      <p>애드코드마케팅(이하 "회사")은 다음의 목적을 위해 개인정보를 처리합니다.</p>
+      <p>회사는 관련 법령에 따라 이용자의 개인정보를 보호합니다.</p>
     </div>
   </div>
-
   <div class="policy-modal" id="modal-cookie" role="dialog" aria-modal="true" aria-label="쿠키 정책">
     <div class="modal-box">
       <button class="modal-close" data-close aria-label="닫기">&times;</button>
       <h2>쿠키 정책</h2>
-      <h3>1. 쿠키 사용 목적</h3>
-      <p>회사는 이용자 경험 향상을 위해 쿠키를 사용할 수 있습니다.</p>
-    </div>
-  </div>
-
-  <div class="policy-modal" id="modal-success" role="dialog" aria-modal="true" aria-label="전송 완료">
-    <div class="modal-box modal-box--center">
-      <button class="modal-close" data-close aria-label="닫기">&times;</button>
-      <h2>전송이 완료되었습니다</h2>
-      <p>문의해주셔서 감사합니다.<br />빠른 시일 내에 답변 드리겠습니다.</p>
-      <button class="submit-btn" data-close style="margin-top:20px;">확인</button>
+      <p>회사는 서비스 개선을 위해 쿠키를 사용할 수 있습니다.</p>
     </div>
   </div>
 
   <script>
     (function () {
-      const servicesInput = document.getElementById('services-input');
-      const serviceGrid = document.getElementById('service-grid');
-      if (serviceGrid && servicesInput) {
-        const syncServices = () => {
-          const selected = [...serviceGrid.querySelectorAll('input[type="checkbox"]:checked')]
-            .map((el) => el.value);
-          servicesInput.value = selected.join(', ');
-        };
-        serviceGrid.addEventListener('change', syncServices);
-        syncServices();
-      }
-
-      const methodInput = document.getElementById('contact-method-input');
-      const methodGrid = document.getElementById('method-grid');
-      if (methodGrid && methodInput) {
-        methodGrid.addEventListener('click', (e) => {
-          const btn = e.target.closest('.method-item');
-          if (!btn) return;
-          [...methodGrid.querySelectorAll('.method-item')].forEach((el) => {
-            const on = el === btn;
-            el.classList.toggle('is-active', on);
-            el.setAttribute('aria-pressed', on ? 'true' : 'false');
-          });
-          methodInput.value = btn.dataset.method || '';
-        });
-      }
-    })();
-
-    (function () {
       const open = (id) => document.getElementById(id)?.classList.add('open');
-      const closeAll = () => document.querySelectorAll('.policy-modal.open').forEach(m => m.classList.remove('open'));
-      document.querySelectorAll('.legal-link').forEach(link => {
-        link.addEventListener('click', (e) => { e.preventDefault(); open('modal-' + link.dataset.modal); });
+      const closeAll = () => document.querySelectorAll('.policy-modal.open').forEach((m) => m.classList.remove('open'));
+      document.querySelectorAll('.legal-link').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          open('modal-' + link.dataset.modal);
+        });
       });
-      document.querySelectorAll('.policy-modal').forEach(modal => {
+      document.querySelectorAll('.policy-modal').forEach((modal) => {
         modal.addEventListener('click', (e) => {
           if (e.target === modal || e.target.closest('[data-close]')) closeAll();
         });
       });
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeAll();
+      });
       window.__openModal = open;
     })();
   </script>
-
+  <script src="/viral-community.js?v=1"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="/assets/js/supabase-config.js"></script>
   <script src="/assets/js/supabase-client.js"></script>
+  <script src="/contact-modal.js?v=2"></script>
   <script src="/assets/js/contact-form.js"></script>
-  <script>
-    (function () {
-      const btn = document.getElementById('viralBrandsMore');
-      const foot = btn && btn.closest('.sns-works-more-foot');
-      const rows = [...document.querySelectorAll('.viral-brands-row--more')];
-      const fadeRow = document.querySelector('.viral-brands-row--fade');
-      if (!btn || !rows.length) return;
-
-      btn.addEventListener('click', () => {
-        rows.forEach((row) => { row.hidden = false; });
-        if (fadeRow) fadeRow.classList.remove('viral-brands-row--fade');
-        rows[rows.length - 1].classList.add('viral-brands-row--fade');
-        const cards = rows.flatMap((row) => [...row.querySelectorAll('.viral-brand-card')]);
-        cards.forEach((card) => card.classList.add('reveal'));
-        if (foot) foot.hidden = true;
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            cards.forEach((card) => card.classList.add('in-view'));
-          });
-        });
-      });
-    })();
-  </script>
 
 </body>
 
